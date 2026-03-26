@@ -69,7 +69,7 @@ export function TestimonialsSection() {
 			<div className="mx-auto max-w-5xl px-8 text-center">
 				{/* Decorative quote mark */}
 				<div
-					className="pointer-events-none mb-8 select-none text-[8rem] leading-none text-white/5"
+					className="pointer-events-none mb-8 select-none text-[8rem] leading-none text-dark-foreground/5"
 					aria-hidden="true"
 				>
 					&ldquo;
@@ -77,13 +77,13 @@ export function TestimonialsSection() {
 
 				{/* Quote with word-by-word reveal */}
 				{prefersReduced ? (
-					<p className="mb-12 text-3xl font-light italic leading-relaxed text-white md:text-5xl">
+					<p className="mb-12 text-3xl font-light italic leading-relaxed text-dark-foreground md:text-5xl">
 						&ldquo;{testimonial.quote}&rdquo;
 					</p>
 				) : (
 					<div
 						ref={wordsContainerRef}
-						className="mb-12 flex flex-wrap justify-center text-3xl font-light italic leading-relaxed text-white md:text-5xl"
+						className="mb-12 flex flex-wrap justify-center text-3xl font-light italic leading-relaxed text-dark-foreground md:text-5xl"
 					>
 						<span className="inline-block overflow-hidden">
 							<span
@@ -130,8 +130,8 @@ export function TestimonialsSection() {
 				>
 					<div className="h-12 w-12 rounded-full bg-gradient-to-tr from-primary to-accent" />
 					<div className="text-left">
-						<p className="font-bold text-white">{testimonial.author}</p>
-						<p className="text-sm text-white/50">
+						<p className="font-bold text-dark-foreground">{testimonial.author}</p>
+						<p className="text-sm text-dark-foreground/50">
 							{testimonial.role}, {testimonial.company}
 						</p>
 					</div>

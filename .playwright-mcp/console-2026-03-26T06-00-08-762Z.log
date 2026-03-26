@@ -1,0 +1,10 @@
+[     952ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/logo-no-bg-with-text-dark.png:0
+[    1207ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/logo-no-bg-with-text-light.png:0
+[    1609ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon_io/site.webmanifest:0
+[    1701ms] [ERROR] Manifest fetch from http://localhost:3000/favicon_io/site.webmanifest failed, code 404 @ http://localhost:3000/:0
+[    2199ms] [WARNING] THREE.THREE.Clock: This module has been deprecated. Please use THREE.Timer instead. @ http://localhost:3000/_next/static/chunks/node_modules_three_build_three_core_df0bde7e.js:1967
+[    3604ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon_io/site.webmanifest:0
+[    3693ms] [ERROR] Manifest fetch from http://localhost:3000/favicon_io/site.webmanifest failed, code 404 @ http://localhost:3000/:0
+[    3722ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/api/rs/sdk-status:0
+[  216225ms] [WARNING] THREE.THREE.Clock: This module has been deprecated. Please use THREE.Timer instead. @ http://localhost:3000/_next/static/chunks/node_modules_three_build_three_core_df0bde7e.js:1967
+[  219177ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/api/rs/sdk-status:0

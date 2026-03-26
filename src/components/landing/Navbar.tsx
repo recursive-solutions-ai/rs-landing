@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 import { ButtonLink } from "@/components/ui"
+import { ThemeLogo } from "@/components/layout/ThemeLogo"
 
 if (typeof window !== "undefined") {
 	gsap.registerPlugin(ScrollTrigger)
@@ -55,13 +56,8 @@ export function Navbar() {
 
 			<div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
 				{/* Logo */}
-				<ButtonLink href="/" variant="ghost" className="p-0 text-primary hover:bg-transparent">
-					<svg width="36" height="36" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M25 25C25 38.8 36.2 50 50 50C63.8 50 75 38.8 75 25C75 11.2 63.8 0 50 0C36.2 0 25 11.2 25 25ZM0 25C0 38.8 11.2 50 25 50C38.8 50 50 38.8 50 25C50 11.2 38.8 0 25 0C11.2 0 0 11.2 0 25Z" stroke="currentColor" strokeWidth="12" />
-					</svg>
-					<span className="ml-3 text-xl font-extrabold uppercase tracking-tighter text-base-content">
-						Recursive
-					</span>
+				<ButtonLink href="/" variant="ghost" className="p-0 hover:bg-transparent">
+					<ThemeLogo height={36} />
 				</ButtonLink>
 
 				{/* Nav links + CTA */}

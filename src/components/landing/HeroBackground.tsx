@@ -203,7 +203,7 @@ function ParticleField() {
 				/>
 			</bufferGeometry>
 			<pointsMaterial
-				color="#ffffff"
+				color="#d4d4d4"
 				size={0.015}
 				transparent
 				opacity={0.3}
@@ -239,8 +239,7 @@ function Scene({ isMobile }: { isMobile: boolean }) {
 function CanvasFallback() {
 	return (
 		<div
-			className="absolute inset-0"
-			style={{ backgroundColor: "#111111" }}
+			className="absolute inset-0 bg-dark"
 			aria-hidden="true"
 		/>
 	)
@@ -257,17 +256,16 @@ export function HeroBackground() {
 	}, [])
 
 	return (
-		<div className="absolute inset-0 z-0" aria-hidden="true">
+		<div className="absolute inset-0 z-0 blur-xl" aria-hidden="true">
 			<Suspense fallback={<CanvasFallback />}>
 				<Canvas
 					dpr={[1, 1.5]}
 					frameloop={reducedMotion ? "demand" : "always"}
 					gl={{
 						antialias: !isMobile,
-						alpha: false,
+						alpha: true,
 						powerPreference: "high-performance",
 					}}
-					style={{ background: "#111111" }}
 				>
 					<Scene isMobile={isMobile} />
 				</Canvas>

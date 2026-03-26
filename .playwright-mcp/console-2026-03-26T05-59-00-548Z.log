@@ -1,0 +1,361 @@
+[    2894ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:0
+[    5133ms] Error: ENOENT: no such file or directory, open '/Users/denisduvauchelle/Documents/code/rs-landing/.next/server/app-paths-manifest.json'
+    at readFileSync (node:fs:440:20)
+    at loadManifest (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/load-manifest.js:36:52)
+    at getMaybePagePath (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/require.js:51:59)
+    at getPagePath (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/require.js:86:22)
+    at requirePage (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/require.js:93:22)
+    at loadComponentsImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/load-components.js:129:57)
+    at async DevServer.findPageComponentsImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/next-server.js:808:36)
+    at async DevServer.findPageComponents (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/dev/next-dev-server.js:628:16)
+    at async DevServer.renderErrorToResponseImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/base-server.js:2560:30)
+    at async DevServer.pipeImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/base-server.js:1003:25)
+    at async NextNodeServer.handleCatchallRenderRequest (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/next-server.js:253:21)
+    at async DevServer.handleRequestImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/base-server.js:895:17)
+    at async (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/dev/next-dev-server.js:371:20)
+    at async Span.traceAsyncFn (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/router-server.js:235:21)
+    at async handleRequest (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/router-server.js:426:24)
+    at async requestHandlerImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/router-server.js:450:13)
+    at async Server.requestListener (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/start-server.js:158:13)
+[    5057ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[    6722ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon.ico:0
+[    6814ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[    6827ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json:0
+[    6827ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:390
+[   10319ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   10509ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   18448ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   18452ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   18526ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   20687ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   20688ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   20689ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   20704ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:0
+[   21639ms] Error: ENOENT: no such file or directory, open '/Users/denisduvauchelle/Documents/code/rs-landing/.next/server/pages/_document.js'
+    at Object.readFileSync (node:fs:440:20)
+    at defaultLoadImpl (node:internal/modules/cjs/loader:1139:17)
+    at loadSource (node:internal/modules/cjs/loader:1788:20)
+    at Object..js (node:internal/modules/cjs/loader:1886:44)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1504:12)
+    at mod.require (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/require.js:103:84)
+    at loadComponentsImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/load-components.js:85:38)
+    at DevServer.findPageComponentsImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/next-server.js:808:77)
+    at <unknown> (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/next-server.js:786:21)
+    at <unknown> (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/trace/tracer.js:169:36)
+    at NoopContextManager.with (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at <unknown> (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/trace/tracer.js:151:103)
+    at NoopContextManager.with (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/trace/tracer.js:151:28)
+    at DevServer.findPageComponents (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/next-server.js:781:41)
+    at DevServer.findPageComponents (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/dev/next-dev-server.js:628:28)
+    at async DevServer.renderErrorToResponseImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/base-server.js:2604:26)
+    at async pipe.req.req (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/base-server.js:2526:30)
+    at async DevServer.pipeImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/base-server.js:1003:25)
+    at async NextNodeServer.handleCatchallRenderRequest (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/next-server.js:319:21)
+    at async DevServer.handleRequestImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/base-server.js:895:17)
+    at async (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/dev/next-dev-server.js:371:20)
+    at async Span.traceAsyncFn (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/router-server.js:235:21)
+    at async handleRequest (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/router-server.js:426:24)
+    at async requestHandlerImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/router-server.js:450:13)
+    at async Server.requestListener (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/start-server.js:158:13)
+[   21609ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   24008ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   24009ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   24009ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   24036ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json:0
+[   24036ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:390
+[   26195ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   26195ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   26925ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   26925ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   26925ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   27678ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   27678ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   27678ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   27688ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/:0
+[   29660ms] Error: ENOENT: no such file or directory, open '/Users/denisduvauchelle/Documents/code/rs-landing/.next/server/pages/_document.js'
+    at Object.readFileSync (node:fs:440:20)
+    at defaultLoadImpl (node:internal/modules/cjs/loader:1139:17)
+    at loadSource (node:internal/modules/cjs/loader:1788:20)
+    at Object..js (node:internal/modules/cjs/loader:1886:44)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1504:12)
+    at mod.require (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/require-hook.js:65:28)
+    at require (node:internal/modules/helpers:152:16)
+    at requirePage (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/require.js:103:84)
+    at loadComponentsImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/load-components.js:85:38)
+    at DevServer.findPageComponentsImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/next-server.js:808:77)
+    at <unknown> (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/next-server.js:786:21)
+    at <unknown> (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/trace/tracer.js:169:36)
+    at NoopContextManager.with (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NoopTracer.startActiveSpan (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18093)
+    at ProxyTracer.startActiveSpan (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:18854)
+    at <unknown> (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/trace/tracer.js:151:103)
+    at NoopContextManager.with (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:7062)
+    at ContextAPI.with (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/compiled/@opentelemetry/api/index.js:1:518)
+    at NextTracerImpl.trace (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/trace/tracer.js:151:28)
+    at DevServer.findPageComponents (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/next-server.js:781:41)
+    at DevServer.findPageComponents (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/dev/next-dev-server.js:628:28)
+    at async DevServer.renderErrorToResponseImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/base-server.js:2604:26)
+    at async pipe.req.req (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/base-server.js:2526:30)
+    at async DevServer.pipeImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/base-server.js:1003:25)
+    at async NextNodeServer.handleCatchallRenderRequest (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/next-server.js:319:21)
+    at async DevServer.handleRequestImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/base-server.js:895:17)
+    at async (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/dev/next-dev-server.js:371:20)
+    at async Span.traceAsyncFn (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/dev/next-dev-server.js:368:24)
+    at async invokeRender (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/router-server.js:235:21)
+    at async handleRequest (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/router-server.js:426:24)
+    at async requestHandlerImpl (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/router-server.js:450:13)
+    at async Server.requestListener (file:///Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/server/lib/start-server.js:158:13)
+[   29506ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/api/sdk-versions":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   30213ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/__nextjs_original-stack-frames:0
+[   31213ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:84
+[   32216ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:84
+[   33218ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:84
+[   34221ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:84
+[   35227ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:84
+[   40230ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:84
+[   45232ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:84
+[   50238ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   53365ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   53664ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json:0
+[   53665ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:392
+[   53794ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   54756ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   54788ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json:0
+[   54788ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:392
+[   54799ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   55060ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   55229ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json:0
+[   55230ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:392
+[   55243ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   55423ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   55425ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   55426ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   55700ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json":true,"/":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   55733ms] [WARNING] [HMR] Invalid message: {"action":"isrManifest","data":{"/_next/static/webpack/b705c3ea6bcbb63a.webpack.hot-update.json":true}}
+TypeError: Cannot read properties of undefined (reading '__N_SSP')
+    at handleStaticIndicator (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:229:124)
+    at processMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:244:17)
+    at eval (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:70:13)
+    at WebSocket.handleMessage (webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/websocket.js:65:17) @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:72
+[   55843ms] [WARNING] [Fast Refresh] performing full reload
+
+Fast Refresh will perform a full reload when you edit a file that's imported by modules outside of the React rendering tree.
+You might have a file which exports a React component but also exports a value that is imported by a non-React component file.
+Consider migrating the non-React component export to a separate file and importing it into both files.
+
+It is also possible the parent component of the component you edited is a class component, which disables Fast Refresh.
+Fast Refresh requires at least one parent function component in your React tree. @ webpack-internal:///(pages-dir-browser)/./node_modules/next/dist/client/components/react-dev-overlay/pages/hot-reloader-client.js:390
+[   56442ms] [WARNING] THREE.THREE.Clock: This module has been deprecated. Please use THREE.Timer instead. @ http://localhost:3000/_next/static/chunks/node_modules_three_build_three_core_df0bde7e.js:1967
+[   58541ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/logo-no-bg-with-text-light.png:0
+[   58625ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon_io/site.webmanifest:0
+[   59071ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/logo-no-bg-with-text-dark.png:0
+[   60027ms] [ERROR] Manifest fetch from http://localhost:3000/favicon_io/site.webmanifest failed, code 404 @ http://localhost:3000/:0
+[   64155ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon_io/favicon.ico:0
+[   64517ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon_io/favicon-32x32.png:0
+[   65066ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon_io/favicon-16x16.png:0
+[   67432ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/api/rs/sdk-status:0

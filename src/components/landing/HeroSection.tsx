@@ -105,18 +105,17 @@ export function HeroSection() {
 	return (
 		<section
 			ref={sectionRef}
-			className="relative min-h-screen flex items-center justify-center overflow-hidden"
-			style={{ backgroundColor: "#111111" }}
+			className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark"
 		>
 			{/* Three.js WebGL background */}
 			<HeroBackground />
 
 			{/* Gradient overlay for text legibility */}
 			<div
-				className="absolute inset-0 z-[1] pointer-events-none"
+				className="absolute inset-0 z-1 pointer-events-none"
 				style={{
 					background:
-						"radial-gradient(ellipse at center, rgba(17,17,17,0.3) 0%, rgba(17,17,17,0.7) 70%, rgba(17,17,17,0.9) 100%)",
+						"radial-gradient(ellipse at center, oklch(var(--dark-raw) / 0.3) 0%, oklch(var(--dark-raw) / 0.7) 70%, oklch(var(--dark-raw) / 0.9) 100%)",
 				}}
 				aria-hidden="true"
 			/>
@@ -131,7 +130,7 @@ export function HeroSection() {
 					ref={tagRef}
 					className={reducedMotion ? "" : "opacity-0"}
 				>
-					<span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm text-white/80 text-xs font-bold rounded-full mb-8 uppercase tracking-widest border border-white/10">
+					<span className="inline-block px-4 py-1.5 bg-dark-foreground/10 backdrop-blur-sm text-dark-foreground/80 text-xs font-bold rounded-full mb-8 uppercase tracking-widest border border-dark-foreground/10">
 						AI-Powered Solutions
 					</span>
 				</div>
@@ -139,7 +138,7 @@ export function HeroSection() {
 				{/* Heading */}
 				<h1
 					ref={headingRef}
-					className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-white mb-8 tracking-tight leading-[1.08]"
+					className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-dark-foreground mb-8 tracking-tight leading-[1.08]"
 				>
 					Modern Systems for Growing Businesses.
 				</h1>
@@ -147,7 +146,7 @@ export function HeroSection() {
 				{/* Subtitle */}
 				<p
 					ref={subtitleRef}
-					className={`text-lg md:text-xl text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed font-medium ${
+					className={`text-lg md:text-xl text-dark-foreground/60 mb-12 max-w-2xl mx-auto leading-relaxed font-medium ${
 						reducedMotion ? "" : "opacity-0"
 					}`}
 				>
@@ -171,7 +170,7 @@ export function HeroSection() {
 					</ButtonLink>
 					<ButtonLink
 						href="#solutions"
-						className={`btn btn-ghost text-white border border-white/20 px-10 py-4 rounded-2xl text-lg font-bold hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 h-auto ${
+						className={`btn btn-ghost text-dark-foreground border border-dark-foreground/20 px-10 py-4 rounded-2xl text-lg font-bold hover:bg-dark-foreground/10 hover:-translate-y-1 transition-all duration-300 h-auto ${
 							reducedMotion ? "" : "opacity-0"
 						}`}
 					>
@@ -182,10 +181,10 @@ export function HeroSection() {
 
 			{/* Bottom gradient fade into next section */}
 			<div
-				className="absolute bottom-0 left-0 right-0 h-32 z-[2] pointer-events-none"
+				className="absolute bottom-0 left-0 right-0 h-32 z-2 pointer-events-none"
 				style={{
 					background:
-						"linear-gradient(to top, var(--color-base-100, #ffffff) 0%, transparent 100%)",
+						"linear-gradient(to top, oklch(var(--b1)) 0%, transparent 100%)",
 				}}
 				aria-hidden="true"
 			/>

@@ -50,9 +50,9 @@ export function CaseStudiesSection() {
 			className="mx-auto max-w-7xl px-6 py-32"
 		>
 			<SectionHeading
-				tag="Our Work"
-				title="Real Results, Real Impact"
-				subtitle="See how we've helped businesses transform their operations with intelligent AI systems."
+				tag="What We Build"
+				title="AI That Works For You"
+				subtitle="From automating repetitive tasks to unlocking insights in your data — here's what's possible when AI meets your business."
 				className="mb-16"
 			/>
 

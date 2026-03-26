@@ -116,7 +116,7 @@ export function ProcessSection() {
 		<section
 			ref={sectionRef}
 			id="process"
-			className="section-dark mx-4 overflow-hidden rounded-[3rem] bg-[#111111] text-white"
+			className="section-dark mx-4 overflow-hidden rounded-[3rem]"
 		>
 			<div className="mx-auto max-w-7xl px-6 py-32">
 				<SectionHeading
@@ -124,7 +124,7 @@ export function ProcessSection() {
 					title="From Audit to Optimization"
 					subtitle="A proven process that takes you from identifying opportunities to deploying production-ready AI systems."
 					align="center"
-					className="mb-20 [&_h2]:text-white [&_p]:text-white/60 [&_span]:text-white/80"
+					className="mb-20 [&_h2]:text-dark-foreground [&_p]:text-dark-foreground/60 [&_span]:text-dark-foreground/80"
 				/>
 
 				{/* ===== Desktop horizontal timeline (md+) ===== */}
@@ -133,7 +133,7 @@ export function ProcessSection() {
 					<div className="absolute left-0 right-0 top-8 z-0 mx-auto flex items-center px-[calc(12.5%-16px)]">
 						<div
 							ref={lineRef}
-							className="h-px w-full bg-white/20"
+							className="h-px w-full bg-dark-foreground/20"
 						/>
 					</div>
 
@@ -148,19 +148,19 @@ export function ProcessSection() {
 								className="flex flex-col items-center text-center"
 							>
 								{/* Numbered circle */}
-								<div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-[#111111]">
+								<div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-dark-foreground/20 bg-dark">
 									<span
 										ref={(el) => {
 											if (el) numberRefs.current[i] = el
 										}}
-										className="text-xl font-bold text-white"
+										className="text-xl font-bold text-dark-foreground"
 									>
 										{prefersReduced ? step.step : 0}
 									</span>
 								</div>
 
 								{/* Icon */}
-								<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-white/5">
+								<div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-dark-foreground/5">
 									<FontAwesomeIcon
 										icon={step.icon}
 										className="h-5 w-5 text-primary"
@@ -168,12 +168,12 @@ export function ProcessSection() {
 								</div>
 
 								{/* Title */}
-								<h3 className="mb-2 text-lg font-bold text-white">
+								<h3 className="mb-2 text-lg font-bold text-dark-foreground">
 									{step.title}
 								</h3>
 
 								{/* Description */}
-								<p className="text-sm leading-relaxed text-white/50">
+								<p className="text-sm leading-relaxed text-dark-foreground/50">
 									{step.description}
 								</p>
 							</div>
@@ -187,7 +187,7 @@ export function ProcessSection() {
 					<div className="absolute bottom-0 left-8 top-0 z-0 flex justify-center">
 						<div
 							ref={mobileLineRef}
-							className="h-full w-px bg-white/20"
+							className="h-full w-px bg-dark-foreground/20"
 						/>
 					</div>
 
@@ -208,8 +208,8 @@ export function ProcessSection() {
 								className="flex items-start gap-6"
 							>
 								{/* Numbered circle */}
-								<div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-white/20 bg-[#111111]">
-									<span className="text-xl font-bold text-white">
+								<div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full border border-dark-foreground/20 bg-dark">
+									<span className="text-xl font-bold text-dark-foreground">
 										{step.step}
 									</span>
 								</div>
@@ -221,11 +221,11 @@ export function ProcessSection() {
 											icon={step.icon}
 											className="h-4 w-4 text-primary"
 										/>
-										<h3 className="text-lg font-bold text-white">
+										<h3 className="text-lg font-bold text-dark-foreground">
 											{step.title}
 										</h3>
 									</div>
-									<p className="text-sm leading-relaxed text-white/50">
+									<p className="text-sm leading-relaxed text-dark-foreground/50">
 										{step.description}
 									</p>
 								</div>

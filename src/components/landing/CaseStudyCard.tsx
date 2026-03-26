@@ -47,7 +47,7 @@ export const CaseStudyCard = forwardRef<HTMLDivElement, CaseStudyCardProps>(
 					/>
 
 					{/* Category badge */}
-					<span className="absolute left-4 top-4 z-10 rounded-full bg-black/40 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+					<span className="absolute left-4 top-4 z-10 rounded-full bg-dark/40 px-3 py-1 text-xs font-semibold text-dark-foreground backdrop-blur-sm">
 						{study.category}
 					</span>
 

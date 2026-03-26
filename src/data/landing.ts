@@ -107,54 +107,60 @@ export const processSteps: ProcessStep[] = [
 export const caseStudies: CaseStudy[] = [
 	{
 		id: "case-1",
-		title: "AI-Powered Lead Qualification",
+		title: "Intelligent Lead Scoring",
 		category: "Sales Automation",
-		description: "Reduced manual lead scoring by 85% for a B2B SaaS company.",
+		description:
+			"Stop chasing cold leads. AI qualifies and ranks every inbound prospect in real time so your sales team only works the deals most likely to close.",
 		image: "/images/landing/cases/case-1.jpg",
 		href: "#",
 		span: "wide",
 	},
 	{
-		id: "case-2",
-		title: "Multilingual Content Engine",
-		category: "Marketing",
-		description: "Automated content localization across 12 languages.",
-		image: "/images/landing/cases/case-2.jpg",
+		id: "case-6",
+		title: "AI-Powered Workflows",
+		category: "AI Consulting",
+		description:
+			"From meeting prep to email triage to task prioritization — we plug AI into the workflows your team already uses, so everything just runs faster.",
+		image: "/images/landing/cases/case-6.jpg",
 		href: "#",
 	},
 	{
 		id: "case-3",
 		title: "Smart Document Generation",
-		category: "Internal Workflows",
-		description: "Automated proposal creation saving 20+ hours per week.",
+		category: "Workflow Automation",
+		description:
+			"Proposals, reports, contracts — generated from your data in seconds. No more copy-paste marathons or formatting headaches.",
 		image: "/images/landing/cases/case-3.jpg",
 		href: "#",
 		span: "tall",
 	},
 	{
 		id: "case-4",
-		title: "Conversational Support Bot",
+		title: "AI Support Agent",
 		category: "Customer Experience",
-		description: "24/7 AI support handling 70% of tickets autonomously.",
+		description:
+			"A 24/7 conversational assistant that resolves common questions instantly and only escalates to your team when it actually matters.",
 		image: "/images/landing/cases/case-4.jpg",
+		href: "#",
+	},
+	{
+		id: "case-2",
+		title: "Multilingual Content Engine",
+		category: "Content & Localization",
+		description:
+			"Translate and localize blog posts, emails, and product pages across languages — in minutes instead of weeks.",
+		image: "/images/landing/cases/case-2.jpg",
 		href: "#",
 	},
 	{
 		id: "case-5",
 		title: "Predictive Analytics Dashboard",
 		category: "Data & Insights",
-		description: "Real-time business intelligence powered by machine learning.",
+		description:
+			"Turn raw business data into live dashboards that spot trends, surface anomalies, and recommend what to do next.",
 		image: "/images/landing/cases/case-5.jpg",
 		href: "#",
 		span: "wide",
-	},
-	{
-		id: "case-6",
-		title: "E-commerce Personalization",
-		category: "Web Development",
-		description: "Dynamic product recommendations that increased conversion by 34%.",
-		image: "/images/landing/cases/case-6.jpg",
-		href: "#",
 	},
 ]
 

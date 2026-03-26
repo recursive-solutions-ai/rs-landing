@@ -1,51 +1,38 @@
-import type { Metadata } from "next"
-import { Geist, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google"
-import "./globals.css"
+import type { Metadata } from 'next'
+import { GrowthEngineProvider } from '@growth-engine/sdk-client'
 
-import { CookieBanner } from "@/components/layout/CookieBanner"
+// Font Awesome configuration - prevent FOUC
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+config.autoAddCss = false
 
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-})
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-})
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-	variable: "--font-plus-jakarta",
-	subsets: ["latin"],
-})
+import './globals.css'
 
 export const metadata: Metadata = {
-	title: {
-		default: process.env.NEXT_PUBLIC_APP_NAME ?? "SaaS Starter",
-		template: `%s | ${process.env.NEXT_PUBLIC_APP_NAME ?? "SaaS Starter"}`,
+	title: 'Recursive Solutions',
+	description: 'Recursive Solutions — Powered by Growth Engine',
+	icons: {
+		icon: [
+			{ url: '/favicon_io/favicon.ico', sizes: 'any' },
+			{ url: '/favicon_io/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+			{ url: '/favicon_io/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+		],
+		apple: '/favicon_io/apple-touch-icon.png',
 	},
-	description: "Modern SaaS application",
+	manifest: '/favicon_io/site.webmanifest',
 }
 
 export default function RootLayout({
 	children,
-}: Readonly<{
+}: {
 	children: React.ReactNode
-}>) {
+}) {
 	return (
-		<html lang="en">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} antialiased`}
-			>
-				{/* Inline script runs synchronously before first paint to restore the
-				    user's persisted theme and avoid a light-mode flash. */}
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else{document.documentElement.removeAttribute('data-theme');}}catch(e){}})();`,
-					}}
-				/>
-				{children}
-				<CookieBanner />
+		<html lang="en" data-theme="light">
+			<body className="min-h-screen flex flex-col">
+				<GrowthEngineProvider>
+					{children}
+				</GrowthEngineProvider>
 			</body>
 		</html>
 	)
