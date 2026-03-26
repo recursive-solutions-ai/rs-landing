@@ -239,7 +239,7 @@ function Scene({ isMobile }: { isMobile: boolean }) {
 function CanvasFallback() {
 	return (
 		<div
-			className="absolute inset-0 bg-dark"
+			className="absolute inset-0 bg-base-200"
 			aria-hidden="true"
 		/>
 	)

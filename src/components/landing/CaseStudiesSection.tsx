@@ -56,7 +56,7 @@ export function CaseStudiesSection() {
 				className="mb-16"
 			/>
 
-			<div className="grid auto-rows-[minmax(280px,1fr)] gap-6 md:grid-cols-2 lg:grid-cols-3">
+			<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 				{caseStudies.map((study, index) => (
 					<CaseStudyCard
 						key={study.id}

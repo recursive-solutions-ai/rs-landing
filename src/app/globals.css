@@ -40,6 +40,11 @@
 
 :root {
   --dark-raw: 0.25 0.015 265;
+  --hero-overlay: radial-gradient(ellipse 60% 50% at center, oklch(0.93 0.005 265 / 0.85) 0%, oklch(0.93 0.005 265 / 0.6) 60%, oklch(0.93 0.005 265 / 0.3) 100%);
+}
+
+[data-theme='dark'] {
+  --hero-overlay: radial-gradient(ellipse at center, oklch(0.25 0.015 265 / 0.1) 0%, oklch(0.25 0.015 265 / 0.3) 70%, oklch(0.25 0.015 265 / 0.5) 100%);
 }
 
 body {

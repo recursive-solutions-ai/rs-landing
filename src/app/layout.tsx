@@ -28,7 +28,16 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html lang="en" data-theme="light">
+		<html lang="en" suppressHydrationWarning>
+			<head>
+				<script dangerouslySetInnerHTML={{ __html: `
+					(function() {
+						var stored = localStorage.getItem('theme');
+						var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+						document.documentElement.setAttribute('data-theme', theme);
+					})();
+				` }} />
+			</head>
 			<body className="min-h-screen flex flex-col">
 				<GrowthEngineProvider>
 					{children}

@@ -25,45 +25,56 @@ export const CaseStudyCard = forwardRef<HTMLDivElement, CaseStudyCardProps>(
 			<div
 				ref={ref}
 				className={cn(
-					"group relative flex flex-col overflow-hidden rounded-2xl border border-base-300 bg-base-200 transition-shadow duration-500 hover:shadow-2xl",
+					"group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-gray-900 transition-shadow duration-500 hover:shadow-2xl",
 					study.span === "wide" && "md:col-span-2",
 					study.span === "tall" && "md:row-span-2"
 				)}
 			>
-				{/* Image area with gradient placeholder */}
+				{/* Small image strip */}
 				<div
 					className={cn(
 						"relative overflow-hidden",
-						study.span === "tall" ? "aspect-[3/4]" : "aspect-video"
+						study.span === "tall" ? "h-40" : "h-28"
 					)}
 				>
+					{/* Gradient fallback */}
 					<div
 						className={cn(
-							"absolute inset-0 bg-gradient-to-br transition-transform duration-700",
-							gradient,
-							"group-hover:scale-105"
+							"absolute inset-0 bg-gradient-to-br",
+							gradient
 						)}
-						style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
 					/>
 
+					{/* Image */}
+					<img
+						src={study.image}
+						alt=""
+						className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+						style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
+						loading="lazy"
+					/>
+
+					{/* Fade into card background */}
+					<div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-gray-900 to-transparent" />
+
 					{/* Category badge */}
-					<span className="absolute left-4 top-4 z-10 rounded-full bg-dark/40 px-3 py-1 text-xs font-semibold text-dark-foreground backdrop-blur-sm">
+					<span className="absolute left-4 top-3 z-10 rounded-full bg-black/40 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
 						{study.category}
 					</span>
-
-					{/* Bottom accent bar on hover */}
-					<div className="absolute bottom-0 left-0 right-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
 				</div>
 
-				{/* Content */}
-				<div className="flex flex-1 flex-col p-5">
-					<h3 className="mb-1 text-lg font-bold text-base-content transition-transform duration-300 group-hover:-translate-y-0.5">
+				{/* Content on solid background */}
+				<div className="flex flex-1 flex-col px-5 pb-5 pt-1">
+					<h3 className="mb-1.5 text-base font-bold text-white">
 						{study.title}
 					</h3>
-					<p className="text-sm leading-relaxed text-base-content/60">
+					<p className="text-sm leading-snug text-white/70">
 						{study.description}
 					</p>
 				</div>
+
+				{/* Bottom accent bar on hover */}
+				<div className="absolute bottom-0 left-0 right-0 z-20 h-1 origin-left scale-x-0 bg-primary transition-transform duration-500 group-hover:scale-x-100" />
 			</div>
 		)
 	}

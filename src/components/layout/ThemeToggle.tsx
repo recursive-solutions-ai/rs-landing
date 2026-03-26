@@ -7,10 +7,9 @@ export function ThemeToggle() {
 
 	useEffect(() => {
 		const stored = localStorage.getItem('theme') as 'light' | 'dark' | null
-		if (stored) {
-			setTheme(stored)
-			document.documentElement.setAttribute('data-theme', stored)
-		}
+		const resolved = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+		setTheme(resolved)
+		document.documentElement.setAttribute('data-theme', resolved)
 	}, [])
 
 	function toggle() {
