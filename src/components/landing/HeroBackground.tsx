@@ -266,6 +266,9 @@ export function HeroBackground() {
 						alpha: true,
 						powerPreference: "high-performance",
 					}}
+					onCreated={({ gl }) => {
+						gl.setClearColor(0x000000, 0)
+					}}
 				>
 					<Scene isMobile={isMobile} />
 				</Canvas>

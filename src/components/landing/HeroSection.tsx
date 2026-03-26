@@ -115,7 +115,7 @@ export function HeroSection() {
 				className="absolute inset-0 z-1 pointer-events-none"
 				style={{
 					background:
-						"radial-gradient(ellipse at center, oklch(var(--dark-raw) / 0.3) 0%, oklch(var(--dark-raw) / 0.7) 70%, oklch(var(--dark-raw) / 0.9) 100%)",
+						"radial-gradient(ellipse at center, oklch(var(--dark-raw) / 0.1) 0%, oklch(var(--dark-raw) / 0.3) 70%, oklch(var(--dark-raw) / 0.5) 100%)",
 				}}
 				aria-hidden="true"
 			/>

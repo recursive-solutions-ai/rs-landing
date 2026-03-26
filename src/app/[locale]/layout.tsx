@@ -40,7 +40,8 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
 							<TextLink href="/#work" variant="hover" className="text-base-content/60 hover:text-base-content transition">Work</TextLink>
 							<TextLink href="/contact" variant="hover" className="text-base-content/60 hover:text-base-content transition">Contact</TextLink>
 							<TextLink href="/privacy" variant="hover" className="text-base-content/60 hover:text-base-content transition">Privacy</TextLink>
-							<TextLink href="/terms" variant="hover" className="text-base-content/60 hover:text-base-content transition">Terms</TextLink>
+							<TextLink href="/legal" variant="hover" className="text-base-content/60 hover:text-base-content transition">Legal</TextLink>
+							<TextLink href="/cookies" variant="hover" className="text-base-content/60 hover:text-base-content transition">Cookies</TextLink>
 						</div>
 					</div>
 
