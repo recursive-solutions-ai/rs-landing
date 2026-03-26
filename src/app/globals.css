@@ -47,10 +47,24 @@
   --hero-overlay: radial-gradient(ellipse at center, oklch(0.25 0.015 265 / 0.1) 0%, oklch(0.25 0.015 265 / 0.3) 70%, oklch(0.25 0.015 265 / 0.5) 100%);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply bg-background text-foreground;
 }
 
 .section-dark {
   @apply bg-dark text-dark-foreground;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-word,
+  [data-animated-word],
+  [data-word] {
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
 }

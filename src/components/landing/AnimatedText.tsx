@@ -1,15 +1,15 @@
 "use client"
 
 import { useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
+import {
+	gsap,
+	useGSAP,
+	EASE_TEXT,
+	DURATION_NORMAL,
+	START_HEADING,
+} from "@/lib/animation-config"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 import { cn } from "@/lib/utils"
-
-if (typeof window !== "undefined") {
-	gsap.registerPlugin(ScrollTrigger)
-}
 
 type TextTag = "h1" | "h2" | "h3" | "p" | "span"
 
@@ -55,14 +55,14 @@ export function AnimatedText({
 				clipPath: "inset(0 0 0% 0)",
 				duration,
 				stagger,
-				ease: "expo.out",
+				ease: EASE_TEXT,
 				delay: trigger === "mount" ? delay : 0,
 			}
 
 			if (trigger === "scroll") {
 				tweenVars.scrollTrigger = {
 					trigger: containerRef.current,
-					start: "top 85%",
+					start: START_HEADING,
 					toggleActions: "play none none none",
 				}
 				if (delay > 0) {

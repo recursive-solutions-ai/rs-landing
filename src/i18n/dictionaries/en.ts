@@ -6,9 +6,9 @@ const en = {
 
 	// Hero
 	'hero.title': 'Welcome to Recursive Solutions',
-	'hero.subtitle': 'AI-powered content, social media, and analytics — all managed for you.',
+	'hero.subtitle': 'We bridge the gap between knowing AI matters and knowing how to use it.',
 	'hero.cta.blog': 'Read Our Blog',
-	'hero.cta.contact': 'Get in Touch',
+	'hero.cta.contact': 'Book a Discovery Meeting',
 
 	// Features
 	'features.heading': 'Everything You Need to Grow',
@@ -21,8 +21,8 @@ const en = {
 
 	// CTA
 	'cta.heading': 'Ready to Get Started?',
-	'cta.subtitle': 'Contact us today to learn how our AI-powered growth engine can transform your online presence.',
-	'cta.button': 'Contact Us',
+	'cta.subtitle': 'Two ways to take the next step — pick whichever fits.',
+	'cta.button': 'Book My Free Discovery Meeting',
 
 	// Blog
 	'blog.heading': 'Blog',

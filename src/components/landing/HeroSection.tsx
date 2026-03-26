@@ -1,17 +1,19 @@
 "use client"
 
 import { useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
+import {
+	gsap,
+	ScrollTrigger,
+	useGSAP,
+	EASE_TEXT,
+	DISTANCE_SM,
+	DURATION_NORMAL,
+	DURATION_FAST,
+	DURATION_SLOW,
+} from "@/lib/animation-config"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 import { ButtonLink } from "@/components/ui/ButtonLink"
 import { HeroBackground } from "./HeroBackground"
-
-// Register GSAP plugins once at module level
-if (typeof window !== "undefined") {
-	gsap.registerPlugin(ScrollTrigger)
-}
 
 /* ── HeroSection ────────────────────────────────────────────────────── */
 
@@ -22,55 +24,46 @@ export function HeroSection() {
 	const headingRef = useRef<HTMLHeadingElement>(null)
 	const subtitleRef = useRef<HTMLParagraphElement>(null)
 	const ctaRef = useRef<HTMLDivElement>(null)
+	const scrollIndicatorRef = useRef<HTMLDivElement>(null)
 	const reducedMotion = useReducedMotion()
 
 	useGSAP(
 		() => {
 			if (reducedMotion || !sectionRef.current) return
 
-			const tl = gsap.timeline({ defaults: { ease: "expo.out" } })
+			const tl = gsap.timeline({ defaults: { ease: EASE_TEXT } })
 
 			/* ── Tag line fade up ──────────────────────────────────── */
 			tl.fromTo(
 				tagRef.current,
-				{ opacity: 0, y: 24 },
-				{ opacity: 1, y: 0, duration: 0.8 }
+				{ opacity: 0, y: DISTANCE_SM },
+				{ opacity: 1, y: 0, duration: DURATION_NORMAL }
 			)
 
 			/* ── Heading word reveal ───────────────────────────────── */
 			if (headingRef.current) {
-				const text = headingRef.current.textContent ?? ""
-				const words = text.split(/\s+/).filter(Boolean)
-
-				headingRef.current.innerHTML = words
-					.map(
-						(word) =>
-							`<span class="inline-block overflow-hidden align-bottom"><span class="hero-word inline-block" style="clip-path: inset(0 0 100% 0)">${word}</span></span>`
-					)
-					.join(
-						'<span class="inline-block w-[0.3em]">\u00A0</span>'
-					)
-
 				const wordEls =
-					headingRef.current.querySelectorAll(".hero-word")
+					headingRef.current.querySelectorAll<HTMLSpanElement>("[data-hero-word]")
 
-				tl.to(
-					wordEls,
-					{
-						clipPath: "inset(0 0 0% 0)",
-						duration: 1.0,
-						stagger: 0.06,
-						ease: "expo.out",
-					},
-					"-=0.3"
-				)
+				if (wordEls.length > 0) {
+					tl.to(
+						wordEls,
+						{
+							clipPath: "inset(0 0 0% 0)",
+							duration: DURATION_SLOW,
+							stagger: 0.06,
+							ease: EASE_TEXT,
+						},
+						"-=0.3"
+					)
+				}
 			}
 
 			/* ── Subtitle fade up ──────────────────────────────────── */
 			tl.fromTo(
 				subtitleRef.current,
-				{ opacity: 0, y: 20 },
-				{ opacity: 1, y: 0, duration: 0.8 },
+				{ opacity: 0, y: DISTANCE_SM },
+				{ opacity: 1, y: 0, duration: DURATION_NORMAL },
 				"-=0.4"
 			)
 
@@ -79,10 +72,38 @@ export function HeroSection() {
 				const buttons = ctaRef.current.children
 				tl.fromTo(
 					buttons,
-					{ opacity: 0, y: 20 },
-					{ opacity: 1, y: 0, duration: 0.6, stagger: 0.12 },
+					{ opacity: 0, y: DISTANCE_SM },
+					{ opacity: 1, y: 0, duration: DURATION_FAST, stagger: 0.12 },
 					"-=0.3"
 				)
+			}
+
+			/* ── Scroll indicator bounce + fade ────────────────────── */
+			if (scrollIndicatorRef.current) {
+				gsap.fromTo(
+					scrollIndicatorRef.current,
+					{ opacity: 0, y: 10 },
+					{ opacity: 1, y: 0, duration: DURATION_FAST, delay: 2.5, ease: EASE_TEXT }
+				)
+
+				gsap.to(scrollIndicatorRef.current, {
+					y: 8,
+					duration: 1.2,
+					repeat: -1,
+					yoyo: true,
+					ease: "sine.inOut",
+					delay: 3,
+				})
+
+				gsap.to(scrollIndicatorRef.current, {
+					opacity: 0,
+					scrollTrigger: {
+						trigger: sectionRef.current,
+						start: "top top",
+						end: "15% top",
+						scrub: true,
+					},
+				})
 			}
 
 			/* ── Scroll parallax on text content ───────────────────── */
@@ -130,16 +151,34 @@ export function HeroSection() {
 					className={reducedMotion ? "" : "opacity-0"}
 				>
 					<span className="inline-block px-4 py-1.5 bg-base-content/10 backdrop-blur-sm text-base-content/80 text-xs font-bold rounded-full mb-8 uppercase tracking-widest border border-base-content/10">
-						AI-Powered Solutions
+						For Service Businesses Ready to Scale
 					</span>
 				</div>
 
 				{/* Heading */}
 				<h1
 					ref={headingRef}
-					className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-base-content mb-8 tracking-tight leading-[1.08]"
+					className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-base-content mb-8 tracking-tight leading-[1.08] flex flex-wrap justify-center"
 				>
-					Modern Systems for Growing Businesses.
+					{(reducedMotion
+						? ["Modern Systems for Growing Businesses."]
+						: "Modern Systems for Growing Businesses.".split(/\s+/).filter(Boolean)
+					).map((word, i, arr) => (
+						<span key={i}>
+							<span className="inline-block overflow-hidden align-bottom">
+								<span
+									data-hero-word=""
+									className="inline-block"
+									style={reducedMotion ? undefined : { clipPath: "inset(0 0 100% 0)" }}
+								>
+									{word}
+								</span>
+							</span>
+							{i < arr.length - 1 && (
+								<span className="inline-block w-[0.3em]">&nbsp;</span>
+							)}
+						</span>
+					))}
 				</h1>
 
 				{/* Subtitle */}
@@ -149,9 +188,7 @@ export function HeroSection() {
 						reducedMotion ? "" : "opacity-0"
 					}`}
 				>
-					We find the repetitive &lsquo;busy work&rsquo; slowing you
-					down and replace it with smart, integrated systems that give
-					your team their time back.
+					We bridge the gap between knowing AI matters and knowing how to use it.
 				</p>
 
 				{/* CTAs */}
@@ -161,22 +198,45 @@ export function HeroSection() {
 				>
 					<ButtonLink
 						href="#contact"
-						className={`btn btn-primary px-10 py-4 rounded-2xl text-lg font-bold shadow-xl shadow-primary/30 hover:-translate-y-1 transition-all duration-300 border-none h-auto ${
+						className={`btn btn-primary px-10 py-4 rounded-2xl text-lg font-bold shadow-xl shadow-primary/30 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.97] transition-all duration-300 border-none h-auto ${
 							reducedMotion ? "" : "opacity-0"
 						}`}
 					>
-						Book Your Free Audit
+						Book a Discovery Meeting
 					</ButtonLink>
 					<ButtonLink
-						href="#solutions"
-						className={`btn btn-ghost text-base-content border border-base-content/20 px-10 py-4 rounded-2xl text-lg font-bold hover:bg-base-content/10 hover:-translate-y-1 transition-all duration-300 h-auto ${
+						href="#process"
+						className={`btn btn-ghost text-base-content border border-base-content/20 px-10 py-4 rounded-2xl text-lg font-bold hover:bg-base-content/10 hover:-translate-y-1 active:scale-[0.97] transition-all duration-300 h-auto ${
 							reducedMotion ? "" : "opacity-0"
 						}`}
 					>
-						Explore Solutions
+						See How We Work
 					</ButtonLink>
 				</div>
 			</div>
+
+			{/* Scroll-down indicator */}
+			{!reducedMotion && (
+				<div
+					ref={scrollIndicatorRef}
+					className="absolute bottom-10 left-1/2 z-10 -translate-x-1/2 opacity-0"
+					aria-hidden="true"
+				>
+					<svg
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="2"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						className="text-base-content/40"
+					>
+						<path d="M12 5v14M19 12l-7 7-7-7" />
+					</svg>
+				</div>
+			)}
 
 			{/* Bottom gradient fade into next section */}
 			<div

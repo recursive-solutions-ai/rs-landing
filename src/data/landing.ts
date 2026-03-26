@@ -1,12 +1,12 @@
 import {
 	faCode,
-	faBullhorn,
-	faChartLine,
 	faRobot,
 	faMagnifyingGlass,
 	faPenRuler,
 	faGears,
 	faRocket,
+	faClipboardList,
+	faComments,
 } from "@fortawesome/free-solid-svg-icons"
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 
@@ -25,54 +25,52 @@ export interface ProcessStep {
 	icon: IconDefinition
 }
 
-export interface CaseStudy {
+export interface OutcomeItem {
 	id: string
 	title: string
 	category: string
 	description: string
-	image: string
-	href: string
-	span?: "wide" | "tall"
 }
 
-export interface Testimonial {
-	quote: string
-	author: string
+export interface TeamMember {
+	name: string
 	role: string
-	company: string
+	bio: string
+	initials: string
+	image?: string
 }
 
 export const services: ServiceItem[] = [
 	{
-		id: "web-dev",
+		id: "assessment",
+		icon: faClipboardList,
+		title: "AI Opportunity Assessment",
+		description:
+			"We audit your workflows, identify high-impact AI opportunities, and deliver a prioritized roadmap so you know exactly where to start.",
+		href: "#contact",
+	},
+	{
+		id: "advisory",
+		icon: faComments,
+		title: "AI Advisory",
+		description:
+			"Ongoing strategic guidance — monthly sessions to help you evaluate, adopt, and manage AI across your business.",
+		href: "#contact",
+	},
+	{
+		id: "custom-builds",
 		icon: faCode,
-		title: "Website Development",
+		title: "Custom AI Builds",
 		description:
-			"AI-powered websites that adapt, personalize, and convert. We build modern web experiences that work harder than a static page ever could.",
+			"Bespoke AI development — we design and build custom systems tailored to your specific workflows and goals.",
 		href: "#contact",
 	},
 	{
-		id: "marketing",
-		icon: faBullhorn,
-		title: "Marketing & SEO",
-		description:
-			"From content generation to search optimization, we deploy AI tools that amplify your marketing team and put you in front of the right audience.",
-		href: "#contact",
-	},
-	{
-		id: "sales",
-		icon: faChartLine,
-		title: "Sales Workflows",
-		description:
-			"Automate lead scoring, follow-ups, and pipeline management. Your sales team closes deals while AI handles the busy work.",
-		href: "#contact",
-	},
-	{
-		id: "consulting",
+		id: "agent-deployment",
 		icon: faRobot,
-		title: "AI Consulting",
+		title: "Dedicated Agent Deployment",
 		description:
-			"Not sure where AI fits in your business? We audit your workflows, identify opportunities, and build a roadmap tailored to your goals.",
+			"Managed AI agents embedded in your operations — we deploy, monitor, and optimize agents that work alongside your team.",
 		href: "#contact",
 	},
 ]
@@ -104,71 +102,56 @@ export const processSteps: ProcessStep[] = [
 	},
 ]
 
-export const caseStudies: CaseStudy[] = [
+export const outcomes: OutcomeItem[] = [
 	{
-		id: "case-1",
-		title: "Intelligent Lead Scoring",
-		category: "Sales Automation",
+		id: "outcome-1",
+		title: "Workflow Automation",
+		category: "Operations",
 		description:
-			"Stop chasing cold leads. AI qualifies and ranks every inbound prospect in real time so your sales team only works the deals most likely to close.",
-		image: "/landing/scoring.jpeg",
-		href: "#",
-		span: "wide",
+			"Eliminate repetitive tasks across sales, ops, and admin. Free your team to focus on the work that actually moves the needle.",
 	},
 	{
-		id: "case-6",
-		title: "AI-Powered Workflows",
-		category: "AI Consulting",
-		description:
-			"From meeting prep to email triage to task prioritization — we plug AI into the workflows your team already uses, so everything just runs faster.",
-		image: "/landing/workflows.jpeg",
-		href: "#",
-	},
-	{
-		id: "case-3",
-		title: "Smart Document Generation",
-		category: "Workflow Automation",
-		description:
-			"Proposals, reports, contracts — generated from your data in seconds. No more copy-paste marathons or formatting headaches.",
-		image: "/landing/doc.jpeg",
-		href: "#",
-		span: "tall",
-	},
-	{
-		id: "case-4",
-		title: "AI Support Agent",
+		id: "outcome-2",
+		title: "AI Agent Deployment",
 		category: "Customer Experience",
 		description:
-			"A 24/7 conversational assistant that resolves common questions instantly and only escalates to your team when it actually matters.",
-		image: "/landing/support.jpeg",
-		href: "#",
+			"24/7 intelligent agents for customer support, internal ops, or data processing — working alongside your team, not replacing it.",
 	},
 	{
-		id: "case-2",
-		title: "Multilingual Content Engine",
-		category: "Content & Localization",
-		description:
-			"Translate and localize blog posts, emails, and product pages across languages — in minutes instead of weeks.",
-		image: "/landing/globe.jpeg",
-		href: "#",
-	},
-	{
-		id: "case-5",
-		title: "Predictive Analytics Dashboard",
+		id: "outcome-3",
+		title: "Operational Intelligence",
 		category: "Data & Insights",
 		description:
-			"Turn raw business data into live dashboards that spot trends, surface anomalies, and recommend what to do next.",
-		image: "/landing/dashboard.jpeg",
-		href: "#",
-		span: "wide",
+			"Dashboards and alerts that turn your raw business data into decisions. Spot trends, surface anomalies, act faster.",
+	},
+	{
+		id: "outcome-4",
+		title: "Content & Communication",
+		category: "Marketing",
+		description:
+			"AI-assisted content creation, translation, and personalized outreach — at the speed your market demands.",
 	},
 ]
 
-export const testimonials: Testimonial[] = [
+export const team: TeamMember[] = [
 	{
-		quote: "We didn't know how much we were missing until our systems started talking to each other. Recursive gave us our Saturdays back.",
-		author: "David Marshall",
-		role: "Director",
-		company: "Marshall Real Estate",
+		image: "/jake.jpg",
+		name: "Jake",
+		role: "CEO & Strategy",
+		bio: "Experienced operator with a background in business strategy and technology adoption for growing companies.",
+		initials: "J",
+	},
+	{
+		name: "Luc",
+		role: "COO & Operations",
+		bio: "Operations expert focused on turning complex AI capabilities into practical business tools.",
+		initials: "L",
+	},
+	{
+		image: "/denis.jpg",
+		name: "Denis",
+		role: "CTO & AI Architecture",
+		bio: "AI architect and developer with a passion for building intelligent systems that solve real business problems.",
+		initials: "D",
 	},
 ]

@@ -1,0 +1,171 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  .v2-mock { font-family: 'Geist', sans-serif; max-width: 900px; margin: 0 auto; }
+  .v2-mock * { box-sizing: border-box; }
+  .v2-section { padding: 48px 32px; border-bottom: 1px solid rgba(0,0,0,0.06); position: relative; }
+  .v2-serif { font-family: 'DM Serif Display', serif; }
+  .v2-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.15em; color: #28808E; font-weight: 500; margin-bottom: 16px; }
+  .v2-muted { color: #6E6B65; }
+  .v2-bg { background: #F8F7F5; }
+  .v2-dark { background: #141312; color: #EDE9E3; }
+  .v2-dark .v2-muted { color: #8A8680; }
+  .v2-dark .v2-label { color: #45B8C5; }
+  .section-badge { display: inline-block; background: #28808E; color: white; font-size: 9px; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }
+</style>
+
+<h2>Full Page Design — V2 Landing</h2>
+<p class="subtitle">Scrollable mockup showing all sections with the Warm Tidal palette + DM Serif Display + Geist</p>
+
+<div class="v2-mock">
+
+  <!-- ═══ HERO ═══ -->
+  <div class="v2-section v2-bg" style="min-height: 420px; display: flex; flex-direction: column; justify-content: center; text-align: center; position: relative; overflow: hidden;">
+    <div class="section-badge">Hero Section</div>
+    <!-- Simulated geometric lines -->
+    <svg style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.06;" viewBox="0 0 900 420" preserveAspectRatio="none">
+      <line x1="0" y1="80" x2="900" y2="200" stroke="#28808E" stroke-width="0.5"/>
+      <line x1="0" y1="180" x2="900" y2="60" stroke="#28808E" stroke-width="0.5"/>
+      <line x1="200" y1="0" x2="350" y2="420" stroke="#28808E" stroke-width="0.5"/>
+      <line x1="600" y1="0" x2="500" y2="420" stroke="#28808E" stroke-width="0.5"/>
+      <line x1="750" y1="0" x2="850" y2="420" stroke="#28808E" stroke-width="0.5"/>
+      <circle cx="350" cy="150" r="80" fill="none" stroke="#28808E" stroke-width="0.5"/>
+      <circle cx="600" cy="280" r="60" fill="none" stroke="#28808E" stroke-width="0.5"/>
+      <line x1="0" y1="350" x2="900" y2="300" stroke="#28808E" stroke-width="0.3"/>
+    </svg>
+    <div style="position: relative; z-index: 1;">
+      <div class="v2-label">AI-Powered Solutions</div>
+      <h1 class="v2-serif" style="font-size: 52px; color: #1A1B19; line-height: 1.08; margin-bottom: 16px; letter-spacing: -0.02em;">Modern Systems for<br>Growing Businesses.</h1>
+      <p class="v2-muted" style="font-size: 17px; line-height: 1.7; max-width: 480px; margin: 0 auto 28px;">We find the repetitive 'busy work' slowing you down and replace it with smart, integrated systems that give your team their time back.</p>
+      <div style="display: flex; gap: 12px; justify-content: center;">
+        <div style="background: #28808E; color: white; padding: 12px 28px; border-radius: 10px; font-size: 15px; font-weight: 500;">Book Your Free Audit</div>
+        <div style="border: 1px solid #1A1B19; padding: 12px 28px; border-radius: 10px; font-size: 15px; font-weight: 500; color: #1A1B19;">Explore Solutions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SERVICES ═══ -->
+  <div class="v2-section" style="background: white;">
+    <div class="section-badge">Services</div>
+    <div class="v2-label">What We Do</div>
+    <h2 class="v2-serif" style="font-size: 36px; color: #1A1B19; margin-bottom: 6px; letter-spacing: -0.02em;">Built for the AI Era</h2>
+    <p class="v2-muted" style="font-size: 15px; margin-bottom: 32px; max-width: 520px;">We deploy intelligent systems across your business — from marketing and sales to internal operations.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+      <div style="border: 1px solid #E6E3DE; border-radius: 16px; padding: 28px;">
+        <div style="width: 36px; height: 36px; border-radius: 8px; background: #28808E10; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #28808E; font-size: 14px;">◇</div>
+        <h3 style="font-size: 16px; font-weight: 600; color: #1A1B19; margin-bottom: 6px;">Website Development</h3>
+        <p class="v2-muted" style="font-size: 13px; line-height: 1.6;">AI-powered websites that adapt, personalize, and convert.</p>
+      </div>
+      <div style="border: 1px solid #E6E3DE; border-radius: 16px; padding: 28px;">
+        <div style="width: 36px; height: 36px; border-radius: 8px; background: #28808E10; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #28808E; font-size: 14px;">◇</div>
+        <h3 style="font-size: 16px; font-weight: 600; color: #1A1B19; margin-bottom: 6px;">Marketing & SEO</h3>
+        <p class="v2-muted" style="font-size: 13px; line-height: 1.6;">AI tools that amplify your team and find your audience.</p>
+      </div>
+      <div style="border: 1px solid #E6E3DE; border-radius: 16px; padding: 28px;">
+        <div style="width: 36px; height: 36px; border-radius: 8px; background: #28808E10; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #28808E; font-size: 14px;">◇</div>
+        <h3 style="font-size: 16px; font-weight: 600; color: #1A1B19; margin-bottom: 6px;">Sales Workflows</h3>
+        <p class="v2-muted" style="font-size: 13px; line-height: 1.6;">Automate lead scoring, follow-ups, and pipeline management.</p>
+      </div>
+      <div style="border: 1px solid #E6E3DE; border-radius: 16px; padding: 28px;">
+        <div style="width: 36px; height: 36px; border-radius: 8px; background: #28808E10; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: #28808E; font-size: 14px;">◇</div>
+        <h3 style="font-size: 16px; font-weight: 600; color: #1A1B19; margin-bottom: 6px;">AI Consulting</h3>
+        <p class="v2-muted" style="font-size: 13px; line-height: 1.6;">We audit your workflows and build an AI roadmap.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PROCESS ═══ -->
+  <div class="v2-section v2-dark" style="border-radius: 24px; margin: 16px;">
+    <div class="section-badge" style="background: #45B8C5;">Process</div>
+    <div class="v2-label">How We Work</div>
+    <h2 class="v2-serif" style="font-size: 36px; margin-bottom: 6px; letter-spacing: -0.02em;">From Audit to Optimization</h2>
+    <p class="v2-muted" style="font-size: 15px; margin-bottom: 36px; max-width: 520px;">A proven process that takes you from identifying opportunities to deploying production-ready AI systems.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center;">
+      <div>
+        <div style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(237,233,227,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 18px; font-weight: 600; color: #45B8C5;">1</div>
+        <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Audit</h3>
+        <p class="v2-muted" style="font-size: 12px; line-height: 1.5;">Map workflows, find friction points.</p>
+      </div>
+      <div>
+        <div style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(237,233,227,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 18px; font-weight: 600; color: #45B8C5;">2</div>
+        <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Design</h3>
+        <p class="v2-muted" style="font-size: 12px; line-height: 1.5;">Architect the right solution.</p>
+      </div>
+      <div>
+        <div style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(237,233,227,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 18px; font-weight: 600; color: #45B8C5;">3</div>
+        <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Implement</h3>
+        <p class="v2-muted" style="font-size: 12px; line-height: 1.5;">Build and deploy custom systems.</p>
+      </div>
+      <div>
+        <div style="width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(237,233,227,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 18px; font-weight: 600; color: #45B8C5;">4</div>
+        <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Optimize</h3>
+        <p class="v2-muted" style="font-size: 12px; line-height: 1.5;">Monitor, refine, evolve.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CASE STUDIES ═══ -->
+  <div class="v2-section" style="background: white;">
+    <div class="section-badge">Case Studies</div>
+    <div class="v2-label">What We Build</div>
+    <h2 class="v2-serif" style="font-size: 36px; color: #1A1B19; margin-bottom: 6px; letter-spacing: -0.02em;">AI That Works For You</h2>
+    <p class="v2-muted" style="font-size: 15px; margin-bottom: 32px; max-width: 520px;">Here's what's possible when AI meets your business.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px;">
+      <div style="grid-column: span 2; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #28808E, #1A5F6B); height: 160px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; color: white;">
+        <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.7; margin-bottom: 4px;">Sales Automation</div>
+        <div style="font-size: 17px; font-weight: 600;">Intelligent Lead Scoring</div>
+      </div>
+      <div style="border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #45B8C5, #28808E); height: 160px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; color: white;">
+        <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.7; margin-bottom: 4px;">AI Consulting</div>
+        <div style="font-size: 15px; font-weight: 600;">AI-Powered Workflows</div>
+      </div>
+      <div style="border-radius: 16px; overflow: hidden; background: #F2F0ED; height: 160px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end;">
+        <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #28808E; margin-bottom: 4px;">Customer Experience</div>
+        <div style="font-size: 15px; font-weight: 600; color: #1A1B19;">AI Support Agent</div>
+      </div>
+      <div style="border-radius: 16px; overflow: hidden; background: #F2F0ED; height: 160px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end;">
+        <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #28808E; margin-bottom: 4px;">Content</div>
+        <div style="font-size: 15px; font-weight: 600; color: #1A1B19;">Multilingual Engine</div>
+      </div>
+      <div style="grid-column: span 2; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #1A5F6B, #28808E); height: 160px; padding: 24px; display: flex; flex-direction: column; justify-content: flex-end; color: white;">
+        <div style="font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.7; margin-bottom: 4px;">Data & Insights</div>
+        <div style="font-size: 17px; font-weight: 600;">Predictive Analytics Dashboard</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TESTIMONIAL ═══ -->
+  <div class="v2-section v2-dark" style="border-radius: 24px; margin: 16px; text-align: center;">
+    <div class="section-badge" style="background: #45B8C5;">Testimonial</div>
+    <div style="font-size: 72px; line-height: 1; opacity: 0.08; margin-bottom: -8px;">&ldquo;</div>
+    <p class="v2-serif" style="font-size: 28px; line-height: 1.4; font-style: italic; max-width: 600px; margin: 0 auto 24px; font-weight: 400;">&ldquo;We didn't know how much we were missing until our systems started talking to each other. Recursive gave us our Saturdays back.&rdquo;</p>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 12px;">
+      <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #28808E, #45B8C5);"></div>
+      <div style="text-align: left;">
+        <div style="font-size: 14px; font-weight: 600;">David Marshall</div>
+        <div class="v2-muted" style="font-size: 12px;">Director, Marshall Real Estate</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CONTACT CTA ═══ -->
+  <div class="v2-section" style="background: white; text-align: center;">
+    <div class="section-badge">Contact</div>
+    <div style="background: #28808E; border-radius: 24px; padding: 48px 32px; color: white;">
+      <h2 class="v2-serif" style="font-size: 36px; margin-bottom: 8px; letter-spacing: -0.02em;">Let's talk about your project</h2>
+      <p style="font-size: 15px; opacity: 0.8; margin-bottom: 28px; max-width: 420px; margin-left: auto; margin-right: auto;">Tell us what's slowing you down and we'll show you how to fix it.</p>
+      <div style="max-width: 380px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px;">
+        <div style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 12px 16px; text-align: left; opacity: 0.5; font-size: 14px;">Your name</div>
+        <div style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 12px 16px; text-align: left; opacity: 0.5; font-size: 14px;">you@company.com</div>
+        <div style="background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 12px 16px; text-align: left; opacity: 0.5; font-size: 14px; min-height: 80px;">What's the biggest bottleneck?</div>
+        <div style="background: #1A1B19; color: white; padding: 14px; border-radius: 10px; font-weight: 600; font-size: 15px; cursor: pointer;">Send Message</div>
+      </div>
+    </div>
+  </div>
+
+</div>

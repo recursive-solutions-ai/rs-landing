@@ -1,14 +1,7 @@
 "use client"
 
 import { useRef, useEffect } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
-
-// Register plugins once
-if (typeof window !== "undefined") {
-	gsap.registerPlugin(ScrollTrigger)
-}
+import { gsap, ScrollTrigger, useGSAP } from "@/lib/animation-config"
 
 export type RevealDirection = "up" | "left" | "right" | "none"
 
@@ -80,4 +73,4 @@ export function useScrollReveal<T extends HTMLElement = HTMLDivElement>(
 	return containerRef
 }
 
-export { useGSAP }
+export { useGSAP, gsap, ScrollTrigger }

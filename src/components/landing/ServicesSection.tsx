@@ -1,17 +1,18 @@
 "use client"
 
 import { useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
+import {
+	gsap,
+	useGSAP,
+	EASE_REVEAL,
+	DISTANCE_LG,
+	DURATION_NORMAL,
+	START_CONTENT,
+} from "@/lib/animation-config"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 import { services } from "@/data/landing"
 import { SectionHeading } from "./SectionHeading"
 import { ServiceCard } from "./ServiceCard"
-
-if (typeof window !== "undefined") {
-	gsap.registerPlugin(ScrollTrigger)
-}
 
 export function ServicesSection() {
 	const sectionRef = useRef<HTMLElement>(null)
@@ -24,17 +25,18 @@ export function ServicesSection() {
 
 			const cards = cardsRef.current.filter(Boolean)
 
-			gsap.set(cards, { y: 60, opacity: 0 })
+			gsap.set(cards, { y: DISTANCE_LG, opacity: 0 })
 
 			gsap.to(cards, {
 				y: 0,
 				opacity: 1,
-				duration: 0.8,
+				duration: DURATION_NORMAL,
+				delay: 0.3,
 				stagger: 0.15,
-				ease: "power3.out",
+				ease: EASE_REVEAL,
 				scrollTrigger: {
 					trigger: sectionRef.current,
-					start: "top 80%",
+					start: START_CONTENT,
 					toggleActions: "play none none none",
 				},
 			})
@@ -49,9 +51,9 @@ export function ServicesSection() {
 			className="mx-auto max-w-7xl px-6 py-32"
 		>
 			<SectionHeading
-				tag="What We Do"
-				title="Built for the AI Era"
-				subtitle="We deploy intelligent systems across your business — from marketing and sales to internal operations — so your team can focus on what matters."
+				tag="Our Services"
+				title="A Clear Path to AI Adoption"
+				subtitle="From your first assessment to fully managed AI agents — a service ladder designed to meet you where you are. Starting at $2,500."
 				className="mb-16"
 			/>
 

@@ -1,25 +1,38 @@
 "use client"
 
-import { useRef, useState, type FormEvent } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
+import { useRef, useState, useEffect, type FormEvent } from "react"
+import {
+	gsap,
+	useGSAP,
+	EASE_REVEAL,
+	DISTANCE_SM,
+	DURATION_NORMAL,
+	START_CONTENT,
+} from "@/lib/animation-config"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 import { Input, Textarea } from "@/components/ui"
-
-if (typeof window !== "undefined") {
-	gsap.registerPlugin(ScrollTrigger)
-}
 
 export function ContactCTASection() {
 	const sectionRef = useRef<HTMLElement>(null)
 	const contentRef = useRef<HTMLDivElement>(null)
 	const prefersReduced = useReducedMotion()
 
+	const successRef = useRef<HTMLDivElement>(null)
 	const [status, setStatus] = useState<
 		"idle" | "loading" | "success" | "error"
 	>("idle")
 	const [errorMsg, setErrorMsg] = useState("")
+
+	// Animate success message entrance
+	useEffect(() => {
+		if (status === "success" && successRef.current && !prefersReduced) {
+			gsap.fromTo(
+				successRef.current,
+				{ opacity: 0, scale: 0.95, y: DISTANCE_SM },
+				{ opacity: 1, scale: 1, y: 0, duration: DURATION_NORMAL, ease: EASE_REVEAL }
+			)
+		}
+	}, [status, prefersReduced])
 
 	useGSAP(
 		() => {
@@ -27,17 +40,17 @@ export function ContactCTASection() {
 
 			const children = contentRef.current.children
 
-			gsap.set(children, { y: 30, opacity: 0 })
+			gsap.set(children, { y: DISTANCE_SM, opacity: 0 })
 
 			gsap.to(children, {
 				y: 0,
 				opacity: 1,
-				duration: 0.8,
+				duration: DURATION_NORMAL,
 				stagger: 0.1,
-				ease: "power3.out",
+				ease: EASE_REVEAL,
 				scrollTrigger: {
 					trigger: sectionRef.current,
-					start: "top 80%",
+					start: START_CONTENT,
 					toggleActions: "play none none none",
 				},
 			})
@@ -88,72 +101,126 @@ export function ContactCTASection() {
 		<section
 			ref={sectionRef}
 			id="contact"
-			className="mx-auto max-w-4xl px-6 py-24"
+			className="mx-auto max-w-6xl px-6 py-24"
 		>
-			<div className="overflow-hidden rounded-[3rem] bg-primary p-12 text-primary-content shadow-2xl md:p-20">
-				<div ref={contentRef}>
-					<h2 className="mb-6 text-3xl font-bold md:text-5xl text-center">
-						Let&apos;s talk about your project
-					</h2>
-					<p className="mx-auto mb-10 max-w-xl text-lg text-primary-content/80 md:text-xl text-center">
-						Tell us what&apos;s slowing you down and we&apos;ll show
-						you how to fix it.
-					</p>
+			<div ref={contentRef}>
+				<h2 className="mb-4 text-3xl font-bold md:text-5xl text-center text-base-content">
+					Ready to Get Started?
+				</h2>
+				<p className="mx-auto mb-12 max-w-xl text-lg text-base-content/60 md:text-xl text-center">
+					Two ways to take the next step — pick whichever fits.
+				</p>
 
-					{status === "success" ? (
-						<div className="rounded-2xl bg-neutral/20 p-8 text-center">
-							<p className="text-2xl font-semibold mb-2">
-								Message sent!
-							</p>
-							<p className="text-primary-content/80">
-								We&apos;ll get back to you shortly.
-							</p>
-						</div>
-					) : (
-						<form
-							onSubmit={handleSubmit}
-							className="mx-auto max-w-lg space-y-4"
-						>
-							<Input
-								name="name"
-								placeholder="Your name"
-								required
-								className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50"
-							/>
-							<Input
-								name="email"
-								type="email"
-								placeholder="you@company.com"
-								required
-								className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50"
-							/>
-							<Textarea
-								name="message"
-								placeholder="What's the biggest bottleneck slowing your team down?"
-								rows={4}
-								required
-								className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50"
-							/>
+				<div className="grid gap-8 md:grid-cols-2">
+					{/* Left: Discovery Meeting (free) */}
+					<div className="overflow-hidden rounded-[2rem] bg-primary p-10 text-primary-content shadow-2xl md:p-12">
+						<span className="mb-2 inline-block rounded-full bg-primary-content/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest">
+							Free
+						</span>
+						<h3 className="mb-3 text-2xl font-bold">
+							Book a Discovery Meeting
+						</h3>
+						<p className="mb-8 text-primary-content/80 leading-relaxed">
+							A 30-minute call where we learn about your business and deliver
+							a free Website Analysis Report — no strings attached.
+						</p>
 
-							{status === "error" && errorMsg && (
-								<p className="text-sm text-error-content bg-error/80 rounded-lg px-4 py-2">
-									{errorMsg}
+						{status === "success" ? (
+							<div ref={successRef} className="rounded-2xl bg-neutral/20 p-8 text-center">
+								<p className="text-2xl font-semibold mb-2">
+									Message sent!
 								</p>
-							)}
-
-							<button
-								type="submit"
-								disabled={status === "loading"}
-								className="btn btn-neutral w-full border-none py-4 text-lg font-bold text-neutral-content shadow-xl transition hover:bg-neutral/80 disabled:opacity-60"
+								<p className="text-primary-content/80">
+									We&apos;ll get back to you shortly.
+								</p>
+							</div>
+						) : (
+							<form
+								onSubmit={handleSubmit}
+								className="space-y-4"
 							>
-								{status === "loading" ? (
-									<span className="loading loading-spinner loading-md" />
-								) : (
-									"Send Message"
+								<Input
+									name="name"
+									placeholder="Your name"
+									required
+									className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
+								/>
+								<Input
+									name="email"
+									type="email"
+									placeholder="you@company.com"
+									required
+									className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
+								/>
+								<Textarea
+									name="message"
+									placeholder="What's the biggest bottleneck slowing your team down?"
+									rows={3}
+									required
+									className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
+								/>
+
+								{status === "error" && errorMsg && (
+									<p className="text-sm text-error-content bg-error/80 rounded-lg px-4 py-2">
+										{errorMsg}
+									</p>
 								)}
-							</button>
-						</form>
-					)}
+
+								<button
+									type="submit"
+									disabled={status === "loading"}
+									className="btn btn-neutral w-full border-none py-4 text-lg font-bold text-neutral-content shadow-xl transition-all duration-200 hover:bg-neutral/80 active:scale-[0.97] disabled:opacity-60"
+								>
+									{status === "loading" ? (
+										<span className="loading loading-spinner loading-md" />
+									) : (
+										"Book My Free Discovery Meeting"
+									)}
+								</button>
+							</form>
+						)}
+					</div>
+
+					{/* Right: AI Opportunity Assessment (paid) */}
+					<div className="flex flex-col overflow-hidden rounded-[2rem] border border-base-300 bg-base-100 p-10 shadow-xl md:p-12">
+						<span className="mb-2 inline-block rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-accent">
+							Starting at $2,500
+						</span>
+						<h3 className="mb-3 text-2xl font-bold text-base-content">
+							AI Opportunity Assessment
+						</h3>
+						<p className="mb-8 text-base-content/70 leading-relaxed">
+							A deep dive into your workflows, tools, and team — we deliver a
+							prioritized AI roadmap with clear ROI projections and
+							implementation steps.
+						</p>
+						<div className="mt-auto space-y-4">
+							<ul className="space-y-2 text-sm text-base-content/60">
+								<li className="flex items-start gap-2">
+									<span className="mt-0.5 text-primary">&#10003;</span>
+									Full workflow audit across your organization
+								</li>
+								<li className="flex items-start gap-2">
+									<span className="mt-0.5 text-primary">&#10003;</span>
+									Prioritized AI opportunity map
+								</li>
+								<li className="flex items-start gap-2">
+									<span className="mt-0.5 text-primary">&#10003;</span>
+									ROI projections and implementation roadmap
+								</li>
+								<li className="flex items-start gap-2">
+									<span className="mt-0.5 text-primary">&#10003;</span>
+									Executive presentation of findings
+								</li>
+							</ul>
+							<a
+								href="mailto:hello@recursivesolutions.com?subject=AI%20Opportunity%20Assessment"
+								className="btn btn-primary w-full border-none py-4 text-lg font-bold shadow-xl shadow-primary/20 transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97]"
+							>
+								Start Your Assessment
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

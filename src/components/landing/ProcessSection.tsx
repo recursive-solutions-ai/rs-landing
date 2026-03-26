@@ -1,18 +1,18 @@
 "use client"
 
 import { useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
+import {
+	gsap,
+	useGSAP,
+	EASE_REVEAL,
+	DISTANCE_MD,
+	DURATION_NORMAL,
+} from "@/lib/animation-config"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 import { processSteps } from "@/data/landing"
 import { cn } from "@/lib/utils"
 import { SectionHeading } from "./SectionHeading"
-
-if (typeof window !== "undefined") {
-	gsap.registerPlugin(ScrollTrigger)
-}
 
 export function ProcessSection() {
 	const sectionRef = useRef<HTMLElement>(null)
@@ -28,6 +28,22 @@ export function ProcessSection() {
 	useGSAP(
 		() => {
 			if (prefersReduced || !sectionRef.current) return
+
+			/* -- Dark section clip-path entrance -- */
+			gsap.fromTo(
+				sectionRef.current,
+				{ clipPath: "inset(4% 1% round 3rem)" },
+				{
+					clipPath: "inset(0% 0% round 3rem)",
+					ease: "none",
+					scrollTrigger: {
+						trigger: sectionRef.current,
+						start: "top 90%",
+						end: "top 60%",
+						scrub: true,
+					},
+				}
+			)
 
 			const steps = stepsRef.current.filter(Boolean)
 			const numbers = numberRefs.current.filter(Boolean)
@@ -73,14 +89,9 @@ export function ProcessSection() {
 			}
 
 			/* -- Steps fade in with stagger -- */
-			gsap.set(steps, { y: 40, opacity: 0 })
+			gsap.set(steps, { y: DISTANCE_MD, opacity: 0 })
 
-			gsap.to(steps, {
-				y: 0,
-				opacity: 1,
-				duration: 0.7,
-				stagger: 0.2,
-				ease: "power3.out",
+			const stepsTl = gsap.timeline({
 				scrollTrigger: {
 					trigger: sectionRef.current,
 					start: "top 70%",
@@ -88,25 +99,31 @@ export function ProcessSection() {
 				},
 			})
 
-			/* -- Number counter animation -- */
+			stepsTl.to(steps, {
+				y: 0,
+				opacity: 1,
+				duration: DURATION_NORMAL,
+				stagger: 0.2,
+				ease: EASE_REVEAL,
+			})
+
+			/* -- Number counter animation (single timeline) -- */
 			numbers.forEach((numEl, i) => {
 				const target = { val: 0 }
 
-				gsap.to(target, {
-					val: i + 1,
-					duration: 1,
-					delay: i * 0.2,
-					ease: "power2.out",
-					snap: { val: 1 },
-					scrollTrigger: {
-						trigger: sectionRef.current,
-						start: "top 70%",
-						toggleActions: "play none none none",
+				stepsTl.to(
+					target,
+					{
+						val: i + 1,
+						duration: 1,
+						ease: EASE_REVEAL,
+						snap: { val: 1 },
+						onUpdate() {
+							numEl.textContent = String(Math.round(target.val))
+						},
 					},
-					onUpdate() {
-						numEl.textContent = String(Math.round(target.val))
-					},
-				})
+					i * 0.2
+				)
 			})
 		},
 		{ scope: sectionRef, dependencies: [prefersReduced] }

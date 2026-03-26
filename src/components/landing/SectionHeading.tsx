@@ -1,16 +1,17 @@
 "use client"
 
 import { useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useGSAP } from "@gsap/react"
+import {
+	gsap,
+	useGSAP,
+	EASE_REVEAL,
+	DISTANCE_SM,
+	DURATION_FAST,
+	START_HEADING,
+} from "@/lib/animation-config"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 import { cn } from "@/lib/utils"
 import { AnimatedText } from "./AnimatedText"
-
-if (typeof window !== "undefined") {
-	gsap.registerPlugin(ScrollTrigger)
-}
 
 interface SectionHeadingProps {
 	tag?: string
@@ -34,16 +35,16 @@ export function SectionHeading({
 		() => {
 			if (!tagRef.current || prefersReduced) return
 
-			gsap.set(tagRef.current, { opacity: 0, y: 12 })
+			gsap.set(tagRef.current, { opacity: 0, y: DISTANCE_SM })
 
 			gsap.to(tagRef.current, {
 				opacity: 1,
 				y: 0,
-				duration: 0.6,
-				ease: "power2.out",
+				duration: DURATION_FAST,
+				ease: EASE_REVEAL,
 				scrollTrigger: {
 					trigger: tagRef.current,
-					start: "top 90%",
+					start: START_HEADING,
 					toggleActions: "play none none none",
 				},
 			})

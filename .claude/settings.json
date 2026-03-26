@@ -4,7 +4,10 @@
       "Bash(npx next:*)",
       "Bash(curl *localhost*)",
       "Bash(lsof -ti:*)",
-      "Bash(xargs kill:*)"
+      "Bash(xargs kill:*)",
+      "Bash(npx skills:*)",
+      "Read(//Users/denisduvauchelle/.claude/skills/**)",
+      "Read(//Users/denisduvauchelle/.agents/skills/**)"
     ]
   }
 }

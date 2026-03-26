@@ -8,9 +8,9 @@ const fr: Dictionary = {
 
 	// Hero
 	'hero.title': 'Bienvenue chez Recursive Solutions',
-	'hero.subtitle': 'Contenu g\u00E9n\u00E9r\u00E9 par IA, r\u00E9seaux sociaux et analyses — tout g\u00E9r\u00E9 pour vous.',
+	'hero.subtitle': 'Nous comblons le fossé entre savoir que l\'IA compte et savoir comment l\'utiliser.',
 	'hero.cta.blog': 'Lire notre blog',
-	'hero.cta.contact': 'Nous contacter',
+	'hero.cta.contact': 'Réserver une consultation',
 
 	// Features
 	'features.heading': 'Tout ce dont vous avez besoin pour grandir',
@@ -22,9 +22,9 @@ const fr: Dictionary = {
 	'features.analytics.description': "Suivez l'engagement des visiteurs et les performances du contenu en temps r\u00E9el.",
 
 	// CTA
-	'cta.heading': 'Pr\u00EAt \u00E0 commencer ?',
-	'cta.subtitle': 'Contactez-nous aujourd\u2019hui pour d\u00E9couvrir comment notre moteur de croissance IA peut transformer votre pr\u00E9sence en ligne.',
-	'cta.button': 'Contactez-nous',
+	'cta.heading': 'Prêt à commencer ?',
+	'cta.subtitle': 'Deux façons de passer à l\'étape suivante — choisissez celle qui vous convient.',
+	'cta.button': 'Réserver ma consultation gratuite',
 
 	// Blog
 	'blog.heading': 'Blog',

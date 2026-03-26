@@ -8,6 +8,7 @@ import { TextLink } from "@/components/ui"
 import { ThemeToggle } from "@/components/layout/ThemeToggle"
 import { ThemeLogo } from "@/components/layout/ThemeLogo"
 import { Navbar } from "@/components/landing/Navbar"
+import { AnimatedFooter } from "@/components/landing/AnimatedFooter"
 import { DictionaryProvider } from "@/i18n/client"
 import { getDictionary } from "@/i18n"
 import { supportedLocales } from "@/i18n/config"
@@ -27,7 +28,7 @@ export default async function PublicLayout({ children, params }: { children: Rea
 
 			{/* Footer */}
 			<footer className="mt-20 border-t border-base-300 bg-base-200">
-				<div className="max-w-7xl mx-auto px-6 py-16">
+				<AnimatedFooter className="max-w-7xl mx-auto px-6 py-16">
 					<div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-10">
 						{/* Brand */}
 						<div>
@@ -58,7 +59,7 @@ export default async function PublicLayout({ children, params }: { children: Rea
 						</p>
 						<ThemeToggle />
 					</div>
-				</div>
+				</AnimatedFooter>
 			</footer>
 		</div>
 	</DictionaryProvider>

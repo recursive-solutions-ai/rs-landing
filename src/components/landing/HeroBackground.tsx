@@ -250,17 +250,37 @@ function CanvasFallback() {
 export function HeroBackground() {
 	const reducedMotion = useReducedMotion()
 	const [isMobile, setIsMobile] = useState(false)
+	const [isVisible, setIsVisible] = useState(true)
+	const containerRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
 		setIsMobile(window.innerWidth < 768)
+
+		const handleResize = () => setIsMobile(window.innerWidth < 768)
+		window.addEventListener("resize", handleResize)
+		return () => window.removeEventListener("resize", handleResize)
 	}, [])
 
+	// Pause rendering when hero is scrolled out of view
+	useEffect(() => {
+		if (!containerRef.current) return
+
+		const observer = new IntersectionObserver(
+			([entry]) => setIsVisible(entry.isIntersecting),
+			{ threshold: 0 }
+		)
+		observer.observe(containerRef.current)
+		return () => observer.disconnect()
+	}, [])
+
+	const frameloop = reducedMotion || !isVisible ? "never" : "always"
+
 	return (
-		<div className="absolute inset-0 z-0 blur-xl" aria-hidden="true">
+		<div ref={containerRef} className="absolute inset-0 z-0 blur-xl" aria-hidden="true">
 			<Suspense fallback={<CanvasFallback />}>
 				<Canvas
 					dpr={[1, 1.5]}
-					frameloop={reducedMotion ? "demand" : "always"}
+					frameloop={frameloop}
 					gl={{
 						antialias: !isMobile,
 						alpha: true,
