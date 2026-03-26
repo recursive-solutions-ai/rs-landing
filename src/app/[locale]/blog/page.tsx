@@ -6,7 +6,7 @@ import { BlogList } from '@/components/blog/BlogList'
 
 export default function BlogPage() {
 	const { t, locale } = useI18n()
-	const { posts, loading, error } = useContent('blog', { locale })
+	const { posts, loading, error } = useContent('blog')
 
 	return (
 		<main className="container mx-auto px-4 py-12">
