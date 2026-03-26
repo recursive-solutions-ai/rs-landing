@@ -1,0 +1,131 @@
+<h2>Scroll-Driven Page: Section-by-Section Effects</h2>
+<p class="subtitle">How each content section will behave as the user scrolls down the page</p>
+
+<div style="display: flex; flex-direction: column; gap: 2px; margin-top: 24px;">
+
+  <!-- Hero -->
+  <div style="background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 32px; border-radius: 12px 12px 0 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 8px; right: 12px; font-size: 11px; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px;">SECTION 1</div>
+    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; margin-bottom: 8px;">Hero Section</div>
+    <div style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Your business deserves a website that actually works for you.</div>
+    <div style="font-size: 13px; opacity: 0.6; margin-bottom: 16px;">CTA: "See How It Works"</div>
+    <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-size: 12px;">
+      <strong style="color: #60a5fa;">Scroll Effect:</strong> Full-viewport hero. On scroll-down, text fades out + moves up at different speeds (parallax layers). Background subtly zooms out. Entrance animation on page load reveals the headline word-by-word.
+    </div>
+  </div>
+
+  <!-- Problem -->
+  <div style="background: linear-gradient(135deg, #7f1d1d, #991b1b); color: white; padding: 32px; position: relative;">
+    <div style="position: absolute; top: 8px; right: 12px; font-size: 11px; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px;">SECTION 2 &mdash; PINNED</div>
+    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; margin-bottom: 8px;">Problem Section</div>
+    <div style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">"Sound familiar?"</div>
+    <div style="font-size: 13px; opacity: 0.7; margin-bottom: 16px;">4 pain points shown one at a time</div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px;">
+      <div style="background: rgba(255,255,255,0.15); border-radius: 6px; padding: 8px; font-size: 11px; text-align: center; border: 1px solid rgba(255,255,255,0.3);">$10K+ quotes</div>
+      <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 8px; font-size: 11px; text-align: center; opacity: 0.5;">No time for content</div>
+      <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 8px; font-size: 11px; text-align: center; opacity: 0.3;">Outdated site</div>
+      <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 8px; font-size: 11px; text-align: center; opacity: 0.2;">Questions pile up</div>
+    </div>
+    <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-size: 12px;">
+      <strong style="color: #fca5a5;">Scroll Effect:</strong> Section PINS to viewport. As user scrolls, pain points swap one by one (slide in from right, previous fades left). Progress dots show which is active. Background subtly warms. On mobile: stacks vertically with fade-in.
+    </div>
+  </div>
+
+  <!-- Solution -->
+  <div style="background: linear-gradient(135deg, #064e3b, #047857); color: white; padding: 32px; position: relative;">
+    <div style="position: absolute; top: 8px; right: 12px; font-size: 11px; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px;">SECTION 3 &mdash; PINNED</div>
+    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; margin-bottom: 8px;">Solution Section</div>
+    <div style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">"There's a better way to show up online."</div>
+    <div style="font-size: 13px; opacity: 0.7; margin-bottom: 16px;">4 benefit cards stacking like a deck</div>
+    <div style="display: flex; gap: 6px; margin-bottom: 16px; position: relative; height: 60px;">
+      <div style="position: absolute; left: 0; top: 0; background: rgba(255,255,255,0.25); border-radius: 6px; padding: 10px 16px; font-size: 11px; width: 160px; transform: rotate(-1deg); z-index: 4; border: 1px solid rgba(255,255,255,0.3);">Ready fast</div>
+      <div style="position: absolute; left: 10px; top: 6px; background: rgba(255,255,255,0.15); border-radius: 6px; padding: 10px 16px; font-size: 11px; width: 160px; transform: rotate(0.5deg); z-index: 3;">Content writes itself</div>
+      <div style="position: absolute; left: 20px; top: 12px; background: rgba(255,255,255,0.08); border-radius: 6px; padding: 10px 16px; font-size: 11px; width: 160px; z-index: 2;">Support tools</div>
+      <div style="position: absolute; left: 30px; top: 18px; background: rgba(255,255,255,0.04); border-radius: 6px; padding: 10px 16px; font-size: 11px; width: 160px; z-index: 1;">No code needed</div>
+    </div>
+    <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-size: 12px;">
+      <strong style="color: #6ee7b7;">Scroll Effect:</strong> Section PINS. Cards reveal by "unstacking" &mdash; each card slides up from behind the previous, pushing it up and scaling it down. Creates a deck/Rolodex feel. Background shifts from warm (problem) to cool (solution).
+    </div>
+  </div>
+
+  <!-- How It Works -->
+  <div style="background: linear-gradient(135deg, #1e1b4b, #3730a3); color: white; padding: 32px; position: relative;">
+    <div style="position: absolute; top: 8px; right: 12px; font-size: 11px; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px;">SECTION 4 &mdash; HORIZONTAL SCROLL</div>
+    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; margin-bottom: 8px;">How It Works</div>
+    <div style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">"Three steps. That's it."</div>
+    <div style="display: flex; gap: 12px; margin-bottom: 16px; overflow: hidden;">
+      <div style="min-width: 140px; background: rgba(255,255,255,0.2); border-radius: 8px; padding: 12px; font-size: 12px; border: 1px solid rgba(255,255,255,0.3);">
+        <div style="font-size: 28px; font-weight: 800; opacity: 0.3;">01</div>
+        We learn your business
+      </div>
+      <div style="min-width: 140px; background: rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-size: 12px;">
+        <div style="font-size: 28px; font-weight: 800; opacity: 0.3;">02</div>
+        We build and refine
+      </div>
+      <div style="min-width: 140px; background: rgba(255,255,255,0.06); border-radius: 8px; padding: 12px; font-size: 12px;">
+        <div style="font-size: 28px; font-weight: 800; opacity: 0.3;">03</div>
+        You're live
+      </div>
+    </div>
+    <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-size: 12px;">
+      <strong style="color: #a5b4fc;">Scroll Effect:</strong> Section PINS. Vertical scrolling drives HORIZONTAL movement of step cards across the screen. Each card scales up when centered. Connected by a horizontal line/arrow. On mobile: vertical timeline with fade-in.
+    </div>
+  </div>
+
+  <!-- Who It's For -->
+  <div style="background: linear-gradient(135deg, #292524, #44403c); color: white; padding: 32px; position: relative;">
+    <div style="position: absolute; top: 8px; right: 12px; font-size: 11px; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px;">SECTION 5</div>
+    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; margin-bottom: 8px;">Who It's For</div>
+    <div style="font-size: 24px; font-weight: 700; margin-bottom: 12px;">"Built for people who run businesses, not websites."</div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+      <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-size: 12px; transform: translateX(-8px);">
+        <strong>Service Professionals</strong><br/>Consultants, coaches, freelancers
+      </div>
+      <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-size: 12px; transform: translateX(8px); margin-top: 20px;">
+        <strong>Small & Medium Businesses</strong><br/>Teams of 1-50 who need more
+      </div>
+    </div>
+    <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-size: 12px;">
+      <strong style="color: #d6d3d1;">Scroll Effect:</strong> Split-screen parallax. Left column slides in from left, right from right, at offset heights. Text reveals via clip-path mask animation. No pinning &mdash; flows naturally.
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div style="background: linear-gradient(135deg, #f5f5f4, #e7e5e4); color: #1c1917; padding: 32px; position: relative;">
+    <div style="position: absolute; top: 8px; right: 12px; font-size: 11px; background: rgba(0,0,0,0.08); padding: 3px 10px; border-radius: 99px;">SECTION 6</div>
+    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.4; margin-bottom: 8px;">Features at a Glance</div>
+    <div style="font-size: 24px; font-weight: 700; margin-bottom: 12px;">"Everything you need. Nothing you don't."</div>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px;">
+      <div style="background: white; border-radius: 6px; padding: 10px; font-size: 10px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">Professional site</div>
+      <div style="background: white; border-radius: 6px; padding: 10px; font-size: 10px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); opacity: 0.7;">SEO built-in</div>
+      <div style="background: white; border-radius: 6px; padding: 10px; font-size: 10px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); opacity: 0.5;">Blog engine</div>
+      <div style="background: white; border-radius: 6px; padding: 10px; font-size: 10px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); opacity: 0.3;">Support tools</div>
+    </div>
+    <div style="background: rgba(0,0,0,0.05); border-radius: 8px; padding: 12px; font-size: 12px;">
+      <strong style="color: #78716c;">Scroll Effect:</strong> Staggered grid reveal. Items cascade in from top-left to bottom-right, each scaling from 0.8&rarr;1.0 and fading in. One-time entrance animation (not scroll-linked). Hover lifts items with CSS.
+    </div>
+  </div>
+
+  <!-- CTA Footer -->
+  <div style="background: linear-gradient(135deg, #7c3aed, #6d28d9); color: white; padding: 32px; border-radius: 0 0 12px 12px; position: relative;">
+    <div style="position: absolute; top: 8px; right: 12px; font-size: 11px; background: rgba(255,255,255,0.15); padding: 3px 10px; border-radius: 99px;">SECTION 7</div>
+    <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.5; margin-bottom: 8px;">CTA + Footer</div>
+    <div style="font-size: 24px; font-weight: 700; margin-bottom: 8px; text-align: center;">Ready to get started?</div>
+    <div style="text-align: center; margin-bottom: 16px;">
+      <div style="display: inline-block; background: white; color: #6d28d9; padding: 10px 24px; border-radius: 8px; font-weight: 700; font-size: 13px;">Get Your Site &rarr;</div>
+    </div>
+    <div style="background: rgba(255,255,255,0.1); border-radius: 8px; padding: 12px; font-size: 12px;">
+      <strong style="color: #c4b5fd;">Scroll Effect:</strong> CTA card scales up from 0.9&rarr;1.0 and fades in. Background transitions from neutral to bold primary color, filling the viewport. Button has a subtle CSS pulse glow. Footer links fade in below.
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top: 24px; padding: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px;">
+  <h3 style="margin-top: 0;">Tech Stack</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; font-size: 13px;">
+    <div><strong>GSAP + ScrollTrigger</strong><br/>Pinning, parallax, timelines</div>
+    <div><strong>Lenis</strong><br/>Buttery smooth scrolling</div>
+    <div><strong>@gsap/react</strong><br/>React hooks + cleanup</div>
+  </div>
+</div>

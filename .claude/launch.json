@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["next", "dev", "--turbopack", "--hostname", "0.0.0.0"],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}

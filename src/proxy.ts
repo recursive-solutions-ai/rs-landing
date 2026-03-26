@@ -35,6 +35,7 @@ export default auth((req: NextRequest & { auth: { user?: { role?: string } } | n
 		"/terms",
 		"/cookies",
 		"/gdpr",
+		"/v2",
 		"/api/auth",
 		"/api/contact",
 		"/api/billing/webhooks",

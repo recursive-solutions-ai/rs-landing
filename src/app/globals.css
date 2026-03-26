@@ -75,6 +75,15 @@
 		background-image: linear-gradient(90deg, var(--color-primary), var(--color-accent, #0d9488));
 	}
 
+	.gradient-animated-text {
+		background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #0d9488), var(--color-primary));
+		background-size: 200% auto;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		animation: gradient-shift 4s ease infinite;
+	}
+
 	.hero-gradient {
 		background: radial-gradient(circle at top right,
 				color-mix(in oklch, var(--color-primary) 5%, transparent),
@@ -83,6 +92,11 @@
 				color-mix(in oklch, var(--color-accent, #0d9488) 5%, transparent),
 				transparent);
 	}
+}
+
+@keyframes gradient-shift {
+	0%, 100% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
 }
 
 /* ── Base styles ──────────────────────────────────────────────────────────── */
@@ -97,4 +111,30 @@ body {
 
 :root {
 	--radius: 0.5rem;
+
+	/* Lumio-inspired easing curves */
+	--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+	--ease-in-out-quad: cubic-bezier(0.45, 0, 0.55, 1);
+	--ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+	--ease-out-cubic: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* ── Landing page utilities ──────────────────────────────────────────────── */
+
+@layer utilities {
+	.no-scrollbar {
+		scrollbar-width: none;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	.clip-reveal {
+		clip-path: inset(0 0 100% 0);
+	}
+
+	.section-dark {
+		background-color: #111111;
+		color: #ffffff;
+	}
 }
