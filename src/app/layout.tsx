@@ -11,6 +11,13 @@ import './globals.css'
 export const metadata: Metadata = {
 	title: 'Recursive Solutions',
 	description: 'Recursive Solutions — Powered by Growth Engine',
+	openGraph: {
+		images: [{ url: '/social-card-2.png', width: 1200, height: 630 }],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		images: ['/social-card-2.png'],
+	},
 	icons: {
 		icon: [
 			{ url: '/favicon_io/favicon.ico', sizes: 'any' },
