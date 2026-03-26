@@ -30,22 +30,9 @@ export const CaseStudyCard = forwardRef<HTMLDivElement, CaseStudyCardProps>(
 					study.span === "tall" && "md:row-span-2"
 				)}
 			>
-				{/* Small image strip */}
-				<div
-					className={cn(
-						"relative overflow-hidden",
-						study.span === "tall" ? "h-40" : "h-28"
-					)}
-				>
-					{/* Gradient fallback */}
-					<div
-						className={cn(
-							"absolute inset-0 bg-gradient-to-br",
-							gradient
-						)}
-					/>
-
-					{/* Image */}
+				{/* Image area — flex-1 so it grows to fill all space above the text */}
+				<div className="relative min-h-[80px] flex-1 overflow-hidden">
+					<div className={cn("absolute inset-0 bg-gradient-to-br", gradient)} />
 					<img
 						src={study.image}
 						alt=""
@@ -53,18 +40,14 @@ export const CaseStudyCard = forwardRef<HTMLDivElement, CaseStudyCardProps>(
 						style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
 						loading="lazy"
 					/>
-
-					{/* Fade into card background */}
-					<div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-gray-900 to-transparent" />
-
 					{/* Category badge */}
 					<span className="absolute left-4 top-3 z-10 rounded-full bg-black/40 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
 						{study.category}
 					</span>
 				</div>
 
-				{/* Content on solid background */}
-				<div className="flex flex-1 flex-col px-5 pb-5 pt-1">
+				{/* Text area — gradient background fades into image above, no fixed height */}
+				<div className="bg-gradient-to-t from-gray-900 from-60% to-transparent px-5 pb-5 pt-10">
 					<h3 className="mb-1.5 text-base font-bold text-white">
 						{study.title}
 					</h3>

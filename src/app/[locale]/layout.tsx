@@ -8,11 +8,17 @@ import { TextLink } from "@/components/ui"
 import { ThemeToggle } from "@/components/layout/ThemeToggle"
 import { ThemeLogo } from "@/components/layout/ThemeLogo"
 import { Navbar } from "@/components/landing/Navbar"
+import { DictionaryProvider } from "@/i18n/client"
+import { getDictionary } from "@/i18n"
+import { supportedLocales } from "@/i18n/config"
 
-export default function PublicLayout({ children }: { children: ReactNode }) {
+export default async function PublicLayout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
 	const appName = process.env.NEXT_PUBLIC_APP_NAME ?? "Recursive Solutions"
+	const { locale } = await params
+	const dict = await getDictionary(locale)
 
 	return (
+	<DictionaryProvider locale={locale} dict={dict} supportedLocales={supportedLocales}>
 		<div className="min-h-screen flex flex-col bg-base-100">
 			<Navbar />
 
@@ -55,5 +61,6 @@ export default function PublicLayout({ children }: { children: ReactNode }) {
 				</div>
 			</footer>
 		</div>
+	</DictionaryProvider>
 	)
 }

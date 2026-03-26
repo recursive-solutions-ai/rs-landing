@@ -9,6 +9,7 @@ config.autoAddCss = false
 import './globals.css'
 
 export const metadata: Metadata = {
+	metadataBase: new URL('https://recursive-solutions.com'),
 	title: 'Recursive Solutions',
 	description: 'Recursive Solutions — Powered by Growth Engine',
 	openGraph: {

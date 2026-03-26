@@ -6,9 +6,9 @@ export default function CookiesPage() {
 	const { t, locale } = useI18n()
 
 	return (
-		<main className="container mx-auto px-4 py-12 max-w-3xl">
+		<main className="container mx-auto px-4 py-12 max-w-3xl text-base-content">
 			<h1 className="text-4xl font-bold mb-8">{t('page.cookie.policy')}</h1>
-			<div className="prose max-w-none">
+			<div className="prose prose-headings:text-base-content prose-p:text-base-content/80 prose-a:text-primary prose-strong:text-base-content prose-li:text-base-content/80 max-w-none">
 				<p>
 					This Cookie Policy explains how we use cookies and similar
 					technologies on this website.

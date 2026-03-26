@@ -6,9 +6,9 @@ export default function PrivacyPage() {
 	const { t, locale } = useI18n()
 
 	return (
-		<main className="container mx-auto px-4 py-12 max-w-3xl">
+		<main className="container mx-auto px-4 py-12 max-w-3xl text-base-content">
 			<h1 className="text-4xl font-bold mb-8">{t('page.privacy.policy')}</h1>
-			<div className="prose max-w-none">
+			<div className="prose prose-headings:text-base-content prose-p:text-base-content/80 prose-a:text-primary prose-strong:text-base-content prose-li:text-base-content/80 max-w-none">
 				<p>
 					This Privacy Policy describes how we collect, use, and share your
 					personal information when you visit this website.
