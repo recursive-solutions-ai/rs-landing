@@ -142,6 +142,7 @@ export const team: TeamMember[] = [
 		initials: "J",
 	},
 	{
+		image: "/luc.jpg",
 		name: "Luc",
 		role: "COO & Operations",
 		bio: "Operations expert focused on turning complex AI capabilities into practical business tools.",
