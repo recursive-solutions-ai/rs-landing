@@ -1,0 +1,40 @@
+{
+  "name": "recursive-solutions",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.2.0",
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-regular-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "@fortawesome/react-fontawesome": "^3.3.0",
+    "@growth-engine/sdk-client": "github:recursive-solutions-ai/growth-engine-sdk-client#sdk-v0.1.0",
+    "@growth-engine/sdk-server": "github:recursive-solutions-ai/growth-engine-sdk-server#sdk-v0.1.0",
+    "@gsap/react": "^2.1.2",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "clsx": "2.1.1",
+    "daisyui": "5.0.35",
+    "gsap": "^3.14.2",
+    "next": "^16.2.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "resend": "^6.9.4",
+    "tailwind-merge": "3.0.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.1.4",
+    "@types/node": "22.15.3",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
+    "postcss": "8.5.3",
+    "tailwindcss": "4.1.4",
+    "typescript": "5.8.3"
+  }
+}

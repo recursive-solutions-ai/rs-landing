@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+@plugin 'daisyui';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme {
+  --color-background: var(--fallback-b1, oklch(1 0 0));
+  --color-foreground: var(--fallback-bc, oklch(0.141 0.005 285.823));
+
+  --color-primary: var(--fallback-p, oklch(0.623 0.214 259.815));
+  --color-primary-foreground: var(--fallback-pc, oklch(0.929 0.013 255.508));
+
+  --color-secondary: var(--fallback-s, oklch(0.715 0.143 215.221));
+  --color-secondary-foreground: var(--fallback-sc, oklch(0.985 0.002 247.858));
+
+  --color-muted: oklch(0.967 0.001 286.375);
+  --color-muted-foreground: oklch(0.552 0.016 285.938);
+
+  --color-accent: var(--fallback-a, oklch(0.748 0.125 171.552));
+  --color-accent-foreground: var(--fallback-ac, oklch(0.166 0.014 182.503));
+
+  --color-destructive: oklch(0.577 0.245 27.325);
+  --color-destructive-foreground: oklch(0.982 0.025 105.36);
+
+  --color-border: oklch(0.92 0.004 286.32);
+  --color-input: oklch(0.92 0.004 286.32);
+  --color-ring: var(--fallback-p, oklch(0.623 0.214 259.815));
+
+  --color-card: var(--fallback-b1, oklch(1 0 0));
+  --color-card-foreground: var(--fallback-bc, oklch(0.141 0.005 285.823));
+
+  --color-dark: oklch(0.25 0.015 265);
+  --color-dark-foreground: oklch(0.95 0.005 265);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+:root {
+  --dark-raw: 0.25 0.015 265;
+  --hero-overlay: radial-gradient(ellipse 60% 50% at center, oklch(0.93 0.005 265 / 0.85) 0%, oklch(0.93 0.005 265 / 0.6) 60%, oklch(0.93 0.005 265 / 0.3) 100%);
+}
+
+[data-theme='dark'] {
+  --hero-overlay: radial-gradient(ellipse at center, oklch(0.25 0.015 265 / 0.1) 0%, oklch(0.25 0.015 265 / 0.3) 70%, oklch(0.25 0.015 265 / 0.5) 100%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-foreground;
+}
+
+.section-dark {
+  @apply bg-dark text-dark-foreground;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-word,
+  [data-animated-word],
+  [data-word] {
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+}
