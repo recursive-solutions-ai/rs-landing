@@ -37,16 +37,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html lang="en" data-theme="light">
-			<head>
-				<script dangerouslySetInnerHTML={{ __html: `
-					(function() {
-						var stored = localStorage.getItem('theme');
-						var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-						document.documentElement.setAttribute('data-theme', theme);
-					})();
-				` }} />
-			</head>
+		<html lang="en" data-theme="light" suppressHydrationWarning>
 			<body className="min-h-screen flex flex-col">
 				<GoogleAnalytics />
 				<GrowthEngineProvider>
