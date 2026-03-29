@@ -16,14 +16,14 @@ export default function BlogPostPage() {
 	const [post, setPost] = useState<BlogPost | null>(null)
 	const [loading, setLoading] = useState(true)
 	const [notFound, setNotFound] = useState(false)
-	const { posts: allPosts } = useContent('blog', { locale })
+	const { posts: allPosts } = useContent('blog')
 
 	useEffect(() => {
 		let cancelled = false
 
 		async function load() {
 			setLoading(true)
-			const result = await fetchBlog(params.slug, locale)
+			const result = await fetchBlog(params.slug)
 			if (cancelled) return
 			if (!result) {
 				setNotFound(true)
