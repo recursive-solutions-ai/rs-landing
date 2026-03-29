@@ -50,7 +50,7 @@ const fr: Dictionary = {
 	'footer.cookie.policy': 'Politique de cookies',
 	'footer.legal.notice': 'Mentions l\u00E9gales',
 	'footer.copyright': '\u00A9 {year} Recursive Solutions. Tous droits r\u00E9serv\u00E9s.',
-	'footer.powered.by': 'Propuls\u00E9 par Growth Engine',
+	'footer.powered.by': 'Nous aidons les bonnes personnes et les grandes entreprises \u00E0 non seulement survivre au futur \u2014 mais \u00E0 y prosp\u00E9rer.',
 
 	// Contact
 	'contact.heading': 'Contactez-nous',

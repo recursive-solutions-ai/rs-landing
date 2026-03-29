@@ -48,15 +48,17 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
 					{service.description}
 				</p>
 
-				{/* Learn more hint */}
-				<div className="mt-auto pt-4 flex items-center gap-1.5 text-sm font-semibold opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+				{/* Get started hint */}
+				<a
+					href="#contact"
+					className="mt-auto pt-4 flex items-center gap-1.5 text-sm font-semibold opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
 					style={{ color: useAccent ? "oklch(var(--a))" : "oklch(var(--p))" }}
 				>
-					Learn more
+					Get started
 					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
 						<path d="M5 12h14M12 5l7 7-7 7" />
 					</svg>
-				</div>
+				</a>
 			</div>
 		)
 	}

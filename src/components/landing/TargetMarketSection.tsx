@@ -50,8 +50,10 @@ export function TargetMarketSection() {
 					Who We Serve
 				</span>
 				<p className="text-2xl font-medium leading-relaxed text-base-content sm:text-3xl md:text-4xl">
-					We work with small and medium service businesses that know AI
-					matters — but haven&apos;t figured out how to use it yet.
+					We work with service businesses that know the future will be powered by AI — and need a partner to bring clarity to the noise.
+				</p>
+				<p className="mt-4 text-base text-base-content/50">
+					Typically 10–75 employees. $2M–$20M in revenue. Always improving.
 				</p>
 			</div>
 		</section>

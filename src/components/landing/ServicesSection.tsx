@@ -52,8 +52,8 @@ export function ServicesSection() {
 		>
 			<SectionHeading
 				tag="Our Services"
-				title="A Clear Path to AI Adoption"
-				subtitle="From your first assessment to fully managed AI agents — a service ladder designed to meet you where you are. Starting at $2,500."
+				title="We Don't Sell Solutions. We Find Them With You."
+				subtitle="Every engagement starts the same way — we sit down, learn your business, and pinpoint where AI actually moves the needle. Then we build the right path forward."
 				className="mb-16"
 			/>
 

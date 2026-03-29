@@ -15,8 +15,8 @@ export async function POST(request: Request) {
 
 	try {
 		const body = await request.json()
-		const { name, email, message } = body
-		console.log("[contact] payload:", { name, email, messageLength: message?.length })
+		const { name, email, phone, business, message } = body
+		console.log("[contact] payload:", { name, email, phone, business, messageLength: message?.length })
 
 		if (!name || !email || !message) {
 			console.warn("[contact] Missing required fields")
@@ -45,6 +45,8 @@ export async function POST(request: Request) {
 			text: [
 				`Name: ${name}`,
 				`Email: ${email}`,
+				...(phone ? [`Phone: ${phone}`] : []),
+				...(business ? [`Business: ${business}`] : []),
 				``,
 				`Message:`,
 				message,

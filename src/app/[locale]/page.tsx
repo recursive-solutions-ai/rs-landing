@@ -14,9 +14,9 @@ import { ContactCTASection } from "@/components/landing/ContactCTASection"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-	title: "Modern Systems for Growing Businesses | Recursive Solutions",
+	title: "Every Great Business Will Run on AI | Recursive Solutions",
 	description:
-		"We bridge the gap between knowing AI matters and knowing how to use it. AI consulting, advisory, and custom builds for service businesses.",
+		"We exist to help good people and great businesses not just survive the future — but thrive in it. AI consulting, advisory, and custom builds for service businesses.",
 }
 
 export default async function LandingPage() {

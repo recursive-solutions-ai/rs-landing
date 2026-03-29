@@ -46,7 +46,7 @@ export const services: ServiceItem[] = [
 		icon: faClipboardList,
 		title: "AI Opportunity Assessment",
 		description:
-			"We audit your workflows, identify high-impact AI opportunities, and deliver a prioritized roadmap so you know exactly where to start.",
+			"We get under the hood of your business — your workflows, your bottlenecks, your goals. You walk away with a clear, prioritized roadmap built around what actually matters to your operation.",
 		href: "#contact",
 	},
 	{
@@ -54,7 +54,7 @@ export const services: ServiceItem[] = [
 		icon: faComments,
 		title: "AI Advisory",
 		description:
-			"Ongoing strategic guidance — monthly sessions to help you evaluate, adopt, and manage AI across your business.",
+			"For businesses that want a partner in their corner as they navigate AI adoption. We help you evaluate, plan, and stay ahead — month by month.",
 		href: "#contact",
 	},
 	{
@@ -62,7 +62,7 @@ export const services: ServiceItem[] = [
 		icon: faCode,
 		title: "Custom AI Builds",
 		description:
-			"Bespoke AI development — we design and build custom systems tailored to your specific workflows and goals.",
+			"When the roadmap calls for something built specifically for you. Designed around your workflows, delivered to your team.",
 		href: "#contact",
 	},
 	{
@@ -70,7 +70,7 @@ export const services: ServiceItem[] = [
 		icon: faRobot,
 		title: "Dedicated Agent Deployment",
 		description:
-			"Managed AI agents embedded in your operations — we deploy, monitor, and optimize agents that work alongside your team.",
+			"A managed AI agent embedded in your operations — we deploy it, monitor it, and optimize it so it keeps getting better.",
 		href: "#contact",
 	},
 ]
@@ -78,26 +78,26 @@ export const services: ServiceItem[] = [
 export const processSteps: ProcessStep[] = [
 	{
 		step: 1,
-		title: "Audit",
-		description: "We map your current workflows and find the friction points where AI can make the biggest impact.",
+		title: "Discover",
+		description: "We sit down with you, learn how your business actually runs, and find the friction points where AI can make the biggest impact.",
 		icon: faMagnifyingGlass,
 	},
 	{
 		step: 2,
 		title: "Design",
-		description: "We architect the solution — choosing the right tools, integrations, and AI models for your needs.",
+		description: "We map the right solution — the tools, the integrations, and the approach — tailored to your operation, not off a shelf.",
 		icon: faPenRuler,
 	},
 	{
 		step: 3,
-		title: "Implement",
-		description: "We build and deploy your custom AI systems, integrating seamlessly with your existing stack.",
+		title: "Build",
+		description: "We develop and deploy your AI solution, integrating it into your existing workflows so your team can hit the ground running.",
 		icon: faGears,
 	},
 	{
 		step: 4,
 		title: "Optimize",
-		description: "We monitor, refine, and evolve your systems as your business grows and AI capabilities advance.",
+		description: "We monitor, refine, and evolve your systems as your business grows. Always improving.",
 		icon: faRocket,
 	},
 ]
@@ -122,14 +122,14 @@ export const outcomes: OutcomeItem[] = [
 		title: "Operational Intelligence",
 		category: "Data & Insights",
 		description:
-			"Dashboards and alerts that turn your raw business data into decisions. Spot trends, surface anomalies, act faster.",
+			"Dashboards and alerts that turn raw business data into decisions. Spot trends, surface anomalies, act faster.",
 	},
 	{
 		id: "outcome-4",
 		title: "Content & Communication",
 		category: "Marketing",
 		description:
-			"AI-assisted content creation, translation, and personalized outreach — at the speed your market demands.",
+			"AI-assisted content creation, translation, and personalized outreach — so your team produces more without burning out.",
 	},
 ]
 
@@ -138,21 +138,21 @@ export const team: TeamMember[] = [
 		image: "/jake.jpg",
 		name: "Jake",
 		role: "CEO & Strategy",
-		bio: "Experienced operator with a background in business strategy and technology adoption for growing companies.",
+		bio: "Built and scaled a tax advisory firm from the ground up. Now helps service businesses do what he did — use AI to grow smarter, not just bigger.",
 		initials: "J",
 	},
 	{
 		image: "/luc.jpg",
 		name: "Luc",
 		role: "COO & Operations",
-		bio: "Operations expert focused on turning complex AI capabilities into practical business tools.",
+		bio: "Spent his career making businesses run better. Obsessed with turning complex AI capabilities into simple, practical tools that teams actually use.",
 		initials: "L",
 	},
 	{
 		image: "/denis.jpg",
 		name: "Denis",
 		role: "CTO & AI Architecture",
-		bio: "AI architect and developer with a passion for building intelligent systems that solve real business problems.",
+		bio: "The builder. Designs and develops the AI systems that power everything we deliver — custom-built for real businesses, not theoretical use cases.",
 		initials: "D",
 	},
 ]

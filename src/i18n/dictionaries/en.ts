@@ -48,7 +48,7 @@ const en = {
 	'footer.cookie.policy': 'Cookie Policy',
 	'footer.legal.notice': 'Legal Notice',
 	'footer.copyright': '\u00A9 {year} Recursive Solutions. All rights reserved.',
-	'footer.powered.by': 'Powered by Growth Engine',
+	'footer.powered.by': 'We exist to help good people and great businesses not just survive the future — but thrive in it.',
 
 	// Contact
 	'contact.heading': 'Contact Us',

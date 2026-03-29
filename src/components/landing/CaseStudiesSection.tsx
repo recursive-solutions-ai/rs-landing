@@ -53,13 +53,13 @@ export function CaseStudiesSection() {
 	return (
 		<section
 			ref={sectionRef}
-			id="work"
+			id="results"
 			className="mx-auto max-w-7xl px-6 py-32"
 		>
 			<SectionHeading
 				tag="What We Deliver"
 				title="Real Outcomes, Not Demos"
-				subtitle="These are the results our service tiers produce — practical AI that changes how your team works every day."
+				subtitle="Practical AI that changes how your team works every day — not a pitch deck full of possibilities."
 				className="mb-16"
 			/>
 

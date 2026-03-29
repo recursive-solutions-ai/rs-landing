@@ -138,8 +138,8 @@ export function ProcessSection() {
 			<div className="mx-auto max-w-7xl px-6 py-32">
 				<SectionHeading
 					tag="How We Work"
-					title="From Audit to Optimization"
-					subtitle="A proven process that takes you from identifying opportunities to deploying production-ready AI systems."
+					title="From Discovery to Deployment"
+					subtitle="A simple, repeatable process. We learn your business, find the opportunities, build the solution, and keep it improving."
 					align="center"
 					className="mb-20 [&_h2]:text-dark-foreground [&_p]:text-dark-foreground/60 [&_span]:text-dark-foreground/80"
 				/>

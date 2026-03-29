@@ -67,6 +67,8 @@ export function ContactCTASection() {
 		const data = new FormData(form)
 		const name = data.get("name") as string
 		const email = data.get("email") as string
+		const phone = data.get("phone") as string
+		const business = data.get("business") as string
 		const message = data.get("message") as string
 
 		if (!name || !email || !message) {
@@ -79,7 +81,7 @@ export function ContactCTASection() {
 			const res = await fetch("/api/contact", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ name, email, message }),
+				body: JSON.stringify({ name, email, phone, business, message }),
 			})
 
 			if (!res.ok) {
@@ -105,7 +107,7 @@ export function ContactCTASection() {
 		>
 			<div ref={contentRef}>
 				<h2 className="mb-4 text-3xl font-bold md:text-5xl text-center text-base-content">
-					Ready to Get Started?
+					Let&apos;s Find Out What AI Can Do for Your Business
 				</h2>
 				<p className="mx-auto mb-12 max-w-xl text-lg text-base-content/60 md:text-xl text-center">
 					Two ways to take the next step — pick whichever fits.
@@ -121,8 +123,7 @@ export function ContactCTASection() {
 							Book a Discovery Meeting
 						</h3>
 						<p className="mb-8 text-primary-content/80 leading-relaxed">
-							A 30-minute call where we learn about your business and deliver
-							a free Website Analysis Report — no strings attached.
+							In 30 minutes, we&apos;ll learn about your business and hand you a Website Analysis Report — a real breakdown of where you stand and where AI could take you. No pitch. No commitment. Worst case, you walk away with free insight your competitors are paying for.
 						</p>
 
 						{status === "success" ? (
@@ -150,6 +151,17 @@ export function ContactCTASection() {
 									type="email"
 									placeholder="you@company.com"
 									required
+									className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
+								/>
+								<Input
+									name="phone"
+									type="tel"
+									placeholder="Phone number"
+									className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
+								/>
+								<Input
+									name="business"
+									placeholder="Business name"
 									className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
 								/>
 								<Textarea
@@ -190,29 +202,30 @@ export function ContactCTASection() {
 							AI Opportunity Assessment
 						</h3>
 						<p className="mb-8 text-base-content/70 leading-relaxed">
-							A deep dive into your workflows, tools, and team — we deliver a
-							prioritized AI roadmap with clear ROI projections and
-							implementation steps.
+							We dig into the operational pain points in your business — where you&apos;re losing time, leaving revenue on the table, or burning hours on work AI could handle. We don&apos;t come in with assumptions. We come in with questions.
 						</p>
 						<div className="mt-auto space-y-4">
 							<ul className="space-y-2 text-sm text-base-content/60">
 								<li className="flex items-start gap-2">
 									<span className="mt-0.5 text-primary">&#10003;</span>
-									Full workflow audit across your organization
+									Intake questionnaire tailored to your business
 								</li>
 								<li className="flex items-start gap-2">
 									<span className="mt-0.5 text-primary">&#10003;</span>
-									Prioritized AI opportunity map
+									Two consultant meetings to pinpoint problems and map solutions
 								</li>
 								<li className="flex items-start gap-2">
 									<span className="mt-0.5 text-primary">&#10003;</span>
-									ROI projections and implementation roadmap
+									Delivered AI Opportunity Assessment Report with prioritized recommendations
 								</li>
 								<li className="flex items-start gap-2">
 									<span className="mt-0.5 text-primary">&#10003;</span>
-									Executive presentation of findings
+									A clear picture of what to fix first and what it&apos;s worth to your bottom line
 								</li>
 							</ul>
+							<p className="text-sm text-base-content/50 italic">
+								Most businesses find 10x–20x the cost of this assessment in untapped opportunity.
+							</p>
 							<a
 								href="mailto:hello@recursivesolutions.com?subject=AI%20Opportunity%20Assessment"
 								className="btn btn-primary w-full border-none py-4 text-lg font-bold shadow-xl shadow-primary/20 transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.97]"

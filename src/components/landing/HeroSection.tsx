@@ -151,7 +151,7 @@ export function HeroSection() {
 					className={reducedMotion ? "" : "opacity-0"}
 				>
 					<span className="inline-block px-4 py-1.5 bg-base-content/10 backdrop-blur-sm text-base-content/80 text-xs font-bold rounded-full mb-8 uppercase tracking-widest border border-base-content/10">
-						For Service Businesses Ready to Scale
+						For Service Businesses Ready to Lead
 					</span>
 				</div>
 
@@ -161,8 +161,8 @@ export function HeroSection() {
 					className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-base-content mb-8 tracking-tight leading-[1.08] flex flex-wrap justify-center"
 				>
 					{(reducedMotion
-						? ["Modern Systems for Growing Businesses."]
-						: "Modern Systems for Growing Businesses.".split(/\s+/).filter(Boolean)
+						? ["Every Great Business Will Run on AI. We Get You There First."]
+						: "Every Great Business Will Run on AI. We Get You There First.".split(/\s+/).filter(Boolean)
 					).map((word, i, arr) => (
 						<span key={i}>
 							<span className="inline-block overflow-hidden align-bottom">
@@ -188,7 +188,7 @@ export function HeroSection() {
 						reducedMotion ? "" : "opacity-0"
 					}`}
 				>
-					We bridge the gap between knowing AI matters and knowing how to use it.
+					We exist to help good people and great businesses not just survive the future — but thrive in it.
 				</p>
 
 				{/* CTAs */}
