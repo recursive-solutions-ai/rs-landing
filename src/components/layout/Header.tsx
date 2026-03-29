@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useI18n } from '@/i18n/client'
 import { ThemeToggle } from './ThemeToggle'
-import { ThemeLogo } from './ThemeLogo'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 export function Header() {
@@ -20,8 +19,8 @@ export function Header() {
 	return (
 		<header className="navbar bg-base-100 shadow-sm border-b border-base-200 sticky top-0 z-50">
 			<div className="container mx-auto px-4 flex items-center justify-between">
-				<Link href={`/${locale}`}>
-					<ThemeLogo height={32} />
+				<Link href={`/${locale}`} className="text-xl font-bold text-primary">
+					{'Recursive Solutions'}
 				</Link>
 
 				{/* Desktop nav */}

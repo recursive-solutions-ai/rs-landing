@@ -1,79 +1,37 @@
-/**
- * Button — reusable button component with DaisyUI variants.
- *
- * Supports variant, size, modifier, loading, and disabled states.
- * Forwards ref and spreads all native button attributes.
- */
+import { type ButtonHTMLAttributes } from 'react'
+import { cn } from '@/lib/utils'
 
-import { forwardRef } from "react"
+const variants = {
+  default: 'btn-primary',
+  secondary: 'btn-secondary',
+  destructive: 'btn-error',
+  outline: 'btn-outline',
+  ghost: 'btn-ghost',
+  link: 'btn-link',
+} as const
 
-export type ButtonVariant =
-	| "primary"
-	| "secondary"
-	| "accent"
-	| "ghost"
-	| "outline"
-	| "error"
-	| "link"
-	| "info"
-	| "success"
-	| "warning"
-	| "neutral"
+const sizes = {
+  default: '',
+  sm: 'btn-sm',
+  lg: 'btn-lg',
+  icon: 'btn-square btn-sm',
+} as const
 
-export type ButtonSize = "xs" | "sm" | "md" | "lg"
-
-export type ButtonModifier = "block" | "square" | "circle" | "wide"
-
-export interface ButtonProps
-	extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	/** Visual variant mapped to DaisyUI btn-{variant} */
-	variant?: ButtonVariant
-	/** Size mapped to DaisyUI btn-{size} */
-	size?: ButtonSize
-	/** Shape/width modifier */
-	modifier?: ButtonModifier
-	/** Outline style (combines with variant for btn-outline) */
-	outline?: boolean
-	/** Shows a loading spinner and disables the button */
-	loading?: boolean
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: keyof typeof variants
+  size?: keyof typeof sizes
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-	function Button(
-		{
-			variant,
-			size,
-			modifier,
-			outline,
-			loading = false,
-			disabled,
-			className = "",
-			children,
-			...rest
-		},
-		ref
-	) {
-		const classes = [
-			"btn",
-			variant && `btn-${variant}`,
-			size && `btn-${size}`,
-			modifier && `btn-${modifier}`,
-			outline && "btn-outline",
-			className,
-		]
-			.filter(Boolean)
-			.join(" ")
-
-		return (
-			<button
-				ref={ref}
-				className={classes}
-				disabled={disabled || loading}
-				{...rest}
-			>
-				{loading && <span className="loading loading-spinner loading-sm" />}
-				{children}
-			</button>
-		)
-	}
-)
+export function Button({
+  className,
+  variant = 'default',
+  size = 'default',
+  ...props
+}: ButtonProps) {
+  return (
+    <button
+      className={cn('btn', variants[variant], sizes[size], className)}
+      {...props}
+    />
+  )
+}

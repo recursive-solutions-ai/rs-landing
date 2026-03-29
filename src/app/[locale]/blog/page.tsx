@@ -6,7 +6,7 @@ import { BlogList } from '@/components/blog/BlogList'
 
 export default function BlogPage() {
 	const { t, locale } = useI18n()
-	const { posts, loading, error } = useContent('blog')
+	const { posts, loading } = useContent('blog', { locale })
 
 	return (
 		<main className="container mx-auto px-4 py-12">
@@ -21,13 +21,7 @@ export default function BlogPage() {
 				</div>
 			)}
 
-			{error && (
-				<div className="alert alert-error max-w-md mx-auto">
-					<span>{t('blog.load.error', { error })}</span>
-				</div>
-			)}
-
-			{!loading && !error && <BlogList posts={posts} />}
+			{!loading && <BlogList posts={posts} />}
 		</main>
 	)
 }

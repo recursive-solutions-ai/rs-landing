@@ -1,0 +1,2143 @@
+[  395432ms] [WARNING] THREE.THREE.Clock: This module has been deprecated. Please use THREE.Timer instead. @ webpack-internal:///(app-pages-browser)/./node_modules/three/build/three.core.js:2445
+[  400566ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/api/rs/sdk-status:0
+[  612970ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  612970ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  612970ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613479ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613479ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613479ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613629ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613630ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613630ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613782ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613782ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613782ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613934ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613934ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  613934ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614057ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614057ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614057ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614181ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614181ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614181ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614337ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614337ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614337ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614500ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614501ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614501ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614653ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614653ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614653ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614783ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614783ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614783ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614921ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614921ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  614921ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615049ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615049ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615049ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615178ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615179ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615179ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615301ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615301ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615301ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615474ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615475ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615475ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615649ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615649ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615649ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615790ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615790ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615790ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615950ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615951ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  615951ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616078ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616078ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616078ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616208ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616208ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616208ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616327ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616327ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616328ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616464ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616465ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616465ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616590ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616590ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616590ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616731ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616732ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616732ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616831ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616831ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  616831ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617030ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617030ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617030ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617148ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617148ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617149ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617260ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617260ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617260ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617360ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617361ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617361ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617497ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617497ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617497ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617740ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617740ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  617740ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  618338ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  618338ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  618338ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  618692ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  618692ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  618692ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  618987ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  618987ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  618987ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  619446ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  619446ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  619446ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  619576ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  619577ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  619577ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  619825ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  619825ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  619825ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620059ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620060ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620060ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620161ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620161ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620161ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620286ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620286ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620286ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620403ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620403ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620403ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620589ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620589ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620589ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620709ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620709ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620709ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620826ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620827ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620827ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620925ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620925ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  620925ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621014ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621014ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621014ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621105ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621105ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621105ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621196ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621196ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621196ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621291ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621292ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621292ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621378ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621378ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621379ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621460ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621460ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621460ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621543ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621543ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621543ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621693ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621694ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621694ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621859ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621859ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621859ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621994ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621994ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  621994ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622092ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622092ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622092ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622186ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622186ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622186ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622282ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622282ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622282ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622380ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622380ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622380ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622478ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622478ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622478ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622577ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622577ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622577ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622668ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622669ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622669ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622760ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622760ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622760ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622867ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622867ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622867ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622972ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622972ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  622972ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623063ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623064ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623064ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623188ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623188ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623188ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623303ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623303ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623303ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623416ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623416ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623416ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623543ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623543ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623543ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623765ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623765ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  623765ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624027ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624027ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624027ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624232ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624232ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624232ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624360ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624360ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624360ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624485ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624485ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624485ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624847ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624848ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624848ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624999ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624999ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  624999ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625129ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625129ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625129ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625342ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625342ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625342ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625461ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625461ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625461ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625624ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625624ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625625ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625743ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625743ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625744ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625851ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625851ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625851ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625937ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625937ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  625938ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626043ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626043ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626043ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626139ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626139ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626139ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626234ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626234ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626234ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626416ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626416ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626416ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626520ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626520ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626520ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626624ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626624ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626624ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626729ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626729ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  626729ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  627248ms] [ERROR] ./node_modules/next/dist/lib/require-instrumentation-client.js:11:1
+Module not found: Can't resolve 'private-next-instrumentation-client'
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./node_modules/next/dist/client/app-next-dev.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  627248ms] [ERROR] ./node_modules/next/dist/client/components/metadata/async-metadata.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/async-metadata.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/async-metadata.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  627248ms] [ERROR] ./node_modules/next/dist/client/components/metadata/metadata-boundary.js
+Error: Failed to read source code from /Users/denisduvauchelle/Documents/code/rs-landing/node_modules/next/dist/client/components/metadata/metadata-boundary.js
+
+Caused by:
+    No such file or directory (os error 2)
+
+Import trace for requested module:
+./node_modules/next/dist/client/components/metadata/metadata-boundary.js @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/globals/intercept-console-error.js:49
+[  642620ms] [WARNING] THREE.THREE.Clock: This module has been deprecated. Please use THREE.Timer instead. @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_115brz8._.js:2431
+[  644857ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3000/api/rs/sdk-status:0

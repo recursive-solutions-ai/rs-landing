@@ -1,12 +1,18 @@
 'use client'
 
+import { useEffect } from 'react'
 import { useBusinessConfig } from '@growth-engine/sdk-client'
 import { useI18n } from '@/i18n/client'
 import { ConfigDisplay } from '@/components/config/ConfigDisplay'
+import { trackEvent } from '@/components/analytics/GoogleAnalytics'
 
 export default function ContactPage() {
 	const { t } = useI18n()
-	const { config, loading, error } = useBusinessConfig()
+	const { config, loading } = useBusinessConfig()
+
+	useEffect(() => {
+		trackEvent('contact_view')
+	}, [])
 
 	return (
 		<main className="container mx-auto px-4 py-12">
@@ -18,12 +24,6 @@ export default function ContactPage() {
 			{loading && (
 				<div className="flex justify-center py-16">
 					<span className="loading loading-spinner loading-lg" />
-				</div>
-			)}
-
-			{error && (
-				<div className="alert alert-error max-w-md mx-auto">
-					<span>{t('contact.load.error')}</span>
 				</div>
 			)}
 

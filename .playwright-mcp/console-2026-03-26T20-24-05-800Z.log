@@ -1,0 +1,837 @@
+[    6876ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <div className="flex flex-...">
+      <div className="flex-1 ord...">
+        <div className="relative w...">
+          <CardStack animationDuration={3} Wrapper={function Wrapper} cards={[...]}>
+            <div className="relative" ref={{current:null}}>
+              <div ref={{current:null}} onMouseEnter={function onMouseEnter} onMouseLeave={function onMouseLeave} ...>
+                <Wrapper>
+                  <div className="bg-white r...">
+                    <div className="w-full h-4...">
+                      <SocialMediaScrollAnimation>
+                        <div className="w-full h-f...">
+                          <div className="flex flex-..." style={{...}}>
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#63..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="heart"
+-                                   data-icon="trophy"
++                                   className={"svg-inline--fa fa-heart "}
+-                                   className={"svg-inline--fa fa-trophy "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 512 512"
+-                                   viewBox="0 0 576 512"
+                                    style={{color:"#631D76"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+-                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div>
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#BE..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="ban"
+-                                   data-icon="heart"
++                                   className={"svg-inline--fa fa-ban "}
+-                                   className={"svg-inline--fa fa-heart "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#BE3E82"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+-                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#F9..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="trophy"
+-                                   data-icon="ban"
++                                   className={"svg-inline--fa fa-trophy "}
+-                                   className={"svg-inline--fa fa-ban "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 576 512"
+-                                   viewBox="0 0 512 512"
+                                    style={{color:"#F9C80E"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+-                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div>
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#FE..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="thumbs-up"
+-                                   data-icon="trophy"
++                                   className={"svg-inline--fa fa-thumbs-up "}
+-                                   className={"svg-inline--fa fa-trophy "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 512 512"
+-                                   viewBox="0 0 576 512"
+                                    style={{color:"#FE9920"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+-                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#CF..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="ban"
+-                                   data-icon="heart"
++                                   className={"svg-inline--fa fa-ban "}
+-                                   className={"svg-inline--fa fa-heart "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#CFD11A"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+-                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div>
+                            <div>
+                            <div>
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#D1..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="thumbs-up"
+-                                   data-icon="trophy"
++                                   className={"svg-inline--fa fa-thumbs-up "}
+-                                   className={"svg-inline--fa fa-trophy "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 512 512"
+-                                   viewBox="0 0 576 512"
+                                    style={{color:"#D183C9"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+-                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#22..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="thumbs-up"
+-                                   data-icon="trophy"
++                                   className={"svg-inline--fa fa-thumbs-up "}
+-                                   className={"svg-inline--fa fa-trophy "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 512 512"
+-                                   viewBox="0 0 576 512"
+                                    style={{color:"#2292A4"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+-                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div>
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#AB..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="ban"
+-                                   data-icon="thumbs-up"
++                                   className={"svg-inline--fa fa-ban "}
+-                                   className={"svg-inline--fa fa-thumbs-up "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#AB3428"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+-                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#63..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="trophy"
+-                                   data-icon="heart"
++                                   className={"svg-inline--fa fa-trophy "}
+-                                   className={"svg-inline--fa fa-heart "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 576 512"
+-                                   viewBox="0 0 512 512"
+                                    style={{color:"#631D76"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+-                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#FE..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="heart"
+-                                   data-icon="ban"
++                                   className={"svg-inline--fa fa-heart "}
+-                                   className={"svg-inline--fa fa-ban "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#FE5F55"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+-                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#BE..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="heart"
+-                                   data-icon="trophy"
++                                   className={"svg-inline--fa fa-heart "}
+-                                   className={"svg-inline--fa fa-trophy "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 512 512"
+-                                   viewBox="0 0 576 512"
+                                    style={{color:"#BE3E82"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+-                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#F9..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="heart"
+-                                   data-icon="ban"
++                                   className={"svg-inline--fa fa-heart "}
+-                                   className={"svg-inline--fa fa-ban "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#F9C80E"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+-                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#49..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="heart"
+-                                   data-icon="trophy"
++                                   className={"svg-inline--fa fa-heart "}
+-                                   className={"svg-inline--fa fa-trophy "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 512 512"
+-                                   viewBox="0 0 576 512"
+                                    style={{color:"#496DDB"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+-                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#FE..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="trophy"
+-                                   data-icon="thumbs-up"
++                                   className={"svg-inline--fa fa-trophy "}
+-                                   className={"svg-inline--fa fa-thumbs-up "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 576 512"
+-                                   viewBox="0 0 512 512"
+                                    style={{color:"#FE9920"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+-                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+                                      style={{}}
+                                    >
+                                ...
+                            <div>
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#91..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="heart"
+-                                   data-icon="thumbs-up"
++                                   className={"svg-inline--fa fa-heart "}
+-                                   className={"svg-inline--fa fa-thumbs-up "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#91C499"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+-                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#9E..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="thumbs-up"
+-                                   data-icon="heart"
++                                   className={"svg-inline--fa fa-thumbs-up "}
+-                                   className={"svg-inline--fa fa-heart "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#9E768F"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+-                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#E5..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="heart"
+-                                   data-icon="thumbs-up"
++                                   className={"svg-inline--fa fa-heart "}
+-                                   className={"svg-inline--fa fa-thumbs-up "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#E55381"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+-                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+                                      style={{}}
+                                    >
+                                ...
+                            <div>
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#22..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="trophy"
+-                                   data-icon="heart"
++                                   className={"svg-inline--fa fa-trophy "}
+-                                   className={"svg-inline--fa fa-heart "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 576 512"
+-                                   viewBox="0 0 512 512"
+                                    style={{color:"#2292A4"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+-                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#7D..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="trophy"
+-                                   data-icon="heart"
++                                   className={"svg-inline--fa fa-trophy "}
+-                                   className={"svg-inline--fa fa-heart "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 576 512"
+-                                   viewBox="0 0 512 512"
+                                    style={{color:"#7DBBC3"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+-                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div>
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#63..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="trophy"
+-                                   data-icon="heart"
++                                   className={"svg-inline--fa fa-trophy "}
+-                                   className={"svg-inline--fa fa-heart "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 576 512"
+-                                   viewBox="0 0 512 512"
+                                    style={{color:"#631D76"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+-                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#FE..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="heart"
+-                                   data-icon="ban"
++                                   className={"svg-inline--fa fa-heart "}
+-                                   className={"svg-inline--fa fa-ban "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#FE5F55"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+-                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#BE..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="thumbs-up"
+-                                   data-icon="ban"
++                                   className={"svg-inline--fa fa-thumbs-up "}
+-                                   className={"svg-inline--fa fa-ban "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#BE3E82"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+-                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#F9..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="ban"
+-                                   data-icon="thumbs-up"
++                                   className={"svg-inline--fa fa-ban "}
+-                                   className={"svg-inline--fa fa-thumbs-up "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#F9C80E"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+-                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#49..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="ban"
+-                                   data-icon="thumbs-up"
++                                   className={"svg-inline--fa fa-ban "}
+-                                   className={"svg-inline--fa fa-thumbs-up "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#496DDB"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+-                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#FE..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="trophy"
+-                                   data-icon="heart"
++                                   className={"svg-inline--fa fa-trophy "}
+-                                   className={"svg-inline--fa fa-heart "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 576 512"
+-                                   viewBox="0 0 512 512"
+                                    style={{color:"#FE9920"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+-                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div>
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#91..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="thumbs-up"
+-                                   data-icon="trophy"
++                                   className={"svg-inline--fa fa-thumbs-up "}
+-                                   className={"svg-inline--fa fa-trophy "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
++                                   viewBox="0 0 512 512"
+-                                   viewBox="0 0 576 512"
+                                    style={{color:"#91C499"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+-                                     d="M400 0L176 0c-26.5 0-48.1 21.8-47.1 48.2c.2 5.3 .4 10.6 .7 15.8L24 64C10.7 64..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#9E..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="ban"
+-                                   data-icon="thumbs-up"
++                                   className={"svg-inline--fa fa-ban "}
+-                                   className={"svg-inline--fa fa-thumbs-up "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#9E768F"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+-                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#E5..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="thumbs-up"
+-                                   data-icon="heart"
++                                   className={"svg-inline--fa fa-thumbs-up "}
+-                                   className={"svg-inline--fa fa-heart "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#E55381"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M313.4 32.9c26 5.2 42.9 30.5 37.7 56.5l-2.3 11.4c-5.3 26.7-15.1 52.1-28.8 75...."
+-                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+                                      style={{}}
+                                    >
+                                ...
+                            <div className="flex flex-...">
+                              <div>
+                              <div className="flex-grow ...">
+                                <div>
+                                <div>
+                                <_c icon={{prefix:"fas", ...}} style={{color:"#D1..."}}>
+                                  <svg
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    data-prefix="fas"
++                                   data-icon="heart"
+-                                   data-icon="ban"
++                                   className={"svg-inline--fa fa-heart "}
+-                                   className={"svg-inline--fa fa-ban "}
+                                    role="img"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512"
+                                    style={{color:"#D183C9"}}
+                                    ref={null}
+                                  >
+                                    <path
+                                      fill="currentColor"
++                                     d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 30..."
+-                                     d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 ..."
+                                      style={{}}
+                                    >
+                                ...
+                            ...
+                      ...
+              ...
+      ...
+ @ http://localhost:5010/_next/static/chunks/node_modules_next_dist_280d2b94._.js:2081
