@@ -12,7 +12,7 @@ import {
 	DURATION_SLOW,
 } from "@/lib/animation-config"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
-import { ButtonLink } from "@/components/ui/ButtonLink"
+import { ButtonLink } from "@/components/ui/button-link"
 import { HeroBackground } from "./HeroBackground"
 
 /* ── HeroSection ────────────────────────────────────────────────────── */
