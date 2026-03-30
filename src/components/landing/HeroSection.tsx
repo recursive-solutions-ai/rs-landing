@@ -133,10 +133,8 @@ export function HeroSection() {
 
 			{/* Gradient overlay for text legibility */}
 			<div
-				className="absolute inset-0 z-1 pointer-events-none"
-				style={{
-					background: "var(--hero-overlay)",
-				}}
+				className="absolute inset-0 z-1 pointer-events-none bg-base-100/50 backdrop-blur-2xl"
+
 				aria-hidden="true"
 			/>
 
@@ -161,8 +159,8 @@ export function HeroSection() {
 					className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-base-content mb-8 tracking-tight leading-[1.08] flex flex-wrap justify-center"
 				>
 					{(reducedMotion
-						? ["Every Great Business Will Run on AI. We Get You There First."]
-						: "Every Great Business Will Run on AI. We Get You There First.".split(/\s+/).filter(Boolean)
+						? ["Modern Systems for Growing Businesses."]
+						: "Modern Systems for Growing Businesses.".split(/\s+/).filter(Boolean)
 					).map((word, i, arr) => (
 						<span key={i}>
 							<span className="inline-block overflow-hidden align-bottom">

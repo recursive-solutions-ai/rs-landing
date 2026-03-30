@@ -53,7 +53,7 @@ export function TargetMarketSection() {
 					We work with service businesses that know the future will be powered by AI — and need a partner to bring clarity to the noise.
 				</p>
 				<p className="mt-4 text-base text-base-content/50">
-					Typically 10–75 employees. $2M–$20M in revenue. Always improving.
+					Small and medium businesses. Always improving.
 				</p>
 			</div>
 		</section>
