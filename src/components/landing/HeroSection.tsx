@@ -151,7 +151,7 @@ export function HeroSection() {
 					className={reducedMotion ? "" : "opacity-0"}
 				>
 					<span className="inline-block px-4 py-1.5 bg-base-content/10 backdrop-blur-sm text-base-content/80 text-xs font-bold rounded-full mb-8 uppercase tracking-widest border border-base-content/10">
-						For Service Businesses Ready to Lead
+						For Service Businesses
 					</span>
 				</div>
 
@@ -184,9 +184,8 @@ export function HeroSection() {
 				{/* Subtitle */}
 				<p
 					ref={subtitleRef}
-					className={`text-lg md:text-xl text-base-content/60 mb-12 max-w-2xl mx-auto leading-relaxed font-medium ${
-						reducedMotion ? "" : "opacity-0"
-					}`}
+					className={`text-lg md:text-xl text-base-content/60 mb-12 max-w-2xl mx-auto leading-relaxed font-medium ${reducedMotion ? "" : "opacity-0"
+						}`}
 				>
 					We exist to help good people and great businesses not just survive the future — but thrive in it.
 				</p>
@@ -198,17 +197,15 @@ export function HeroSection() {
 				>
 					<ButtonLink
 						href="#contact"
-						className={`btn btn-primary px-10 py-4 rounded-2xl text-lg font-bold shadow-xl shadow-primary/30 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.97] transition-all duration-300 border-none h-auto ${
-							reducedMotion ? "" : "opacity-0"
-						}`}
+						className={`btn btn-primary px-10 py-4 rounded-2xl text-lg font-bold shadow-xl shadow-primary/30 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.97] transition-all duration-300 border-none h-auto ${reducedMotion ? "" : "opacity-0"
+							}`}
 					>
 						Book a Discovery Meeting
 					</ButtonLink>
 					<ButtonLink
 						href="#process"
-						className={`btn btn-ghost text-base-content border border-base-content/20 px-10 py-4 rounded-2xl text-lg font-bold hover:bg-base-content/10 hover:-translate-y-1 active:scale-[0.97] transition-all duration-300 h-auto ${
-							reducedMotion ? "" : "opacity-0"
-						}`}
+						className={`btn btn-ghost text-base-content border border-base-content/20 px-10 py-4 rounded-2xl text-lg font-bold hover:bg-base-content/10 hover:-translate-y-1 active:scale-[0.97] transition-all duration-300 h-auto ${reducedMotion ? "" : "opacity-0"
+							}`}
 					>
 						See How We Work
 					</ButtonLink>
