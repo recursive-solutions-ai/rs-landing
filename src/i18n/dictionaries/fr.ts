@@ -5,6 +5,7 @@ const fr: Dictionary = {
 	'nav.home': 'Accueil',
 	'nav.blog': 'Blog',
 	'nav.contact': 'Contact',
+	'nav.cta': 'Tracez votre croissance',
 
 	// Hero
 	'hero.title': 'Bienvenue chez Recursive Solutions',

@@ -32,6 +32,20 @@ export interface OutcomeItem {
 	description: string
 }
 
+export interface Testimonial {
+	quote: string
+	name: string
+	role: string
+	initials: string
+	accent: "primary" | "accent" | "neutral"
+}
+
+export interface ProofStat {
+	value: string
+	label: string
+	accent: "primary" | "accent" | "neutral"
+}
+
 export interface TeamMember {
 	name: string
 	role: string
@@ -79,25 +93,25 @@ export const processSteps: ProcessStep[] = [
 	{
 		step: 1,
 		title: "Discover",
-		description: "We sit down with you, learn how your business actually runs, and find the friction points where AI can make the biggest impact.",
+		description: "We find the friction points in your daily operation where AI moves the needle most. No guesswork.",
 		icon: faMagnifyingGlass,
 	},
 	{
 		step: 2,
 		title: "Design",
-		description: "We map the right solution — the tools, the integrations, and the approach — tailored to your operation, not off a shelf.",
+		description: "We architect a custom solution tailored to your team's specific tools and habits. A custom wiring diagram for growth.",
 		icon: faPenRuler,
 	},
 	{
 		step: 3,
 		title: "Build",
-		description: "We develop and deploy your AI solution, integrating it into your existing workflows so your team can hit the ground running.",
+		description: "We deploy your AI engine and integrate it directly into your existing workflow. We handle the plumbing.",
 		icon: faGears,
 	},
 	{
 		step: 4,
 		title: "Optimize",
-		description: "We monitor, refine, and evolve your systems as your business grows. Always improving.",
+		description: "We monitor and refine your system to ensure it keeps getting better as you grow. AI that learns your business.",
 		icon: faRocket,
 	},
 ]
@@ -130,6 +144,46 @@ export const outcomes: OutcomeItem[] = [
 		category: "Marketing",
 		description:
 			"AI-assisted content creation, translation, and personalized outreach — so your team produces more without burning out.",
+	},
+]
+
+export const proofStats: ProofStat[] = [
+	{ value: "25%", label: "More leads closed", accent: "primary" },
+	{ value: "15h", label: "Admin saved/week", accent: "accent" },
+]
+
+export const testimonials: Testimonial[] = [
+	{
+		quote:
+			"We were making decisions off gut instinct and reports that were already stale. Recursive built us a live KPI dashboard that updates automatically every month. Now I walk into every leadership meeting knowing exactly where we stand. It changed how we run the company.",
+		name: "CEO",
+		role: "Leadership Team",
+		initials: "CE",
+		accent: "primary",
+	},
+	{
+		quote:
+			"We needed to move our entire client base to a new billing model without losing revenue or relationships. Recursive built the migration system that made it possible. What would have taken months of manual work got done in weeks. Smoother than I ever expected.",
+		name: "Operations Lead",
+		role: "Client Migration",
+		initials: "OL",
+		accent: "accent",
+	},
+	{
+		quote:
+			"Our team was spending hours on tasks that should have taken minutes. Recursive came in, built AI tools directly into how our team works, and the difference showed up fast. Not in a report, but in how our people actually operate every day.",
+		name: "Team Director",
+		role: "Operations",
+		initials: "TD",
+		accent: "neutral",
+	},
+	{
+		quote:
+			"I knew we had inefficiencies. I just didn't know where. Recursive delivered us a blueprint with a clear diagnosis of how our business actually runs, a prioritized roadmap, and a team that could execute it. No fluff, just results.",
+		name: "Founder",
+		role: "Strategy Engagement",
+		initials: "FD",
+		accent: "primary",
 	},
 ]
 

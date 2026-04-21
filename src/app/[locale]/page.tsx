@@ -1,16 +1,13 @@
-/**
- * Landing page — the public home page at `/`.
- *
- * Studio Lumio-inspired redesign with GSAP animations and Three.js hero.
- */
 
 import { HeroSection } from "@/components/landing/HeroSection"
 import { TargetMarketSection } from "@/components/landing/TargetMarketSection"
 import { ServicesSection } from "@/components/landing/ServicesSection"
 import { ProcessSection } from "@/components/landing/ProcessSection"
 import { CaseStudiesSection } from "@/components/landing/CaseStudiesSection"
+import { ProofOfWorkSection } from "@/components/landing/ProofOfWorkSection"
 import { TeamSection } from "@/components/landing/TeamSection"
 import { ContactCTASection } from "@/components/landing/ContactCTASection"
+import { getForm } from "@/lib/forms-server"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -20,15 +17,19 @@ export const metadata: Metadata = {
 }
 
 export default async function LandingPage() {
+	const contactForm = await getForm("general-contact-form")
+
 	return (
 		<div className="no-scrollbar">
 			<HeroSection />
 			<TargetMarketSection />
-			<ServicesSection />
-			<ProcessSection />
+			{/* <ServicesSection /> */}
 			<CaseStudiesSection />
+
+			<ProcessSection />
+			<ProofOfWorkSection />
 			<TeamSection />
-			<ContactCTASection />
+			<ContactCTASection form={contactForm} />
 		</div>
 	)
 }

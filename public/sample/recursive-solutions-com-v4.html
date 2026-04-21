@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursive Solutions | Grow Your Business with AI Autopilot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00FFC2',    /* Alchemical Teal */
+                        secondary: '#0f96c2',
+                        accent: '#7B61FF',     /* Neural Purple */
+                        neutral: '#F5F7FA',    /* Atmospheric Gray */
+                        obsidian: '#0A0A0B',   /* Obsidian Core */
+                        'obsidian-gray': '#18181B'
+                    },
+                    fontFamily: {
+                        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    },
+                    letterSpacing: {
+                        tightest: '-0.02em',
+                    },
+                    boxShadow: {
+                        'glow': '0 0 30px rgba(0, 255, 194, 0.15)',
+                        'glow-heavy': '0 0 50px rgba(0, 255, 194, 0.25)',
+                        'accent-glow': '0 0 30px rgba(123, 97, 255, 0.15)'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --lamp-color: rgba(0, 255, 194, 0.4);
+            --primary-glow: rgba(0, 255, 194, 0.15);
+            --accent-glow: rgba(123, 97, 255, 0.15);
+        }
+
+        body {
+            background-color: #0A0A0B;
+            color: #F5F7FA;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Grain Texture Overlay */
+        .grain::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Lamp Animations */
+        @keyframes lamp-bloom {
+            from { width: 8rem; }
+            to { width: 16rem; }
+        }
+        @keyframes lamp-line {
+            from { width: 15rem; }
+            to { width: 30rem; }
+        }
+        @keyframes lamp-cone {
+            from { opacity: 0.5; width: 15rem; }
+            to { opacity: 1; width: 30rem; }
+        }
+        @keyframes lamp-rise {
+            from { transform: translateY(calc(100px - 5rem)); opacity: 0; }
+            to { transform: translateY(-5rem); opacity: 1; }
+        }
+
+        .lamp-anim {
+            animation-delay: 0.3s;
+            animation-duration: 0.8s;
+            animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+            animation-fill-mode: both;
+        }
+
+        /* CPU Architecture Animations */
+        .cpu-architecture { offset-rotate: 0deg; animation: cpu-move 3s linear infinite; }
+        @keyframes cpu-move { from { offset-distance: 0%; } to { offset-distance: 100%; } }
+        .cpu-line-1 { offset-path: path("M 10 20 h 79.5 q 5 0 5 5 v 24"); animation-delay: 0s; }
+        .cpu-line-2 { offset-path: path("M 180 10 h -69.7 q -5 0 -5 5 v 24"); animation-delay: -0.4s; }
+        .cpu-line-3 { offset-path: path("M 130 20 v 21.8 q 0 5 -5 5 h -10"); animation-delay: -0.8s; }
+        .cpu-line-4 { offset-path: path("M 170 80 v -21.8 q 0 -5 -5 -5 h -50"); animation-delay: -1.2s; }
+        .cpu-line-5 { offset-path: path("M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -20"); animation-delay: -1.6s; }
+        .cpu-line-6 { offset-path: path("M 94.8 95 v -36"); animation-delay: -2.0s; }
+        .cpu-line-7 { offset-path: path("M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 14"); animation-delay: -2.4s; }
+        .cpu-line-8 { offset-path: path("M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20"); animation-delay: -2.8s; }
+
+        /* Border Beam Animation */
+        @keyframes border-beam {
+            100% { offset-distance: 100%; }
+        }
+        .border-beam-element {
+            pointer-events: none;
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            border: calc(var(--border-width) * 1px) solid transparent;
+            -webkit-mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+            mask: linear-gradient(transparent, transparent), linear-gradient(white, white);
+            -webkit-mask-clip: padding-box, border-box;
+            mask-clip: padding-box, border-box;
+            -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+        }
+        .border-beam-element::after {
+            content: '';
+            position: absolute;
+            aspect-ratio: 1;
+            width: calc(var(--size) * 1px);
+            animation: border-beam calc(var(--duration) * 1s) linear infinite;
+            animation-delay: var(--delay);
+            background: linear-gradient(to left, var(--color-from), var(--color-to), transparent);
+            offset-anchor: calc(var(--anchor) * 1%) 50%;
+            offset-path: rect(0 auto auto 0 round calc(var(--size) * 1px));
+        }
+
+        /* Blueprint Grid */
+        .blueprint-grid {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Custom Reveal Animation (Terminal Unfold) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Magnetic Button Glow */
+        .mag-btn:hover {
+            box-shadow: 0 0 40px rgba(0, 255, 194, 0.3);
+            transform: scale(1.02);
+        }
+
+        /* Marquee */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-container {
+            display: flex;
+            width: fit-content;
+            animation: marquee 30s linear infinite;
+        }
+    </style>
+</head>
+<body class="grain">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 w-full z-[100] border-b border-white/5 bg-obsidian/80 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-primary rounded shadow-glow flex items-center justify-center">
+                    <span class="text-obsidian font-bold">R</span>
+                </div>
+                <span class="font-heading text-xl font-bold tracking-tightest">RECURSIVE SOLUTIONS</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral/60">
+                <a href="#problem" class="hover:text-primary transition-colors">Problem</a>
+                <a href="#solution" class="hover:text-primary transition-colors">Solution</a>
+                <a href="#how-it-works" class="hover:text-primary transition-colors">Process</a>
+                <a href="#services" class="hover:text-primary transition-colors">Services</a>
+            </div>
+            <a href="#audit" class="mag-btn bg-primary text-obsidian px-5 py-2.5 rounded text-sm font-bold shadow-glow transition-all">
+                FREE AI AUDIT
+            </a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative z-0 flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-obsidian pt-20">
+        
+        <!-- Lamp Effect -->
+        <div class="absolute top-0 isolate z-0 flex w-full flex-1 items-start justify-center">
+            <div class="absolute top-0 z-50 h-48 w-full bg-transparent opacity-10 backdrop-blur-md"></div>
+            <div class="absolute inset-auto z-50 h-36 w-[28rem] -translate-y-[-30%] rounded-full bg-primary/40 opacity-80 blur-3xl"></div>
+            <div class="lamp-anim" style="animation-name: lamp-bloom; position:absolute; top:0; height:9rem; background:var(--lamp-color); border-radius:9999px; filter:blur(40px); transform:translateY(-20%); z-index:30;"></div>
+            <div class="lamp-anim" style="animation-name: lamp-line; position:absolute; height:2px; background:var(--lamp-color); transform:translateY(10%); z-index:50;"></div>
+            
+            <!-- Cones -->
+            <div class="lamp-anim" style="animation-name: lamp-cone; position:absolute; right:50%; height:18rem; overflow:visible; background-image: conic-gradient(from 70deg at center top, var(--lamp-color), transparent, transparent); z-index:10;">
+                <div style="position:absolute;left:0;right:0;bottom:0;height:12rem;background:#0A0A0B; -webkit-mask-image:linear-gradient(to top,white,transparent); mask-image:linear-gradient(to top,white,transparent);z-index:20"></div>
+                <div style="position:absolute;left:0;top:0;bottom:0;width:12rem;background:#0A0A0B; -webkit-mask-image:linear-gradient(to right,white,transparent); mask-image:linear-gradient(to right,white,transparent);z-index:20"></div>
+            </div>
+            <div class="lamp-anim" style="animation-name: lamp-cone; position:absolute; left:50%; height:18rem; background-image: conic-gradient(from 290deg at center top, transparent, transparent, var(--lamp-color)); z-index:10;">
+                <div style="position:absolute;right:0;top:0;bottom:0;width:12rem;background:#0A0A0B; -webkit-mask-image:linear-gradient(to left,white,transparent); mask-image:linear-gradient(to left,white,transparent);z-index:20"></div>
+                <div style="position:absolute;left:0;right:0;bottom:0;height:12rem;background:#0A0A0B; -webkit-mask-image:linear-gradient(to top,white,transparent); mask-image:linear-gradient(to top,white,transparent);z-index:20"></div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="lamp-anim" style="animation-name: lamp-rise; position:relative; z-index:50; max-width:64rem; width:100%; display:flex; flex-direction:column; align-items:center; text-align:center; padding:0 1.5rem; gap:1.5rem;">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-bold tracking-widest uppercase mb-4">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                Practical AI for Operators
+            </div>
+            <h1 class="font-heading text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tightest leading-[1.05] text-white">
+                Grow Your Business with <span class="text-primary">AI Autopilot</span>
+            </h1>
+            <p class="text-lg md:text-xl text-neutral/60 max-w-3xl leading-relaxed">
+                We help service businesses silence the noise, pinpoint friction points, and activate practical systems that scale without burnout.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto">
+                <a href="#audit" class="mag-btn bg-primary text-obsidian px-8 py-4 rounded font-bold shadow-glow text-center">
+                    GET MY AI OPPORTUNITY AUDIT
+                </a>
+                <a href="#how-it-works" class="px-8 py-4 rounded border border-white/10 hover:bg-white/5 font-bold transition-all text-center">
+                    SEE OUR PROCESS
+                </a>
+            </div>
+            <p class="text-sm text-neutral/40 mt-4 flex items-center gap-2">
+                <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                Join 40+ service firms scaling smarter, not just bigger.
+            </p>
+        </div>
+    </section>
+
+    <!-- MARQUEE LOGOS -->
+    <div class="py-12 border-y border-white/5 bg-obsidian-gray overflow-hidden">
+        <div class="marquee-container gap-12 md:gap-24 items-center px-12 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
+            <!-- Mock Logos -->
+            <span class="text-2xl font-heading font-extrabold tracking-tighter">JENKINS & CO</span>
+            <span class="text-2xl font-heading font-extrabold tracking-tighter underline decoration-primary">THORNE ELECTRIC</span>
+            <span class="text-2xl font-heading font-extrabold tracking-tighter italic">MERIDIAN STUDIO</span>
+            <span class="text-2xl font-heading font-extrabold tracking-tighter">KOVA HEALTH</span>
+            <span class="text-2xl font-heading font-extrabold tracking-tighter">BRIGHTPATH</span>
+            <span class="text-2xl font-heading font-extrabold tracking-tighter">STRATOS OPS</span>
+            <!-- Duplicate for loop -->
+            <span class="text-2xl font-heading font-extrabold tracking-tighter">JENKINS & CO</span>
+            <span class="text-2xl font-heading font-extrabold tracking-tighter underline decoration-primary">THORNE ELECTRIC</span>
+            <span class="text-2xl font-heading font-extrabold tracking-tighter italic">MERIDIAN STUDIO</span>
+            <span class="text-2xl font-heading font-extrabold tracking-tighter">KOVA HEALTH</span>
+            <span class="text-2xl font-heading font-extrabold tracking-tighter">BRIGHTPATH</span>
+            <span class="text-2xl font-heading font-extrabold tracking-tighter">STRATOS OPS</span>
+        </div>
+    </div>
+
+    <!-- PROBLEM SECTION -->
+    <section id="problem" class="py-32 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal">
+                    <h2 class="text-accent font-bold uppercase tracking-widest text-sm mb-6">The High Cost of Noise</h2>
+                    <h3 class="font-heading text-4xl md:text-5xl font-bold leading-tight mb-8">
+                        The AI noise is deafening, but your team is still <span class="text-neutral/40 italic">drowning in manual work.</span>
+                    </h3>
+                    <div class="space-y-6 text-neutral/60 text-lg leading-relaxed">
+                        <p>
+                            You know the future is powered by AI, yet your daily operations are still trapped in repetitive tasks, fragmented data, and constant administrative overhead. 
+                        </p>
+                        <p>
+                            You're losing hours to work that doesn't actually grow your business. It feels like you’re falling behind while everyone else "figures it out."
+                        </p>
+                        <div class="p-6 border-l-2 border-accent/30 bg-accent/5 italic rounded-r-lg">
+                            The struggle to turn raw data into decisions isn't just a bottleneck—it’s a risk to your business's survival.
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal relative">
+                    <div class="aspect-square bg-obsidian-gray border border-white/5 rounded-2xl flex flex-col items-center justify-center p-8 overflow-hidden">
+                        <div class="w-full h-full relative opacity-50">
+                            <!-- Chaos Visualization -->
+                            <div class="absolute inset-0 blueprint-grid opacity-20"></div>
+                            <div class="absolute top-1/4 left-1/4 w-32 h-32 border border-accent/20 rounded-full animate-pulse blur-xl"></div>
+                            <div class="absolute bottom-1/4 right-1/4 w-48 h-48 border border-primary/20 rounded-full animate-pulse blur-xl" style="animation-delay: 1s"></div>
+                            
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="space-y-4 w-64">
+                                    <div class="h-10 bg-white/5 border border-white/10 rounded w-full flex items-center px-4 text-xs font-mono text-neutral/40">DATA FRAGMENTED...</div>
+                                    <div class="h-10 bg-white/5 border border-white/10 rounded w-4/5 flex items-center px-4 text-xs font-mono text-neutral/40">MANUAL ENTRY ERROR...</div>
+                                    <div class="h-10 bg-white/5 border border-white/10 rounded w-full flex items-center px-4 text-xs font-mono text-neutral/40">BOTTLENECK DETECTED</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Badge overlapping -->
+                    <div class="absolute -bottom-6 -left-6 bg-obsidian border border-white/10 p-6 rounded-xl shadow-2xl max-w-xs">
+                        <p class="text-xs font-bold uppercase tracking-widest text-accent mb-2">Pain Signal</p>
+                        <p class="text-sm text-neutral/80">"We're working harder but delivering the same. We need intelligence, not just more effort."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSITION ELEMENT -->
+    <div class="h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+
+    <!-- SOLUTION SECTION -->
+    <section id="solution" class="py-32 bg-obsidian relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24 reveal">
+                <h2 class="text-primary font-bold uppercase tracking-widest text-sm mb-6">The Operator's Approach</h2>
+                <h3 class="font-heading text-4xl md:text-6xl font-bold mb-8">Practical AI Built by Operators.</h3>
+                <p class="text-xl text-neutral/60 max-w-2xl mx-auto">
+                    We don't just sell tools; we find the high-impact friction points in your operation and wire them with intelligence.
+                </p>
+            </div>
+
+            <!-- CPU ARCHITECTURE VISUAL -->
+            <div class="mb-32 reveal">
+                <div class="relative bg-obsidian-gray/50 border border-white/5 rounded-3xl p-8 lg:p-16 overflow-hidden">
+                    <div class="absolute inset-0 blueprint-grid opacity-10"></div>
+                    <div class="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+                        <div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div class="space-y-3">
+                                    <div class="w-10 h-10 rounded bg-primary/10 flex items-center justify-center border border-primary/20">
+                                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    </div>
+                                    <h4 class="font-bold text-white">Reclaim 15+ Hours</h4>
+                                    <p class="text-sm text-neutral/50">Automate repetitive sales, ops, and admin tasks so your team can focus on advisory work.</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="w-10 h-10 rounded bg-accent/10 flex items-center justify-center border border-accent/20">
+                                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                    </div>
+                                    <h4 class="font-bold text-white">Decide Faster</h4>
+                                    <p class="text-sm text-neutral/50">Turn raw business metrics into live dashboards and alerts that tell you where to act.</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="w-10 h-10 rounded bg-primary/10 flex items-center justify-center border border-primary/20">
+                                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    </div>
+                                    <h4 class="font-bold text-white">Scale Without Hires</h4>
+                                    <p class="text-sm text-neutral/50">Deploy 24/7 intelligent agents that handle intake, support, and processing while you sleep.</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="w-10 h-10 rounded bg-accent/10 flex items-center justify-center border border-accent/20">
+                                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                    </div>
+                                    <h4 class="font-bold text-white">Custom Built</h4>
+                                    <p class="text-sm text-neutral/50">No "off-the-shelf" fluff. We build systems tailored to how your specific business actually runs.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative bg-black rounded-2xl p-4 border border-white/10 shadow-accent-glow">
+                            <div style="width:100%; color:#00FFC2">
+                                <svg width="100%" height="100%" viewBox="0 0 200 100">
+                                    <!-- CPU SVG Content from template -->
+                                    <g stroke="currentColor" fill="none" strokeWidth="0.3" strokeDasharray="100 100" pathLength="100" markerStart="url(#cpu-circle-marker)">
+                                        <path d="M 10 20 h 79.5 q 5 0 5 5 v 30" />
+                                        <path d="M 180 10 h -69.7 q -5 0 -5 5 v 30" />
+                                        <path d="M 130 20 v 21.8 q 0 5 -5 5 h -10" />
+                                        <path d="M 170 80 v -21.8 q 0 -5 -5 -5 h -50" />
+                                        <path d="M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -20" />
+                                        <path d="M 94.8 95 v -36" />
+                                        <path d="M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 14" />
+                                        <path d="M 30 30 h 25 q 5 0 5 5 v 6.5 q 0 5 5 5 h 20" />
+                                    </g>
+                                    <!-- Light Pulses -->
+                                    <g mask="url(#cpu-mask-1)"><circle class="cpu-architecture cpu-line-1" cx="0" cy="0" r="8" fill="url(#cpu-blue-grad)" /></g>
+                                    <g mask="url(#cpu-mask-2)"><circle class="cpu-architecture cpu-line-2" cx="0" cy="0" r="8" fill="url(#cpu-accent-grad)" /></g>
+                                    <g mask="url(#cpu-mask-3)"><circle class="cpu-architecture cpu-line-3" cx="0" cy="0" r="8" fill="url(#cpu-blue-grad)" /></g>
+                                    <g mask="url(#cpu-mask-4)"><circle class="cpu-architecture cpu-line-4" cx="0" cy="0" r="8" fill="url(#cpu-accent-grad)" /></g>
+                                    <!-- Box -->
+                                    <g>
+                                        <rect x="85" y="40" width="30" height="20" rx="2" fill="#181818" />
+                                        <text x="92" y="52.5" fontSize="7" fill="url(#cpu-text-gradient)" fontWeight="600">CORE</text>
+                                    </g>
+                                    <defs>
+                                        <mask id="cpu-mask-1"><path d="M 10 20 h 79.5 q 5 0 5 5 v 24" strokeWidth="0.5" stroke="white" /></mask>
+                                        <mask id="cpu-mask-2"><path d="M 180 10 h -69.7 q -5 0 -5 5 v 24" strokeWidth="0.5" stroke="white" /></mask>
+                                        <mask id="cpu-mask-3"><path d="M 130 20 v 21.8 q 0 5 -5 5 h -10" strokeWidth="0.5" stroke="white" /></mask>
+                                        <mask id="cpu-mask-4"><path d="M 170 80 v -21.8 q 0 -5 -5 -5 h -50" strokeWidth="0.5" stroke="white" /></mask>
+                                        <radialGradient id="cpu-blue-grad"><stop offset="0%" stopColor="#00FFC2" /><stop offset="100%" stopColor="transparent" /></radialGradient>
+                                        <radialGradient id="cpu-accent-grad"><stop offset="0%" stopColor="#7B61FF" /><stop offset="100%" stopColor="transparent" /></radialGradient>
+                                        <linearGradient id="cpu-text-gradient"><stop offset="0%" stopColor="#00FFC2" /><stop offset="100%" stopColor="white" /></linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-32 bg-obsidian-gray relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="reveal mb-20">
+                <h2 class="text-accent font-bold uppercase tracking-widest text-sm mb-6">Execution Lifecycle</h2>
+                <h3 class="font-heading text-4xl font-bold">The Blueprint for Scaling.</h3>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Step 1 -->
+                <div class="reveal p-8 bg-obsidian border border-white/5 rounded-2xl relative group hover:border-primary/30 transition-all duration-500">
+                    <div class="text-5xl font-heading font-black text-white/5 absolute top-4 right-8 group-hover:text-primary/10 transition-all">01</div>
+                    <h4 class="text-xl font-bold text-white mb-4">Discover</h4>
+                    <p class="text-neutral/50 text-sm leading-relaxed">
+                        We sit down to learn your business and pinpoint exactly where AI will have the biggest impact.
+                    </p>
+                    <div class="mt-8 h-1 w-0 bg-primary group-hover:w-full transition-all duration-700"></div>
+                </div>
+                <!-- Step 2 -->
+                <div class="reveal p-8 bg-obsidian border border-white/5 rounded-2xl relative group hover:border-accent/30 transition-all duration-500" style="transition-delay: 0.1s">
+                    <div class="text-5xl font-heading font-black text-white/5 absolute top-4 right-8 group-hover:text-accent/10 transition-all">02</div>
+                    <h4 class="text-xl font-bold text-white mb-4">Design</h4>
+                    <p class="text-neutral/50 text-sm leading-relaxed">
+                        We map out a custom blueprint of tools and integrations tailored to your specific operations.
+                    </p>
+                    <div class="mt-8 h-1 w-0 bg-accent group-hover:w-full transition-all duration-700"></div>
+                </div>
+                <!-- Step 3 -->
+                <div class="reveal p-8 bg-obsidian border border-white/5 rounded-2xl relative group hover:border-primary/30 transition-all duration-500" style="transition-delay: 0.2s">
+                    <div class="text-5xl font-heading font-black text-white/5 absolute top-4 right-8 group-hover:text-primary/10 transition-all">03</div>
+                    <h4 class="text-xl font-bold text-white mb-4">Build</h4>
+                    <p class="text-neutral/50 text-sm leading-relaxed">
+                        Our team develops and deploys your AI solution directly into your existing team's workflow.
+                    </p>
+                    <div class="mt-8 h-1 w-0 bg-primary group-hover:w-full transition-all duration-700"></div>
+                </div>
+                <!-- Step 4 -->
+                <div class="reveal p-8 bg-obsidian border border-white/5 rounded-2xl relative group hover:border-accent/30 transition-all duration-500" style="transition-delay: 0.3s">
+                    <div class="text-5xl font-heading font-black text-white/5 absolute top-4 right-8 group-hover:text-accent/10 transition-all">04</div>
+                    <h4 class="text-xl font-bold text-white mb-4">Optimize</h4>
+                    <p class="text-neutral/50 text-sm leading-relaxed">
+                        We monitor and refine your systems as you grow, ensuring the tech evolves with your business.
+                    </p>
+                    <div class="mt-8 h-1 w-0 bg-accent group-hover:w-full transition-all duration-700"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ASSESSMENT TOOL (HERO WIDGET) -->
+    <section id="audit" class="py-32 bg-obsidian overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal">
+                    <h2 class="text-primary font-bold uppercase tracking-widest text-sm mb-6">AI Opportunity Audit</h2>
+                    <h3 class="font-heading text-4xl md:text-5xl font-bold leading-tight mb-8">
+                        Find Your Biggest AI Growth Opportunity
+                    </h3>
+                    <p class="text-neutral/60 text-lg mb-8">
+                        Answer 5 quick questions about your operations to see exactly where AI can save your team the most time this month.
+                    </p>
+                    <div class="flex items-center gap-6 text-sm font-bold text-white/40">
+                        <div class="flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">1</span>
+                            Analyze
+                        </div>
+                        <div class="h-px w-8 bg-white/10"></div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">2</span>
+                            Identify
+                        </div>
+                        <div class="h-px w-8 bg-white/10"></div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">3</span>
+                            Report
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Widget -->
+                <div class="reveal relative">
+                    <div class="bg-obsidian-gray rounded-2xl border border-white/10 p-8 md:p-12 relative overflow-hidden shadow-accent-glow">
+                        <div class="border-beam-element" style="--size:300; --duration:8; --anchor:90; --border-width:2; --color-from:#00FFC2; --color-to:#7B61FF; --delay:0s;"></div>
+                        
+                        <div id="assessment-form">
+                            <!-- Step 1 -->
+                            <div class="step active" id="step-1">
+                                <label class="block text-xs font-bold uppercase tracking-widest text-primary mb-4">01. PRIMARY INDUSTRY</label>
+                                <div class="grid grid-cols-1 gap-3">
+                                    <button onclick="nextStep(2)" class="text-left p-4 bg-white/5 border border-white/10 rounded-lg hover:border-primary/50 transition-all">Professional Services</button>
+                                    <button onclick="nextStep(2)" class="text-left p-4 bg-white/5 border border-white/10 rounded-lg hover:border-primary/50 transition-all">SaaS / Tech</button>
+                                    <button onclick="nextStep(2)" class="text-left p-4 bg-white/5 border border-white/10 rounded-lg hover:border-primary/50 transition-all">Logistics / Supply Chain</button>
+                                    <button onclick="nextStep(2)" class="text-left p-4 bg-white/5 border border-white/10 rounded-lg hover:border-primary/50 transition-all">Other Service Business</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="step hidden" id="step-2">
+                                <label class="block text-xs font-bold uppercase tracking-widest text-primary mb-4">02. WEEKLY MANUAL ADMIN HOURS</label>
+                                <input type="range" min="1" max="100" value="20" class="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary mb-4" id="admin-hours">
+                                <div class="flex justify-between text-sm text-neutral/40 mb-8">
+                                    <span>1 hour</span>
+                                    <span class="text-primary font-bold"><span id="hour-val">20</span> hours</span>
+                                    <span>100+ hours</span>
+                                </div>
+                                <button onclick="nextStep(3)" class="w-full py-4 bg-primary text-obsidian font-bold rounded shadow-glow">CONTINUE</button>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="step hidden" id="step-3">
+                                <label class="block text-xs font-bold uppercase tracking-widest text-primary mb-4">03. CURRENT TEAM SIZE</label>
+                                <div class="grid grid-cols-2 gap-3 mb-8">
+                                    <button onclick="nextStep(4)" class="p-4 bg-white/5 border border-white/10 rounded-lg hover:border-primary/50 transition-all">1-5</button>
+                                    <button onclick="nextStep(4)" class="p-4 bg-white/5 border border-white/10 rounded-lg hover:border-primary/50 transition-all">6-20</button>
+                                    <button onclick="nextStep(4)" class="p-4 bg-white/5 border border-white/10 rounded-lg hover:border-primary/50 transition-all">21-50</button>
+                                    <button onclick="nextStep(4)" class="p-4 bg-white/5 border border-white/10 rounded-lg hover:border-primary/50 transition-all">50+</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="step hidden" id="step-4">
+                                <label class="block text-xs font-bold uppercase tracking-widest text-primary mb-4">04. MAIN OPERATIONAL BOTTLENECK</label>
+                                <div class="grid grid-cols-1 gap-3 mb-8">
+                                    <button onclick="nextStep(5)" class="text-left p-4 bg-white/5 border border-white/10 rounded-lg hover:border-primary/50 transition-all">Lead Intake & Support</button>
+                                    <button onclick="nextStep(5)" class="text-left p-4 bg-white/5 border border-white/10 rounded-lg hover:border-primary/50 transition-all">Data Processing / Reporting</button>
+                                    <button onclick="nextStep(5)" class="text-left p-4 bg-white/5 border border-white/10 rounded-lg hover:border-primary/50 transition-all">Sales Follow-up</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 5 -->
+                            <div class="step hidden" id="step-5">
+                                <label class="block text-xs font-bold uppercase tracking-widest text-primary mb-4">05. GET YOUR CUSTOM REPORT</label>
+                                <input type="email" placeholder="your@email.com" class="w-full p-4 bg-white/5 border border-white/10 rounded-lg mb-4 text-white focus:outline-none focus:border-primary" id="email">
+                                <button onclick="finishAssessment()" class="w-full py-4 bg-primary text-obsidian font-bold rounded shadow-glow">REVEAL MY OPPORTUNITIES</button>
+                            </div>
+
+                            <!-- Loading State -->
+                            <div class="step hidden text-center py-12" id="loading">
+                                <div class="w-16 h-16 border-4 border-primary/20 border-t-primary rounded-full animate-spin mx-auto mb-6"></div>
+                                <p class="text-xl font-bold text-white mb-2">Analyzing Operations...</p>
+                                <p class="text-sm text-neutral/40">Calculating potential ROI based on 40+ benchmarks</p>
+                            </div>
+
+                            <!-- Success State -->
+                            <div class="step hidden text-center py-12" id="success">
+                                <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary/30 shadow-glow">
+                                    <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </div>
+                                <h4 class="text-2xl font-bold text-white mb-4">Audit Initialized</h4>
+                                <p class="text-neutral/60 mb-8 leading-relaxed">
+                                    Our system identified <span class="text-primary font-bold">3 critical friction points</span>. Your custom breakdown is being delivered to your inbox now.
+                                </p>
+                                <a href="https://calendly.com" class="inline-block px-8 py-3 bg-white text-obsidian font-bold rounded">BOOK DISCOVERY CALL</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="py-32 bg-obsidian-gray">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-accent font-bold uppercase tracking-widest text-sm mb-6">Client Outcomes</h2>
+                <h3 class="font-heading text-4xl font-bold">Results Speak Louder than Hype.</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="reveal bg-obsidian border border-white/5 p-8 rounded-2xl relative shadow-2xl">
+                    <div class="absolute -top-4 -right-4 w-12 h-12 bg-accent/20 border border-accent/30 rounded flex items-center justify-center text-accent text-2xl font-black">"</div>
+                    <p class="text-lg text-neutral/80 italic mb-8 leading-relaxed">
+                        "Before working with the team, we were overwhelmed by manual client reporting. They built an AI agent that now handles 80% of our data processing. It saved our partners 20 hours a month and improved our accuracy by 35%."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-neutral/10 rounded-full border border-white/10 flex items-center justify-center font-bold text-neutral">SJ</div>
+                        <div>
+                            <p class="font-bold text-white">Sarah Jenkins</p>
+                            <p class="text-xs text-neutral/40 uppercase tracking-widest">Managing Partner @ Jenkins & Co.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="reveal bg-obsidian border border-white/5 p-8 rounded-2xl relative shadow-2xl" style="transition-delay: 0.2s">
+                    <div class="absolute -top-4 -right-4 w-12 h-12 bg-primary/20 border border-primary/30 rounded flex items-center justify-center text-primary text-2xl font-black">"</div>
+                    <p class="text-lg text-neutral/80 italic mb-8 leading-relaxed">
+                        "We needed a way to handle lead intake 24/7 without hiring a call center. The AI agents they deployed now book 40% more consultations than our manual process ever did. It paid for itself in three weeks."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-neutral/10 rounded-full border border-white/10 flex items-center justify-center font-bold text-neutral">MT</div>
+                        <div>
+                            <p class="font-bold text-white">Marc Thorne</p>
+                            <p class="text-xs text-neutral/40 uppercase tracking-widest">Director of Operations @ Thorne Electrical</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="reveal mb-20">
+                <h2 class="text-primary font-bold uppercase tracking-widest text-sm mb-6">Service Catalog</h2>
+                <h3 class="font-heading text-4xl font-bold">Strategic Implementations.</h3>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="reveal p-10 bg-obsidian-gray border border-white/5 rounded-2xl group hover:bg-obsidian transition-all">
+                    <h4 class="text-xl font-bold text-white mb-2">AI Opportunity Assessment</h4>
+                    <p class="text-neutral/50 mb-6">Get a prioritized roadmap of the highest-ROI AI wins inside your business.</p>
+                    <ul class="space-y-3 text-sm text-neutral/40">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-primary rounded-full"></div> Workflow analysis</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-primary rounded-full"></div> ROI projection</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-primary rounded-full"></div> Prioritized roadmap</li>
+                    </ul>
+                </div>
+                <div class="reveal p-10 bg-obsidian-gray border border-white/5 rounded-2xl group hover:bg-obsidian transition-all">
+                    <h4 class="text-xl font-bold text-white mb-2">Custom AI Agent Deployment</h4>
+                    <p class="text-neutral/50 mb-6">24/7 intelligent assistants for customer support, intake, or internal data processing.</p>
+                    <ul class="space-y-3 text-sm text-neutral/40">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Customer support agents</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Data extraction bots</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Internal knowledge bases</li>
+                    </ul>
+                </div>
+                <div class="reveal p-10 bg-obsidian-gray border border-white/5 rounded-2xl group hover:bg-obsidian transition-all">
+                    <h4 class="text-xl font-bold text-white mb-2">Workflow Automation</h4>
+                    <p class="text-neutral/50 mb-6">Eliminate "busy work" across your sales and admin departments with seamless integrations.</p>
+                    <ul class="space-y-3 text-sm text-neutral/40">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-primary rounded-full"></div> CRM automation</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-primary rounded-full"></div> Document processing</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-primary rounded-full"></div> Lead nurturing loops</li>
+                    </ul>
+                </div>
+                <div class="reveal p-10 bg-obsidian-gray border border-white/5 rounded-2xl group hover:bg-obsidian transition-all">
+                    <h4 class="text-xl font-bold text-white mb-2">Operational Intelligence</h4>
+                    <p class="text-neutral/50 mb-6">Custom dashboards that turn your fragmented data into clear, actionable business decisions.</p>
+                    <ul class="space-y-3 text-sm text-neutral/40">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Live performance tracking</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Predictive alerting</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 bg-accent rounded-full"></div> Automated weekly audits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-32 bg-obsidian relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-20 reveal">
+                <h3 class="font-heading text-4xl font-bold mb-6">Frequently Asked Questions</h3>
+                <p class="text-neutral/60">Clarity on the process and the partnership.</p>
+            </div>
+            <div class="space-y-4">
+                <div class="reveal bg-obsidian-gray border border-white/5 p-8 rounded-xl">
+                    <h4 class="font-bold text-white mb-4 italic">"Is my business too small for custom AI?"</h4>
+                    <p class="text-neutral/50 leading-relaxed">If you have a team spending more than 10 hours a week on repetitive tasks, you are exactly the right size. We specialize in helping SMBs grow smarter, not just bigger.</p>
+                </div>
+                <div class="reveal bg-obsidian-gray border border-white/5 p-8 rounded-xl">
+                    <h4 class="font-bold text-white mb-4 italic">"How much does this cost?"</h4>
+                    <p class="text-neutral/50 leading-relaxed">Every project is custom, but our focus is always on ROI. Most of our clients see their initial investment returned within 3 to 6 months through saved labor and increased lead conversion.</p>
+                </div>
+                <div class="reveal bg-obsidian-gray border border-white/5 p-8 rounded-xl">
+                    <h4 class="font-bold text-white mb-4 italic">"Will this replace my team?"</h4>
+                    <p class="text-neutral/50 leading-relaxed">No. We build AI to work alongside your team, removing the "robotic" parts of their jobs so they can focus on the human parts that drive your revenue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-40 bg-obsidian relative overflow-hidden">
+        <div class="absolute inset-0 blueprint-grid opacity-5"></div>
+        <div class="max-w-5xl mx-auto px-6 relative z-10 text-center">
+            <div class="reveal">
+                <h3 class="font-heading text-5xl md:text-7xl font-extrabold tracking-tightest mb-8">Stop Guessing. <span class="text-primary">Start Scaling.</span></h3>
+                <p class="text-xl text-neutral/60 mb-12 max-w-2xl mx-auto">
+                    Secure your 30-minute AI Opportunity Audit. We’ll learn your business and hand you a real breakdown of where you stand.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <a href="#audit" class="mag-btn bg-primary text-obsidian px-10 py-5 rounded-lg font-bold shadow-glow-heavy text-lg">
+                        GET MY AI OPPORTUNITY AUDIT
+                    </a>
+                    <a href="tel:5551234567" class="px-10 py-5 rounded-lg border border-white/10 hover:bg-white/5 font-bold transition-all text-lg">
+                        SPEAK TO AN OPERATOR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-20 border-t border-white/5 bg-obsidian">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
+                <div class="max-w-xs">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary rounded shadow-glow flex items-center justify-center">
+                            <span class="text-obsidian font-bold">R</span>
+                        </div>
+                        <span class="font-heading text-xl font-bold tracking-tightest">RECURSIVE SOLUTIONS</span>
+                    </div>
+                    <p class="text-sm text-neutral/40 leading-relaxed">
+                        Practical AI implementation for service businesses. We bridge the gap between technical capability and operational reality.
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-20">
+                    <div>
+                        <p class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Company</p>
+                        <ul class="space-y-4 text-sm text-neutral/60">
+                            <li><a href="#problem" class="hover:text-primary transition-colors">Our Approach</a></li>
+                            <li><a href="#solution" class="hover:text-primary transition-colors">Case Studies</a></li>
+                            <li><a href="#services" class="hover:text-primary transition-colors">Services</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Connect</p>
+                        <ul class="space-y-4 text-sm text-neutral/60">
+                            <li><a href="#" class="hover:text-primary transition-colors">LinkedIn</a></li>
+                            <li><a href="#" class="hover:text-primary transition-colors">Twitter</a></li>
+                            <li><a href="#" class="hover:text-primary transition-colors">Newsletter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 pt-12 border-t border-white/5 text-xs text-neutral/40">
+                <p>© 2026 Recursive Solutions. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Assessment Tool Logic
+        function nextStep(stepNum) {
+            document.querySelectorAll('.step').forEach(s => s.classList.add('hidden'));
+            document.getElementById(`step-${stepNum}`).classList.remove('hidden');
+        }
+
+        function finishAssessment() {
+            const email = document.getElementById('email').value;
+            if (!email) return alert('Please enter your email');
+            
+            document.querySelectorAll('.step').forEach(s => s.classList.add('hidden'));
+            document.getElementById('loading').classList.remove('hidden');
+            
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('success').classList.remove('hidden');
+            }, 2000);
+        }
+
+        // Admin Hours Slider
+        document.getElementById('admin-hours')?.addEventListener('input', (e) => {
+            document.getElementById('hour-val').textContent = e.target.value;
+        });
+    </script>
+</body>
+</html>

@@ -51,7 +51,7 @@ export function TeamSection() {
 		>
 			<SectionHeading
 				tag="Who We Are"
-				title="Built by Operators, Not Just Developers"
+				title="Built by Operators"
 				subtitle="We've spent our careers inside the businesses we now serve. We know what works because we've lived it."
 				className="mb-16"
 			/>

@@ -58,8 +58,8 @@ export function CaseStudiesSection() {
 		>
 			<SectionHeading
 				tag="What We Deliver"
-				title="Real Outcomes, Not Demos"
-				subtitle="Practical AI that changes how your team works every day — not a pitch deck full of possibilities."
+				title="Practical AI that changes how your team works every day"
+
 				className="mb-16"
 			/>
 

@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { useI18n } from '@/i18n/client'
-import { ThemeToggle } from './ThemeToggle'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeLogo } from './ThemeLogo'
 
@@ -13,12 +12,13 @@ export function Header() {
 
 	const NAV_LINKS = [
 		{ href: `/${locale}`, label: t('nav.home') },
-		{ href: '/#services', label: 'Services' },
-		{ href: '/#process', label: 'Process' },
-		{ href: '/#results', label: 'Results' },
-		{ href: `/${locale}/blog`, label: t('nav.blog') },
-		{ href: `/${locale}/contact`, label: t('nav.contact') },
+		{ href: `/${locale}#results`, label: 'Results' },
+		{ href: `/${locale}#process`, label: 'Process' },
+		{ href: `/${locale}#team`, label: 'Team' },
 	]
+
+	const ctaHref = `/${locale}#contact`
+	const ctaLabel = t('nav.cta')
 
 	return (
 		<header className="navbar bg-base-100 shadow-sm border-b border-base-200 sticky top-0 z-50">
@@ -39,7 +39,9 @@ export function Header() {
 						</Link>
 					))}
 					<LanguageSwitcher />
-					<ThemeToggle />
+					<Link href={ctaHref} className="btn btn-primary btn-sm">
+						{ctaLabel}
+					</Link>
 				</nav>
 
 				{/* Mobile hamburger */}
@@ -78,7 +80,13 @@ export function Header() {
 							</Link>
 						))}
 						<LanguageSwitcher />
-						<ThemeToggle />
+						<Link
+							href={ctaHref}
+							className="btn btn-primary btn-sm mt-2"
+							onClick={() => setMenuOpen(false)}
+						>
+							{ctaLabel}
+						</Link>
 					</nav>
 				</div>
 			)}

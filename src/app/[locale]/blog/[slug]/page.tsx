@@ -1,61 +1,52 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import { fetchBlog, useContent } from '@growth-engine/sdk-client'
-import type { BlogPost } from '@growth-engine/sdk-client'
-import { useI18n } from '@/i18n/client'
+import type { Metadata } from 'next'
+import { getDictionary, t } from '@/i18n'
 import { formatDate } from '@/lib/i18n-utils'
 import { BlogContent } from '@/components/blog/BlogContent'
 import { RelatedPosts } from '@/components/blog/RelatedPosts'
+import { getBlogPost, getBlogPosts } from '@/lib/blog-server'
 
-export default function BlogPostPage() {
-	const params = useParams<{ locale: string; slug: string }>()
-	const { t, locale } = useI18n()
-	const [post, setPost] = useState<BlogPost | null>(null)
-	const [loading, setLoading] = useState(true)
-	const [notFound, setNotFound] = useState(false)
-	const { posts: allPosts } = useContent('blog')
-
-	useEffect(() => {
-		let cancelled = false
-
-		async function load() {
-			setLoading(true)
-			const result = await fetchBlog(params.slug)
-			if (cancelled) return
-			if (!result) {
-				setNotFound(true)
-			} else {
-				setPost(result)
-			}
-			setLoading(false)
-		}
-
-		void load()
-		return () => { cancelled = true }
-	}, [params.slug, locale])
-
-	if (loading) {
-		return (
-			<main className="container mx-auto px-4 py-12">
-				<div className="flex justify-center py-16">
-					<span className="loading loading-spinner loading-lg" />
-				</div>
-			</main>
-		)
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string; slug: string }>
+}): Promise<Metadata> {
+	const { locale, slug } = await params
+	const post = await getBlogPost(slug, locale)
+	if (!post) return { title: 'Post not found' }
+	return {
+		title: post.seoTitle ?? post.title,
+		description: post.seoDesc ?? undefined,
+		openGraph: {
+			title: post.seoTitle ?? post.title,
+			description: post.seoDesc ?? undefined,
+			images: post.heroImageUrl ? [post.heroImageUrl] : undefined,
+			type: 'article',
+		},
 	}
+}
 
-	if (notFound || !post) {
+export default async function BlogPostPage({
+	params,
+}: {
+	params: Promise<{ locale: string; slug: string }>
+}) {
+	const { locale, slug } = await params
+	const dict = await getDictionary(locale)
+	const [post, allPosts] = await Promise.all([
+		getBlogPost(slug, locale),
+		getBlogPosts(locale),
+	])
+
+	if (!post) {
 		return (
 			<main className="container mx-auto px-4 py-12 text-center">
-				<h1 className="text-4xl font-bold mb-4">{t('blog.post.not.found')}</h1>
+				<h1 className="text-4xl font-bold mb-4">{t(dict, 'blog.post.not.found')}</h1>
 				<p className="text-base-content/60 mb-6">
-					{t('blog.post.not.found.description')}
+					{t(dict, 'blog.post.not.found.description')}
 				</p>
 				<Link href={`/${locale}/blog`} className="btn btn-primary">
-					{t('blog.back')}
+					{t(dict, 'blog.back')}
 				</Link>
 			</main>
 		)
@@ -67,13 +58,14 @@ export default function BlogPostPage() {
 		<main className="container mx-auto px-4 py-12">
 			<nav className="mb-8">
 				<Link href={`/${locale}/blog`} className="text-sm text-primary hover:underline">
-					← {t('blog.back')}
+					← {t(dict, 'blog.back')}
 				</Link>
 			</nav>
 
 			<article className="max-w-3xl mx-auto">
 				{post.heroImageUrl && (
 					<figure className="aspect-video overflow-hidden rounded-xl mb-8">
+						{/* eslint-disable-next-line @next/next/no-img-element */}
 						<img
 							src={post.heroImageUrl}
 							alt={post.title}
@@ -89,7 +81,7 @@ export default function BlogPostPage() {
 			</article>
 
 			<div className="max-w-5xl mx-auto">
-				<RelatedPosts posts={allPosts} currentSlug={params.slug} />
+				<RelatedPosts posts={allPosts} currentSlug={slug} />
 			</div>
 		</main>
 	)

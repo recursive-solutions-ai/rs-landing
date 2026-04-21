@@ -3,6 +3,7 @@ const en = {
 	'nav.home': 'Home',
 	'nav.blog': 'Blog',
 	'nav.contact': 'Contact',
+	'nav.cta': 'Map Your Growth',
 
 	// Hero
 	'hero.title': 'Welcome to Recursive Solutions',

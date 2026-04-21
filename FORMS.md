@@ -4,105 +4,99 @@ This guide covers how to build type-safe forms in your client site using the Gro
 
 ## How It Works
 
-1. You create forms visually in the **Brain portal** (fields, validation, settings)
-2. You run `npm run pull-forms` to generate TypeScript types and Zod schemas locally
-3. You build your form UI using the generated types and SDK hooks
-4. On submit, data is validated client-side (Zod) and server-side, then stored in your Turso database
-5. Submissions with email/name fields automatically create CRM contacts
+1. Every new tenant gets a **default "Contact Us" form** seeded automatically during onboarding
+2. You can create additional forms in the **Brain portal** (fields, validation, settings)
+3. Optionally run `pnpm pull-forms` to generate TypeScript types and Zod schemas for compile-time safety
+4. Use SDK hooks (`useForm`, `submitForm`) to render and submit forms — validation happens client-side (Zod) and server-side
+5. Submissions are stored in your Turso database, with automatic CRM contact creation, email notifications, and confirmation emails
+
+## Default Contact Form
+
+Every new tenant gets a pre-seeded contact form with slug `contact-form` containing:
+
+| Field | Type | Required |
+|-------|------|----------|
+| `name` | text | Yes |
+| `email` | email | Yes |
+| `message` | textarea | Yes |
+
+The scaffolded template includes two pages that use forms out of the box:
+
+- **`/contact`** — Dedicated contact page using the `contact-form` slug, with business info sidebar
+- **`/forms/[slug]`** — Dynamic form page that renders any form by slug from the URL
+
+Both pages auto-render fields from the form definition, validate on submit, and display the configured success message.
 
 ## Quick Start
 
-### 1. Create a form in the Brain portal
+### Option A: Use the built-in pages (zero code)
 
-Go to **Portal > Content > Forms** and click **+ New form**. Add fields using the form builder:
+The template's `/contact` page and `/forms/[slug]` page work immediately after onboarding. No code changes needed for the default contact form.
 
-| Field Type | Zod Validation | Notes |
-|------------|---------------|-------|
-| `text` | `z.string().min(1)` | General text input |
-| `email` | `z.string().email()` | Email validation |
-| `tel` | `z.string().min(1)` | Phone number |
-| `textarea` | `z.string().min(1)` | Multi-line text |
-| `select` | `z.enum([...options])` | Dropdown with defined options |
-| `checkbox` | `z.boolean()` | True/false toggle |
-| `number` | `z.coerce.number()` | Numeric input (coerced from string) |
-| `url` | `z.string().url()` | URL validation |
+To link to any form: `/forms/my-form-slug`
 
-Optional fields get `.optional()` appended automatically.
-
-### 2. Pull form definitions
-
-```bash
-npm run pull-forms
-```
-
-This fetches your form definitions from the Brain and generates `src/generated/forms.ts` containing:
-
-- **Zod schemas** for each form (e.g. `contactFormSchema`)
-- **TypeScript types** inferred from the schemas (e.g. `ContactFormData`)
-- **Slug constants** for type-safe form references (e.g. `FormSlugs.contactForm`)
-
-**Commit this file** so other developers get the types without needing Brain access.
-
-### 3. Build your form component
+### Option B: Build a custom form component
 
 ```tsx
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useForm, submitForm } from '@growth-engine/sdk-client'
-import { contactFormSchema, FormSlugs } from '@/generated/forms'
-import type { ContactFormData } from '@/generated/forms'
 
 export function ContactForm() {
-  const { form, loading } = useForm(FormSlugs.contactForm)
+  const { form, loading } = useForm('contact-form')
+  const [formData, setFormData] = useState<Record<string, unknown>>({})
   const [submitting, setSubmitting] = useState(false)
-  const [success, setSuccess] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
+  const [initialized, setInitialized] = useState(false)
 
-  if (loading || !form) return <div>Loading...</div>
+  useEffect(() => {
+    if (!form || initialized) return
+    const initial: Record<string, unknown> = {}
+    for (const field of form.fields) {
+      initial[field.name] = field.type === 'checkbox' ? false : ''
+    }
+    setFormData(initial)
+    setInitialized(true)
+  }, [form, initialized])
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function updateField(name: string, value: unknown) {
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setSubmitting(true)
-    setError(null)
+    setError('')
 
-    const formData = new FormData(e.currentTarget)
-    const data: Record<string, unknown> = {}
-    for (const field of form!.fields) {
-      if (field.type === 'checkbox') {
-        data[field.name] = formData.has(field.name)
-      } else if (field.type === 'number') {
-        data[field.name] = formData.get(field.name)
-      } else {
-        data[field.name] = formData.get(field.name) ?? ''
+    try {
+      const result = await submitForm('contact-form', formData)
+      if (!result.ok) {
+        if (result.validationErrors) {
+          setError(result.validationErrors.map((err) => err.message).join(', '))
+        } else {
+          setError(result.error ?? 'Something went wrong')
+        }
+        return
       }
-    }
-
-    // Validate locally first (optional — submitForm also validates)
-    const parsed = contactFormSchema.safeParse(data)
-    if (!parsed.success) {
-      setError(parsed.error.issues.map(i => i.message).join(', '))
+      setSubmitted(true)
+    } catch {
+      setError('Failed to submit. Please try again.')
+    } finally {
       setSubmitting(false)
-      return
-    }
-
-    const result = await submitForm(FormSlugs.contactForm, parsed.data)
-    setSubmitting(false)
-
-    if (result.ok) {
-      setSuccess(true)
-    } else {
-      setError(result.error ?? 'Submission failed')
     }
   }
 
-  if (success) {
+  if (loading || !form) return <div>Loading...</div>
+
+  if (submitted) {
     return <p>{form.settings?.successMessage ?? 'Thank you!'}</p>
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      {form.fields
+      {[...form.fields]
         .sort((a, b) => a.order - b.order)
         .map((field) => (
           <div key={field.name}>
@@ -114,34 +108,43 @@ export function ContactForm() {
             {field.type === 'textarea' ? (
               <textarea
                 id={field.name}
-                name={field.name}
-                placeholder={field.placeholder}
                 required={field.required}
+                placeholder={field.placeholder}
+                rows={4}
+                value={String(formData[field.name] ?? '')}
+                onChange={(e) => updateField(field.name, e.target.value)}
               />
             ) : field.type === 'select' ? (
               <select
                 id={field.name}
-                name={field.name}
                 required={field.required}
+                value={String(formData[field.name] ?? '')}
+                onChange={(e) => updateField(field.name, e.target.value)}
               >
-                <option value="">Select...</option>
-                {field.options?.map((opt) => (
+                <option value="">{field.placeholder ?? 'Select...'}</option>
+                {(field.options ?? []).map((opt) => (
                   <option key={opt} value={opt}>{opt}</option>
                 ))}
               </select>
             ) : field.type === 'checkbox' ? (
-              <input
-                id={field.name}
-                name={field.name}
-                type="checkbox"
-              />
+              <label>
+                <input
+                  type="checkbox"
+                  id={field.name}
+                  required={field.required}
+                  checked={Boolean(formData[field.name])}
+                  onChange={(e) => updateField(field.name, e.target.checked)}
+                />
+                <span>{field.placeholder}</span>
+              </label>
             ) : (
               <input
-                id={field.name}
-                name={field.name}
                 type={field.type}
-                placeholder={field.placeholder}
+                id={field.name}
                 required={field.required}
+                placeholder={field.placeholder}
+                value={String(formData[field.name] ?? '')}
+                onChange={(e) => updateField(field.name, e.target.value)}
               />
             )}
           </div>
@@ -156,6 +159,31 @@ export function ContactForm() {
   )
 }
 ```
+
+### Option C: Use generated types for compile-time safety
+
+For stronger TypeScript guarantees, pull form schemas locally:
+
+```bash
+pnpm pull-forms
+```
+
+This generates `src/generated/forms.ts` with Zod schemas, TypeScript types, and slug constants. See [Generated Types](#generated-types) for details.
+
+## Field Types
+
+| Field Type | Zod Validation | Notes |
+|------------|---------------|-------|
+| `text` | `z.string().min(1)` | General text input |
+| `email` | `z.string().email()` | Email validation |
+| `tel` | `z.string().min(1)` | Phone number |
+| `textarea` | `z.string().min(1)` | Multi-line text |
+| `select` | `z.enum([...options])` | Dropdown with defined options |
+| `checkbox` | `z.boolean()` | True/false toggle |
+| `number` | `z.coerce.number()` | Numeric input (coerced from string) |
+| `url` | `z.string().url()` | URL validation |
+
+Optional fields get `.optional()` appended automatically.
 
 ## API Reference
 
@@ -206,7 +234,8 @@ Validates form data against the schema and submits it. Validation runs client-si
 import { submitForm } from '@growth-engine/sdk-client'
 
 const result = await submitForm('contact-form', {
-  email: 'user@example.com',
+  name: 'Jane Doe',
+  email: 'jane@example.com',
   message: 'Hello!',
 })
 ```
@@ -244,9 +273,57 @@ All form API calls go through your app's SDK route at `/api/rs/forms`. This is a
 
 You never call these directly — the SDK hooks handle it.
 
+## What Happens on Submit
+
+When a form is submitted via `submitForm()`, the following occurs:
+
+1. **Client-side validation** — The SDK builds a Zod schema from the form's field definitions and validates data before sending
+2. **Server-side validation** — The SDK server checks all required fields are present
+3. **Submission stored** — The data is saved to the `formSubmissions` table in your Turso database
+4. **CRM contact created** (best-effort) — If the submission contains recognizable contact fields, a CRM contact is auto-created
+5. **Email notifications sent** (best-effort) — If `notifyEmails` is configured in form settings, notification emails are sent to those addresses via the Brain
+6. **Confirmation email sent** (best-effort) — If `sendConfirmationEmail` is enabled in form settings, a confirmation email is sent to the submitter's email address
+
+Steps 4-6 are best-effort: they run asynchronously and will not cause the submission to fail if they encounter an error.
+
+## Email Features
+
+### Admin Notifications
+
+Configure `notifyEmails` in the form settings (via the Brain portal) to send an email to one or more addresses whenever a submission comes in. The email includes all submitted field values and a timestamp.
+
+### Confirmation Emails
+
+Enable `sendConfirmationEmail` in the form settings to automatically email the person who submitted the form. Requires the form to have an `email`-type field.
+
+Customizable via form settings:
+
+- `confirmationEmailSubject` — Custom subject line (default: "Thank you for your submission to {formName}")
+- `confirmationEmailMessage` — Custom body message
+
+### Reply-To
+
+Set `replyToEmail` in form settings to control the reply-to address on notification emails.
+
+## CRM Integration
+
+When a form submission includes recognizable contact fields, the SDK server automatically creates a CRM contact. The following field name variants are detected (case-insensitive):
+
+| Contact Field | Recognized Names |
+|---------------|-----------------|
+| Email | `email`, `Email`, `e_mail` |
+| First Name | `firstName`, `first_name`, `name`, `Name` |
+| Last Name | `lastName`, `last_name` |
+| Phone | `phone`, `Phone`, `telephone` |
+| Company | `company`, `Company`, `organization` |
+
+Contacts are deduplicated by email address. If a contact with the same email already exists, no duplicate is created. The contact is linked to the submission via `source: 'form'` and `sourceId` pointing to the submission ID.
+
+This is best-effort — CRM errors will not cause the form submission to fail.
+
 ## Generated Types
 
-After running `npm run pull-forms`, the generated file looks like this:
+Running `pnpm pull-forms` generates `src/generated/forms.ts`:
 
 ```typescript
 // src/generated/forms.ts (auto-generated — do not edit manually)
@@ -255,52 +332,40 @@ import { z } from 'zod'
 
 // --- contact-form ---
 export const contactFormSchema = z.object({
-  first_name: z.string().min(1),
-  last_name: z.string().min(1),
+  name: z.string().min(1),
   email: z.string().email(),
-  company: z.string().optional(),
   message: z.string().min(1),
 })
 export type ContactFormData = z.infer<typeof contactFormSchema>
 
-// --- newsletter ---
-export const newsletterSchema = z.object({
-  email: z.string().email(),
-})
-export type NewsletterData = z.infer<typeof newsletterSchema>
-
 // Form slug constants
 export const FormSlugs = {
   contactForm: 'contact-form',
-  newsletter: 'newsletter',
 } as const
 export type FormSlug = (typeof FormSlugs)[keyof typeof FormSlugs]
 ```
 
-Use these generated types to get compile-time safety:
+Use these generated types for compile-time safety:
 
 ```tsx
-import { contactFormSchema } from '@/generated/forms'
+import { contactFormSchema, FormSlugs } from '@/generated/forms'
 import type { ContactFormData } from '@/generated/forms'
 
-// TypeScript knows the exact shape of your form data
 const data: ContactFormData = {
-  first_name: 'Jane',
-  last_name: 'Doe',
+  name: 'Jane Doe',
   email: 'jane@example.com',
   message: 'Hello!',
 }
 
-// Zod validates at runtime
 const parsed = contactFormSchema.safeParse(data)
 if (!parsed.success) {
   console.error(parsed.error.issues)
 }
 ```
 
-## Keeping Forms in Sync
+### Keeping Forms in Sync
 
-Run `npm run pull-forms` whenever you:
+Run `pnpm pull-forms` whenever you:
 
 - Create a new form in the Brain portal
 - Add, remove, or rename fields on an existing form
@@ -331,7 +396,7 @@ These types are available from `@growth-engine/types`:
 type FormFieldType = 'text' | 'email' | 'tel' | 'textarea' | 'select' | 'checkbox' | 'number' | 'url'
 
 interface FormField {
-  name: string          // snake_case field identifier
+  name: string          // Field identifier
   label: string         // Display label
   type: FormFieldType
   required: boolean
@@ -341,9 +406,13 @@ interface FormField {
 }
 
 interface FormSettings {
-  successMessage?: string     // Shown after successful submit
-  submitButtonText?: string   // Custom submit button text
-  notifyEmails?: string[]     // Email addresses to notify on submission
+  successMessage?: string              // Shown after successful submit
+  submitButtonText?: string            // Custom submit button text
+  notifyEmails?: string[]              // Email addresses to notify on submission
+  replyToEmail?: string                // Reply-to address for notification emails
+  sendConfirmationEmail?: boolean      // Send confirmation to the submitter
+  confirmationEmailSubject?: string    // Custom confirmation email subject
+  confirmationEmailMessage?: string    // Custom confirmation email body
 }
 
 interface Form {
@@ -367,6 +436,20 @@ interface FormSubmission {
 }
 ```
 
-## CRM Integration
+## Template Pages
 
-When a form submission includes fields named `email`, `first_name`, `last_name`, `phone`, or `company` (case-insensitive), the SDK server automatically creates a CRM contact. This happens transparently — it will not cause the form submission to fail if the CRM insert has an issue. Contacts are deduplicated by email address.
+The scaffolded client app includes two form pages:
+
+### Contact Page (`/contact`)
+
+- Uses the well-known slug `contact-form` (pre-seeded during onboarding)
+- Two-column layout: form on the left, business info on the right
+- Tracks analytics events: `contact_view` on page load, `contact_form_submit` on successful submit
+- Renders all fields dynamically from the form definition
+
+### Dynamic Form Page (`/forms/[slug]`)
+
+- Renders any form by slug from the URL
+- Shows form name and description
+- Handles loading, error (form not found), and success states
+- Works with any form created in the Brain portal

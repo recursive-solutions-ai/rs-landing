@@ -11,11 +11,38 @@ import {
 } from "@/lib/animation-config"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 import { Input, Textarea } from "@/components/ui"
+import { submitForm } from "@growth-engine/sdk-client"
+import type { FormDefinition, FormField } from "@/lib/forms-server"
 
-export function ContactCTASection() {
+const FALLBACK_FIELDS: FormField[] = [
+	{ name: "name", label: "Your name", type: "text", required: true, placeholder: "Your name", order: 0 },
+	{ name: "email", label: "Email address", type: "email", required: true, placeholder: "you@company.com", order: 1 },
+	{
+		name: "message",
+		label: "What's the biggest bottleneck slowing your team down?",
+		type: "textarea",
+		required: true,
+		placeholder: "(Optional) What's the biggest bottleneck slowing your team down?",
+		order: 2,
+	},
+]
+
+const FALLBACK_SLUG = "general-contact-form"
+
+interface ContactCTASectionProps {
+	form?: FormDefinition | null
+}
+
+export function ContactCTASection({ form }: ContactCTASectionProps) {
 	const sectionRef = useRef<HTMLElement>(null)
 	const contentRef = useRef<HTMLDivElement>(null)
 	const prefersReduced = useReducedMotion()
+
+	const slug = form?.slug ?? FALLBACK_SLUG
+	const fields = form?.fields?.length ? form.fields : FALLBACK_FIELDS
+	const settings = form?.settings ?? null
+	const submitLabel = settings?.submitButtonText ?? "Map My Growth"
+	const successMessage = settings?.successMessage ?? "We'll get back to you shortly."
 
 	const successRef = useRef<HTMLDivElement>(null)
 	const [status, setStatus] = useState<
@@ -23,7 +50,6 @@ export function ContactCTASection() {
 	>("idle")
 	const [errorMsg, setErrorMsg] = useState("")
 
-	// Animate success message entrance
 	useEffect(() => {
 		if (status === "success" && successRef.current && !prefersReduced) {
 			gsap.fromTo(
@@ -63,32 +89,42 @@ export function ContactCTASection() {
 		setStatus("loading")
 		setErrorMsg("")
 
-		const form = e.currentTarget
-		const data = new FormData(form)
-		const name = data.get("name") as string
-		const email = data.get("email") as string
-		const message = data.get("message") as string
+		const formEl = e.currentTarget
+		const formData = new FormData(formEl)
+		const data: Record<string, unknown> = {}
 
-		if (!name || !email || !message) {
+		for (const field of fields) {
+			const raw = formData.get(field.name)
+			if (field.type === "checkbox") {
+				data[field.name] = raw === "on" || raw === "true"
+			} else if (field.type === "number") {
+				data[field.name] = raw === null || raw === "" ? undefined : Number(raw)
+			} else {
+				data[field.name] = typeof raw === "string" ? raw : ""
+			}
+		}
+
+		const missing = fields.filter(
+			(f) => f.required && (data[f.name] === undefined || data[f.name] === "" || data[f.name] === false)
+		)
+		if (missing.length > 0) {
 			setStatus("error")
-			setErrorMsg("Please fill in all fields.")
+			setErrorMsg(`Please fill in: ${missing.map((f) => f.label).join(", ")}.`)
 			return
 		}
 
 		try {
-			const res = await fetch("/api/contact", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({ name, email, message }),
-			})
+			const result = await submitForm(slug, data)
 
-			if (!res.ok) {
-				const body = await res.json().catch(() => null)
-				throw new Error(body?.error || "Something went wrong.")
+			if (!result.ok) {
+				if (result.validationErrors) {
+					throw new Error(result.validationErrors.map((err) => err.message).join(", "))
+				}
+				throw new Error(result.error ?? "Something went wrong.")
 			}
 
 			setStatus("success")
-			form.reset()
+			formEl.reset()
 		} catch (err) {
 			setStatus("error")
 			setErrorMsg(
@@ -96,6 +132,9 @@ export function ContactCTASection() {
 			)
 		}
 	}
+
+	const fieldClass =
+		"bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
 
 	return (
 		<section
@@ -105,7 +144,7 @@ export function ContactCTASection() {
 		>
 			<div ref={contentRef}>
 				<h2 className="mb-4 text-3xl font-bold md:text-5xl text-center text-base-content">
-					Let&apos;s Find Out What AI Can Do for Your Business
+					Map Your Growth
 				</h2>
 				<p className="mx-auto mb-12 max-w-xl text-lg text-base-content/60 md:text-xl text-center">
 					Book a free 30-minute call — no pitch, no commitment.
@@ -113,9 +152,7 @@ export function ContactCTASection() {
 
 				<div className="mx-auto max-w-2xl">
 					<div className="overflow-hidden rounded-[2rem] bg-primary p-10 text-primary-content shadow-2xl md:p-12">
-						<h3 className="mb-3 text-2xl font-bold">
-							Book a Discovery Meeting
-						</h3>
+
 						<p className="mb-8 text-primary-content/80 leading-relaxed">
 							In 30 minutes, we&apos;ll learn about your business and hand you a Website Analysis Report — a real breakdown of where you stand and where AI could take you. Worst case, you walk away with free insight your competitors are paying for.
 						</p>
@@ -125,50 +162,60 @@ export function ContactCTASection() {
 								<p className="text-2xl font-semibold mb-2">
 									Message sent!
 								</p>
-								<p className="text-primary-content/80">
-									We&apos;ll get back to you shortly.
-								</p>
+								<p className="text-primary-content/80">{successMessage}</p>
 							</div>
 						) : (
-							<form
-								onSubmit={handleSubmit}
-								className="space-y-4"
-							>
-								<div>
-									<label htmlFor="contact-name" className="sr-only">Your name</label>
-									<Input
-										id="contact-name"
-										name="name"
-										placeholder="Your name"
-										required
-										aria-required="true"
-										className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
-									/>
-								</div>
-								<div>
-									<label htmlFor="contact-email" className="sr-only">Email address</label>
-									<Input
-										id="contact-email"
-										name="email"
-										type="email"
-										placeholder="you@company.com"
-										required
-										aria-required="true"
-										className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
-									/>
-								</div>
-								<div>
-									<label htmlFor="contact-message" className="sr-only">What&apos;s the biggest bottleneck slowing your team down?</label>
-									<Textarea
-										id="contact-message"
-										name="message"
-										placeholder="(Optional) What's the biggest bottleneck slowing your team down?"
-										rows={3}
-										required
-										aria-required="true"
-										className="bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
-									/>
-								</div>
+							<form onSubmit={handleSubmit} className="space-y-4">
+								{fields.map((field) => {
+									const id = `contact-${field.name}`
+									const commonProps = {
+										id,
+										name: field.name,
+										placeholder: field.placeholder ?? field.label,
+										required: field.required,
+										"aria-required": field.required,
+										className: fieldClass,
+									}
+
+									return (
+										<div key={field.name}>
+											<label htmlFor={id} className="sr-only">
+												{field.label}
+											</label>
+											{field.type === "textarea" ? (
+												<Textarea rows={3} {...commonProps} />
+											) : field.type === "select" ? (
+												<select
+													{...commonProps}
+													className={`select select-bordered w-full ${fieldClass}`}
+													defaultValue=""
+												>
+													<option value="" disabled>
+														{field.placeholder ?? "Select..."}
+													</option>
+													{(field.options ?? []).map((opt) => (
+														<option key={opt} value={opt}>
+															{opt}
+														</option>
+													))}
+												</select>
+											) : field.type === "checkbox" ? (
+												<label className="flex items-center gap-3 text-primary-content/90">
+													<input
+														type="checkbox"
+														id={id}
+														name={field.name}
+														required={field.required}
+														className="checkbox checkbox-sm"
+													/>
+													<span>{field.placeholder ?? field.label}</span>
+												</label>
+											) : (
+												<Input type={field.type} {...commonProps} />
+											)}
+										</div>
+									)
+								})}
 
 								{status === "error" && errorMsg && (
 									<p className="text-sm text-error-content bg-error/80 rounded-lg px-4 py-2">
@@ -184,7 +231,7 @@ export function ContactCTASection() {
 									{status === "loading" ? (
 										<span className="loading loading-spinner loading-md" />
 									) : (
-										"Book My Free Discovery Meeting"
+										submitLabel
 									)}
 								</button>
 							</form>

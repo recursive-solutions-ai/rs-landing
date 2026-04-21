@@ -1,27 +1,24 @@
-'use client'
-
-import { useContent } from '@growth-engine/sdk-client'
-import { useI18n } from '@/i18n/client'
 import { BlogList } from '@/components/blog/BlogList'
+import { getDictionary, t } from '@/i18n'
+import { getBlogPosts } from '@/lib/blog-server'
 
-export default function BlogPage() {
-	const { t, locale } = useI18n()
-	const { posts, loading } = useContent('blog')
+export default async function BlogPage({
+	params,
+}: {
+	params: Promise<{ locale: string }>
+}) {
+	const { locale } = await params
+	const dict = await getDictionary(locale)
+	const posts = await getBlogPosts(locale)
 
 	return (
 		<main className="container mx-auto px-4 py-12">
-			<h1 className="text-4xl font-bold text-center mb-2">{t('blog.heading')}</h1>
+			<h1 className="text-4xl font-bold text-center mb-2">{t(dict, 'blog.heading')}</h1>
 			<p className="text-center text-base-content/60 mb-10">
-				{t('blog.subtitle')}
+				{t(dict, 'blog.subtitle')}
 			</p>
 
-			{loading && (
-				<div className="flex justify-center py-16">
-					<span className="loading loading-spinner loading-lg" />
-				</div>
-			)}
-
-			{!loading && <BlogList posts={posts} />}
+			<BlogList posts={posts} />
 		</main>
 	)
 }
