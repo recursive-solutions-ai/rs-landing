@@ -192,7 +192,7 @@ export const team: TeamMember[] = [
 		image: "/jake.jpg",
 		name: "Jake",
 		role: "CEO & Strategy",
-		bio: "Built and scaled a tax advisory firm from the ground up. Now helps service businesses do what he did — use AI to grow smarter, not just bigger.",
+		bio: "Rebuilt a service business from the ground up: systems, team, and operations. Now does the same for other service businesses, using AI to cut waste, accelerate growth, and scale without adding headcount.",
 		initials: "J",
 	},
 	{
