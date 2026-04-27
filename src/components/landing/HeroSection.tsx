@@ -190,7 +190,7 @@ export function HeroSection() {
 						: "The AI Integrator for Growing Businesses".split(/\s+/).filter(Boolean)
 					).map((word, i, arr) => (
 						<span key={i}>
-							<span className="inline-block overflow-hidden align-bottom">
+							<span className="inline-block overflow-hidden align-bottom reveal-mask">
 								<span
 									data-hero-word=""
 									className="inline-block"

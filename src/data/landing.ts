@@ -93,7 +93,7 @@ export const processSteps: ProcessStep[] = [
 	{
 		step: 1,
 		title: "Discover",
-		description: "We find the friction points in your daily operation where AI moves the needle most. No guesswork.",
+		description: "We find the friction points in your daily operation where AI moves the needle most.",
 		icon: faMagnifyingGlass,
 	},
 	{
@@ -104,14 +104,14 @@ export const processSteps: ProcessStep[] = [
 	},
 	{
 		step: 3,
-		title: "Build",
-		description: "We deploy your AI engine and integrate it directly into your existing workflow. We handle the plumbing.",
+		title: "Execute",
+		description: "We deploy your AI engine and integrate it directly into your existing workflow.",
 		icon: faGears,
 	},
 	{
 		step: 4,
 		title: "Optimize",
-		description: "We monitor and refine your system to ensure it keeps getting better as you grow. AI that learns your business.",
+		description: "We monitor and refine your system to ensure it keeps getting better as you grow.",
 		icon: faRocket,
 	},
 ]
@@ -155,6 +155,14 @@ export const proofStats: ProofStat[] = [
 export const testimonials: Testimonial[] = [
 	{
 		quote:
+			"I knew we had inefficiencies. I just didn't know where. Recursive delivered us a blueprint with a clear diagnosis of how our business actually runs, a prioritized roadmap, and a team that could execute it. No fluff, just results.",
+		name: "Founder",
+		role: "Strategy Engagement",
+		initials: "FD",
+		accent: "primary",
+	},
+	{
+		quote:
 			"We were making decisions off gut instinct and reports that were already stale. Recursive built us a live KPI dashboard that updates automatically every month. Now I walk into every leadership meeting knowing exactly where we stand. It changed how we run the company.",
 		name: "CEO",
 		role: "Leadership Team",
@@ -177,14 +185,7 @@ export const testimonials: Testimonial[] = [
 		initials: "TD",
 		accent: "neutral",
 	},
-	{
-		quote:
-			"I knew we had inefficiencies. I just didn't know where. Recursive delivered us a blueprint with a clear diagnosis of how our business actually runs, a prioritized roadmap, and a team that could execute it. No fluff, just results.",
-		name: "Founder",
-		role: "Strategy Engagement",
-		initials: "FD",
-		accent: "primary",
-	},
+
 ]
 
 export const team: TeamMember[] = [

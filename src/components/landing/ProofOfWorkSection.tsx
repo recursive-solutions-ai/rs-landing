@@ -92,7 +92,7 @@ export function ProofOfWorkSection() {
 					<div>
 						<SectionHeading
 							tag="Proof of Work"
-							title="Results that speak the language of business"
+							title="Results that speak"
 							subtitle="See how service leaders are using practical AI to grow smarter, not just bigger."
 							align="left"
 							className="mb-12"

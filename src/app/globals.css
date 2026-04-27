@@ -46,6 +46,15 @@ body {
   animation: lamp-fade-in 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
 }
 
+/* Word-reveal mask: keeps overflow-hidden + clip-path animations from
+   shaving descenders (g, y, p, etc.). Extends the wrapper and its inner
+   clip-path child below the baseline, then pulls layout back up. */
+.reveal-mask,
+.reveal-mask > span {
+  padding-bottom: 0.25em;
+  margin-bottom: -0.25em;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .lamp-fade {
     animation: none !important;

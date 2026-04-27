@@ -127,7 +127,7 @@ export function TestimonialsSection() {
 						ref={wordsContainerRef}
 						className="mb-12 flex flex-wrap justify-center text-3xl font-light italic leading-relaxed text-dark-foreground md:text-5xl"
 					>
-						<span className="inline-block overflow-hidden">
+						<span className="inline-block overflow-hidden reveal-mask">
 							<span
 								data-word=""
 								className="inline-block will-change-[clip-path]"
@@ -139,7 +139,7 @@ export function TestimonialsSection() {
 						{words.map((word, i) => (
 							<span
 								key={`${word}-${i}`}
-								className="inline-block overflow-hidden"
+								className="inline-block overflow-hidden reveal-mask"
 							>
 								<span
 									data-word=""
@@ -153,7 +153,7 @@ export function TestimonialsSection() {
 								)}
 							</span>
 						))}
-						<span className="inline-block overflow-hidden">
+						<span className="inline-block overflow-hidden reveal-mask">
 							<span
 								data-word=""
 								className="inline-block will-change-[clip-path]"

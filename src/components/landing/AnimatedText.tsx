@@ -89,7 +89,7 @@ export function AnimatedText({
 			className={cn("flex flex-wrap", className)}
 		>
 			{words.map((word, i) => (
-				<span key={`${word}-${i}`} className="inline-block overflow-hidden">
+				<span key={`${word}-${i}`} className="inline-block overflow-hidden reveal-mask">
 					<span
 						data-animated-word=""
 						className="inline-block will-change-[clip-path]"
