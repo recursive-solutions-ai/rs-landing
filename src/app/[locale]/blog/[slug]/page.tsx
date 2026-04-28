@@ -1,10 +1,17 @@
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import {
+	getBlogPost,
+	getBlogPosts,
+	getBusinessConfig,
+} from '@growth-engine/sdk-server'
+import { BlogContent, RelatedPosts } from '@growth-engine/sdk-client/components'
 import { getDictionary, t } from '@/i18n'
+import { getDb } from '@/lib/db'
 import { formatDate } from '@/lib/i18n-utils'
-import { BlogContent } from '@/components/blog/BlogContent'
-import { RelatedPosts } from '@/components/blog/RelatedPosts'
-import { getBlogPost, getBlogPosts } from '@/lib/blog-server'
+
+export const revalidate = 120
 
 export async function generateMetadata({
 	params,
@@ -12,7 +19,8 @@ export async function generateMetadata({
 	params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
 	const { locale, slug } = await params
-	const post = await getBlogPost(slug, locale)
+	const db = getDb()
+	const post = await getBlogPost(db, slug, locale)
 	if (!post) return { title: 'Post not found' }
 	return {
 		title: post.seoTitle ?? post.title,
@@ -33,24 +41,15 @@ export default async function BlogPostPage({
 }) {
 	const { locale, slug } = await params
 	const dict = await getDictionary(locale)
-	const [post, allPosts] = await Promise.all([
-		getBlogPost(slug, locale),
-		getBlogPosts(locale),
-	])
+	const db = getDb()
 
-	if (!post) {
-		return (
-			<main className="container mx-auto px-4 py-12 text-center">
-				<h1 className="text-4xl font-bold mb-4">{t(dict, 'blog.post.not.found')}</h1>
-				<p className="text-base-content/60 mb-6">
-					{t(dict, 'blog.post.not.found.description')}
-				</p>
-				<Link href={`/${locale}/blog`} className="btn btn-primary">
-					{t(dict, 'blog.back')}
-				</Link>
-			</main>
-		)
-	}
+	const post = await getBlogPost(db, slug, locale)
+	if (!post) notFound()
+
+	const [allPosts, business] = await Promise.all([
+		getBlogPosts(db, { locale, limit: 0 }),
+		getBusinessConfig(db).catch(() => null),
+	])
 
 	const date = formatDate(post.createdAt, locale)
 
@@ -77,11 +76,20 @@ export default async function BlogPostPage({
 				<time className="text-sm text-base-content/50">{date}</time>
 				<h1 className="text-4xl font-bold mt-2 mb-8">{post.title}</h1>
 
-				<BlogContent html={post.content} />
+				<BlogContent
+					html={post.content}
+					post={post}
+					business={business ?? undefined}
+				/>
 			</article>
 
 			<div className="max-w-5xl mx-auto">
-				<RelatedPosts posts={allPosts} currentSlug={slug} />
+				<RelatedPosts
+					posts={allPosts}
+					currentSlug={slug}
+					locale={locale}
+					heading={t(dict, 'blog.related.posts')}
+				/>
 			</div>
 		</main>
 	)

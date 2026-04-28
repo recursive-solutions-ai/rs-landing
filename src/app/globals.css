@@ -1,5 +1,7 @@
 @import 'tailwindcss';
+@source '../../node_modules/@growth-engine/sdk-client/components.js';
 @plugin 'daisyui';
+@plugin '@tailwindcss/typography/src/index.js';
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
