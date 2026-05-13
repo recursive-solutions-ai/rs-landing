@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lucy · 01 Landing Pages</title>
+<style>
+:root{
+  --teal:#00d3bb;
+  --teal-soft:rgba(0,211,187,.35);
+  --teal-glow:rgba(0,211,187,.18);
+  --indigo:#605dff;
+  --indigo-soft:rgba(96,93,255,.35);
+  --indigo-glow:rgba(96,93,255,.18);
+  --bg:#0a0b14;
+  --ink:#eaeaf2;
+  --dim:#8a8ba0;
+  --line:rgba(255,255,255,.07);
+  --line2:rgba(255,255,255,.13);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:'SF Pro Display','Inter',system-ui,sans-serif;overflow:hidden}
+body{
+  background:
+    radial-gradient(60% 50% at 20% 30%, var(--teal-glow), transparent 60%),
+    radial-gradient(40% 40% at 80% 20%, var(--indigo-glow), transparent 60%),
+    var(--bg);
+  display:grid;place-items:center;padding:2vw;
+}
+.stage{
+  position:relative;
+  width:100%;
+  max-width:1100px;
+  aspect-ratio:16/10;
+  border-radius:clamp(10px,1.5vw,20px);
+  overflow:hidden;
+  background:linear-gradient(180deg,#0e0f1c,#08090f);
+  box-shadow:0 30px 80px rgba(0,0,0,.6), inset 0 0 0 1px var(--line);
+  container-type:inline-size;
+}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");}
+.glow{position:absolute;inset:-20%;pointer-events:none;background:
+  radial-gradient(40% 35% at 15% 30%, var(--teal-glow), transparent 60%),
+  radial-gradient(35% 35% at 85% 25%, var(--indigo-glow), transparent 60%);
+  filter:blur(20px);animation:drift 12s ease-in-out infinite alternate}
+@keyframes drift{0%{transform:translate(0,0)}100%{transform:translate(2%,-2%)}}
+
+.stage-marker{position:absolute;top:2.4cqw;left:3cqw;
+  font-family:'JetBrains Mono',monospace;font-size:1.1cqw;color:var(--dim);
+  text-transform:uppercase;letter-spacing:2.5px;z-index:60}
+.stage-marker b{color:var(--teal);font-weight:500}
+.marker{position:absolute;top:2.4cqw;right:3cqw;font-family:'Fraunces',serif;
+  font-size:1.3cqw;color:var(--teal);letter-spacing:1px;z-index:55;text-transform:uppercase}
+
+/* phase containers */
+.phase{position:absolute;inset:0;opacity:0;display:flex;align-items:center;justify-content:center;padding:8cqw 5cqw 4cqw}
+
+.p1{animation:phase1 14s infinite}
+.p2{animation:phase2 14s infinite}
+.p3{animation:phase3 14s infinite}
+@keyframes phase1{
+  0%{opacity:0;transform:scale(.97)}
+  3%,28%{opacity:1;transform:scale(1)}
+  32%,100%{opacity:0;transform:scale(1.02)}
+}
+@keyframes phase2{
+  0%,28%{opacity:0;transform:scale(.97)}
+  33%,55%{opacity:1;transform:scale(1)}
+  60%,100%{opacity:0;transform:scale(1.02)}
+}
+@keyframes phase3{
+  0%,55%{opacity:0;transform:scale(.97)}
+  60%,97%{opacity:1;transform:scale(1)}
+  100%{opacity:0;transform:scale(1.02)}
+}
+
+/* ============================================================
+   PHASE 1 — paste a URL
+   ============================================================ */
+.p1 .inner{width:100%;max-width:75cqw;text-align:center}
+.p1 h1{font-family:'Fraunces',serif;font-weight:500;font-size:6cqw;letter-spacing:-.5px;margin:0 0 1.5cqw;line-height:1}
+.p1 .sub{font-size:1.7cqw;color:var(--dim);margin-bottom:4cqw;font-weight:400}
+
+.p1 .url-field{position:relative;width:100%;padding:2cqw 2.5cqw;
+  border:1px solid var(--line2);border-radius:1.2cqw;
+  background:rgba(0,0,0,.3);
+  font-family:'JetBrains Mono',monospace;font-size:1.8cqw;
+  color:var(--ink);text-align:left;display:flex;align-items:center;gap:1.2cqw}
+.p1 .url-field::before{content:"";position:absolute;inset:-1px;border-radius:1.2cqw;
+  border:1px solid var(--teal);opacity:0;animation:urlGlow 14s infinite}
+@keyframes urlGlow{
+  0%,6%{opacity:0}
+  9%,25%{opacity:.8;box-shadow:0 0 4cqw var(--teal-glow)}
+  29%,100%{opacity:0}
+}
+.p1 .url-field .icon{color:var(--teal);font-size:1.5cqw}
+.p1 .placeholder{color:var(--dim);position:absolute;left:5cqw;top:50%;transform:translateY(-50%);
+  font-family:'JetBrains Mono',monospace;font-size:1.8cqw;animation:phHide 14s infinite}
+@keyframes phHide{0%,3%{opacity:.6}5%,100%{opacity:0}}
+.p1 .typed{display:inline-block;max-width:0;overflow:hidden;white-space:nowrap;
+  animation:typeUrl 14s infinite}
+@keyframes typeUrl{
+  0%,4%{max-width:0}
+  14%,28%{max-width:30cqw}
+  32%,100%{max-width:30cqw;opacity:0}
+}
+.p1 .caret{display:inline-block;width:2px;height:2cqw;background:var(--teal);margin-left:.2cqw;
+  animation:caret 1s steps(2) infinite;vertical-align:middle}
+@keyframes caret{50%{opacity:0}}
+
+.p1 .btn{margin-top:2cqw;display:inline-block;padding:1.4cqw 3.5cqw;
+  background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:1cqw;
+  color:var(--dim);font-size:1.5cqw;font-weight:500;
+  animation:btnActivate 14s infinite}
+@keyframes btnActivate{
+  0%,18%{background:rgba(255,255,255,.04);color:var(--dim);box-shadow:none;transform:scale(1)}
+  22%,28%{background:var(--teal);color:#062821;box-shadow:0 0 4cqw var(--teal-glow);transform:scale(.96)}
+  32%,100%{background:rgba(255,255,255,.04);color:var(--dim)}
+}
+
+/* ============================================================
+   PHASE 2 — basic site shown
+   ============================================================ */
+.p2 .container{display:flex;flex-direction:column;align-items:center;width:100%;gap:2.5cqw}
+.p2 .label{font-family:'JetBrains Mono',monospace;font-size:1.1cqw;
+  color:var(--dim);text-transform:uppercase;letter-spacing:2.5px;
+  display:flex;align-items:center;gap:1cqw}
+.p2 .label::before{content:"";width:.7cqw;height:.7cqw;border-radius:50%;background:var(--dim)}
+.p2 .label::after{content:"fetched";color:var(--teal);font-family:'JetBrains Mono',monospace;letter-spacing:2px}
+
+.p2 .browser{width:75cqw;height:55cqw;max-height:55cqw;
+  border:1px solid var(--line2);border-radius:1cqw;overflow:hidden;
+  background:#1a1d28;
+  box-shadow:0 2cqw 5cqw rgba(0,0,0,.5)}
+.p2 .browser .bar{height:2.5cqw;background:#0d0f16;display:flex;align-items:center;gap:.5cqw;padding:0 1.2cqw;border-bottom:1px solid var(--line)}
+.p2 .browser .bar i{width:.8cqw;height:.8cqw;border-radius:50%;background:#33344a}
+.p2 .browser .bar i:nth-child(1){background:#ff5f57}
+.p2 .browser .bar i:nth-child(2){background:#febc2e}
+.p2 .browser .bar i:nth-child(3){background:#28c840}
+.p2 .browser .bar .url{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:1cqw;color:var(--dim)}
+
+/* basic site interior - intentionally plain */
+.p2 .site{padding:3cqw 4cqw;height:calc(100% - 2.5cqw);
+  background:linear-gradient(180deg,#1a1d28,#161824);
+  display:flex;flex-direction:column;gap:1.5cqw}
+.p2 .site .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:1cqw}
+.p2 .site .logo{font-family:'Fraunces',serif;font-size:2cqw;color:#aab;letter-spacing:1px}
+.p2 .site .menu{display:flex;gap:2cqw;font-size:1cqw;color:#6c6f80;text-transform:uppercase;letter-spacing:1.5px}
+.p2 .site .hero-img{height:14cqw;border-radius:.5cqw;
+  background:repeating-linear-gradient(135deg,#252836,#252836 .5cqw,#1f2230 .5cqw,#1f2230 1cqw);
+  display:grid;place-items:center;color:#3a3f50;font-size:1.1cqw;font-family:'JetBrains Mono',monospace}
+.p2 .site h2{font-family:'Fraunces',serif;font-size:2.2cqw;color:#aab;font-weight:400;margin:1cqw 0 0;text-align:center}
+.p2 .site p{font-size:1.1cqw;color:#5a5d70;line-height:1.6;text-align:center;max-width:50cqw;margin:0 auto}
+.p2 .site .cta-row{display:flex;justify-content:center;margin-top:auto;padding-bottom:1cqw}
+.p2 .site .cta{padding:1cqw 2.5cqw;background:#3a82e5;color:#fff;font-size:1.1cqw;font-weight:600;border-radius:.4cqw;letter-spacing:1px}
+
+/* ============================================================
+   PHASE 3 — iterations gallery
+   ============================================================ */
+.p3 .container{display:flex;flex-direction:column;align-items:center;width:100%;gap:2cqw}
+.p3 .label{font-family:'JetBrains Mono',monospace;font-size:1.1cqw;
+  color:var(--dim);text-transform:uppercase;letter-spacing:2.5px;
+  display:flex;align-items:center;gap:1cqw}
+.p3 .label b{color:var(--teal);font-weight:500}
+.p3 .label::before{content:"";width:.7cqw;height:.7cqw;border-radius:50%;background:var(--teal);box-shadow:0 0 1cqw var(--teal);animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+
+.p3 .headline{font-family:'Fraunces',serif;font-size:2.6cqw;font-weight:500;margin:0;letter-spacing:-.3px;text-align:center}
+.p3 .headline em{color:var(--teal);font-style:italic;font-weight:400}
+
+/* grid of 6 iteration thumbnails */
+.p3 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5cqw;width:100%;max-width:80cqw;margin-top:1cqw}
+.p3 .iter{position:relative;border:1px solid var(--line2);border-radius:1cqw;
+  overflow:hidden;aspect-ratio:16/10;
+  box-shadow:0 1.5cqw 3cqw rgba(0,0,0,.5);opacity:0;
+  animation:iterIn .6s forwards ease-out}
+.p3 .iter:nth-child(1){animation-delay:.15s}
+.p3 .iter:nth-child(2){animation-delay:.3s}
+.p3 .iter:nth-child(3){animation-delay:.45s}
+.p3 .iter:nth-child(4){animation-delay:.6s}
+.p3 .iter:nth-child(5){animation-delay:.75s}
+.p3 .iter:nth-child(6){animation-delay:.9s}
+@keyframes iterIn{
+  from{opacity:0;transform:translateY(1.5cqw) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+.p3 .iter .tag{position:absolute;top:.8cqw;left:.8cqw;
+  font-family:'JetBrains Mono',monospace;font-size:.85cqw;
+  background:rgba(0,0,0,.6);color:var(--ink);padding:.3cqw .8cqw;
+  border-radius:.4cqw;letter-spacing:1.5px;font-weight:600;
+  border:1px solid var(--line2);backdrop-filter:blur(10px);z-index:5}
+
+/* cycle highlight on iterations */
+.p3 .iter{animation:iterIn .6s forwards ease-out, iterHi 14s infinite}
+.p3 .iter:nth-child(1){animation-delay:.15s, 7s}
+.p3 .iter:nth-child(2){animation-delay:.3s, 7.6s}
+.p3 .iter:nth-child(3){animation-delay:.45s, 8.2s}
+.p3 .iter:nth-child(4){animation-delay:.6s, 8.8s}
+.p3 .iter:nth-child(5){animation-delay:.75s, 9.4s}
+.p3 .iter:nth-child(6){animation-delay:.9s, 10s}
+@keyframes iterHi{
+  0%,55%{box-shadow:0 1.5cqw 3cqw rgba(0,0,0,.5);transform:scale(1)}
+  60%,66%{box-shadow:0 1.5cqw 3cqw rgba(0,0,0,.5), 0 0 3cqw var(--teal-glow), 0 0 0 1px var(--teal);transform:scale(1.04)}
+  72%,100%{box-shadow:0 1.5cqw 3cqw rgba(0,0,0,.5);transform:scale(1)}
+}
+
+/* ============================================================
+   SIX UNIQUE ITERATION STYLES
+   ============================================================ */
+
+/* 1. dark cinematic gold */
+.iter-1{background:radial-gradient(70% 60% at 50% 0%,#3a2a10,#0d0a1e 65%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2cqw 1.5cqw}
+.iter-1 .h{font-family:'Fraunces',serif;font-size:1.6cqw;color:#fff;text-align:center;line-height:1.15;font-weight:500}
+.iter-1 .h em{color:#e8b870;font-style:italic;font-weight:400;display:block;margin-top:.3cqw}
+.iter-1 .btn{margin-top:1cqw;padding:.5cqw 1.5cqw;background:#e8b870;color:#1a1a1a;font-size:.85cqw;font-weight:700;letter-spacing:1.5px}
+
+/* 2. navy + bold stat */
+.iter-2{background:#0d1d3a;color:#fff;padding:1.5cqw;display:flex;flex-direction:column;gap:.6cqw}
+.iter-2 .h{font-family:'Fraunces',serif;font-size:1.2cqw;line-height:1.2;color:#fff}
+.iter-2 .h em{color:#e8b870;font-style:italic}
+.iter-2 .stat{font-family:'Fraunces',serif;font-size:4.5cqw;color:#e8b870;font-weight:500;line-height:1;letter-spacing:-1px;margin-top:auto}
+.iter-2 .lbl{font-size:.8cqw;color:#aaa;text-transform:uppercase;letter-spacing:2px}
+
+/* 3. light editorial */
+.iter-3{background:#f4f1ea;color:#1a1a1a;padding:1.5cqw;display:flex;flex-direction:column}
+.iter-3 .nav{display:flex;justify-content:space-between;align-items:center;font-size:.7cqw;color:#1a1a1a;letter-spacing:1px;border-bottom:1px solid #1a1a1a;padding-bottom:.6cqw;margin-bottom:.8cqw}
+.iter-3 .nav .l{font-family:'Fraunces',serif;font-size:1cqw;font-weight:500}
+.iter-3 .meta{font-family:'JetBrains Mono',monospace;font-size:.65cqw;color:#7a5a20;letter-spacing:1.5px;margin-bottom:.5cqw}
+.iter-3 .h{font-family:'Fraunces',serif;font-size:1.4cqw;line-height:1.15;color:#1a1a1a;margin-bottom:auto}
+.iter-3 .h em{color:#7a5a20;font-style:italic}
+.iter-3 .btn{align-self:flex-start;padding:.5cqw 1.2cqw;background:#1a1a1a;color:#f4f1ea;font-size:.75cqw;font-weight:600;letter-spacing:1px}
+
+/* 4. modern minimal grid */
+.iter-4{background:#eae5d8;color:#1a1a1a;padding:1.5cqw;display:flex;flex-direction:column;gap:.7cqw}
+.iter-4 .h{font-family:'Fraunces',serif;font-size:1.4cqw;line-height:1.1;font-weight:500}
+.iter-4 .h em{color:#7a5a20;font-style:italic}
+.iter-4 .grid-mini{display:grid;grid-template-columns:1fr 1fr;gap:.5cqw;margin-top:auto}
+.iter-4 .card{background:#fff;padding:.6cqw;border-radius:.3cqw;border:.5px solid rgba(0,0,0,.1)}
+.iter-4 .card .nm{font-family:'Fraunces',serif;font-size:.85cqw;font-weight:500}
+.iter-4 .card .sub{font-size:.55cqw;color:#7a5a20;text-transform:uppercase;letter-spacing:1px;margin-top:.2cqw}
+
+/* 5. vibrant gradient */
+.iter-5{background:linear-gradient(135deg,#1a0f3d 0%,#3d1a5a 50%,#5a2a8a 100%);color:#fff;padding:1.5cqw;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.iter-5::before{content:"";position:absolute;top:-30%;right:-30%;width:80%;height:80%;background:radial-gradient(circle,rgba(255,180,200,.4),transparent 60%);filter:blur(2cqw)}
+.iter-5 .h{font-family:'Fraunces',serif;font-size:1.5cqw;line-height:1.15;position:relative;z-index:1}
+.iter-5 .h em{font-style:italic;background:linear-gradient(90deg,#ff9eb5,#ffd49e);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.iter-5 .ctas{display:flex;gap:.5cqw;position:relative;z-index:1}
+.iter-5 .b1{padding:.5cqw 1.2cqw;background:#ff9eb5;color:#1a0f3d;font-size:.8cqw;font-weight:700;letter-spacing:.5px;border-radius:99cqw}
+.iter-5 .b2{padding:.5cqw 1.2cqw;border:1px solid rgba(255,255,255,.4);color:#fff;font-size:.8cqw;border-radius:99cqw}
+
+/* 6. brutalist mono */
+.iter-6{background:#0a0a0a;color:#fff;padding:1.5cqw;display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;position:relative}
+.iter-6::after{content:"";position:absolute;left:1cqw;right:1cqw;bottom:3cqw;height:1px;background:#fff;opacity:.3}
+.iter-6 .lbl{font-size:.7cqw;color:#fff;letter-spacing:3px;text-transform:uppercase;margin-bottom:.5cqw;opacity:.6}
+.iter-6 .h{font-family:'Inter',sans-serif;font-size:1.8cqw;line-height:.95;font-weight:800;letter-spacing:-1px;text-transform:uppercase;margin-bottom:auto}
+.iter-6 .nums{display:flex;gap:1.5cqw;font-size:.7cqw;color:#fff;letter-spacing:1px;text-transform:uppercase}
+.iter-6 .nums b{font-family:'Inter',sans-serif;font-weight:800;font-size:1.2cqw;display:block;letter-spacing:-.5px}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="glow"></div>
+  <div class="grain"></div>
+  <div class="stage-marker">Lucy <b>·</b> 01</div>
+  <span class="marker">01 / landing pages</span>
+
+  <!-- PHASE 1: paste URL -->
+  <div class="phase p1">
+    <div class="inner">
+      <h1>Redesign</h1>
+      <div class="sub">Paste a URL. We'll handle the rest.</div>
+      <div class="url-field">
+        <span class="icon">⌖</span>
+        <span class="placeholder">https://example.com</span>
+        <span class="typed">https://meridianlaw.com<span class="caret"></span></span>
+      </div>
+      <div class="btn">Start</div>
+    </div>
+  </div>
+
+  <!-- PHASE 2: basic site -->
+  <div class="phase p2">
+    <div class="container">
+      <div class="label">Site</div>
+      <div class="browser">
+        <div class="bar"><i></i><i></i><i></i><span class="url">meridianlaw.com</span></div>
+        <div class="site">
+          <div class="top">
+            <div class="logo">Meridian Law</div>
+            <div class="menu"><span>About</span><span>Services</span><span>Contact</span></div>
+          </div>
+          <div class="hero-img">[ stock photo · office building ]</div>
+          <h2>Welcome to Meridian Law</h2>
+          <p>Providing legal services since 1998. Our attorneys handle a wide variety of cases including corporate law, real estate, and litigation.</p>
+          <div class="cta-row"><div class="cta">LEARN MORE</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3: iterations gallery -->
+  <div class="phase p3">
+    <div class="container">
+      <div class="label"><b>6 iterations</b> · generated in your brand voice</div>
+      <div class="headline">Pick the one that <em>feels right.</em></div>
+      <div class="grid">
+
+        <!-- 1: cinematic gold -->
+        <div class="iter iter-1">
+          <span class="tag">v01</span>
+          <div class="h">Trial-ready counsel for <em>complex matters.</em></div>
+          <div class="btn">REQUEST CONSULT</div>
+        </div>
+
+        <!-- 2: navy big stat -->
+        <div class="iter iter-2">
+          <span class="tag">v02</span>
+          <div class="h">Defensible strategy for <em>high-stakes outcomes.</em></div>
+          <div class="stat">25+</div>
+          <div class="lbl">years · 1,200 cases won</div>
+        </div>
+
+        <!-- 3: light editorial -->
+        <div class="iter iter-3">
+          <span class="tag">v03</span>
+          <div class="nav"><span class="l">Meridian</span><span>EST. 1998</span></div>
+          <div class="meta">— TRUSTED COUNSEL —</div>
+          <div class="h">Precision <em>where it counts.</em></div>
+          <div class="btn">SCHEDULE</div>
+        </div>
+
+        <!-- 4: modern minimal -->
+        <div class="iter iter-4">
+          <span class="tag">v04</span>
+          <div class="h">Built around <em>your case.</em></div>
+          <div class="grid-mini">
+            <div class="card"><div class="nm">Corporate</div><div class="sub">contracts</div></div>
+            <div class="card"><div class="nm">Real Estate</div><div class="sub">transactions</div></div>
+            <div class="card"><div class="nm">Litigation</div><div class="sub">trial-ready</div></div>
+            <div class="card"><div class="nm">Advisory</div><div class="sub">strategy</div></div>
+          </div>
+        </div>
+
+        <!-- 5: vibrant gradient -->
+        <div class="iter iter-5">
+          <span class="tag">v05</span>
+          <div class="h">Modern counsel for <em>founders &amp; firms.</em></div>
+          <div class="ctas">
+            <span class="b1">Book a call</span>
+            <span class="b2">Our work</span>
+          </div>
+        </div>
+
+        <!-- 6: brutalist mono -->
+        <div class="iter iter-6">
+          <span class="tag">v06</span>
+          <div class="lbl">— Meridian / Law —</div>
+          <div class="h">When the case <br>matters most.</div>
+          <div class="nums">
+            <div><b>1,200</b>cases</div>
+            <div><b>98%</b>retention</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

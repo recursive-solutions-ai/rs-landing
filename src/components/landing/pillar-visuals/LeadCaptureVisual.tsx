@@ -12,43 +12,61 @@ export function LeadCaptureVisual() {
 					display: flex;
 					flex-direction: column;
 					justify-content: center;
-					padding: 0 8%;
+					padding: 0 6cqw;
 					font-family: 'SF Pro Display','Inter',system-ui,sans-serif;
 					color: #eaeaf2;
+					container-type: inline-size;
 				}
+
+				/* ambient particles */
+				.pl-particle {
+					position: absolute;
+					width: 0.35cqw;
+					height: 0.35cqw;
+					border-radius: 50%;
+					background: #00d3bb;
+					opacity: .4;
+					box-shadow: 0 0 0.7cqw #00d3bb;
+				}
+				.pl-particle.pl-f1 { top: 18%; left: 20%; animation: plFloat 6s ease-in-out infinite; }
+				.pl-particle.pl-f2 { top: 80%; left: 30%; animation: plFloat 7s ease-in-out infinite reverse; animation-delay: 1s; }
+				.pl-particle.pl-f3 { top: 25%; left: 78%; animation: plFloat 8s ease-in-out infinite; animation-delay: 2s; background: #605dff; box-shadow: 0 0 0.7cqw #605dff; }
+				.pl-particle.pl-f4 { top: 75%; left: 82%; animation: plFloat 5.5s ease-in-out infinite reverse; animation-delay: .5s; background: #605dff; box-shadow: 0 0 0.7cqw #605dff; }
+				@keyframes plFloat {
+					0%, 100% { transform: translate(0, 0); opacity: .3; }
+					50% { transform: translate(1cqw, -1.5cqw); opacity: .7; }
+				}
+
 				.pl-track {
 					position: relative;
 					display: flex;
 					justify-content: space-between;
 					align-items: center;
-					margin-bottom: 8.5%;
+					margin-bottom: 8cqw;
 				}
 				.pl-node {
 					position: relative;
 					z-index: 2;
-					width: 12%;
-					min-width: 70px;
+					width: 14cqw;
 					text-align: center;
 				}
 				.pl-circle {
-					width: clamp(36px, 5.5%, 56px);
-					aspect-ratio: 1;
-					margin: 0 auto 10px;
+					width: 6cqw;
+					height: 6cqw;
+					margin: 0 auto 1.2cqw;
 					border-radius: 50%;
 					border: 1px solid rgba(255,255,255,0.13);
-					background: rgba(20,21,32,0.8);
+					background: rgba(20,21,32,0.85);
 					display: grid;
 					place-items: center;
-					font-family: 'JetBrains Mono', ui-monospace, monospace;
-					font-size: clamp(10px, 1.2vw, 14px);
-					color: #8a8ba0;
+					font-size: 2.6cqw;
 					position: relative;
 					transition: all .4s;
 				}
 				.pl-circle::before {
 					content: "";
 					position: absolute;
-					inset: -4px;
+					inset: -0.5cqw;
 					border-radius: 50%;
 					border: 1px solid rgba(0,211,187,0.35);
 					opacity: 0;
@@ -69,28 +87,30 @@ export function LeadCaptureVisual() {
 				.pl-n3 .pl-circle { animation: plNodeOn 7s infinite; animation-delay: 3.5s; }
 				.pl-n4 .pl-circle { animation: plNodeOn 7s infinite; animation-delay: 5s; }
 				@keyframes plNodeOn {
-					0%, 3% { border-color: rgba(255,255,255,0.13); color: #8a8ba0; background: rgba(20,21,32,0.8); }
-					5%, 18% { border-color: #00d3bb; color: #00d3bb; background: rgba(0,211,187,0.1); box-shadow: 0 0 30px rgba(0,211,187,0.18); }
-					25%, 100% { border-color: rgba(0,211,187,0.35); color: #00d3bb; background: rgba(20,21,32,0.8); box-shadow: none; }
+					0%, 3% { border-color: rgba(255,255,255,0.13); background: rgba(20,21,32,0.85); box-shadow: none; filter: grayscale(.5); opacity: .7; }
+					5%, 18% { border-color: #00d3bb; background: rgba(0,211,187,0.12); box-shadow: 0 0 3cqw rgba(0,211,187,0.18); filter: grayscale(0); opacity: 1; transform: scale(1.08); }
+					25%, 100% { border-color: rgba(0,211,187,0.35); background: rgba(20,21,32,0.85); box-shadow: none; filter: grayscale(0); opacity: 1; transform: scale(1); }
 				}
 				.pl-lbl {
-					font-size: clamp(8px, 0.85vw, 10px);
-					text-transform: uppercase;
-					letter-spacing: 1.8px;
-					color: #8a8ba0;
+					font-family: 'Fraunces', Georgia, serif;
+					font-size: 1.7cqw;
+					font-weight: 500;
+					color: #eaeaf2;
+					letter-spacing: -0.2px;
 				}
 				.pl-sub {
-					font-size: clamp(7px, 0.75vw, 9px);
+					font-size: 1.1cqw;
 					color: #8a8ba0;
 					font-family: 'JetBrains Mono', ui-monospace, monospace;
-					margin-top: 3px;
-					opacity: .6;
+					margin-top: 0.4cqw;
+					letter-spacing: 1px;
 				}
+
 				.pl-rail {
 					position: absolute;
-					left: 6%;
-					right: 6%;
-					top: clamp(18px, 2.3vw, 28px);
+					left: 7cqw;
+					right: 7cqw;
+					top: 3cqw;
 					height: 1px;
 					background: rgba(255,255,255,0.13);
 					z-index: 1;
@@ -99,11 +119,11 @@ export function LeadCaptureVisual() {
 					content: "";
 					position: absolute;
 					left: 0;
-					top: -1px;
-					height: 3px;
+					top: -1.5px;
+					height: 4px;
 					width: 0;
 					background: linear-gradient(90deg, #00d3bb, #605dff);
-					box-shadow: 0 0 12px #00d3bb;
+					box-shadow: 0 0 1.2cqw #00d3bb;
 					border-radius: 3px;
 					animation: plRailFill 7s infinite;
 				}
@@ -116,57 +136,90 @@ export function LeadCaptureVisual() {
 					70% { width: 100%; }
 					100% { width: 100%; }
 				}
+
+				.pl-rail-spark {
+					position: absolute;
+					top: 3cqw;
+					width: 1.4cqw;
+					height: 1.4cqw;
+					border-radius: 50%;
+					background: radial-gradient(circle, #00d3bb, transparent 70%);
+					box-shadow: 0 0 1.5cqw #00d3bb;
+					transform: translate(-50%, -50%);
+					animation: plRailSpark 7s infinite;
+					opacity: 0;
+					z-index: 3;
+					left: 7cqw;
+				}
+				@keyframes plRailSpark {
+					0% { left: 7cqw; opacity: 0; }
+					5% { opacity: 1; }
+					10% { left: calc(7cqw + (100cqw - 14cqw) * 0.33); }
+					30% { left: calc(7cqw + (100cqw - 14cqw) * 0.33); opacity: 1; }
+					40% { left: calc(7cqw + (100cqw - 14cqw) * 0.66); }
+					60% { left: calc(7cqw + (100cqw - 14cqw) * 0.66); opacity: 1; }
+					70% { left: calc(100cqw - 7cqw); }
+					75% { opacity: 0; }
+					100% { left: calc(100cqw - 7cqw); opacity: 0; }
+				}
+
 				.pl-leads {
 					display: flex;
 					justify-content: center;
-					gap: clamp(8px, 1.3vw, 14px);
+					gap: 2cqw;
 					flex-wrap: wrap;
-					max-width: 720px;
+					max-width: 80cqw;
 					margin: 0 auto;
 				}
 				.pl-chip {
-					padding: clamp(5px, 0.7vw, 8px) clamp(9px, 1.3vw, 14px);
+					padding: 1.2cqw 1.8cqw;
 					border-radius: 999px;
 					border: 1px solid rgba(255,255,255,0.07);
-					background: rgba(20,21,32,0.6);
-					font-size: clamp(9px, 0.95vw, 11px);
+					background: rgba(20,21,32,0.7);
+					font-size: 1.5cqw;
 					display: flex;
 					align-items: center;
-					gap: 8px;
+					gap: 1.2cqw;
 					backdrop-filter: blur(10px);
 				}
 				.pl-chip .pl-av {
-					width: clamp(16px, 1.8vw, 20px);
-					aspect-ratio: 1;
+					width: 2.8cqw;
+					height: 2.8cqw;
 					border-radius: 50%;
-					background: linear-gradient(135deg, rgba(0,211,187,0.3), rgba(96,93,255,0.1));
+					background: linear-gradient(135deg, rgba(0,211,187,0.3), rgba(96,93,255,0.15));
 					display: grid;
 					place-items: center;
-					font-size: clamp(8px, 0.8vw, 9px);
-					color: #00d3bb;
+					font-size: 1.6cqw;
+					border: 1px solid rgba(0,211,187,0.35);
+				}
+				.pl-chip .pl-nm {
 					font-family: 'Fraunces', Georgia, serif;
+					font-weight: 500;
+					letter-spacing: -0.2px;
 				}
 				.pl-chip .pl-st {
-					font-size: clamp(7px, 0.75vw, 9px);
+					font-size: 1cqw;
 					color: #8a8ba0;
 					text-transform: uppercase;
-					letter-spacing: 1px;
-					margin-left: 4px;
+					letter-spacing: 1.5px;
+					margin-left: 0.4cqw;
+					font-family: 'JetBrains Mono', ui-monospace, monospace;
 				}
 				.pl-chip.pl-l1 { animation: plChipActive 7s infinite; animation-delay: .5s; }
 				.pl-chip.pl-l2 { animation: plChipActive 7s infinite; animation-delay: 1.8s; }
 				.pl-chip.pl-l3 { animation: plChipActive 7s infinite; animation-delay: 3.2s; }
 				@keyframes plChipActive {
-					0%, 3% { border-color: rgba(255,255,255,0.07); background: rgba(20,21,32,0.6); box-shadow: none; transform: scale(1); }
-					5%, 18% { border-color: #00d3bb; background: rgba(0,211,187,0.08); box-shadow: 0 0 20px rgba(0,211,187,0.18); transform: scale(1.05); }
-					25%, 100% { border-color: rgba(0,211,187,0.35); background: rgba(20,21,32,0.6); box-shadow: none; transform: scale(1); }
+					0%, 3% { border-color: rgba(255,255,255,0.07); background: rgba(20,21,32,0.7); box-shadow: none; transform: scale(1); }
+					5%, 18% { border-color: #00d3bb; background: rgba(0,211,187,0.12); box-shadow: 0 0 2cqw rgba(0,211,187,0.18); transform: scale(1.08) translateY(-0.5cqw); }
+					25%, 100% { border-color: rgba(255,255,255,0.13); background: rgba(20,21,32,0.7); box-shadow: none; transform: scale(1) translateY(0); }
 				}
+
 				.pl-stage-marker {
 					position: absolute;
-					top: 3.5%;
-					left: 3.5%;
+					top: 2.4cqw;
+					left: 3cqw;
 					font-family: 'JetBrains Mono', ui-monospace, monospace;
-					font-size: clamp(8px, 0.85vw, 10px);
+					font-size: 1.1cqw;
 					color: #8a8ba0;
 					text-transform: uppercase;
 					letter-spacing: 2.5px;
@@ -175,10 +228,10 @@ export function LeadCaptureVisual() {
 				.pl-stage-marker b { color: #00d3bb; font-weight: 500; }
 				.pl-marker {
 					position: absolute;
-					top: 3.5%;
-					right: 3.5%;
+					top: 2.4cqw;
+					right: 3cqw;
 					font-family: 'Fraunces', Georgia, serif;
-					font-size: clamp(9px, 0.95vw, 11px);
+					font-size: 1.3cqw;
 					color: #00d3bb;
 					letter-spacing: 1px;
 					z-index: 5;
@@ -190,25 +243,32 @@ export function LeadCaptureVisual() {
 				<div className="pl-stage-marker">Lucy <b>·</b> 04</div>
 				<span className="pl-marker">04 / pipeline</span>
 
+				<span className="pl-particle pl-f1" />
+				<span className="pl-particle pl-f2" />
+				<span className="pl-particle pl-f3" />
+				<span className="pl-particle pl-f4" />
+
 				<div className="pl-track">
 					<div className="pl-rail" />
+					<span className="pl-rail-spark" />
+
 					<div className="pl-node pl-n1">
-						<div className="pl-circle">01</div>
+						<div className="pl-circle">✨</div>
 						<div className="pl-lbl">New</div>
 						<div className="pl-sub">4 leads</div>
 					</div>
 					<div className="pl-node pl-n2">
-						<div className="pl-circle">02</div>
+						<div className="pl-circle">📨</div>
 						<div className="pl-lbl">Contacted</div>
 						<div className="pl-sub">3 leads</div>
 					</div>
 					<div className="pl-node pl-n3">
-						<div className="pl-circle">03</div>
+						<div className="pl-circle">📞</div>
 						<div className="pl-lbl">Qualified</div>
 						<div className="pl-sub">3 leads</div>
 					</div>
 					<div className="pl-node pl-n4">
-						<div className="pl-circle">04</div>
+						<div className="pl-circle">🎉</div>
 						<div className="pl-lbl">Won</div>
 						<div className="pl-sub">2 closed</div>
 					</div>
@@ -216,18 +276,18 @@ export function LeadCaptureVisual() {
 
 				<div className="pl-leads">
 					<div className="pl-chip pl-l1">
-						<span className="pl-av">J</span>
-						<span>Jamie Reyes</span>
+						<span className="pl-av">👤</span>
+						<span className="pl-nm">Jamie Reyes</span>
 						<span className="pl-st">→ contacted</span>
 					</div>
 					<div className="pl-chip pl-l2">
-						<span className="pl-av">M</span>
-						<span>Marcus Kim</span>
+						<span className="pl-av">👤</span>
+						<span className="pl-nm">Marcus Kim</span>
 						<span className="pl-st">→ qualified</span>
 					</div>
 					<div className="pl-chip pl-l3">
-						<span className="pl-av">T</span>
-						<span>Talia Ng</span>
+						<span className="pl-av">👤</span>
+						<span className="pl-nm">Talia Ng</span>
 						<span className="pl-st">→ won</span>
 					</div>
 				</div>

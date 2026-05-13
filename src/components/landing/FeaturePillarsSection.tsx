@@ -186,7 +186,7 @@ export function FeaturePillarsSection() {
 		<section
 			ref={sectionRef}
 			id="platform"
-			className="relative mx-auto max-w-6xl px-6 py-24 md:py-32"
+			className="relative mx-auto max-w-6xl px-6 py-24 md:py-24"
 		>
 			{/* Section header
 			<div ref={headingRef} className="mx-auto max-w-3xl text-center">

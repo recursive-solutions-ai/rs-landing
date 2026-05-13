@@ -1,6 +1,37 @@
 "use client"
 
+import { Rss } from "lucide-react"
 import { VisualFrame } from "./VisualFrame"
+
+/* Brand glyphs — lucide-react dropped social brand icons; inline minimal SVGs. */
+const brandIconProps = {
+	width: 12,
+	height: 12,
+	viewBox: "0 0 24 24",
+	fill: "currentColor",
+	"aria-hidden": true,
+} as const
+
+const LinkedinIcon = () => (
+	<svg {...brandIconProps}>
+		<path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+	</svg>
+)
+const XIcon = () => (
+	<svg {...brandIconProps}>
+		<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817-5.966 6.817H1.68l7.73-8.835L1.254 2.25h6.832l4.713 6.231 5.445-6.231zm-1.161 17.52h1.833L7.084 4.126H5.117l11.966 15.644z" />
+	</svg>
+)
+const InstagramIcon = () => (
+	<svg {...brandIconProps}>
+		<path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5.01-4.73.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.26.82-.38.38-.62.75-.82 1.26-.15.39-.33.97-.38 2.04C2.71 9.5 2.7 9.85 2.7 13s.01 3.5.07 4.73c.05 1.07.23 1.65.38 2.04.2.51.44.88.82 1.26.38.38.75.62 1.26.82.39.15.97.33 2.04.38 1.23.06 1.58.07 4.73.07s3.5-.01 4.73-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.26-.82.38-.38.62-.75.82-1.26.15-.39.33-.97.38-2.04.06-1.23.07-1.58.07-4.73s-.01-3.5-.07-4.73c-.05-1.07-.23-1.65-.38-2.04-.2-.51-.44-.88-.82-1.26-.38-.38-.75-.62-1.26-.82-.39-.15-.97-.33-2.04-.38C15.5 4.01 15.15 4 12 4zm0 3.07A4.93 4.93 0 1 1 12 17a4.93 4.93 0 0 1 0-9.93zm0 1.8a3.13 3.13 0 1 0 0 6.26 3.13 3.13 0 0 0 0-6.26zm5.13-2.04a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3z" />
+	</svg>
+)
+const FacebookIcon = () => (
+	<svg {...brandIconProps}>
+		<path d="M13.5 21.95v-7.83h2.63l.4-3.05h-3.03V9.12c0-.88.24-1.48 1.51-1.48h1.62V4.91c-.28-.04-1.24-.12-2.36-.12-2.33 0-3.93 1.42-3.93 4.04v2.25H7.7v3.05h2.64v7.83h3.16z" />
+	</svg>
+)
 
 /* ── EngageVisual ───────────────────────────────────────────────────────
  * Faithful migration of 02_content_engine.html — central brand-voice core
@@ -131,24 +162,17 @@ export function EngageVisual() {
 					align-items: center;
 					gap: 6px;
 				}
-				.ce-post .ce-type::before {
-					content: "";
-					width: 5px;
-					height: 5px;
-					border-radius: 50%;
-					background: #00d3bb;
-					box-shadow: 0 0 6px #00d3bb;
+				.ce-post .ce-type svg {
+					width: clamp(10px, 1vw, 12px);
+					height: clamp(10px, 1vw, 12px);
+					color: #00d3bb;
+					filter: drop-shadow(0 0 4px rgba(0,211,187,0.6));
+					flex-shrink: 0;
 				}
 				.ce-post .ce-t {
 					font-family: 'Fraunces', Georgia, serif;
 					font-size: clamp(10px, 1vw, 12px);
 					line-height: 1.3;
-				}
-				.ce-post .ce-meta {
-					font-size: clamp(7px, 0.8vw, 9px);
-					color: #8a8ba0;
-					font-family: 'JetBrains Mono', ui-monospace, monospace;
-					margin-top: 5px;
 				}
 
 				.ce-p1 { top: 14%; left: 8%; animation: ceEmit 7s infinite; animation-delay: 0.6s; }
@@ -198,34 +222,28 @@ export function EngageVisual() {
 				</div>
 
 				<div className="ce-post ce-p1">
-					<div className="ce-type">LinkedIn</div>
+					<div className="ce-type"><LinkedinIcon /> LinkedIn</div>
 					<div className="ce-t">Augmentation &gt; replacement</div>
-					<div className="ce-meta">4 platforms · queued</div>
 				</div>
 				<div className="ce-post ce-p2">
-					<div className="ce-type">Blog · 1432 words</div>
+					<div className="ce-type"><Rss strokeWidth={1.75} /> Blog · 1432 words</div>
 					<div className="ce-t">The Five-Hour AI Audit</div>
-					<div className="ce-meta">SEO ✓ · GEO ✓</div>
 				</div>
 				<div className="ce-post ce-p3">
-					<div className="ce-type">X · thread</div>
+					<div className="ce-type"><XIcon /> X · thread</div>
 					<div className="ce-t">Hour 5: plug one leak first</div>
-					<div className="ce-meta">scheduled · Mon 9 AM</div>
 				</div>
 				<div className="ce-post ce-p4">
-					<div className="ce-type">Instagram</div>
+					<div className="ce-type"><InstagramIcon /> Instagram</div>
 					<div className="ce-t">Three real examples</div>
-					<div className="ce-meta">draft · awaiting review</div>
 				</div>
 				<div className="ce-post ce-p5">
-					<div className="ce-type">Blog · draft</div>
+					<div className="ce-type"><Rss strokeWidth={1.75} /> Blog · draft</div>
 					<div className="ce-t">Where AI quietly saves money</div>
-					<div className="ce-meta">1180 words</div>
 				</div>
 				<div className="ce-post ce-p6">
-					<div className="ce-type">Facebook</div>
+					<div className="ce-type"><FacebookIcon /> Facebook</div>
 					<div className="ce-t">Why automation stalls</div>
-					<div className="ce-meta">posted · 2h ago</div>
 				</div>
 			</div>
 		</VisualFrame>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lucy · 05 Custom Experts</title>
+<style>
+:root{
+  --teal:#00d3bb;
+  --teal-soft:rgba(0,211,187,.35);
+  --teal-glow:rgba(0,211,187,.18);
+  --indigo:#605dff;
+  --indigo-soft:rgba(96,93,255,.35);
+  --indigo-glow:rgba(96,93,255,.18);
+  --bg:#0a0b14;
+  --ink:#eaeaf2;
+  --dim:#8a8ba0;
+  --line:rgba(255,255,255,.07);
+  --line2:rgba(255,255,255,.13);
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:'SF Pro Display','Inter',system-ui,sans-serif;overflow:hidden}
+body{
+  background:
+    radial-gradient(60% 50% at 20% 30%, var(--teal-glow), transparent 60%),
+    radial-gradient(40% 40% at 80% 20%, var(--indigo-glow), transparent 60%),
+    radial-gradient(50% 50% at 70% 90%, rgba(96,93,255,.10), transparent 60%),
+    var(--bg);
+  display:grid;place-items:center;padding:2vw;
+}
+.stage{
+  position:relative;
+  width:100%;
+  max-width:1100px;
+  aspect-ratio:16/10;
+  border-radius:clamp(10px,1.5vw,20px);
+  overflow:hidden;
+  background:linear-gradient(180deg,#0e0f1c,#08090f);
+  box-shadow:0 30px 80px rgba(0,0,0,.6), inset 0 0 0 1px var(--line);
+  container-type:inline-size;
+}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");}
+.glow{position:absolute;inset:-20%;pointer-events:none;background:
+  radial-gradient(40% 35% at 15% 30%, var(--teal-glow), transparent 60%),
+  radial-gradient(35% 35% at 85% 25%, var(--indigo-glow), transparent 60%);
+  filter:blur(20px);animation:drift 12s ease-in-out infinite alternate}
+@keyframes drift{0%{transform:translate(0,0)}100%{transform:translate(2%,-2%)}}
+
+.canvas{position:absolute;inset:0}
+
+/* central Lucy core */
+.lucy-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:13cqw;height:13cqw;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,211,187,.45),rgba(96,93,255,.15) 55%,transparent 70%);
+  display:grid;place-items:center;z-index:10}
+.lucy-core::before{content:"";position:absolute;inset:-15%;border-radius:50%;
+  border:1px dashed var(--teal-soft);animation:rot 14s linear infinite}
+.lucy-core::after{content:"";position:absolute;inset:18%;border-radius:50%;
+  background:radial-gradient(circle,var(--teal),transparent 70%);
+  filter:blur(.8cqw);animation:corePulse 2.2s ease-in-out infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+@keyframes corePulse{0%,100%{transform:scale(.85);opacity:.7}50%{transform:scale(1.1);opacity:1}}
+.lucy-core .lbl{position:relative;z-index:2;font-family:'Fraunces',serif;font-size:2.2cqw;text-align:center;line-height:1;font-weight:500}
+.lucy-core .lbl small{display:block;font-family:'JetBrains Mono',monospace;font-size:1.1cqw;color:var(--teal);text-transform:uppercase;letter-spacing:2px;margin-top:.5cqw;font-weight:400}
+
+/* orbital rings */
+.orbit{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  border-radius:50%;border:1px dashed var(--line2);opacity:.5}
+.orbit.r1{width:34cqw;height:34cqw}
+.orbit.r2{width:47cqw;height:47cqw;opacity:.3}
+
+/* expanding pulse rings */
+.pulse-ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  border-radius:50%;border:1px solid var(--teal-soft);
+  animation:pulseExpand 4s ease-out infinite}
+.pulse-ring.p2{animation-delay:1.3s}
+.pulse-ring.p3{animation-delay:2.6s}
+@keyframes pulseExpand{
+  0%{width:13cqw;height:13cqw;opacity:.7}
+  100%{width:55cqw;height:55cqw;opacity:0}
+}
+
+/* agent cards - bigger now */
+.agent{position:absolute;width:19cqw;
+  border:1px solid var(--line2);border-radius:1.4cqw;
+  background:linear-gradient(180deg,rgba(20,21,32,.92),rgba(14,15,28,.88));
+  backdrop-filter:blur(20px);
+  padding:1.8cqw 1.5cqw;text-align:center;
+  box-shadow:0 1cqw 3cqw rgba(0,0,0,.6);
+  z-index:5}
+
+/* emoji avatar - bigger */
+.agent .emoji{font-size:4.5cqw;line-height:1;margin-bottom:.6cqw;display:inline-block;
+  filter:drop-shadow(0 0 1cqw var(--teal-glow))}
+.agent .nm{font-family:'Fraunces',serif;font-size:2.2cqw;font-weight:500;letter-spacing:-.3px;line-height:1.1}
+.agent .rl{font-size:1.3cqw;color:var(--dim);text-transform:uppercase;letter-spacing:1.6px;margin-top:.6cqw;font-weight:500}
+
+/* position around center */
+.agent.top{top:4%;left:50%;transform:translateX(-50%)}
+.agent.right{top:50%;right:4%;transform:translateY(-50%)}
+.agent.bottom{bottom:4%;left:50%;transform:translateX(-50%)}
+.agent.left{top:50%;left:4%;transform:translateY(-50%)}
+
+/* activation: glow + scale */
+.agent.top{animation:agentActive 7s infinite;animation-delay:.4s}
+.agent.right{animation:agentActiveR 7s infinite;animation-delay:2s}
+.agent.bottom{animation:agentActive 7s infinite;animation-delay:3.6s}
+.agent.left{animation:agentActiveL 7s infinite;animation-delay:5.2s}
+@keyframes agentActive{
+  0%,3%{border-color:var(--line2);box-shadow:0 1cqw 3cqw rgba(0,0,0,.6);transform:translateX(-50%) scale(1)}
+  6%,18%{border-color:var(--teal);box-shadow:0 0 3cqw var(--teal-glow), 0 1cqw 3cqw rgba(0,0,0,.6);transform:translateX(-50%) scale(1.06)}
+  22%,100%{border-color:var(--line2);box-shadow:0 1cqw 3cqw rgba(0,0,0,.6);transform:translateX(-50%) scale(1)}
+}
+@keyframes agentActiveR{
+  0%,3%{border-color:var(--line2);box-shadow:0 1cqw 3cqw rgba(0,0,0,.6);transform:translateY(-50%) scale(1)}
+  6%,18%{border-color:var(--teal);box-shadow:0 0 3cqw var(--teal-glow), 0 1cqw 3cqw rgba(0,0,0,.6);transform:translateY(-50%) scale(1.06)}
+  22%,100%{border-color:var(--line2);box-shadow:0 1cqw 3cqw rgba(0,0,0,.6);transform:translateY(-50%) scale(1)}
+}
+@keyframes agentActiveL{
+  0%,3%{border-color:var(--line2);box-shadow:0 1cqw 3cqw rgba(0,0,0,.6);transform:translateY(-50%) scale(1)}
+  6%,18%{border-color:var(--teal);box-shadow:0 0 3cqw var(--teal-glow), 0 1cqw 3cqw rgba(0,0,0,.6);transform:translateY(-50%) scale(1.06)}
+  22%,100%{border-color:var(--line2);box-shadow:0 1cqw 3cqw rgba(0,0,0,.6);transform:translateY(-50%) scale(1)}
+}
+
+/* emoji bounce when active */
+.agent .emoji{animation-duration:7s;animation-iteration-count:infinite}
+.agent.top .emoji{animation-name:emojiBounce;animation-delay:.4s}
+.agent.right .emoji{animation-name:emojiBounce;animation-delay:2s}
+.agent.bottom .emoji{animation-name:emojiBounce;animation-delay:3.6s}
+.agent.left .emoji{animation-name:emojiBounce;animation-delay:5.2s}
+@keyframes emojiBounce{
+  0%,3%{transform:translateY(0) scale(1)}
+  7%{transform:translateY(-.8cqw) scale(1.15)}
+  11%{transform:translateY(0) scale(1)}
+  15%{transform:translateY(-.4cqw) scale(1.08)}
+  19%,100%{transform:translateY(0) scale(1)}
+}
+
+/* status pings */
+.agent .ping{position:absolute;top:1cqw;right:1cqw;width:.9cqw;height:.9cqw;
+  border-radius:50%;background:var(--dim)}
+.agent.top .ping{animation:pingOn 7s infinite;animation-delay:.4s}
+.agent.right .ping{animation:pingOn 7s infinite;animation-delay:2s}
+.agent.bottom .ping{animation:pingOn 7s infinite;animation-delay:3.6s}
+.agent.left .ping{animation:pingOn 7s infinite;animation-delay:5.2s}
+@keyframes pingOn{
+  0%,3%{background:var(--dim);box-shadow:none}
+  6%,18%{background:var(--teal);box-shadow:0 0 1cqw var(--teal)}
+  22%,100%{background:var(--dim);box-shadow:none}
+}
+
+/* "live" badge */
+.agent .badge{position:absolute;top:-1cqw;left:50%;transform:translateX(-50%);
+  font-family:'JetBrains Mono',monospace;font-size:.95cqw;
+  background:var(--teal);color:#062821;padding:.35cqw 1cqw;border-radius:99cqw;
+  letter-spacing:1.8px;font-weight:600;text-transform:uppercase;
+  opacity:0;box-shadow:0 0 1.5cqw var(--teal-glow);white-space:nowrap}
+.agent.top .badge{animation:badgeShow 7s infinite;animation-delay:.4s}
+.agent.right .badge{animation:badgeShow 7s infinite;animation-delay:2s}
+.agent.bottom .badge{animation:badgeShow 7s infinite;animation-delay:3.6s}
+.agent.left .badge{animation:badgeShow 7s infinite;animation-delay:5.2s}
+@keyframes badgeShow{
+  0%,4%{opacity:0;transform:translateX(-50%) translateY(.3cqw)}
+  7%,17%{opacity:1;transform:translateX(-50%) translateY(0)}
+  20%,100%{opacity:0;transform:translateX(-50%) translateY(-.3cqw)}
+}
+
+/* energy beams */
+svg.beams{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+svg.beams .beam{stroke:var(--teal);stroke-width:2;opacity:0;stroke-dasharray:6 4;fill:none}
+svg.beams .b-top{animation:beam 7s infinite;animation-delay:.4s}
+svg.beams .b-right{animation:beam 7s infinite;animation-delay:2s}
+svg.beams .b-bottom{animation:beam 7s infinite;animation-delay:3.6s}
+svg.beams .b-left{animation:beam 7s infinite;animation-delay:5.2s}
+@keyframes beam{
+  0%,3%{opacity:0;stroke-dashoffset:0}
+  6%,18%{opacity:.9;stroke-dashoffset:-60}
+  22%,100%{opacity:0}
+}
+
+/* traveling spark dots */
+.spark{position:absolute;width:1.2cqw;height:1.2cqw;border-radius:50%;
+  background:radial-gradient(circle,var(--teal),transparent 70%);
+  box-shadow:0 0 1.2cqw var(--teal);
+  pointer-events:none;z-index:4;opacity:0}
+.spark.s-top{left:50%;top:50%;animation:sparkTop 7s infinite;animation-delay:.5s}
+.spark.s-right{left:50%;top:50%;animation:sparkRight 7s infinite;animation-delay:2.1s}
+.spark.s-bottom{left:50%;top:50%;animation:sparkBottom 7s infinite;animation-delay:3.7s}
+.spark.s-left{left:50%;top:50%;animation:sparkLeft 7s infinite;animation-delay:5.3s}
+@keyframes sparkTop{
+  0%,3%{opacity:0;transform:translate(-50%,-50%)}
+  6%{opacity:1;transform:translate(-50%,-50%)}
+  16%{opacity:1;transform:translate(-50%,-400%)}
+  18%,100%{opacity:0;transform:translate(-50%,-400%)}
+}
+@keyframes sparkRight{
+  0%,3%{opacity:0;transform:translate(-50%,-50%)}
+  6%{opacity:1;transform:translate(-50%,-50%)}
+  16%{opacity:1;transform:translate(750%,-50%)}
+  18%,100%{opacity:0;transform:translate(750%,-50%)}
+}
+@keyframes sparkBottom{
+  0%,3%{opacity:0;transform:translate(-50%,-50%)}
+  6%{opacity:1;transform:translate(-50%,-50%)}
+  16%{opacity:1;transform:translate(-50%,400%)}
+  18%,100%{opacity:0;transform:translate(-50%,400%)}
+}
+@keyframes sparkLeft{
+  0%,3%{opacity:0;transform:translate(-50%,-50%)}
+  6%{opacity:1;transform:translate(-50%,-50%)}
+  16%{opacity:1;transform:translate(-750%,-50%)}
+  18%,100%{opacity:0;transform:translate(-750%,-50%)}
+}
+
+/* floating ambient particles */
+.particle{position:absolute;width:.35cqw;height:.35cqw;border-radius:50%;
+  background:var(--teal);opacity:.4;box-shadow:0 0 .7cqw var(--teal)}
+.particle.f1{top:20%;left:30%;animation:float 6s ease-in-out infinite}
+.particle.f2{top:75%;left:25%;animation:float 7s ease-in-out infinite reverse;animation-delay:1s}
+.particle.f3{top:30%;left:72%;animation:float 8s ease-in-out infinite;animation-delay:2s}
+.particle.f4{top:70%;left:75%;animation:float 5.5s ease-in-out infinite reverse;animation-delay:.5s}
+.particle.f5{top:15%;left:55%;animation:float 7.5s ease-in-out infinite;animation-delay:3s;background:var(--indigo);box-shadow:0 0 .7cqw var(--indigo)}
+.particle.f6{top:82%;left:50%;animation:float 6.5s ease-in-out infinite reverse;animation-delay:2.5s;background:var(--indigo);box-shadow:0 0 .7cqw var(--indigo)}
+@keyframes float{
+  0%,100%{transform:translate(0,0);opacity:.3}
+  50%{transform:translate(1cqw,-1.5cqw);opacity:.7}
+}
+
+.stage-marker{position:absolute;top:2.4cqw;left:3cqw;
+  font-family:'JetBrains Mono',monospace;font-size:1.1cqw;color:var(--dim);
+  text-transform:uppercase;letter-spacing:2.5px;z-index:60}
+.stage-marker b{color:var(--teal);font-weight:500}
+.marker{position:absolute;top:2.4cqw;right:3cqw;font-family:'Fraunces',serif;
+  font-size:1.3cqw;color:var(--teal);letter-spacing:1px;z-index:55;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="glow"></div>
+  <div class="grain"></div>
+  <div class="stage-marker">Lucy <b>·</b> 05</div>
+  <span class="marker">05 / custom experts</span>
+
+  <div class="canvas">
+    <div class="particle f1"></div>
+    <div class="particle f2"></div>
+    <div class="particle f3"></div>
+    <div class="particle f4"></div>
+    <div class="particle f5"></div>
+    <div class="particle f6"></div>
+
+    <div class="pulse-ring"></div>
+    <div class="pulse-ring p2"></div>
+    <div class="pulse-ring p3"></div>
+
+    <div class="orbit r1"></div>
+    <div class="orbit r2"></div>
+
+    <svg class="beams" viewBox="0 0 1100 688" preserveAspectRatio="none">
+      <line class="beam b-top"    x1="550" y1="344" x2="550" y2="120"/>
+      <line class="beam b-right"  x1="550" y1="344" x2="920" y2="344"/>
+      <line class="beam b-bottom" x1="550" y1="344" x2="550" y2="570"/>
+      <line class="beam b-left"   x1="550" y1="344" x2="180" y2="344"/>
+    </svg>
+
+    <span class="spark s-top"></span>
+    <span class="spark s-right"></span>
+    <span class="spark s-bottom"></span>
+    <span class="spark s-left"></span>
+
+    <div class="lucy-core">
+      <div class="lbl">Lucy<small>orchestrator</small></div>
+    </div>
+
+    <div class="agent top">
+      <div class="ping"></div>
+      <div class="badge">● live</div>
+      <div class="emoji">📣</div>
+      <div class="nm">Nancy</div>
+      <div class="rl">marketing</div>
+    </div>
+
+    <div class="agent right">
+      <div class="ping"></div>
+      <div class="badge">● live</div>
+      <div class="emoji">💬</div>
+      <div class="nm">Sam</div>
+      <div class="rl">support</div>
+    </div>
+
+    <div class="agent bottom">
+      <div class="ping"></div>
+      <div class="badge">● live</div>
+      <div class="emoji">📊</div>
+      <div class="nm">Fran</div>
+      <div class="rl">finance</div>
+    </div>
+
+    <div class="agent left">
+      <div class="ping"></div>
+      <div class="badge">● live</div>
+      <div class="emoji">🤝</div>
+      <div class="nm">Otto</div>
+      <div class="rl">onboarding</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
