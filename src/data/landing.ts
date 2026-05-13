@@ -7,6 +7,11 @@ import {
 	faRocket,
 	faClipboardList,
 	faComments,
+	faChartLine,
+	faPenNib,
+	faMagnet,
+	faHandshake,
+	faBolt,
 } from "@fortawesome/free-solid-svg-icons"
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 
@@ -44,6 +49,22 @@ export interface ProofStat {
 	value: string
 	label: string
 	accent: "primary" | "accent" | "neutral"
+}
+
+export interface FeaturePillarBullet {
+	icon: IconDefinition
+	label: string
+	sub: string
+}
+
+export interface FeaturePillar {
+	num: string
+	eyebrow: string
+	headline: string
+	promise: string
+	bullets: FeaturePillarBullet[]
+	visual: "attract" | "engage" | "capture" | "close" | "optimize"
+	icon: IconDefinition
 }
 
 export interface TeamMember {
@@ -129,7 +150,7 @@ export const outcomes: OutcomeItem[] = [
 		title: "AI Agent Deployment",
 		category: "Customer Experience",
 		description:
-			"24/7 intelligent agents for customer support, internal ops, or data processing — working alongside your team, not replacing it.",
+			"24/7 intelligent agents for customer support, internal ops, or data processing. Working alongside your team, not replacing it.",
 	},
 	{
 		id: "outcome-3",
@@ -143,7 +164,7 @@ export const outcomes: OutcomeItem[] = [
 		title: "Content & Communication",
 		category: "Marketing",
 		description:
-			"AI-assisted content creation, translation, and personalized outreach — so your team produces more without burning out.",
+			"AI-assisted content creation, translation, and personalized outreach, so your team produces more without burning out.",
 	},
 ]
 
@@ -188,26 +209,159 @@ export const testimonials: Testimonial[] = [
 
 ]
 
+export const featurePillars: FeaturePillar[] = [
+	{
+		num: "01",
+		eyebrow: "Attract",
+		headline: "Be found. Built to convert.",
+		promise:
+			"A site engineered to rank, get cited by AI, and turn traffic into leads.",
+		icon: faChartLine,
+		visual: "attract",
+		bullets: [
+			{
+				icon: faPenRuler,
+				label: "Conversion-first design",
+				sub: "Pages built around how your customers buy.",
+			},
+			{
+				icon: faMagnifyingGlass,
+				label: "Search-ready SEO",
+				sub: "Every page ships optimized.",
+			},
+			{
+				icon: faRobot,
+				label: "Generative Engine Optimization",
+				sub: "Cited by ChatGPT, Gemini, and Perplexity.",
+			},
+		],
+	},
+	{
+		num: "02",
+		eyebrow: "Engage",
+		headline: "Publish every day, not every quarter.",
+		promise:
+			"AI Experts trained on your business write the blog and run your social.",
+		icon: faPenNib,
+		visual: "engage",
+		bullets: [
+			{
+				icon: faPenNib,
+				label: "AI-written blog posts",
+				sub: "Scheduled, optimized, on-brand.",
+			},
+			{
+				icon: faComments,
+				label: "Multi-platform social",
+				sub: "One idea. Every channel.",
+			},
+			{
+				icon: faRobot,
+				label: "Custom AI Experts",
+				sub: "Trained on your knowledge, not the open web.",
+			},
+		],
+	},
+	{
+		num: "03",
+		eyebrow: "Capture",
+		headline: "Turn visitors into leads.",
+		promise:
+			"Every form, asset, and outreach drops straight into your pipeline.",
+		icon: faMagnet,
+		visual: "capture",
+		bullets: [
+			{
+				icon: faMagnet,
+				label: "Embeddable forms",
+				sub: "Drop in anywhere. Lands in your CRM.",
+			},
+			{
+				icon: faMagnifyingGlass,
+				label: "Lead finder",
+				sub: "Outbound that surfaces fit accounts.",
+			},
+			{
+				icon: faClipboardList,
+				label: "Gated assets",
+				sub: "Files become qualified opt-ins.",
+			},
+		],
+	},
+	{
+		num: "04",
+		eyebrow: "Convert",
+		headline: "Leads land. Replies go out. Instantly.",
+		promise:
+			"Every form submission routes straight to your inbox with an auto-reply firing in seconds.",
+		icon: faHandshake,
+		visual: "close",
+		bullets: [
+			{
+				icon: faHandshake,
+				label: "Auto-routing",
+				sub: "Lead lands straight in your CRM.",
+			},
+			{
+				icon: faBolt,
+				label: "Instant response",
+				sub: "Auto-reply fires in seconds.",
+			},
+			{
+				icon: faClipboardList,
+				label: "Full lead context",
+				sub: "Every field captured and stored.",
+			},
+		],
+	},
+	{
+		num: "05",
+		eyebrow: "Optimize",
+		headline: "Reclaim your team's time.",
+		promise:
+			"Lucy automates the repetitive work so your team can do what only humans can.",
+		icon: faBolt,
+		visual: "optimize",
+		bullets: [
+			{
+				icon: faGears,
+				label: "Workflow automation",
+				sub: "Cut the manual handoffs.",
+			},
+			{
+				icon: faBolt,
+				label: "Always-on optimization",
+				sub: "Gets better every run.",
+			},
+			{
+				icon: faRocket,
+				label: "Hours saved weekly",
+				sub: "Reinvest in growth, not admin.",
+			},
+		],
+	},
+]
+
 export const team: TeamMember[] = [
 	{
 		image: "/jake.jpg",
 		name: "Jake",
 		role: "CEO & Strategy",
-		bio: "Rebuilt a service business from the ground up: systems, team, and operations. Now does the same for other service businesses, using AI to cut waste, accelerate growth, and scale without adding headcount.",
+		bio: "Seven years in MARSOC as a Special Operations medic taught one discipline: understand what is actually broken before you act. That approach now guides every Recursive Solutions engagement. Jake works directly with founders and CEOs to identify where the business is losing margin and owner time, then defines the most effective intervention before any technology is recommended.",
 		initials: "J",
 	},
 	{
 		image: "/luc.jpg",
 		name: "Luc",
 		role: "COO & Operations",
-		bio: "Spent his career making businesses run better. Obsessed with turning complex AI capabilities into simple, practical tools that teams actually use.",
+		bio: "Spent his career making businesses run better. Focused on turning complex AI capabilities into simple, practical tools that teams actually use.",
 		initials: "L",
 	},
 	{
 		image: "/denis.jpg",
 		name: "Denis",
 		role: "CTO & AI Architecture",
-		bio: "The builder. Designs and develops the AI systems that power everything we deliver — custom-built for real businesses, not theoretical use cases.",
+		bio: "The builder. Designs and develops the AI systems that power everything we deliver, custom-built for real businesses, not theoretical use cases.",
 		initials: "D",
 	},
 ]

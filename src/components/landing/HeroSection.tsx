@@ -13,7 +13,6 @@ import {
 } from "@/lib/animation-config"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 import { ButtonLink } from "@/components/ui/button-link"
-import { HeroBackground } from "./HeroBackground"
 
 /* ── HeroSection ────────────────────────────────────────────────────── */
 
@@ -126,15 +125,11 @@ export function HeroSection() {
 	return (
 		<section
 			ref={sectionRef}
-			className="relative min-h-screen flex items-center justify-center overflow-hidden bg-base-200"
+			className="relative overflow-hidden bg-base-200"
 		>
-			{/* Three.js WebGL background */}
-			{/* <HeroBackground /> */}
-
 			{/* Gradient overlay for text legibility */}
 			<div
 				className="absolute inset-0 z-1 pointer-events-none bg-base-100/50 backdrop-blur-2xl"
-
 				aria-hidden="true"
 			/>
 
@@ -143,7 +138,6 @@ export function HeroSection() {
 				className="absolute inset-0 z-2 pointer-events-none overflow-hidden"
 				aria-hidden="true"
 			>
-				{/* Wide soft glow filling the top of the hero */}
 				<div
 					className="absolute inset-x-0 top-0 h-full lamp-fade"
 					style={{
@@ -151,14 +145,10 @@ export function HeroSection() {
 							"radial-gradient(ellipse 70% 80% at 50% 0%, var(--lamp-color), transparent 70%)",
 					}}
 				/>
-
-				{/* Concentrated bloom at the lamp source */}
 				<div
 					className="lamp-anim absolute left-1/2 top-0 h-40 w-[36rem] -translate-x-1/2 -translate-y-[40%] rounded-full bg-primary/50 blur-3xl"
 					style={{ animationName: "lamp-bloom" }}
 				/>
-
-				{/* Horizontal lamp line */}
 				<div
 					className="lamp-anim absolute left-1/2 top-0 h-0.5 -translate-x-1/2 bg-primary/60"
 					style={{ animationName: "lamp-line" }}
@@ -168,74 +158,86 @@ export function HeroSection() {
 			{/* Text content */}
 			<div
 				ref={contentRef}
-				className="relative z-10 max-w-4xl mx-auto px-6 text-center"
+				className="relative z-10 max-w-4xl mx-auto px-6 text-center pt-40 pb-16"
 			>
 				{/* Tag */}
-				<div
-					ref={tagRef}
-					className={reducedMotion ? "" : "opacity-0"}
-				>
+				<div ref={tagRef} className={reducedMotion ? "" : "opacity-0"}>
 					<span className="inline-block px-4 py-1.5 bg-base-content/10 backdrop-blur-sm text-base-content/80 text-xs font-bold rounded-full mb-8 uppercase tracking-widest border border-base-content/10">
-						For Service Businesses
+						The AI for growing businesses
 					</span>
 				</div>
 
 				{/* Heading */}
 				<h1
 					ref={headingRef}
-					className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-base-content mb-8 tracking-tight leading-[1.08] flex flex-wrap justify-center"
+					className="text-6xl sm:text-7xl md:text-9xl font-extrabold text-base-content mb-6 tracking-tight leading-[1.0] flex flex-wrap justify-center"
 				>
-					{(reducedMotion
-						? ["The AI Integrator for Growing Businesses"]
-						: "The AI Integrator for Growing Businesses".split(/\s+/).filter(Boolean)
-					).map((word, i, arr) => (
-						<span key={i}>
-							<span className="inline-block overflow-hidden align-bottom reveal-mask">
-								<span
-									data-hero-word=""
-									className="inline-block"
-									style={reducedMotion ? undefined : { clipPath: "inset(0 0 100% 0)" }}
-								>
-									{word}
+					{(reducedMotion ? ["Lucy"] : "Lucy".split(/\s+/).filter(Boolean)).map(
+						(word, i, arr) => (
+							<span key={i}>
+								<span className="inline-block overflow-hidden align-bottom reveal-mask">
+									<span
+										data-hero-word=""
+										className="inline-block"
+										style={reducedMotion ? undefined : { clipPath: "inset(0 0 100% 0)" }}
+									>
+										{word}
+									</span>
 								</span>
+								{i < arr.length - 1 && (
+									<span className="inline-block w-[0.3em]">&nbsp;</span>
+								)}
 							</span>
-							{i < arr.length - 1 && (
-								<span className="inline-block w-[0.3em]">&nbsp;</span>
-							)}
-						</span>
-					))}
+						)
+					)}
 				</h1>
 
 				{/* Subtitle */}
 				<p
 					ref={subtitleRef}
-					className={`text-lg md:text-xl text-base-content/60 mb-12 max-w-2xl mx-auto leading-relaxed font-medium ${reducedMotion ? "" : "opacity-0"
-						}`}
+					className={`text-lg md:text-xl text-base-content/60 mb-12 max-w-2xl mx-auto leading-relaxed font-medium ${reducedMotion ? "" : "opacity-0"}`}
 				>
-					We advise. We build. You scale.
+					Map, automate, and grow — without the guesswork.
 				</p>
 
 				{/* CTAs */}
-				<div
-					ref={ctaRef}
-					className="flex flex-col sm:flex-row justify-center gap-4"
-				>
+				<div ref={ctaRef} className="flex flex-col sm:flex-row justify-center gap-4">
 					<ButtonLink
 						href="#contact"
-						className={`btn btn-primary px-10 py-4 rounded-2xl text-lg font-bold shadow-xl shadow-primary/30 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.97] transition-all duration-300 border-none h-auto ${reducedMotion ? "" : "opacity-0"
-							}`}
+						className={`btn btn-primary px-10 py-4 rounded-2xl text-lg font-bold shadow-xl shadow-primary/30 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-2xl active:scale-[0.97] transition-all duration-300 border-none h-auto ${reducedMotion ? "" : "opacity-0"}`}
 					>
-						Map Your Growth
+						Get Early Access
 					</ButtonLink>
 					<ButtonLink
 						href="#process"
-						className={`btn btn-ghost text-base-content border border-base-content/20 px-10 py-4 rounded-2xl text-lg font-bold hover:bg-base-content/10 hover:-translate-y-1 active:scale-[0.97] transition-all duration-300 h-auto ${reducedMotion ? "" : "opacity-0"
-							}`}
+						className={`btn btn-ghost text-base-content border border-base-content/20 px-10 py-4 rounded-2xl text-lg font-bold hover:bg-base-content/10 hover:-translate-y-1 active:scale-[0.97] transition-all duration-300 h-auto ${reducedMotion ? "" : "opacity-0"}`}
 					>
-						See How We Work
+						See How It Works
 					</ButtonLink>
 				</div>
 			</div>
+
+			{/* App screenshot placeholder */}
+			{/* <div className="relative z-10 max-w-6xl mx-auto px-6 pb-0">
+				<div className="rounded-t-2xl border border-base-content/10 border-b-0 overflow-hidden shadow-2xl shadow-base-content/10">
+					<div className="flex items-center gap-2 px-4 py-3 bg-base-300/80 border-b border-base-content/10 backdrop-blur-sm">
+						<div className="w-3 h-3 rounded-full bg-base-content/20" />
+						<div className="w-3 h-3 rounded-full bg-base-content/20" />
+						<div className="w-3 h-3 rounded-full bg-base-content/20" />
+						<div className="flex-1 mx-4 bg-base-content/10 rounded-full h-5 max-w-xs" />
+					</div>
+					<div className="aspect-[16/9] bg-gradient-to-br from-base-300 via-base-200 to-base-300 flex items-center justify-center">
+						<div className="text-center space-y-3">
+							<div className="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 mx-auto flex items-center justify-center">
+								<div className="w-8 h-8 rounded-full bg-primary/40" />
+							</div>
+							<p className="text-base-content/30 text-sm font-medium tracking-wide uppercase">
+								Screenshot coming soon
+							</p>
+						</div>
+					</div>
+				</div>
+			</div> */}
 
 			{/* Scroll-down indicator */}
 			{!reducedMotion && (
@@ -259,16 +261,6 @@ export function HeroSection() {
 					</svg>
 				</div>
 			)}
-
-			{/* Bottom gradient fade into next section */}
-			<div
-				className="absolute bottom-0 left-0 right-0 h-32 z-2 pointer-events-none"
-				style={{
-					background:
-						"linear-gradient(to top, oklch(var(--b1)) 0%, transparent 100%)",
-				}}
-				aria-hidden="true"
-			/>
 		</section>
 	)
 }

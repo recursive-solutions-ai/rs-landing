@@ -147,14 +147,14 @@ export function ContactCTASection({ form }: ContactCTASectionProps) {
 					Map Your Growth
 				</h2>
 				<p className="mx-auto mb-12 max-w-xl text-lg text-base-content/60 md:text-xl text-center">
-					Book a free 30-minute call — no pitch, no commitment.
+					Book a free 30-minute call. No pitch. No commitment.
 				</p>
 
 				<div className="mx-auto max-w-2xl">
 					<div className="overflow-hidden rounded-[2rem] bg-primary p-10 text-primary-content shadow-2xl md:p-12">
 
 						<p className="mb-8 text-primary-content/80 leading-relaxed">
-							In 30 minutes, we&apos;ll learn about your business and hand you a Website Analysis Report — a real breakdown of where you stand and where AI could take you. Worst case, you walk away with free insight your competitors are paying for.
+							In 30 minutes, we&apos;ll learn about your business and hand you a Website Analysis Report. A real breakdown of where you stand and where AI could take you. Worst case, you walk away with free insight your competitors are paying for.
 						</p>
 
 						{status === "success" ? (

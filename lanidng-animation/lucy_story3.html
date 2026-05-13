@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lucy — visual story (brand)</title>
+<style>
+:root{
+  /* brand */
+  --teal:#00d3bb;
+  --teal-soft:rgba(0,211,187,.35);
+  --teal-glow:rgba(0,211,187,.18);
+  --indigo:#605dff;
+  --indigo-soft:rgba(96,93,255,.35);
+  --indigo-glow:rgba(96,93,255,.18);
+
+  /* surfaces */
+  --bg:#0a0b14;
+  --bg2:#0d0e1a;
+  --ink:#eaeaf2;
+  --dim:#8a8ba0;
+  --line:rgba(255,255,255,.07);
+  --line2:rgba(255,255,255,.13);
+  --card:rgba(255,255,255,.035);
+
+  --cycle:28s;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:'SF Pro Display','Inter',system-ui,sans-serif;overflow:hidden}
+body{
+  background:
+    radial-gradient(60% 50% at 20% 30%, var(--teal-glow), transparent 60%),
+    radial-gradient(40% 40% at 80% 20%, var(--indigo-glow), transparent 60%),
+    radial-gradient(50% 50% at 70% 90%, rgba(96,93,255,.10), transparent 60%),
+    var(--bg);
+  display:grid;place-items:center;
+}
+.stage{
+  position:relative;
+  width:min(1100px,96vw);
+  aspect-ratio:16/10;
+  border-radius:20px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#0e0f1c,#08090f);
+  box-shadow:0 30px 80px rgba(0,0,0,.6), inset 0 0 0 1px var(--line);
+}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");}
+.glow{position:absolute;inset:-20%;pointer-events:none;background:
+  radial-gradient(40% 35% at 15% 30%, var(--teal-glow), transparent 60%),
+  radial-gradient(35% 35% at 85% 25%, var(--indigo-glow), transparent 60%);
+  filter:blur(20px);animation:drift 12s ease-in-out infinite alternate}
+@keyframes drift{0%{transform:translate(0,0)}100%{transform:translate(2%,-2%)}}
+
+/* scene base */
+.scene{position:absolute;inset:0;opacity:0;display:flex;align-items:center;justify-content:center}
+.s1{animation:scene var(--cycle) infinite; animation-delay:0s}
+.s2{animation:scene var(--cycle) infinite; animation-delay:7s}
+.s3{animation:scene var(--cycle) infinite; animation-delay:14s}
+.s4{animation:scene var(--cycle) infinite; animation-delay:21s}
+@keyframes scene{
+  0%{opacity:0;transform:scale(.97);filter:blur(8px)}
+  3%,22%{opacity:1;transform:scale(1);filter:blur(0)}
+  27%,100%{opacity:0;transform:scale(1.02);filter:blur(8px)}
+}
+
+/* ============================================================
+   SCENE 1 — CONTENT ENGINE
+   ============================================================ */
+.s1 .canvas{position:relative;width:100%;height:100%}
+
+.s1 .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:140px;height:140px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,211,187,.35),rgba(96,93,255,.08) 60%,transparent 70%);
+  display:grid;place-items:center;}
+.s1 .core::after{content:"";position:absolute;inset:30px;border-radius:50%;background:radial-gradient(circle,var(--teal),transparent 70%);filter:blur(8px);animation:corePulse 2.2s ease-in-out infinite}
+@keyframes corePulse{0%,100%{transform:scale(.9);opacity:.7}50%{transform:scale(1.1);opacity:1}}
+.s1 .core .label{position:relative;z-index:2;font-family:'Fraunces',serif;font-size:13px;letter-spacing:.5px;text-align:center;line-height:1.2}
+.s1 .core .label small{display:block;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--teal);text-transform:uppercase;letter-spacing:2px;margin-top:4px}
+
+.s1 .ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid var(--teal-soft);border-radius:50%;animation:expand 3s ease-out infinite}
+.s1 .ring.r1{animation-delay:0s}
+.s1 .ring.r2{animation-delay:1s}
+.s1 .ring.r3{animation-delay:2s}
+@keyframes expand{0%{width:140px;height:140px;opacity:.6}100%{width:600px;height:600px;opacity:0}}
+
+.s1 .post{position:absolute;border:1px solid var(--line2);border-radius:10px;background:rgba(20,21,32,.85);backdrop-filter:blur(20px);padding:10px 14px;font-size:11px;width:200px;opacity:0;
+  box-shadow:0 8px 30px rgba(0,0,0,.5), 0 0 20px var(--teal-glow)}
+.s1 .post .type{font-size:9px;color:var(--teal);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.s1 .post .type::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal);box-shadow:0 0 6px var(--teal)}
+.s1 .post .t{font-family:'Fraunces',serif;font-size:12px;line-height:1.3}
+.s1 .post .meta{font-size:9px;color:var(--dim);font-family:'JetBrains Mono',monospace;margin-top:5px}
+
+.s1 .p1{top:20%;left:14%;animation:emit 7s infinite;animation-delay:.6s}
+.s1 .p2{top:18%;right:14%;animation:emit 7s infinite;animation-delay:1.4s}
+.s1 .p3{bottom:22%;left:12%;animation:emit 7s infinite;animation-delay:2.2s}
+.s1 .p4{bottom:20%;right:13%;animation:emit 7s infinite;animation-delay:3s}
+.s1 .p5{top:50%;left:6%;transform:translateY(-50%);animation:emitL 7s infinite;animation-delay:3.8s}
+.s1 .p6{top:50%;right:6%;transform:translateY(-50%);animation:emitR 7s infinite;animation-delay:4.6s}
+@keyframes emit{
+  0%{opacity:0;transform:scale(.4)}
+  8%{opacity:0;transform:scale(.4)}
+  18%{opacity:1;transform:scale(1)}
+  70%{opacity:1;transform:scale(1)}
+  85%,100%{opacity:0;transform:scale(1)}
+}
+@keyframes emitL{0%{opacity:0;transform:translateY(-50%) scale(.4)}18%{opacity:1;transform:translateY(-50%) scale(1)}70%{opacity:1;transform:translateY(-50%) scale(1)}100%{opacity:0;transform:translateY(-50%) scale(1)}}
+@keyframes emitR{0%{opacity:0;transform:translateY(-50%) scale(.4)}18%{opacity:1;transform:translateY(-50%) scale(1)}70%{opacity:1;transform:translateY(-50%) scale(1)}100%{opacity:0;transform:translateY(-50%) scale(1)}}
+
+.s1 svg.lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.s1 svg.lines path{stroke:var(--teal-soft);stroke-width:1;fill:none;stroke-dasharray:4 4;opacity:.3;animation:dash 3s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-16}}
+
+/* ============================================================
+   SCENE 2 — LEAD CAPTURE
+   ============================================================ */
+.s2 .canvas{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:space-between;padding:0 8%}
+
+.s2 .form{position:relative;width:280px;border:1px solid var(--line2);border-radius:16px;background:rgba(20,21,32,.7);backdrop-filter:blur(20px);padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.s2 .form .ttl{font-family:'Fraunces',serif;font-size:16px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.s2 .form .ttl::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal)}
+.s2 .input-line{height:32px;border:1px solid var(--line);border-radius:8px;background:rgba(0,0,0,.3);padding:8px 12px;font-size:11px;color:var(--dim);margin-bottom:8px;display:flex;align-items:center;position:relative;overflow:hidden}
+.s2 .input-line.fill::after{content:"";position:absolute;left:12px;top:50%;height:1px;width:0;background:var(--teal);box-shadow:0 0 6px var(--teal);animation:fillLine 7s infinite}
+.s2 .input-line.f1::after{animation-delay:.5s}
+.s2 .input-line.f2::after{animation-delay:1.2s}
+.s2 .input-line.f3::after{animation-delay:1.9s}
+@keyframes fillLine{0%{width:0;opacity:0}5%{opacity:1}25%{width:80%;opacity:1}30%,100%{width:80%;opacity:0}}
+
+.s2 .submit-btn{margin-top:8px;padding:10px;background:var(--teal);color:#062821;border:none;border-radius:8px;font-size:11px;font-weight:600;width:100%;animation:btnPress 7s infinite}
+@keyframes btnPress{0%,38%{transform:scale(1);box-shadow:0 0 0 var(--teal-glow)}40%{transform:scale(.95);box-shadow:0 0 30px var(--teal-glow)}45%,100%{transform:scale(1)}}
+
+.s2 .wire{position:absolute;left:35%;top:50%;width:30%;height:2px;background:linear-gradient(90deg,var(--teal-soft),var(--teal),var(--indigo-soft));opacity:0;animation:wireOn 7s infinite}
+@keyframes wireOn{0%,42%{opacity:0}45%,80%{opacity:.5}85%,100%{opacity:0}}
+
+.s2 .packet{position:absolute;left:35%;top:50%;transform:translateY(-50%);width:60px;padding:8px 10px;border-radius:8px;background:rgba(0,211,187,.15);border:1px solid var(--teal);box-shadow:0 0 24px var(--teal-glow);opacity:0;font-size:9px;color:var(--teal);text-transform:uppercase;letter-spacing:1px;text-align:center;animation:flyPacket 7s infinite}
+@keyframes flyPacket{
+  0%,42%{opacity:0;left:35%;transform:translateY(-50%) scale(.5)}
+  45%{opacity:1;transform:translateY(-50%) scale(1)}
+  70%{opacity:1;left:62%;transform:translateY(-50%) scale(1)}
+  78%{opacity:0;left:65%;transform:translateY(-50%) scale(.5)}
+  100%{opacity:0}
+}
+
+.s2 .inbox{width:300px;display:flex;flex-direction:column;gap:8px;position:relative}
+.s2 .inbox .h{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:1.8px;display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
+.s2 .inbox .h .ct{color:var(--teal);font-family:'JetBrains Mono',monospace}
+.s2 .mail{border:1px solid var(--line);border-radius:10px;background:rgba(20,21,32,.6);backdrop-filter:blur(20px);padding:10px 12px;font-size:11px;opacity:.4}
+.s2 .mail.new{opacity:0;animation:mailIn 7s infinite}
+.s2 .mail.m1{animation-delay:0s}
+.s2 .mail.m2{animation-delay:.3s}
+@keyframes mailIn{0%,72%{opacity:0;transform:translateY(-6px)}77%,92%{opacity:1;transform:translateY(0);border-color:var(--teal-soft);box-shadow:0 0 20px var(--teal-glow)}96%,100%{opacity:1;border-color:var(--line);box-shadow:none}}
+.s2 .mail .from{color:var(--teal);font-size:10px;text-transform:uppercase;letter-spacing:1.2px;display:flex;justify-content:space-between;margin-bottom:3px}
+.s2 .mail .from .t{color:var(--dim);font-family:'JetBrains Mono',monospace;text-transform:none;letter-spacing:0}
+.s2 .mail .s{font-family:'Fraunces',serif;font-size:12px;margin-bottom:2px}
+.s2 .mail .p{color:var(--dim);font-size:10px;line-height:1.4}
+
+/* ============================================================
+   SCENE 3 — CRM
+   ============================================================ */
+.s3 .canvas{position:relative;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 8%}
+
+.s3 .track{position:relative;display:flex;justify-content:space-between;align-items:center;margin-bottom:60px}
+.s3 .stage-node{position:relative;z-index:2;width:90px;text-align:center}
+.s3 .stage-node .circle{width:50px;height:50px;margin:0 auto 10px;border-radius:50%;border:1px solid var(--line2);background:rgba(20,21,32,.8);display:grid;place-items:center;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--dim);position:relative;transition:all .4s}
+.s3 .stage-node .circle::before{content:"";position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--teal-soft);opacity:0;animation:nodeRing 7s infinite}
+.s3 .stage-node.n1 .circle::before{animation-delay:.5s}
+.s3 .stage-node.n2 .circle::before{animation-delay:2s}
+.s3 .stage-node.n3 .circle::before{animation-delay:3.5s}
+.s3 .stage-node.n4 .circle::before{animation-delay:5s}
+@keyframes nodeRing{0%,3%{opacity:0;transform:scale(.8)}5%,15%{opacity:.8;transform:scale(1)}20%{opacity:0;transform:scale(1.3)}25%,100%{opacity:0}}
+.s3 .stage-node.n1 .circle{animation:nodeOn 7s infinite;animation-delay:.5s}
+.s3 .stage-node.n2 .circle{animation:nodeOn 7s infinite;animation-delay:2s}
+.s3 .stage-node.n3 .circle{animation:nodeOn 7s infinite;animation-delay:3.5s}
+.s3 .stage-node.n4 .circle{animation:nodeOn 7s infinite;animation-delay:5s}
+@keyframes nodeOn{0%,3%{border-color:var(--line2);color:var(--dim);background:rgba(20,21,32,.8)}5%,18%{border-color:var(--teal);color:var(--teal);background:rgba(0,211,187,.1);box-shadow:0 0 30px var(--teal-glow)}25%,100%{border-color:var(--teal-soft);color:var(--teal);background:rgba(20,21,32,.8);box-shadow:none}}
+.s3 .stage-node .lbl{font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:var(--dim)}
+.s3 .stage-node .sub{font-size:9px;color:var(--dim);font-family:'JetBrains Mono',monospace;margin-top:3px;opacity:.6}
+
+.s3 .rail{position:absolute;left:80px;right:80px;top:25px;height:1px;background:var(--line2);z-index:1}
+.s3 .rail::after{content:"";position:absolute;left:0;top:-1px;height:3px;width:0;background:linear-gradient(90deg,var(--teal),var(--indigo));box-shadow:0 0 12px var(--teal);border-radius:3px;animation:railFill 7s infinite}
+@keyframes railFill{0%{width:0}10%{width:33%}30%{width:33%}40%{width:66%}60%{width:66%}70%{width:100%}100%{width:100%}}
+
+.s3 .leads{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;max-width:680px;margin:0 auto}
+.s3 .leadchip{padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(20,21,32,.6);font-size:11px;display:flex;align-items:center;gap:8px;backdrop-filter:blur(10px)}
+.s3 .leadchip .av{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,rgba(0,211,187,.3),rgba(96,93,255,.1));display:grid;place-items:center;font-size:9px;color:var(--teal);font-family:'Fraunces',serif}
+.s3 .leadchip .nm{font-size:11px}
+.s3 .leadchip .st{font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:1px;margin-left:4px}
+.s3 .leadchip.active{animation:chipActive 7s infinite}
+.s3 .leadchip.l1{animation-delay:.5s}
+.s3 .leadchip.l2{animation-delay:1.8s}
+.s3 .leadchip.l3{animation-delay:3.2s}
+@keyframes chipActive{0%,3%{border-color:var(--line);background:rgba(20,21,32,.6);box-shadow:none;transform:scale(1)}5%,18%{border-color:var(--teal);background:rgba(0,211,187,.08);box-shadow:0 0 20px var(--teal-glow);transform:scale(1.05)}25%,100%{border-color:var(--teal-soft);background:rgba(20,21,32,.6);box-shadow:none;transform:scale(1)}}
+
+/* ============================================================
+   SCENE 4 — CUSTOM EXPERTS
+   ============================================================ */
+.s4 .canvas{position:relative;width:100%;height:100%}
+
+.s4 .lucy-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:90px;height:90px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,211,187,.35),rgba(96,93,255,.08) 60%,transparent 70%);
+  display:grid;place-items:center;z-index:5}
+.s4 .lucy-core::after{content:"";position:absolute;inset:18px;border-radius:50%;background:radial-gradient(circle,var(--teal),transparent 70%);filter:blur(6px);animation:corePulse 2.2s ease-in-out infinite}
+.s4 .lucy-core .lbl{position:relative;z-index:2;font-family:'Fraunces',serif;font-size:13px}
+
+.s4 .orbit{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:440px;height:440px;border-radius:50%;border:1px dashed var(--line2);opacity:.4}
+.s4 .orbit2{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:300px;height:300px;border-radius:50%;border:1px solid var(--teal-soft);opacity:0;animation:orbitPulse 3s ease-in-out infinite}
+@keyframes orbitPulse{0%,100%{opacity:0;transform:translate(-50%,-50%) scale(.9)}50%{opacity:.6;transform:translate(-50%,-50%) scale(1)}}
+
+.s4 .agent{position:absolute;width:130px;border:1px solid var(--line2);border-radius:14px;background:rgba(20,21,32,.85);backdrop-filter:blur(20px);padding:12px;text-align:center;box-shadow:0 12px 40px rgba(0,0,0,.6)}
+.s4 .agent .av{width:36px;height:36px;border-radius:10px;margin:0 auto 8px;display:grid;place-items:center;font-family:'Fraunces',serif;font-size:16px;background:linear-gradient(135deg,rgba(0,211,187,.2),rgba(96,93,255,.1));border:1px solid var(--teal-soft);color:var(--teal)}
+.s4 .agent .nm{font-family:'Fraunces',serif;font-size:13px}
+.s4 .agent .rl{font-size:9px;color:var(--dim);text-transform:uppercase;letter-spacing:1.2px;margin-top:3px}
+
+.s4 .agent.top{top:14%;left:50%;transform:translateX(-50%)}
+.s4 .agent.right{top:50%;right:14%;transform:translateY(-50%)}
+.s4 .agent.bottom{bottom:14%;left:50%;transform:translateX(-50%)}
+.s4 .agent.left{top:50%;left:14%;transform:translateY(-50%)}
+
+.s4 .agent.top{animation:agentActive 7s infinite;animation-delay:.4s}
+.s4 .agent.right{animation:agentActive 7s infinite;animation-delay:2s}
+.s4 .agent.bottom{animation:agentActive 7s infinite;animation-delay:3.6s}
+.s4 .agent.left{animation:agentActive 7s infinite;animation-delay:5.2s}
+@keyframes agentActive{
+  0%,3%{border-color:var(--line2);box-shadow:0 12px 40px rgba(0,0,0,.6)}
+  5%,18%{border-color:var(--teal);box-shadow:0 0 40px var(--teal-glow), 0 12px 40px rgba(0,0,0,.6)}
+  25%,100%{border-color:var(--line2);box-shadow:0 12px 40px rgba(0,0,0,.6)}
+}
+
+.s4 .agent .ping{position:absolute;top:8px;right:8px;width:6px;height:6px;border-radius:50%;background:var(--dim)}
+.s4 .agent.top .ping{animation:pingOn 7s infinite;animation-delay:.4s}
+.s4 .agent.right .ping{animation:pingOn 7s infinite;animation-delay:2s}
+.s4 .agent.bottom .ping{animation:pingOn 7s infinite;animation-delay:3.6s}
+.s4 .agent.left .ping{animation:pingOn 7s infinite;animation-delay:5.2s}
+@keyframes pingOn{0%,3%{background:var(--dim);box-shadow:none}5%,18%{background:var(--teal);box-shadow:0 0 10px var(--teal)}25%,100%{background:var(--dim);box-shadow:none}}
+
+.s4 svg.beams{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.s4 svg.beams line{stroke:var(--teal);stroke-width:1.5;opacity:0;stroke-dasharray:3 6}
+.s4 svg.beams line.b-top{animation:beam 7s infinite;animation-delay:.4s}
+.s4 svg.beams line.b-right{animation:beam 7s infinite;animation-delay:2s}
+.s4 svg.beams line.b-bottom{animation:beam 7s infinite;animation-delay:3.6s}
+.s4 svg.beams line.b-left{animation:beam 7s infinite;animation-delay:5.2s}
+@keyframes beam{0%,3%{opacity:0}5%,18%{opacity:.8;stroke-dashoffset:-30}25%,100%{opacity:0}}
+
+/* progress indicator */
+.progress{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.05);z-index:60}
+.progress::after{content:"";position:absolute;top:0;height:100%;width:25%;background:linear-gradient(90deg,var(--teal),var(--indigo));box-shadow:0 0 12px var(--teal-soft);animation:progressMove var(--cycle) linear infinite}
+@keyframes progressMove{0%{left:0}25%{left:25%}50%{left:50%}75%{left:75%}100%{left:100%}}
+
+.stage-marker{position:absolute;top:24px;left:30px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:2.5px;z-index:60}
+.stage-marker b{color:var(--teal);font-weight:500}
+.scene .marker{position:absolute;top:24px;right:30px;font-family:'Fraunces',serif;font-size:11px;color:var(--teal);letter-spacing:1px;z-index:55;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="glow"></div>
+  <div class="grain"></div>
+
+  <div class="stage-marker">Lucy <b>·</b> 02 → 05</div>
+
+  <!-- SCENE 1: CONTENT ENGINE -->
+  <div class="scene s1">
+    <span class="marker">02 / content engine</span>
+    <div class="canvas">
+      <svg class="lines" viewBox="0 0 1100 700" preserveAspectRatio="none">
+        <path d="M 550 350 L 200 200"/>
+        <path d="M 550 350 L 900 180"/>
+        <path d="M 550 350 L 180 540"/>
+        <path d="M 550 350 L 920 530"/>
+        <path d="M 550 350 L 100 350"/>
+        <path d="M 550 350 L 1000 350"/>
+      </svg>
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <div class="ring r3"></div>
+      <div class="core">
+        <div class="label">Voice<small>brand profile</small></div>
+      </div>
+      <div class="post p1">
+        <div class="type">LinkedIn</div>
+        <div class="t">Augmentation &gt; replacement</div>
+        <div class="meta">4 platforms · queued</div>
+      </div>
+      <div class="post p2">
+        <div class="type">Blog · 1432 words</div>
+        <div class="t">The Five-Hour AI Audit</div>
+        <div class="meta">SEO ✓ · GEO ✓</div>
+      </div>
+      <div class="post p3">
+        <div class="type">X · thread</div>
+        <div class="t">Hour 5: plug one leak first</div>
+        <div class="meta">scheduled · Mon 9 AM</div>
+      </div>
+      <div class="post p4">
+        <div class="type">Instagram</div>
+        <div class="t">Three real examples</div>
+        <div class="meta">draft · awaiting review</div>
+      </div>
+      <div class="post p5">
+        <div class="type">Blog · draft</div>
+        <div class="t">Where AI quietly saves money</div>
+        <div class="meta">1180 words</div>
+      </div>
+      <div class="post p6">
+        <div class="type">Facebook</div>
+        <div class="t">Why automation stalls</div>
+        <div class="meta">posted · 2h ago</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 2: LEAD CAPTURE -->
+  <div class="scene s2">
+    <span class="marker">03 / lead capture</span>
+    <div class="canvas">
+      <div class="form">
+        <div class="ttl">Free Growth Audit</div>
+        <div class="input-line fill f1"></div>
+        <div class="input-line fill f2"></div>
+        <div class="input-line fill f3"></div>
+        <button class="submit-btn">Request my audit →</button>
+      </div>
+
+      <div class="wire"></div>
+      <div class="packet">→ lead</div>
+
+      <div class="inbox">
+        <div class="h"><span>Inbox</span><span class="ct">●●● live</span></div>
+        <div class="mail new m1">
+          <div class="from">New lead <span class="t">just now</span></div>
+          <div class="s">Jamie Reyes — Apex Partners</div>
+          <div class="p">"Lead response time is killing us"</div>
+        </div>
+        <div class="mail new m2">
+          <div class="from">Auto-reply <span class="t">12s</span></div>
+          <div class="s">We got your request</div>
+          <div class="p">Confirmation sent to submitter</div>
+        </div>
+        <div class="mail">
+          <div class="from" style="color:var(--dim)">Earlier <span class="t">2h</span></div>
+          <div class="s">Sara Holt — Holt CPA</div>
+          <div class="p">"Looking for tax prep automation…"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 3: CRM -->
+  <div class="scene s3">
+    <span class="marker">04 / pipeline</span>
+    <div class="canvas">
+      <div class="track">
+        <div class="rail"></div>
+        <div class="stage-node n1">
+          <div class="circle">01</div>
+          <div class="lbl">New</div>
+          <div class="sub">4 leads</div>
+        </div>
+        <div class="stage-node n2">
+          <div class="circle">02</div>
+          <div class="lbl">Contacted</div>
+          <div class="sub">3 leads</div>
+        </div>
+        <div class="stage-node n3">
+          <div class="circle">03</div>
+          <div class="lbl">Qualified</div>
+          <div class="sub">3 leads</div>
+        </div>
+        <div class="stage-node n4">
+          <div class="circle">04</div>
+          <div class="lbl">Won</div>
+          <div class="sub">2 closed</div>
+        </div>
+      </div>
+
+      <div class="leads">
+        <div class="leadchip active l1"><span class="av">J</span><span class="nm">Jamie Reyes</span><span class="st">→ contacted</span></div>
+        <div class="leadchip active l2"><span class="av">M</span><span class="nm">Marcus Kim</span><span class="st">→ qualified</span></div>
+        <div class="leadchip active l3"><span class="av">T</span><span class="nm">Talia Ng</span><span class="st">→ won</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 4: CUSTOM EXPERTS -->
+  <div class="scene s4">
+    <span class="marker">05 / custom experts</span>
+    <div class="canvas">
+      <svg class="beams" viewBox="0 0 1100 700" preserveAspectRatio="none">
+        <line class="b-top" x1="550" y1="350" x2="550" y2="160"/>
+        <line class="b-right" x1="550" y1="350" x2="930" y2="350"/>
+        <line class="b-bottom" x1="550" y1="350" x2="550" y2="560"/>
+        <line class="b-left" x1="550" y1="350" x2="170" y2="350"/>
+      </svg>
+
+      <div class="orbit"></div>
+      <div class="orbit2"></div>
+
+      <div class="lucy-core">
+        <div class="lbl">Lucy</div>
+      </div>
+
+      <div class="agent top">
+        <div class="ping"></div>
+        <div class="av">N</div>
+        <div class="nm">Nancy</div>
+        <div class="rl">marketing</div>
+      </div>
+      <div class="agent right">
+        <div class="ping"></div>
+        <div class="av">S</div>
+        <div class="nm">Sam</div>
+        <div class="rl">support</div>
+      </div>
+      <div class="agent bottom">
+        <div class="ping"></div>
+        <div class="av">F</div>
+        <div class="nm">Fran</div>
+        <div class="rl">finance</div>
+      </div>
+      <div class="agent left">
+        <div class="ping"></div>
+        <div class="av">O</div>
+        <div class="nm">Otto</div>
+        <div class="rl">onboarding</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="progress"></div>
+</div>
+</body>
+</html>

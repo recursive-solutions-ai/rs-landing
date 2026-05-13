@@ -1,6 +1,7 @@
 
 import { HeroSection } from "@/components/landing/HeroSection"
 import { TargetMarketSection } from "@/components/landing/TargetMarketSection"
+import { FeaturePillarsSection } from "@/components/landing/FeaturePillarsSection"
 import { ServicesSection } from "@/components/landing/ServicesSection"
 import { ProcessSection } from "@/components/landing/ProcessSection"
 import { CaseStudiesSection } from "@/components/landing/CaseStudiesSection"
@@ -22,9 +23,10 @@ export default async function LandingPage() {
 	return (
 		<div className="no-scrollbar">
 			<HeroSection />
-			<TargetMarketSection />
+			{/* <TargetMarketSection /> */}
+			<FeaturePillarsSection />
 			{/* <ServicesSection /> */}
-			<CaseStudiesSection />
+			{/* <CaseStudiesSection /> */}
 
 			<ProcessSection />
 			<ProofOfWorkSection />
