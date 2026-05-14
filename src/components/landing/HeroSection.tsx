@@ -197,7 +197,7 @@ export function HeroSection() {
 					ref={subtitleRef}
 					className={`text-lg md:text-xl text-base-content/60 mb-12 max-w-2xl mx-auto leading-relaxed font-medium ${reducedMotion ? "" : "opacity-0"}`}
 				>
-					Map, automate, and grow — without the guesswork.
+					Map, automate, and grow - without the guesswork.
 				</p>
 
 				{/* CTAs */}
