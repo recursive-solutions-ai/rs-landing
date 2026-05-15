@@ -28,7 +28,7 @@ export function Footer() {
 						</nav>
 					</div>
 
-					<div>
+					{/* <div>
 						<h4 className="font-semibold mb-2">AI ROI Calculator</h4>
 						<nav className="flex flex-col gap-1">
 							<Link href={`/${locale}/roi-calculator`} className="text-sm text-base-content/60 hover:text-primary">All concepts</Link>
@@ -39,7 +39,7 @@ export function Footer() {
 							<Link href={`/${locale}/roi-calculator/stack`} className="text-sm text-base-content/60 hover:text-primary">D · Stack Builder</Link>
 							<Link href={`/${locale}/roi-calculator/benchmarks`} className="text-sm text-base-content/60 hover:text-primary">E · Benchmarks</Link>
 						</nav>
-					</div>
+					</div> */}
 
 					<div>
 						<h4 className="font-semibold mb-2">{t('footer.legal')}</h4>

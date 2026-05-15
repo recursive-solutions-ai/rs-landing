@@ -14,7 +14,12 @@
       "Bash(npm run *)",
       "Bash(cd /Users/denisduvauchelle/Documents/code/recursive-engine/packages/brain && pwd && ls 2>&1 | head -20)",
       "Read(//Users/denisduvauchelle/Documents/code/recursive-engine/packages/brain/**)",
-      "Bash(ps -p 55138 -o command=)"
+      "Bash(ps -p 55138 -o command=)",
+      "Bash(curl -sI https://recursive-solutions.com)",
+      "Bash(curl -s https://recursive-solutions.com)",
+      "Bash(curl -sL https://www.recursive-solutions.com)",
+      "Bash(curl -sIL https://www.recursive-solutions.com)",
+      "Bash(whois recursive-solutions.com)"
     ]
   }
 }
