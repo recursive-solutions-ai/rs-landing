@@ -9,7 +9,9 @@
       "Read(//Users/denisduvauchelle/.claude/skills/**)",
       "Read(//Users/denisduvauchelle/.agents/skills/**)",
       "Bash(curl -sI https://www.recursive-solutions.com/sitemap.xml)",
-      "Bash(curl -s https://www.recursive-solutions.com/sitemap.xml)"
+      "Bash(curl -s https://www.recursive-solutions.com/sitemap.xml)",
+      "Bash(git -C /Users/denisduvauchelle/Documents/code/rs-clients/rs-landing status)",
+      "Bash(npm run *)"
     ]
   }
 }
