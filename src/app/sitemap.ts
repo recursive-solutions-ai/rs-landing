@@ -1,14 +1,13 @@
 import type { MetadataRoute } from 'next'
 import { defaultLocale, supportedLocales, isMultiLang } from '@/i18n/config'
-
-const SITE_URL =
-	process.env.SITE_URL ??
-	(process.env.VERCEL_PROJECT_PRODUCTION_URL
-		? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-		: 'http://localhost:3000')
+import {
+	SITE_URL,
+	BLOG_BATCH_SIZE,
+	fetchBlogCount,
+	getBlogSitemapCount,
+} from '@/lib/sitemap-shared'
 
 const STATIC_PAGES = ['', '/blog', '/contact', '/privacy', '/legal', '/cookies']
-const BLOG_BATCH_SIZE = 1000
 
 interface BlogSitemapEntry {
 	slug: string
@@ -34,20 +33,6 @@ function buildAlternates(path: string): Record<string, string> | undefined {
 	return languages
 }
 
-async function fetchBlogCount(): Promise<number> {
-	try {
-		const res = await fetch(
-			`${SITE_URL}/api/rs/content?type=blog&count=true`,
-			{ next: { revalidate: 3600 } },
-		)
-		if (!res.ok) return 0
-		const data = (await res.json()) as { count: number }
-		return data.count
-	} catch {
-		return 0
-	}
-}
-
 async function fetchBlogBatch(
 	locale: string,
 	limit: number,
@@ -67,7 +52,7 @@ async function fetchBlogBatch(
 
 export async function generateSitemaps() {
 	const totalCount = await fetchBlogCount()
-	const blogSitemapCount = Math.max(1, Math.ceil(totalCount / BLOG_BATCH_SIZE))
+	const blogSitemapCount = getBlogSitemapCount(totalCount)
 
 	// ID 0 = static pages, IDs 1..N = blog batches
 	const ids = [{ id: 0 }]
