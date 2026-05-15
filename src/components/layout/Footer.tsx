@@ -11,7 +11,7 @@ export function Footer() {
 	return (
 		<footer className="bg-base-200 border-t border-base-300">
 			<div className="container mx-auto px-4 py-8">
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-8">
 					<div>
 						<h3 className="font-bold text-lg mb-2">{'Recursive Solutions'}</h3>
 						<p className="text-base-content/60 text-sm">
@@ -25,6 +25,19 @@ export function Footer() {
 							<Link href={`/${locale}`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.home')}</Link>
 							<Link href={`/${locale}/blog`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.blog')}</Link>
 							<Link href={`/${locale}/contact`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.contact')}</Link>
+						</nav>
+					</div>
+
+					<div>
+						<h4 className="font-semibold mb-2">AI ROI Calculator</h4>
+						<nav className="flex flex-col gap-1">
+							<Link href={`/${locale}/roi-calculator`} className="text-sm text-base-content/60 hover:text-primary">All concepts</Link>
+							<Link href={`/${locale}/roi-calculator/hybrid`} className="text-sm text-base-content/60 hover:text-primary">A+D · Hybrid</Link>
+							<Link href={`/${locale}/roi-calculator/wizard`} className="text-sm text-base-content/60 hover:text-primary">A · Wizard</Link>
+							<Link href={`/${locale}/roi-calculator/single`} className="text-sm text-base-content/60 hover:text-primary">B · Single Number</Link>
+							<Link href={`/${locale}/roi-calculator/delay`} className="text-sm text-base-content/60 hover:text-primary">C · Cost of Delay</Link>
+							<Link href={`/${locale}/roi-calculator/stack`} className="text-sm text-base-content/60 hover:text-primary">D · Stack Builder</Link>
+							<Link href={`/${locale}/roi-calculator/benchmarks`} className="text-sm text-base-content/60 hover:text-primary">E · Benchmarks</Link>
 						</nav>
 					</div>
 

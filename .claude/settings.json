@@ -11,7 +11,10 @@
       "Bash(curl -sI https://www.recursive-solutions.com/sitemap.xml)",
       "Bash(curl -s https://www.recursive-solutions.com/sitemap.xml)",
       "Bash(git -C /Users/denisduvauchelle/Documents/code/rs-clients/rs-landing status)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(cd /Users/denisduvauchelle/Documents/code/recursive-engine/packages/brain && pwd && ls 2>&1 | head -20)",
+      "Read(//Users/denisduvauchelle/Documents/code/recursive-engine/packages/brain/**)",
+      "Bash(ps -p 55138 -o command=)"
     ]
   }
 }
