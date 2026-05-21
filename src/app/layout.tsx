@@ -7,10 +7,11 @@ config.autoAddCss = false
 
 import { GrowthEngineProvider } from '@growth-engine/sdk-client'
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics'
+import { SITE_URL } from '@/lib/sitemap-shared'
 import './globals.css'
 
 export const metadata: Metadata = {
-	metadataBase: new URL('https://recursive-solutions.com'),
+	metadataBase: new URL(SITE_URL),
 	title: 'Recursive Solutions',
 	description: 'Recursive Solutions — Powered by Growth Engine',
 	openGraph: {

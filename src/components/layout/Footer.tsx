@@ -25,6 +25,7 @@ export function Footer() {
 							<Link href={`/${locale}`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.home')}</Link>
 							<Link href={`/${locale}/blog`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.blog')}</Link>
 							<Link href={`/${locale}/contact`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.contact')}</Link>
+							<Link href={`/${locale}/test-bot`} className="text-sm text-base-content/60 hover:text-primary">Test Bot</Link>
 						</nav>
 					</div>
 

@@ -8,10 +8,22 @@ import {
 } from '@growth-engine/sdk-server'
 import { BlogContent, RelatedPosts } from '@growth-engine/sdk-client/components'
 import { getDictionary, t } from '@/i18n'
+import { supportedLocales } from '@/i18n/config'
 import { getDb } from '@/lib/db'
+import { buildUrl } from '@/lib/sitemap-shared'
 import { formatDate } from '@/lib/i18n-utils'
 
 export const revalidate = 120
+
+export async function generateStaticParams() {
+	const db = getDb()
+	const results = await Promise.all(
+		supportedLocales.map((locale) => getBlogPosts(db, { locale, limit: 0 })),
+	)
+	return results.flatMap((posts, i) =>
+		posts.map((post) => ({ locale: supportedLocales[i], slug: post.slug })),
+	)
+}
 
 export async function generateMetadata({
 	params,
@@ -25,6 +37,9 @@ export async function generateMetadata({
 	return {
 		title: post.seoTitle ?? post.title,
 		description: post.seoDesc ?? undefined,
+		alternates: {
+			canonical: buildUrl(`/blog/${slug}`, locale),
+		},
 		openGraph: {
 			title: post.seoTitle ?? post.title,
 			description: post.seoDesc ?? undefined,

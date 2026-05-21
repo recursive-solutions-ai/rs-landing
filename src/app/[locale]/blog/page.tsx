@@ -1,9 +1,24 @@
+import type { Metadata } from 'next'
 import { getBlogPosts } from '@growth-engine/sdk-server'
 import { BlogList } from '@growth-engine/sdk-client/components'
 import { getDictionary, t } from '@/i18n'
 import { getDb } from '@/lib/db'
+import { buildUrl } from '@/lib/sitemap-shared'
 
 export const revalidate = 60
+
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+	const { locale } = await params
+	return {
+		alternates: {
+			canonical: buildUrl('/blog', locale),
+		},
+	}
+}
 
 export default async function BlogPage({
 	params,
