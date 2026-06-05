@@ -13,9 +13,20 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>
 }): Promise<Metadata> {
 	const { locale } = await params
+	const title = 'Blog — AI for Service Businesses | Recursive Solutions'
+	const description =
+		'Practical guides on AI consulting, automation, and operational intelligence for service businesses — from the team at Recursive Solutions.'
 	return {
+		title,
+		description,
 		alternates: {
 			canonical: buildUrl('/blog', locale),
+		},
+		openGraph: {
+			title,
+			description,
+			url: buildUrl('/blog', locale),
+			type: 'website',
 		},
 	}
 }

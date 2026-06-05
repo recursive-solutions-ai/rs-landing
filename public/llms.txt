@@ -1,0 +1,33 @@
+# Recursive Solutions
+
+> Recursive Solutions is an AI consulting firm that helps service businesses adopt AI through advisory, opportunity assessments, and custom-built systems. The thesis: every great business will run on AI. The work is to diagnose where a business loses margin and owner time, then design and deploy the most effective intervention — fixing the process before automating it.
+
+## What we do
+
+- **AI Opportunity Assessment** — Diagnose where the business is losing margin and owner time, and identify the highest-leverage interventions before recommending any technology.
+- **AI Advisory** — Ongoing guidance on AI strategy, tooling, and adoption for founders and leadership teams.
+- **Custom AI Builds** — Bespoke AI systems designed around a team's actual workflows and tools, not theoretical use cases.
+- **Dedicated Agent Deployment** — 24/7 AI agents for customer support, internal operations, and data processing that work alongside teams.
+- **Workflow Automation** — Eliminate repetitive tasks across sales, ops, and admin.
+- **Operational Intelligence** — Live dashboards and real-time signals for service businesses.
+
+## How we work
+
+Our engagement process is: **Discover** (understand what's actually broken) → **Design** (architect a custom solution around your tools and habits) → **Execute** (build and integrate) → **Optimize** (measure and improve).
+
+## Who we serve
+
+Service businesses — agencies, wealth management/RIAs, property and leasing, distribution, commercial cleaning, and similar owner-operated firms — that want to scale without proportionally adding headcount.
+
+## Team
+
+- Jake — CEO & Strategy
+- Luc — COO & Operations
+- Denis — CTO & AI Architecture
+
+## Key pages
+
+- Home: https://www.recursive-solutions.com/en
+- Blog (AI guides for service businesses): https://www.recursive-solutions.com/en/blog
+- Contact: https://www.recursive-solutions.com/en/contact
+- Sitemap: https://www.recursive-solutions.com/sitemap.xml

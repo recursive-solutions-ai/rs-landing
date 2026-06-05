@@ -58,10 +58,13 @@ export function getBlogSitemapCount(totalCount: number): number {
 }
 
 export function buildUrl(path: string, locale?: string): string {
-	if (!locale || locale === defaultLocale) {
-		return `${SITE_URL}${path}`
-	}
-	return `${SITE_URL}/${locale}${path}`
+	// Always include the locale prefix so that canonical tags, sitemap entries,
+	// and internal links (which all use `/${locale}/...`) point at the SAME URL.
+	// Previously the default locale was emitted bare (e.g. `/blog/x` instead of
+	// `/en/blog/x`), which made the advertised canonical a URL with zero internal
+	// links — the root cause of the "Discovered – currently not indexed" issue.
+	const loc = locale ?? defaultLocale
+	return `${SITE_URL}/${loc}${path}`
 }
 
 function buildAlternates(path: string): Record<string, string> | undefined {

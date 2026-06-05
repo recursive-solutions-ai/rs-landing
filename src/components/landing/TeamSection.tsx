@@ -1,53 +1,20 @@
 "use client"
 
-import { useRef } from "react"
-import {
-	gsap,
-	useGSAP,
-	EASE_REVEAL,
-	DISTANCE_LG,
-	DURATION_NORMAL,
-	START_CONTENT,
-} from "@/lib/animation-config"
-import { useReducedMotion } from "@/hooks/useReducedMotion"
+import Image from "next/image"
+import type { CSSProperties } from "react"
+import { useInView } from "@/hooks/useInView"
+import { cn } from "@/lib/utils"
 import { team } from "@/data/landing"
 import { SectionHeading } from "./SectionHeading"
 
 export function TeamSection() {
-	const sectionRef = useRef<HTMLElement>(null)
-	const cardsRef = useRef<HTMLDivElement[]>([])
-	const prefersReduced = useReducedMotion()
-
-	useGSAP(
-		() => {
-			if (prefersReduced || cardsRef.current.length === 0) return
-
-			const cards = cardsRef.current.filter(Boolean)
-
-			gsap.set(cards, { y: DISTANCE_LG, opacity: 0 })
-
-			gsap.to(cards, {
-				y: 0,
-				opacity: 1,
-				duration: DURATION_NORMAL,
-				delay: 0.3,
-				stagger: 0.15,
-				ease: EASE_REVEAL,
-				scrollTrigger: {
-					trigger: sectionRef.current,
-					start: START_CONTENT,
-					toggleActions: "play none none none",
-				},
-			})
-		},
-		{ scope: sectionRef, dependencies: [prefersReduced] }
-	)
+	const { ref, inView } = useInView<HTMLElement>()
 
 	return (
 		<section
-			ref={sectionRef}
+			ref={ref}
 			id="team"
-			className="mx-auto max-w-5xl px-6 py-32"
+			className={cn("mx-auto max-w-5xl px-6 py-32", inView && "reveal-in")}
 		>
 			<SectionHeading
 				tag="Who We Are"
@@ -59,16 +26,17 @@ export function TeamSection() {
 			<div className="flex flex-col gap-8">
 				{/* Jake — featured */}
 				<div
-					ref={(el) => {
-						if (el) cardsRef.current[0] = el
-					}}
-					className="flex flex-col sm:flex-row gap-8 items-center rounded-2xl border border-primary/30 bg-base-100 p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
+					className="reveal flex flex-col sm:flex-row gap-8 items-center rounded-2xl border border-primary/30 bg-base-100 p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
+					style={{ "--reveal-delay": "0.3s" } as CSSProperties}
 				>
 					{team[0].image ? (
 						<div className="shrink-0 h-40 w-40 overflow-hidden rounded-full ring-2 ring-primary/30">
-							<img
+							<Image
 								src={team[0].image}
 								alt={team[0].name}
+								width={160}
+								height={160}
+								sizes="160px"
 								className="h-full w-full object-cover"
 							/>
 						</div>
@@ -89,16 +57,17 @@ export function TeamSection() {
 					{team.slice(1).map((member, i) => (
 						<div
 							key={member.name}
-							ref={(el) => {
-								if (el) cardsRef.current[i + 1] = el
-							}}
-							className="flex flex-col items-center rounded-2xl border border-base-300 bg-base-100 p-8 text-center transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:border-primary/30"
+							className="reveal flex flex-col items-center rounded-2xl border border-base-300 bg-base-100 p-8 text-center transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:border-primary/30"
+							style={{ "--reveal-delay": `${0.45 + i * 0.15}s` } as CSSProperties}
 						>
 							{member.image ? (
 								<div className="mb-6 h-36 aspect-square overflow-hidden rounded-full ring-2 ring-primary/20">
-									<img
+									<Image
 										src={member.image}
 										alt={member.name}
+										width={144}
+										height={144}
+										sizes="144px"
 										className="h-full w-full object-cover"
 									/>
 								</div>

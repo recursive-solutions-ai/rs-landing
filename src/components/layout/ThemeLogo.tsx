@@ -1,4 +1,8 @@
+import Image from "next/image"
 import { cn } from "@/lib/utils"
+
+// Intrinsic logo aspect ratio (539×103).
+const LOGO_RATIO = 539 / 103
 
 interface ThemeLogoProps {
 	height?: number
@@ -6,22 +10,26 @@ interface ThemeLogoProps {
 }
 
 export function ThemeLogo({ height = 36, className }: ThemeLogoProps) {
+	const width = Math.round(height * LOGO_RATIO)
+
 	return (
 		<span className={cn("inline-flex items-center", className)}>
-			{/* eslint-disable-next-line @next/next/no-img-element */}
-			<img
+			<Image
 				src="/logo-horizontal-no-bg-with-text-dark.png"
 				alt="Recursive Solutions"
+				width={width}
 				height={height}
-				className="dark:hidden h-auto"
+				priority
+				className="dark:hidden"
 				style={{ height, width: "auto" }}
 			/>
-			{/* eslint-disable-next-line @next/next/no-img-element */}
-			<img
+			<Image
 				src="/logo-horizontal-no-bg-with-text-light.png"
 				alt="Recursive Solutions"
+				width={width}
 				height={height}
-				className="hidden dark:block h-auto"
+				priority
+				className="hidden dark:block"
 				style={{ height, width: "auto" }}
 			/>
 		</span>

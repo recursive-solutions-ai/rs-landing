@@ -67,7 +67,7 @@ export function AttractVisual() {
 
 				/* PHASE 1 — paste a URL */
 				.lp-p1 .lp-inner { width: 100%; max-width: 75cqw; text-align: center; }
-				.lp-p1 h1 {
+				.lp-p1 .lp-title {
 					font-family: 'Fraunces', Georgia, serif;
 					font-weight: 500;
 					font-size: 6cqw;
@@ -618,7 +618,7 @@ export function AttractVisual() {
 				{/* PHASE 1 */}
 				<div className="lp-phase lp-p1">
 					<div className="lp-inner">
-						<h1>Redesign</h1>
+						<div className="lp-title">Redesign</div>
 						<div className="lp-sub">Paste a URL. We&apos;ll handle the rest.</div>
 						<div className="lp-url-field">
 							<span className="lp-icon">⌖</span>

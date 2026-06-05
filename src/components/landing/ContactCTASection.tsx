@@ -1,15 +1,8 @@
 "use client"
 
-import { useRef, useState, useEffect, type FormEvent } from "react"
-import {
-	gsap,
-	useGSAP,
-	EASE_REVEAL,
-	DISTANCE_SM,
-	DURATION_NORMAL,
-	START_CONTENT,
-} from "@/lib/animation-config"
-import { useReducedMotion } from "@/hooks/useReducedMotion"
+import { useState, type CSSProperties, type FormEvent } from "react"
+import { useInView } from "@/hooks/useInView"
+import { cn } from "@/lib/utils"
 import { Input, Textarea } from "@/components/ui"
 import { submitForm } from "@growth-engine/sdk-client"
 import type { FormDefinition, FormField } from "@/lib/forms-server"
@@ -34,9 +27,7 @@ interface ContactCTASectionProps {
 }
 
 export function ContactCTASection({ form }: ContactCTASectionProps) {
-	const sectionRef = useRef<HTMLElement>(null)
-	const contentRef = useRef<HTMLDivElement>(null)
-	const prefersReduced = useReducedMotion()
+	const { ref: contentRef, inView } = useInView<HTMLDivElement>()
 
 	const slug = form?.slug ?? FALLBACK_SLUG
 	const fields = form?.fields?.length ? form.fields : FALLBACK_FIELDS
@@ -44,45 +35,10 @@ export function ContactCTASection({ form }: ContactCTASectionProps) {
 	const submitLabel = settings?.submitButtonText ?? "Map My Growth"
 	const successMessage = settings?.successMessage ?? "We'll get back to you shortly."
 
-	const successRef = useRef<HTMLDivElement>(null)
 	const [status, setStatus] = useState<
 		"idle" | "loading" | "success" | "error"
 	>("idle")
 	const [errorMsg, setErrorMsg] = useState("")
-
-	useEffect(() => {
-		if (status === "success" && successRef.current && !prefersReduced) {
-			gsap.fromTo(
-				successRef.current,
-				{ opacity: 0, scale: 0.95, y: DISTANCE_SM },
-				{ opacity: 1, scale: 1, y: 0, duration: DURATION_NORMAL, ease: EASE_REVEAL }
-			)
-		}
-	}, [status, prefersReduced])
-
-	useGSAP(
-		() => {
-			if (!contentRef.current || prefersReduced) return
-
-			const children = contentRef.current.children
-
-			gsap.set(children, { y: DISTANCE_SM, opacity: 0 })
-
-			gsap.to(children, {
-				y: 0,
-				opacity: 1,
-				duration: DURATION_NORMAL,
-				stagger: 0.1,
-				ease: EASE_REVEAL,
-				scrollTrigger: {
-					trigger: sectionRef.current,
-					start: START_CONTENT,
-					toggleActions: "play none none none",
-				},
-			})
-		},
-		{ scope: sectionRef, dependencies: [prefersReduced] }
-	)
 
 	async function handleSubmit(e: FormEvent<HTMLFormElement>) {
 		e.preventDefault()
@@ -137,20 +93,22 @@ export function ContactCTASection({ form }: ContactCTASectionProps) {
 		"bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
 
 	return (
-		<section
-			ref={sectionRef}
-			id="contact"
-			className="mx-auto max-w-6xl px-6 py-24"
-		>
-			<div ref={contentRef}>
-				<h2 className="mb-4 text-3xl font-bold md:text-5xl text-center text-base-content">
+		<section id="contact" className="mx-auto max-w-6xl px-6 py-24">
+			<div ref={contentRef} className={cn(inView && "reveal-in")}>
+				<h2 className="reveal mb-4 text-3xl font-bold md:text-5xl text-center text-base-content">
 					Map Your Growth
 				</h2>
-				<p className="mx-auto mb-12 max-w-xl text-lg text-base-content/60 md:text-xl text-center">
+				<p
+					className="reveal mx-auto mb-12 max-w-xl text-lg text-base-content/60 md:text-xl text-center"
+					style={{ "--reveal-delay": "0.1s" } as CSSProperties}
+				>
 					Book a free 30-minute call. No pitch. No commitment.
 				</p>
 
-				<div className="mx-auto max-w-2xl">
+				<div
+					className="reveal mx-auto max-w-2xl"
+					style={{ "--reveal-delay": "0.2s" } as CSSProperties}
+				>
 					<div className="overflow-hidden rounded-[2rem] bg-primary p-10 text-primary-content shadow-2xl md:p-12">
 
 						<p className="mb-8 text-primary-content/80 leading-relaxed">
@@ -158,7 +116,7 @@ export function ContactCTASection({ form }: ContactCTASectionProps) {
 						</p>
 
 						{status === "success" ? (
-							<div ref={successRef} className="rounded-2xl bg-neutral/20 p-8 text-center">
+							<div className="reveal reveal-in rounded-2xl bg-neutral/20 p-8 text-center">
 								<p className="text-2xl font-semibold mb-2">
 									Message sent!
 								</p>

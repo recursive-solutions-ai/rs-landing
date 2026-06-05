@@ -105,13 +105,14 @@ export function middleware(request: NextRequest) {
 		return response
 	}
 
-	// Single-language mode: always rewrite to /{defaultLocale}/path
+	// Single-language mode: permanently redirect bare paths to /{defaultLocale}/path.
+	// A 301 (not an internal rewrite) collapses the duplicate bare URL into its
+	// locale-prefixed canonical, so Google stops seeing two 200-OK URLs per page.
 	if (!isMultiLang) {
 		const url = request.nextUrl.clone()
-		url.pathname = `/${defaultLocale}${pathname}`
-		const response = NextResponse.rewrite(url)
-		response.headers.set('x-locale', defaultLocale)
-		return response
+		url.pathname =
+			pathname === '/' ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`
+		return NextResponse.redirect(url, 301)
 	}
 
 	// Path does NOT have a locale prefix

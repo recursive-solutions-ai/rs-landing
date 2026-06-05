@@ -1,15 +1,7 @@
 "use client"
 
-import { useRef } from "react"
-import {
-	gsap,
-	useGSAP,
-	EASE_REVEAL,
-	DISTANCE_SM,
-	DURATION_FAST,
-	START_HEADING,
-} from "@/lib/animation-config"
-import { useReducedMotion } from "@/hooks/useReducedMotion"
+import type { CSSProperties } from "react"
+import { useInView } from "@/hooks/useInView"
 import { cn } from "@/lib/utils"
 import { AnimatedText } from "./AnimatedText"
 
@@ -28,30 +20,7 @@ export function SectionHeading({
 	className,
 	align = "center",
 }: SectionHeadingProps) {
-	const tagRef = useRef<HTMLSpanElement>(null)
-	const prefersReduced = useReducedMotion()
-
-	useGSAP(
-		() => {
-			if (!tagRef.current || prefersReduced) return
-
-			gsap.set(tagRef.current, { opacity: 0, y: DISTANCE_SM })
-
-			gsap.to(tagRef.current, {
-				opacity: 1,
-				y: 0,
-				duration: DURATION_FAST,
-				ease: EASE_REVEAL,
-				scrollTrigger: {
-					trigger: tagRef.current,
-					start: START_HEADING,
-					toggleActions: "play none none none",
-				},
-			})
-		},
-		{ scope: tagRef, dependencies: [prefersReduced] }
-	)
-
+	const { ref, inView } = useInView<HTMLSpanElement>()
 	const isCenter = align === "center"
 
 	return (
@@ -64,11 +33,12 @@ export function SectionHeading({
 		>
 			{tag && (
 				<span
-					ref={!prefersReduced ? tagRef : undefined}
+					ref={ref}
 					className={cn(
-						"mb-4 inline-block text-sm font-semibold uppercase tracking-widest text-primary",
-						!prefersReduced && "opacity-0"
+						"reveal mb-4 inline-block text-sm font-semibold uppercase tracking-widest text-primary",
+						inView && "reveal-in"
 					)}
+					style={{ "--reveal-delay": "0s" } as CSSProperties}
 				>
 					{tag}
 				</span>

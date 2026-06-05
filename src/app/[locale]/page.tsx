@@ -1,10 +1,7 @@
 
 import { HeroSection } from "@/components/landing/HeroSection"
-import { TargetMarketSection } from "@/components/landing/TargetMarketSection"
 import { FeaturePillarsSection } from "@/components/landing/FeaturePillarsSection"
-import { ServicesSection } from "@/components/landing/ServicesSection"
 import { ProcessSection } from "@/components/landing/ProcessSection"
-import { CaseStudiesSection } from "@/components/landing/CaseStudiesSection"
 import { ProofOfWorkSection } from "@/components/landing/ProofOfWorkSection"
 import { TeamSection } from "@/components/landing/TeamSection"
 import { ContactCTASection } from "@/components/landing/ContactCTASection"
@@ -28,11 +25,7 @@ export default async function LandingPage() {
 	return (
 		<div className="no-scrollbar">
 			<HeroSection />
-			{/* <TargetMarketSection /> */}
 			<FeaturePillarsSection />
-			{/* <ServicesSection /> */}
-			{/* <CaseStudiesSection /> */}
-
 			<ProcessSection />
 			<ProofOfWorkSection />
 			<TeamSection />

@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import {
 	getBlogPost,
 	getBlogPosts,
+	getBlogAuthor,
 	getBusinessConfig,
 } from '@growth-engine/sdk-server'
 import { BlogContent, RelatedPosts } from '@growth-engine/sdk-client/components'
@@ -11,6 +12,8 @@ import { getDictionary, t } from '@/i18n'
 import { supportedLocales } from '@/i18n/config'
 import { getDb } from '@/lib/db'
 import { buildUrl } from '@/lib/sitemap-shared'
+import { breadcrumbLd } from '@/lib/seo-config'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { formatDate } from '@/lib/i18n-utils'
 
 export const revalidate = 120
@@ -61,15 +64,23 @@ export default async function BlogPostPage({
 	const post = await getBlogPost(db, slug, locale)
 	if (!post) notFound()
 
-	const [allPosts, business] = await Promise.all([
+	const [allPosts, business, author] = await Promise.all([
 		getBlogPosts(db, { locale, limit: 0 }),
 		getBusinessConfig(db).catch(() => null),
+		getBlogAuthor(db, slug).catch(() => null),
 	])
 
 	const date = formatDate(post.createdAt, locale)
 
+	const breadcrumb = breadcrumbLd([
+		{ name: t(dict, 'nav.home'), url: buildUrl('', locale) },
+		{ name: t(dict, 'nav.blog'), url: buildUrl('/blog', locale) },
+		{ name: post.title, url: buildUrl(`/blog/${slug}`, locale) },
+	])
+
 	return (
 		<main className="container mx-auto px-4 py-12">
+			<JsonLd data={breadcrumb} />
 			<nav className="mb-8">
 				<Link href={`/${locale}/blog`} className="text-sm text-primary hover:underline">
 					← {t(dict, 'blog.back')}
@@ -94,6 +105,7 @@ export default async function BlogPostPage({
 				<BlogContent
 					html={post.content}
 					post={post}
+					author={author ?? undefined}
 					business={business ?? undefined}
 				/>
 			</article>

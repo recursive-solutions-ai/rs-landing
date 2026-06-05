@@ -1,15 +1,8 @@
 "use client"
 
-import { useRef } from "react"
-import {
-	gsap,
-	useGSAP,
-	EASE_REVEAL,
-	DISTANCE_MD,
-	DURATION_NORMAL,
-	START_CONTENT,
-} from "@/lib/animation-config"
-import { useReducedMotion } from "@/hooks/useReducedMotion"
+import type { CSSProperties } from "react"
+import { useInView } from "@/hooks/useInView"
+import { cn } from "@/lib/utils"
 import { proofStats, testimonials, type Testimonial } from "@/data/landing"
 import { SectionHeading } from "./SectionHeading"
 
@@ -49,44 +42,14 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 }
 
 export function ProofOfWorkSection() {
-	const sectionRef = useRef<HTMLElement>(null)
-	const statsRef = useRef<HTMLDivElement>(null)
-	const prefersReduced = useReducedMotion()
-
-	useGSAP(
-		() => {
-			if (prefersReduced || !statsRef.current) return
-
-			const stats = statsRef.current.querySelectorAll("[data-stat]")
-
-			gsap.set(stats, { y: DISTANCE_MD, opacity: 0 })
-
-			gsap.to(stats, {
-				y: 0,
-				opacity: 1,
-				duration: DURATION_NORMAL,
-				stagger: 0.12,
-				ease: EASE_REVEAL,
-				scrollTrigger: {
-					trigger: statsRef.current,
-					start: START_CONTENT,
-					toggleActions: "play none none none",
-				},
-			})
-		},
-		{ scope: sectionRef, dependencies: [prefersReduced] }
-	)
+	const { ref: statsRef, inView } = useInView<HTMLDivElement>()
 
 	// Split testimonials into two columns for opposing scroll directions
 	const colA = testimonials.filter((_, i) => i % 2 === 0)
 	const colB = testimonials.filter((_, i) => i % 2 === 1)
 
 	return (
-		<section
-			ref={sectionRef}
-			id="proof"
-			className="overflow-hidden bg-base-200/30 py-32"
-		>
+		<section id="proof" className="overflow-hidden bg-base-200/30 py-32">
 			<div className="mx-auto max-w-7xl px-6">
 				<div className="grid items-center gap-20 lg:grid-cols-2">
 					<div>
@@ -100,10 +63,17 @@ export function ProofOfWorkSection() {
 
 						<div
 							ref={statsRef}
-							className="flex gap-12 border-t border-base-content/10 pt-12"
+							className={cn(
+								"flex gap-12 border-t border-base-content/10 pt-12",
+								inView && "reveal-in"
+							)}
 						>
-							{proofStats.map((stat) => (
-								<div key={stat.label} data-stat>
+							{proofStats.map((stat, i) => (
+								<div
+									key={stat.label}
+									className="reveal"
+									style={{ "--reveal-delay": `${i * 0.12}s` } as CSSProperties}
+								>
 									<div
 										className={`mb-2 text-4xl font-extrabold ${ACCENT_TEXT[stat.accent]}`}
 									>

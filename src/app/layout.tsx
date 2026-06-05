@@ -39,6 +39,13 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" data-theme="dark" suppressHydrationWarning>
+			<head>
+				{/* Without JS the IntersectionObserver never fires — force reveal
+				    elements visible so content is never stuck hidden (SEO/no-JS). */}
+				<noscript>
+					<style>{`.reveal{opacity:1!important;transform:none!important}.reveal-clip{clip-path:none!important}`}</style>
+				</noscript>
+			</head>
 			<body className="min-h-screen flex flex-col">
 				<GoogleAnalytics />
 				<GrowthEngineProvider>

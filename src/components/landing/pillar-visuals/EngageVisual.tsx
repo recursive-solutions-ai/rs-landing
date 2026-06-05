@@ -1,9 +1,10 @@
 "use client"
 
-import { Rss } from "lucide-react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faRss } from "@fortawesome/free-solid-svg-icons"
 import { VisualFrame } from "./VisualFrame"
 
-/* Brand glyphs — lucide-react dropped social brand icons; inline minimal SVGs. */
+/* Brand glyphs — inline minimal SVGs. */
 const brandIconProps = {
 	width: 12,
 	height: 12,
@@ -226,7 +227,7 @@ export function EngageVisual() {
 					<div className="ce-t">Augmentation &gt; replacement</div>
 				</div>
 				<div className="ce-post ce-p2">
-					<div className="ce-type"><Rss strokeWidth={1.75} /> Blog · 1432 words</div>
+					<div className="ce-type"><FontAwesomeIcon icon={faRss} style={{ width: 12, height: 12 }} /> Blog · 1432 words</div>
 					<div className="ce-t">The Five-Hour AI Audit</div>
 				</div>
 				<div className="ce-post ce-p3">
@@ -238,7 +239,7 @@ export function EngageVisual() {
 					<div className="ce-t">Three real examples</div>
 				</div>
 				<div className="ce-post ce-p5">
-					<div className="ce-type"><Rss strokeWidth={1.75} /> Blog · draft</div>
+					<div className="ce-type"><FontAwesomeIcon icon={faRss} style={{ width: 12, height: 12 }} /> Blog · draft</div>
 					<div className="ce-t">Where AI quietly saves money</div>
 				</div>
 				<div className="ce-post ce-p6">
