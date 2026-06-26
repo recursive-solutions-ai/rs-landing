@@ -53,7 +53,37 @@ describe('sitemap-shared URL building', () => {
 		const urls = buildStaticEntries().map((entry) => entry.url)
 		expect(urls).toContain('https://example.com')
 		expect(urls).toContain('https://example.com/blog')
+		expect(urls).toContain('https://example.com/blog/authors')
+		expect(urls).toContain('https://example.com/forms')
 		expect(urls).not.toContain('https://example.com/en')
 		expect(urls).not.toContain('https://example.com/en/blog')
+	})
+
+	it('builds author sitemap entries', async () => {
+		vi.stubGlobal(
+			'fetch',
+			vi.fn().mockResolvedValue({
+				ok: true,
+				json: () =>
+					Promise.resolve([
+						{ slug: 'jane-doe', updatedAt: '2026-01-01T00:00:00Z' },
+						{ slug: 'john-smith', updatedAt: null },
+					]),
+			}),
+		)
+		const { buildAuthorEntries } = await load()
+		const urls = (await buildAuthorEntries()).map((entry) => entry.url)
+		expect(urls).toContain('https://example.com/blog/authors/jane-doe')
+		expect(urls).toContain('https://example.com/blog/authors/john-smith')
+	})
+
+	it('renders sitemap index XML', async () => {
+		const { renderSitemapIndex } = await load()
+		expect(
+			renderSitemapIndex([
+				'https://example.com/sitemap/0.xml',
+				'https://example.com/sitemap/1.xml',
+			]),
+		).toContain('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
 	})
 })

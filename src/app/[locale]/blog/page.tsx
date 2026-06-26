@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
-import { getBlogPosts } from '@growth-engine/sdk-server'
-import { BlogList } from '@growth-engine/sdk-client/components'
+import { getBlogAuthors, getBlogPosts } from '@growth-engine/sdk-server'
 import { getDictionary, t } from '@/i18n'
-import { getDb } from '@/lib/db'
+import { getDb, safeQuery } from '@/lib/db'
 import { buildUrl } from '@/lib/sitemap-shared'
+import { AuthorChips } from '@/components/blog/AuthorChips'
+import { LocalizedBlogList } from '@/components/blog/LocalizedBlogList'
 
 export const revalidate = 60
 
@@ -38,8 +39,10 @@ export default async function BlogPage({
 }) {
 	const { locale } = await params
 	const dict = await getDictionary(locale)
-	const db = getDb()
-	const posts = await getBlogPosts(db, { locale, limit: 0 })
+	const [posts, authors] = await Promise.all([
+		safeQuery([], () => getBlogPosts(getDb(), { locale, limit: 0 })),
+		safeQuery([], () => getBlogAuthors(getDb())),
+	])
 
 	return (
 		<main className="container mx-auto px-4 py-12">
@@ -48,7 +51,13 @@ export default async function BlogPage({
 				{t(dict, 'blog.subtitle')}
 			</p>
 
-			<BlogList
+			<AuthorChips
+				authors={authors}
+				locale={locale}
+				label={t(dict, 'blog.filter.by.author')}
+			/>
+
+			<LocalizedBlogList
 				posts={posts}
 				locale={locale}
 				translations={{

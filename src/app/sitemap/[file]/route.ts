@@ -1,4 +1,5 @@
 import {
+	buildAuthorEntries,
 	buildStaticEntries,
 	buildBlogEntries,
 	fetchBlogCount,
@@ -22,13 +23,18 @@ export async function GET(
 	const id = Number(match[1])
 	const totalCount = await fetchBlogCount()
 	const blogSitemapCount = getBlogSitemapCount(totalCount)
+	const authorsId = blogSitemapCount + 1
 
-	if (id < 0 || id > blogSitemapCount) {
+	if (id < 0 || id > authorsId) {
 		return new Response('Not Found', { status: 404 })
 	}
 
 	const entries =
-		id === 0 ? buildStaticEntries() : await buildBlogEntries(id)
+		id === 0
+			? buildStaticEntries()
+			: id === authorsId
+				? await buildAuthorEntries()
+				: await buildBlogEntries(id)
 
 	return new Response(renderSitemapXml(entries), {
 		headers: {

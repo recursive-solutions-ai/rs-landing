@@ -36,6 +36,17 @@ const en = {
 	'blog.post.not.found.description': "The post you're looking for doesn't exist.",
 	'blog.related.posts': 'Related Posts',
 	'blog.load.error': 'Failed to load posts: {error}',
+	'blog.filter.by.author': 'Browse by author',
+
+	// Authors
+	'authors.heading': 'Authors',
+	'authors.subtitle': 'Meet the writers behind our blog',
+	'authors.empty': 'No authors yet',
+	'authors.posts.heading': 'Posts by {name}',
+	'authors.posts.empty': 'No posts yet from this author',
+	'authors.website': 'Visit website',
+	'authors.view.posts': 'View posts',
+	'authors.back': 'Back to all authors',
 
 	// Home
 	'home.latest.blog': 'Latest from the Blog',
@@ -57,6 +68,13 @@ const en = {
 	'contact.load.error': 'Failed to load contact information',
 	'contact.business.hours': 'Business Hours',
 	'contact.info': 'Contact Information',
+
+	// Forms
+	'nav.forms': 'Forms',
+	'forms.heading': 'Forms',
+	'forms.subtitle': 'Fill out any of our available forms below',
+	'forms.load.error': 'Failed to load forms: {error}',
+	'forms.empty': 'No forms available at the moment.',
 
 	// Page titles
 	'page.privacy.policy': 'Privacy Policy',

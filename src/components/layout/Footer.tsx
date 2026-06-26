@@ -25,6 +25,7 @@ export function Footer() {
 						<nav className="flex flex-col gap-1">
 							<Link href={localizedPath('/', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('nav.home')}</Link>
 							<Link href={localizedPath('/blog', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('nav.blog')}</Link>
+							<Link href={localizedPath('/forms', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('nav.forms')}</Link>
 							<Link href={localizedPath('/contact', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('nav.contact')}</Link>
 							<Link href={localizedPath('/test-bot', locale)} className="text-sm text-base-content/60 hover:text-primary">Test Bot</Link>
 						</nav>

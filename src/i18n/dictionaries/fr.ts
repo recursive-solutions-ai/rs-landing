@@ -38,6 +38,17 @@ const fr: Dictionary = {
 	'blog.post.not.found.description': "L'article que vous recherchez n'existe pas.",
 	'blog.related.posts': 'Articles similaires',
 	'blog.load.error': '\u00C9chec du chargement des articles : {error}',
+	'blog.filter.by.author': 'Parcourir par auteur',
+
+	// Authors
+	'authors.heading': 'Auteurs',
+	'authors.subtitle': 'Rencontrez les auteurs de notre blog',
+	'authors.empty': 'Aucun auteur pour le moment',
+	'authors.posts.heading': 'Articles de {name}',
+	'authors.posts.empty': 'Aucun article de cet auteur pour le moment',
+	'authors.website': 'Visiter le site web',
+	'authors.view.posts': 'Voir les articles',
+	'authors.back': 'Retour aux auteurs',
 
 	// Home
 	'home.latest.blog': 'Derniers articles du blog',
@@ -59,6 +70,13 @@ const fr: Dictionary = {
 	'contact.load.error': '\u00C9chec du chargement des informations de contact',
 	'contact.business.hours': 'Heures d\u2019ouverture',
 	'contact.info': 'Coordonn\u00E9es',
+
+	// Forms
+	'nav.forms': 'Formulaires',
+	'forms.heading': 'Formulaires',
+	'forms.subtitle': 'Remplissez l\u2019un de nos formulaires disponibles ci-dessous',
+	'forms.load.error': '\u00C9chec du chargement des formulaires : {error}',
+	'forms.empty': 'Aucun formulaire disponible pour le moment.',
 
 	// Page titles
 	'page.privacy.policy': 'Politique de confidentialit\u00E9',

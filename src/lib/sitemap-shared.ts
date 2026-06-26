@@ -12,6 +12,8 @@ export const BLOG_BATCH_SIZE = 1000
 export const STATIC_PAGES = [
 	'',
 	'/blog',
+	'/blog/authors',
+	'/forms',
 	'/contact',
 	'/privacy',
 	'/legal',
@@ -38,6 +40,11 @@ interface BlogSitemapEntry {
 	language: string
 	updatedAt: string | null
 	parentPostId: string | null
+}
+
+interface AuthorSitemapEntry {
+	slug: string
+	updatedAt: string | null
 }
 
 export async function fetchBlogCount(): Promise<number> {
@@ -90,6 +97,19 @@ async function fetchBlogBatch(
 	}
 }
 
+async function fetchAuthors(): Promise<AuthorSitemapEntry[]> {
+	try {
+		const res = await fetch(
+			`${SITE_URL}/api/rs/content?type=blog-authors&fields=slug,updatedAt`,
+			{ next: { revalidate: 3600 } },
+		)
+		if (!res.ok) return []
+		return (await res.json()) as AuthorSitemapEntry[]
+	} catch {
+		return []
+	}
+}
+
 export function buildStaticEntries(): SitemapEntry[] {
 	const entries: SitemapEntry[] = []
 	for (const page of STATIC_PAGES) {
@@ -102,6 +122,19 @@ export function buildStaticEntries(): SitemapEntry[] {
 		})
 	}
 	return entries
+}
+
+export async function buildAuthorEntries(): Promise<SitemapEntry[]> {
+	const authors = await fetchAuthors()
+	return authors.map((author) => ({
+		url: buildUrl(`/blog/authors/${author.slug}`, defaultLocale),
+		lastModified: author.updatedAt ?? undefined,
+		changeFrequency: 'monthly',
+		priority: 0.6,
+		...(isMultiLang
+			? { alternates: buildAlternates(`/blog/authors/${author.slug}`) }
+			: {}),
+	}))
 }
 
 export async function buildBlogEntries(batchId: number): Promise<SitemapEntry[]> {
@@ -205,5 +238,18 @@ export function renderSitemapXml(entries: SitemapEntry[]): string {
 		lines.push('  </url>')
 	}
 	lines.push('</urlset>')
+	return lines.join('\n') + '\n'
+}
+
+export function renderSitemapIndex(urls: string[]): string {
+	const lines: string[] = []
+	lines.push('<?xml version="1.0" encoding="UTF-8"?>')
+	lines.push('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
+	for (const url of urls) {
+		lines.push('  <sitemap>')
+		lines.push(`    <loc>${escapeXml(url)}</loc>`)
+		lines.push('  </sitemap>')
+	}
+	lines.push('</sitemapindex>')
 	return lines.join('\n') + '\n'
 }

@@ -1,27 +1,31 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
+import type { BlogAuthor } from '@growth-engine/sdk-client'
 import {
 	getBlogPost,
 	getBlogPosts,
-	getBlogAuthor,
+	getBlogAuthors,
 	getBusinessConfig,
 } from '@growth-engine/sdk-server'
-import { BlogContent, RelatedPosts } from '@growth-engine/sdk-client/components'
+import { BlogContent } from '@growth-engine/sdk-client/components'
 import { getDictionary, t } from '@/i18n'
 import { supportedLocales } from '@/i18n/config'
-import { getDb } from '@/lib/db'
+import { getDb, safeQuery } from '@/lib/db'
 import { buildUrl } from '@/lib/sitemap-shared'
 import { breadcrumbLd } from '@/lib/seo-config'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { formatDate, localizedPath } from '@/lib/i18n-utils'
+import { AuthorByline } from '@/components/blog/AuthorByline'
+import { LocalizedRelatedPosts } from '@/components/blog/LocalizedRelatedPosts'
 
 export const revalidate = 120
 
 export async function generateStaticParams() {
-	const db = getDb()
 	const results = await Promise.all(
-		supportedLocales.map((locale) => getBlogPosts(db, { locale, limit: 0 })),
+		supportedLocales.map((locale) =>
+			safeQuery([], () => getBlogPosts(getDb(), { locale, limit: 0 })),
+		),
 	)
 	return results.flatMap((posts, i) =>
 		posts.map((post) => ({ locale: supportedLocales[i], slug: post.slug })),
@@ -34,8 +38,7 @@ export async function generateMetadata({
 	params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
 	const { locale, slug } = await params
-	const db = getDb()
-	const post = await getBlogPost(db, slug, locale)
+	const post = await safeQuery(null, () => getBlogPost(getDb(), slug, locale))
 	if (!post) return { title: 'Post not found' }
 	return {
 		title: post.seoTitle ?? post.title,
@@ -59,16 +62,17 @@ export default async function BlogPostPage({
 }) {
 	const { locale, slug } = await params
 	const dict = await getDictionary(locale)
-	const db = getDb()
 
-	const post = await getBlogPost(db, slug, locale)
+	const post = await safeQuery(null, () => getBlogPost(getDb(), slug, locale))
 	if (!post) notFound()
 
-	const [allPosts, business, author] = await Promise.all([
-		getBlogPosts(db, { locale, limit: 0 }),
-		getBusinessConfig(db).catch(() => null),
-		getBlogAuthor(db, slug).catch(() => null),
+	const [allPosts, business, authors] = await Promise.all([
+		safeQuery([], () => getBlogPosts(getDb(), { locale, limit: 0 })),
+		safeQuery(null, () => getBusinessConfig(getDb())),
+		safeQuery<BlogAuthor[]>([], () => getBlogAuthors(getDb())),
 	])
+	const author =
+		authors.find((candidate: BlogAuthor) => candidate.id === post.authorId) ?? null
 
 	const date = formatDate(post.createdAt, locale)
 
@@ -100,7 +104,13 @@ export default async function BlogPostPage({
 				)}
 
 				<time className="text-sm text-base-content/50">{date}</time>
-				<h1 className="text-4xl font-bold mt-2 mb-8">{post.title}</h1>
+				<h1 className="text-4xl font-bold mt-2 mb-4">{post.title}</h1>
+
+				{author && (
+					<div className="mb-8">
+						<AuthorByline author={author} locale={locale} />
+					</div>
+				)}
 
 				<BlogContent
 					html={post.content}
@@ -111,7 +121,7 @@ export default async function BlogPostPage({
 			</article>
 
 			<div className="max-w-5xl mx-auto">
-				<RelatedPosts
+				<LocalizedRelatedPosts
 					posts={allPosts}
 					currentSlug={slug}
 					locale={locale}
