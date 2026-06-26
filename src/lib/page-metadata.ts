@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import { buildUrl } from '@/lib/sitemap-shared'
 
 /**
- * Build a self-referencing canonical for a locale-prefixed page.
+ * Build a self-referencing canonical for a localized page.
  *
  * Use this from a `layout.tsx` for pages that are `'use client'` components
  * (which cannot export `metadata`/`generateMetadata` themselves). The canonical
- * always points at the page's own `/${locale}/...` URL — matching the internal
- * links and the sitemap.
+ * always points at the page's own public URL, matching internal links and the
+ * sitemap. The default locale is intentionally bare.
  */
 export function canonicalMetadata(
 	path: string,

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { isMultiLang, supportedLocales, defaultLocale } from './i18n/config'
+import { defaultLocaleRedirectTarget } from './lib/i18n-utils'
 
 const SKIP_PREFIXES = ['/_next/', '/sitemap']
 const SKIP_PATHS = ['/favicon.ico', '/sitemap.xml', '/robots.txt']
@@ -27,26 +28,22 @@ function getLocaleFromHeaders(request: NextRequest): string {
 }
 
 function detectLocale(request: NextRequest): string {
-	// 1. Cookie
 	const cookieLocale = request.cookies.get('ge-locale')?.value
 	if (cookieLocale && supportedLocales.includes(cookieLocale)) {
 		return cookieLocale
 	}
 
-	// 2. Query param
 	const paramLocale = request.nextUrl.searchParams.get('lang')
 	if (paramLocale && supportedLocales.includes(paramLocale)) {
 		return paramLocale
 	}
 
-	// 3. Accept-Language header
 	return getLocaleFromHeaders(request)
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
 	const { pathname } = request.nextUrl
 
-	// ─── CORS protection for API routes ─────────────────────────────────
 	if (pathname.startsWith('/api/')) {
 		const origin = request.headers.get('origin')
 		if (origin) {
@@ -69,12 +66,10 @@ export function middleware(request: NextRequest) {
 		return NextResponse.next()
 	}
 
-	// Skip static files (images, fonts, media, etc.)
 	if (pathname.includes('.')) {
 		return NextResponse.next()
 	}
 
-	// Skip static routes
 	if (
 		SKIP_PREFIXES.some((prefix) => pathname.startsWith(prefix)) ||
 		SKIP_PATHS.includes(pathname)
@@ -83,14 +78,19 @@ export function middleware(request: NextRequest) {
 	}
 
 	const paramLocale = request.nextUrl.searchParams.get('lang')
-
-	// Check if path starts with a supported locale
 	const segments = pathname.split('/')
 	const firstSegment = segments[1] ?? ''
 	const pathnameHasLocale = supportedLocales.includes(firstSegment)
 
 	if (pathnameHasLocale) {
 		const locale = firstSegment
+		const bareTarget = defaultLocaleRedirectTarget(pathname, defaultLocale)
+		if (bareTarget) {
+			const url = request.nextUrl.clone()
+			url.pathname = bareTarget
+			return NextResponse.redirect(url, 301)
+		}
+
 		const response = NextResponse.next()
 		response.headers.set('x-locale', locale)
 
@@ -105,21 +105,17 @@ export function middleware(request: NextRequest) {
 		return response
 	}
 
-	// Single-language mode: permanently redirect bare paths to /{defaultLocale}/path.
-	// A 301 (not an internal rewrite) collapses the duplicate bare URL into its
-	// locale-prefixed canonical, so Google stops seeing two 200-OK URLs per page.
 	if (!isMultiLang) {
 		const url = request.nextUrl.clone()
-		url.pathname =
-			pathname === '/' ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`
-		return NextResponse.redirect(url, 301)
+		url.pathname = `/${defaultLocale}${pathname}`
+		const response = NextResponse.rewrite(url)
+		response.headers.set('x-locale', defaultLocale)
+		return response
 	}
 
-	// Path does NOT have a locale prefix
 	const locale = detectLocale(request)
 
 	if (locale !== defaultLocale) {
-		// Redirect to /{locale}/path
 		const url = request.nextUrl.clone()
 		url.pathname = `/${locale}${pathname}`
 		const response = NextResponse.redirect(url)
@@ -136,7 +132,6 @@ export function middleware(request: NextRequest) {
 		return response
 	}
 
-	// Default locale: rewrite internally to /{defaultLocale}/path
 	const url = request.nextUrl.clone()
 	url.pathname = `/${defaultLocale}${pathname}`
 	const response = NextResponse.rewrite(url)

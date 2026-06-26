@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from 'next/navigation'
 import { useI18n } from '@/i18n/client'
 import { supportedLocales as configLocales } from '@/i18n/config'
+import { localizedPath } from '@/lib/i18n-utils'
 import type { DictionaryKey } from '@/i18n/dictionaries/en'
 
 export function LanguageSwitcher() {
@@ -25,12 +26,10 @@ export function LanguageSwitcher() {
 		let newPath: string
 
 		if (hasLocalePrefix) {
-			// Replace existing locale prefix
-			segments[1] = newLocale
-			newPath = segments.join('/')
+			const barePath = `/${segments.slice(2).join('/')}`.replace(/\/$/, '') || '/'
+			newPath = localizedPath(barePath, newLocale)
 		} else {
-			// Add locale prefix
-			newPath = `/${newLocale}${pathname}`
+			newPath = localizedPath(pathname, newLocale)
 		}
 
 		router.push(newPath)

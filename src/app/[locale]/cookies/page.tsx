@@ -1,6 +1,7 @@
 'use client'
 
 import { useI18n } from '@/i18n/client'
+import { localizedPath } from '@/lib/i18n-utils'
 
 export default function CookiesPage() {
 	const { t, locale } = useI18n()
@@ -17,7 +18,7 @@ export default function CookiesPage() {
 					This Cookie Policy explains what cookies are, how we use them on our
 					website, and how you can manage your preferences. This policy should be
 					read alongside our{' '}
-					<a href={`/${locale}/privacy`} className="text-primary hover:underline">Privacy Policy</a>.
+					<a href={localizedPath('/privacy', locale)} className="text-primary hover:underline">Privacy Policy</a>.
 				</p>
 
 				<section>
@@ -168,7 +169,7 @@ export default function CookiesPage() {
 					<h2 className="text-xl font-semibold text-base-content mb-3">7. Contact</h2>
 					<p>
 						If you have any questions about our use of cookies, please reach out
-						through our <a href={`/${locale}/contact`} className="text-primary hover:underline">contact page</a>.
+						through our <a href={localizedPath('/contact', locale)} className="text-primary hover:underline">contact page</a>.
 					</p>
 				</section>
 			</div>

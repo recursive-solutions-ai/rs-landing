@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useI18n } from '@/i18n/client'
+import { localizedPath } from '@/lib/i18n-utils'
 import { ThemeToggle } from './ThemeToggle'
 
 export function Footer() {
@@ -22,32 +23,32 @@ export function Footer() {
 					<div>
 						<h4 className="font-semibold mb-2">{t('footer.navigation')}</h4>
 						<nav className="flex flex-col gap-1">
-							<Link href={`/${locale}`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.home')}</Link>
-							<Link href={`/${locale}/blog`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.blog')}</Link>
-							<Link href={`/${locale}/contact`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.contact')}</Link>
-							<Link href={`/${locale}/test-bot`} className="text-sm text-base-content/60 hover:text-primary">Test Bot</Link>
+							<Link href={localizedPath('/', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('nav.home')}</Link>
+							<Link href={localizedPath('/blog', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('nav.blog')}</Link>
+							<Link href={localizedPath('/contact', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('nav.contact')}</Link>
+							<Link href={localizedPath('/test-bot', locale)} className="text-sm text-base-content/60 hover:text-primary">Test Bot</Link>
 						</nav>
 					</div>
 
 					{/* <div>
 						<h4 className="font-semibold mb-2">AI ROI Calculator</h4>
 						<nav className="flex flex-col gap-1">
-							<Link href={`/${locale}/roi-calculator`} className="text-sm text-base-content/60 hover:text-primary">All concepts</Link>
-							<Link href={`/${locale}/roi-calculator/hybrid`} className="text-sm text-base-content/60 hover:text-primary">A+D · Hybrid</Link>
-							<Link href={`/${locale}/roi-calculator/wizard`} className="text-sm text-base-content/60 hover:text-primary">A · Wizard</Link>
-							<Link href={`/${locale}/roi-calculator/single`} className="text-sm text-base-content/60 hover:text-primary">B · Single Number</Link>
-							<Link href={`/${locale}/roi-calculator/delay`} className="text-sm text-base-content/60 hover:text-primary">C · Cost of Delay</Link>
-							<Link href={`/${locale}/roi-calculator/stack`} className="text-sm text-base-content/60 hover:text-primary">D · Stack Builder</Link>
-							<Link href={`/${locale}/roi-calculator/benchmarks`} className="text-sm text-base-content/60 hover:text-primary">E · Benchmarks</Link>
+							<Link href={localizedPath('/roi-calculator', locale)} className="text-sm text-base-content/60 hover:text-primary">All concepts</Link>
+							<Link href={localizedPath('/roi-calculator/hybrid', locale)} className="text-sm text-base-content/60 hover:text-primary">A+D · Hybrid</Link>
+							<Link href={localizedPath('/roi-calculator/wizard', locale)} className="text-sm text-base-content/60 hover:text-primary">A · Wizard</Link>
+							<Link href={localizedPath('/roi-calculator/single', locale)} className="text-sm text-base-content/60 hover:text-primary">B · Single Number</Link>
+							<Link href={localizedPath('/roi-calculator/delay', locale)} className="text-sm text-base-content/60 hover:text-primary">C · Cost of Delay</Link>
+							<Link href={localizedPath('/roi-calculator/stack', locale)} className="text-sm text-base-content/60 hover:text-primary">D · Stack Builder</Link>
+							<Link href={localizedPath('/roi-calculator/benchmarks', locale)} className="text-sm text-base-content/60 hover:text-primary">E · Benchmarks</Link>
 						</nav>
 					</div> */}
 
 					<div>
 						<h4 className="font-semibold mb-2">{t('footer.legal')}</h4>
 						<nav className="flex flex-col gap-1">
-							<Link href={`/${locale}/legal`} className="text-sm text-base-content/60 hover:text-primary">{t('footer.legal.notice')}</Link>
-							<Link href={`/${locale}/privacy`} className="text-sm text-base-content/60 hover:text-primary">{t('footer.privacy.policy')}</Link>
-							<Link href={`/${locale}/cookies`} className="text-sm text-base-content/60 hover:text-primary">{t('footer.cookie.policy')}</Link>
+							<Link href={localizedPath('/legal', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('footer.legal.notice')}</Link>
+							<Link href={localizedPath('/privacy', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('footer.privacy.policy')}</Link>
+							<Link href={localizedPath('/cookies', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('footer.cookie.policy')}</Link>
 						</nav>
 					</div>
 				</div>

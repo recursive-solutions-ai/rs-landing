@@ -1,10 +1,11 @@
 import { defaultLocale, supportedLocales, isMultiLang } from '@/i18n/config'
 
-export const SITE_URL =
+export const SITE_URL = (
 	process.env.SITE_URL ??
 	(process.env.VERCEL_PROJECT_PRODUCTION_URL
 		? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
 		: 'http://localhost:3000')
+).replace(/\/+$/, '')
 
 export const BLOG_BATCH_SIZE = 1000
 
@@ -58,12 +59,8 @@ export function getBlogSitemapCount(totalCount: number): number {
 }
 
 export function buildUrl(path: string, locale?: string): string {
-	// Always include the locale prefix so that canonical tags, sitemap entries,
-	// and internal links (which all use `/${locale}/...`) point at the SAME URL.
-	// Previously the default locale was emitted bare (e.g. `/blog/x` instead of
-	// `/en/blog/x`), which made the advertised canonical a URL with zero internal
-	// links — the root cause of the "Discovered – currently not indexed" issue.
 	const loc = locale ?? defaultLocale
+	if (loc === defaultLocale) return `${SITE_URL}${path}`
 	return `${SITE_URL}/${loc}${path}`
 }
 
@@ -171,7 +168,7 @@ export async function buildBlogEntries(batchId: number): Promise<SitemapEntry[]>
 	return entries
 }
 
-function escapeXml(str: string): string {
+export function escapeXml(str: string): string {
 	return str
 		.replace(/&/g, '&amp;')
 		.replace(/</g, '&lt;')

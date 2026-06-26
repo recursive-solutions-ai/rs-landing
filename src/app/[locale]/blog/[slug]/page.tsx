@@ -14,7 +14,7 @@ import { getDb } from '@/lib/db'
 import { buildUrl } from '@/lib/sitemap-shared'
 import { breadcrumbLd } from '@/lib/seo-config'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { formatDate } from '@/lib/i18n-utils'
+import { formatDate, localizedPath } from '@/lib/i18n-utils'
 
 export const revalidate = 120
 
@@ -82,7 +82,7 @@ export default async function BlogPostPage({
 		<main className="container mx-auto px-4 py-12">
 			<JsonLd data={breadcrumb} />
 			<nav className="mb-8">
-				<Link href={`/${locale}/blog`} className="text-sm text-primary hover:underline">
+				<Link href={localizedPath('/blog', locale)} className="text-sm text-primary hover:underline">
 					← {t(dict, 'blog.back')}
 				</Link>
 			</nav>

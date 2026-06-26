@@ -7,6 +7,8 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
+		"typecheck": "tsc --noEmit",
+		"test": "vitest",
 		"pull-forms": "growth-engine-pull-forms"
 	},
 	"dependencies": {
@@ -34,6 +36,7 @@
 		"@types/react-dom": "19.2.3",
 		"postcss": "8.5.3",
 		"tailwindcss": "4.1.4",
-		"typescript": "5.8.3"
+		"typescript": "5.8.3",
+		"vitest": "3.2.4"
 	}
 }

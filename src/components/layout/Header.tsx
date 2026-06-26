@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { useI18n } from '@/i18n/client'
+import { localizedPath } from '@/lib/i18n-utils'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeLogo } from './ThemeLogo'
 
@@ -11,19 +12,19 @@ export function Header() {
 	const [menuOpen, setMenuOpen] = useState(false)
 
 	const NAV_LINKS = [
-		{ href: `/${locale}`, label: t('nav.home') },
-		{ href: `/${locale}#results`, label: 'Results' },
-		{ href: `/${locale}#process`, label: 'Process' },
-		{ href: `/${locale}#team`, label: 'Team' },
+		{ href: localizedPath('/', locale), label: t('nav.home') },
+		{ href: `${localizedPath('/', locale)}#results`, label: 'Results' },
+		{ href: `${localizedPath('/', locale)}#process`, label: 'Process' },
+		{ href: `${localizedPath('/', locale)}#team`, label: 'Team' },
 	]
 
-	const ctaHref = `/${locale}#contact`
+	const ctaHref = `${localizedPath('/', locale)}#contact`
 	const ctaLabel = t('nav.cta')
 
 	return (
 		<header className="navbar bg-base-100 shadow-sm border-b border-base-200 sticky top-0 z-50">
 			<div className="container mx-auto px-4 flex items-center justify-between">
-				<Link href={`/${locale}`} className="flex items-center">
+				<Link href={localizedPath('/', locale)} className="flex items-center">
 					<ThemeLogo height={32} />
 				</Link>
 

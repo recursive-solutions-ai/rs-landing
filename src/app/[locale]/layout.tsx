@@ -1,6 +1,7 @@
+import { notFound } from 'next/navigation'
 import { getDictionary } from '@/i18n'
 import { DictionaryProvider } from '@/i18n/client'
-import { supportedLocales } from '@/i18n/config'
+import { isSupportedLocale, supportedLocales } from '@/i18n/config'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { JsonLd } from '@/components/seo/JsonLd'
@@ -18,6 +19,10 @@ export default async function LocaleLayout({
 	params: Promise<{ locale: string }>
 }) {
 	const { locale } = await params
+	if (!isSupportedLocale(locale)) {
+		notFound()
+	}
+
 	const dict = await getDictionary(locale)
 
 	return (

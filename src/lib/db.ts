@@ -9,3 +9,12 @@ export function getDb() {
 	}
 	return getClientDb(url, token)
 }
+
+export async function safeQuery<T>(fallback: T, query: () => Promise<T>): Promise<T> {
+	try {
+		return await query()
+	} catch (err) {
+		console.error('[GrowthEngine] content query failed, rendering fallback:', err)
+		return fallback
+	}
+}
