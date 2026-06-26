@@ -4,7 +4,7 @@ import { getActiveForms } from '@growth-engine/sdk-server'
 import { getDictionary, t } from '@/i18n'
 import { getDb, safeQuery } from '@/lib/db'
 import { localizedPath } from '@/lib/i18n-utils'
-import { buildUrl } from '@/lib/sitemap-shared'
+import { buildPageMetadata } from '@/lib/seo'
 
 export const revalidate = 60
 
@@ -15,13 +15,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params
 	const dict = await getDictionary(locale)
-	return {
+	return buildPageMetadata({
+		path: '/forms',
+		locale,
 		title: t(dict, 'forms.heading'),
 		description: t(dict, 'forms.subtitle'),
-		alternates: {
-			canonical: buildUrl('/forms', locale),
-		},
-	}
+	})
 }
 
 export default async function FormsPage({

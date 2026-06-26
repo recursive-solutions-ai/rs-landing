@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getBlogAuthors, getBlogPosts } from '@growth-engine/sdk-server'
 import { getDictionary, t } from '@/i18n'
 import { getDb, safeQuery } from '@/lib/db'
-import { buildUrl } from '@/lib/sitemap-shared'
+import { buildPageMetadata } from '@/lib/seo'
 import { AuthorChips } from '@/components/blog/AuthorChips'
 import { LocalizedBlogList } from '@/components/blog/LocalizedBlogList'
 
@@ -14,22 +14,15 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>
 }): Promise<Metadata> {
 	const { locale } = await params
-	const title = 'Blog — AI for Service Businesses | Recursive Solutions'
+	const title = 'Blog - AI for Service Businesses'
 	const description =
-		'Practical guides on AI consulting, automation, and operational intelligence for service businesses — from the team at Recursive Solutions.'
-	return {
+		'Practical guides on AI consulting, automation, and operational intelligence for service businesses from the team at Recursive Solutions.'
+	return buildPageMetadata({
+		path: '/blog',
+		locale,
 		title,
 		description,
-		alternates: {
-			canonical: buildUrl('/blog', locale),
-		},
-		openGraph: {
-			title,
-			description,
-			url: buildUrl('/blog', locale),
-			type: 'website',
-		},
-	}
+	})
 }
 
 export default async function BlogPage({

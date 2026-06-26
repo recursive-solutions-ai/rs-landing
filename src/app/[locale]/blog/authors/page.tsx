@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getBlogAuthors } from '@growth-engine/sdk-server'
 import { getDictionary, t } from '@/i18n'
 import { getDb, safeQuery } from '@/lib/db'
-import { buildUrl } from '@/lib/sitemap-shared'
+import { buildPageMetadata } from '@/lib/seo'
 import { AuthorCard } from '@/components/blog/AuthorCard'
 
 export const revalidate = 300
@@ -14,13 +14,12 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params
 	const dict = await getDictionary(locale)
-	return {
+	return buildPageMetadata({
+		path: '/blog/authors',
+		locale,
 		title: t(dict, 'authors.heading'),
 		description: t(dict, 'authors.subtitle'),
-		alternates: {
-			canonical: buildUrl('/blog/authors', locale),
-		},
-	}
+	})
 }
 
 export default async function AuthorsPage({

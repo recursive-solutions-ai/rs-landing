@@ -13,6 +13,7 @@ import { getDictionary, t } from '@/i18n'
 import { supportedLocales } from '@/i18n/config'
 import { getDb, safeQuery } from '@/lib/db'
 import { buildUrl } from '@/lib/sitemap-shared'
+import { buildPageMetadata } from '@/lib/seo'
 import { breadcrumbLd } from '@/lib/seo-config'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { formatDate, localizedPath } from '@/lib/i18n-utils'
@@ -40,19 +41,14 @@ export async function generateMetadata({
 	const { locale, slug } = await params
 	const post = await safeQuery(null, () => getBlogPost(getDb(), slug, locale))
 	if (!post) return { title: 'Post not found' }
-	return {
+	return buildPageMetadata({
+		path: `/blog/${slug}`,
+		locale,
 		title: post.seoTitle ?? post.title,
-		description: post.seoDesc ?? undefined,
-		alternates: {
-			canonical: buildUrl(`/blog/${slug}`, locale),
-		},
-		openGraph: {
-			title: post.seoTitle ?? post.title,
-			description: post.seoDesc ?? undefined,
-			images: post.heroImageUrl ? [post.heroImageUrl] : undefined,
-			type: 'article',
-		},
-	}
+		description: post.seoDesc,
+		image: post.heroImageUrl,
+		type: 'article',
+	})
 }
 
 export default async function BlogPostPage({

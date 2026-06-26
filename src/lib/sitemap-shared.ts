@@ -71,7 +71,7 @@ export function buildUrl(path: string, locale?: string): string {
 	return `${SITE_URL}/${loc}${path}`
 }
 
-function buildAlternates(path: string): Record<string, string> | undefined {
+export function buildAlternates(path: string): Record<string, string> | undefined {
 	if (!isMultiLang) return undefined
 	const languages: Record<string, string> = {}
 	for (const locale of supportedLocales) {
@@ -138,7 +138,7 @@ export async function buildAuthorEntries(): Promise<SitemapEntry[]> {
 }
 
 export async function buildBlogEntries(batchId: number): Promise<SitemapEntry[]> {
-	const offset = (batchId - 1) * BLOG_BATCH_SIZE
+	const offset = batchId * BLOG_BATCH_SIZE
 	const allPosts: BlogSitemapEntry[] = []
 
 	const fetches = supportedLocales.map((locale) =>

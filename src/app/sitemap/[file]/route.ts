@@ -34,7 +34,7 @@ export async function GET(
 			? buildStaticEntries()
 			: id === authorsId
 				? await buildAuthorEntries()
-				: await buildBlogEntries(id)
+				: await buildBlogEntries(id - 1)
 
 	return new Response(renderSitemapXml(entries), {
 		headers: {

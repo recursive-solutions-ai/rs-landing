@@ -9,7 +9,8 @@
 		"lint": "next lint",
 		"typecheck": "tsc --noEmit",
 		"test": "vitest",
-		"pull-forms": "growth-engine-pull-forms"
+		"pull-forms": "growth-engine-pull-forms",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^7.2.0",
@@ -34,6 +35,7 @@
 		"@types/node": "22.15.3",
 		"@types/react": "19.2.3",
 		"@types/react-dom": "19.2.3",
+		"husky": "9.1.7",
 		"postcss": "8.5.3",
 		"tailwindcss": "4.1.4",
 		"typescript": "5.8.3",

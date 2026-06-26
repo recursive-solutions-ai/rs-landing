@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { getFormBySlug } from '@growth-engine/sdk-server'
 import { FormRenderer } from '@growth-engine/sdk-client/components'
 import { getDb, safeQuery } from '@/lib/db'
-import { buildUrl } from '@/lib/sitemap-shared'
+import { buildPageMetadata } from '@/lib/seo'
 
 export const revalidate = 60
 
@@ -15,13 +15,12 @@ export async function generateMetadata({
 	const { locale, slug } = await params
 	const form = await safeQuery(null, () => getFormBySlug(getDb(), slug))
 	if (!form) return {}
-	return {
+	return buildPageMetadata({
+		path: `/forms/${slug}`,
+		locale,
 		title: form.name,
-		description: form.description ?? undefined,
-		alternates: {
-			canonical: buildUrl(`/forms/${slug}`, locale),
-		},
-	}
+		description: form.description,
+	})
 }
 
 export default async function DynamicFormPage({

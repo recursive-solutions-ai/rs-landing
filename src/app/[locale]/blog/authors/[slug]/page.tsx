@@ -5,7 +5,7 @@ import { getAuthorPosts, getBlogAuthor } from '@growth-engine/sdk-server'
 import { getDictionary, t } from '@/i18n'
 import { getDb, safeQuery } from '@/lib/db'
 import { localizedPath } from '@/lib/i18n-utils'
-import { buildUrl } from '@/lib/sitemap-shared'
+import { buildPageMetadata } from '@/lib/seo'
 import { LocalizedBlogList } from '@/components/blog/LocalizedBlogList'
 
 export const revalidate = 300
@@ -18,16 +18,13 @@ export async function generateMetadata({
 	const { locale, slug } = await params
 	const author = await safeQuery(null, () => getBlogAuthor(getDb(), slug))
 	if (!author) return {}
-	return {
+	return buildPageMetadata({
+		path: `/blog/authors/${slug}`,
+		locale,
 		title: author.name,
-		description: author.bio ?? undefined,
-		openGraph: {
-			images: author.avatarUrl ? [author.avatarUrl] : undefined,
-		},
-		alternates: {
-			canonical: buildUrl(`/blog/authors/${slug}`, locale),
-		},
-	}
+		description: author.bio,
+		image: author.avatarUrl,
+	})
 }
 
 export default async function AuthorDetailPage({
