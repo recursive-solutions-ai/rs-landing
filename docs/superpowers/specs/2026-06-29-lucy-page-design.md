@@ -108,7 +108,7 @@ Net journey: **cream → on-brand ink → product screen.** Premium, not disconn
 
 - **Lucy** — the platform (capital L, singular). Not "the AI", not "the tool."
 - **Experts** — Lucy's sub-agents (Nancy/Sam/Fran/Otto). Not "bots"/"agents" in user copy.
-- **Stages** — the four showcase steps `01–04` (Content Engine / Lead Capture / Pipeline / Custom Experts). Renumbered from the animation's original `02–05` so the standalone showcase reads self-contained (starting at 01); the tab labels and the internal device-screen markers are kept in sync.
+- **Stages** — the **five** showcase steps `01–05`, aligned 1:1 with the five pillars (the pillars are the detailed view of each "look inside Lucy" stage): `01` Attract → **Be Found**, `02` Engage → **Content Engine**, `03` Capture → **Lead Capture**, `04` Convert → **Pipeline**, `05` Optimize → **Custom Experts**. A new "Be Found" scene (search ranking + AI-engine citations: ChatGPT/Perplexity/Gemini) was added as `01` so the showcase matches the pillar funnel; tab labels and internal device-screen markers stay in sync.
 - **Showcase** — the framed interactive product screen. **Animation** — the underlying `LucyAnimation` component.
 
 ## 9. Out of scope / deferred
