@@ -12,6 +12,7 @@ import {
 	faMagnet,
 	faHandshake,
 	faBolt,
+	faLayerGroup,
 } from "@fortawesome/free-solid-svg-icons"
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 
@@ -21,6 +22,7 @@ export interface ServiceItem {
 	title: string
 	description: string
 	href: string
+	earlyAccess?: boolean
 }
 
 export interface ProcessStep {
@@ -77,35 +79,36 @@ export interface TeamMember {
 
 export const services: ServiceItem[] = [
 	{
-		id: "assessment",
-		icon: faClipboardList,
-		title: "AI Opportunity Assessment",
+		id: "platform",
+		icon: faLayerGroup,
+		title: "Lucy — the unified platform",
 		description:
-			"We get under the hood of your business — your workflows, your bottlenecks, your goals. You walk away with a clear, prioritized roadmap built around what actually matters to your operation.",
+			"Your website, content, SEO, lead capture, CRM, and analytics in one vertical system we run for you. The fastest way to replace a stack of disconnected tools.",
+		href: "#contact",
+		earlyAccess: true,
+	},
+	{
+		id: "custom-automations",
+		icon: faGears,
+		title: "Custom automations",
+		description:
+			"We map the repetitive work across sales, ops, and admin and automate it — so your team spends its hours on what only people can do.",
+		href: "#contact",
+	},
+	{
+		id: "bespoke-tools",
+		icon: faRobot,
+		title: "Bespoke tools & agents",
+		description:
+			"Internal tools and AI agents built around your workflows, deployed into how your team already works, and monitored so they keep improving.",
 		href: "#contact",
 	},
 	{
 		id: "advisory",
 		icon: faComments,
-		title: "AI Advisory",
+		title: "Advisory & consulting",
 		description:
-			"For businesses that want a partner in their corner as they navigate AI adoption. We help you evaluate, plan, and stay ahead — month by month.",
-		href: "#contact",
-	},
-	{
-		id: "custom-builds",
-		icon: faCode,
-		title: "Custom AI Builds",
-		description:
-			"When the roadmap calls for something built specifically for you. Designed around your workflows, delivered to your team.",
-		href: "#contact",
-	},
-	{
-		id: "agent-deployment",
-		icon: faRobot,
-		title: "Dedicated Agent Deployment",
-		description:
-			"A managed AI agent embedded in your operations — we deploy it, monitor it, and optimize it so it keeps getting better.",
+			"A hands-on partner as you adopt AI — we help you evaluate, prioritize, and stay ahead, month by month.",
 		href: "#contact",
 	},
 ]
@@ -319,7 +322,7 @@ export const featurePillars: FeaturePillar[] = [
 		eyebrow: "Optimize",
 		headline: "Reclaim your team's time.",
 		promise:
-			"Lucy automates the repetitive work so your team can do what only humans can.",
+			"Your unified system automates the repetitive work so your team can do what only humans can.",
 		icon: faBolt,
 		visual: "optimize",
 		bullets: [
