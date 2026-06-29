@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest'
 import { LUCY_STAGES, clampStageIndex } from './stages'
 
 describe('LUCY_STAGES', () => {
-	it('has four stages with markers 02–05', () => {
-		expect(LUCY_STAGES.map((s) => s.marker)).toEqual(['02', '03', '04', '05'])
+	it('has four stages with markers 01–04', () => {
+		expect(LUCY_STAGES.map((s) => s.marker)).toEqual(['01', '02', '03', '04'])
 	})
 	it('every stage has a non-empty label and caption', () => {
 		for (const s of LUCY_STAGES) {
