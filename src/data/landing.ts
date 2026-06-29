@@ -367,3 +367,17 @@ export const team: TeamMember[] = [
 		initials: "D",
 	},
 ]
+
+export interface LucyExpert {
+	name: string
+	role: string
+	blurb: string
+	initial: string
+}
+
+export const lucyExperts: LucyExpert[] = [
+	{ name: "Nancy", role: "Marketing", blurb: "Writes and schedules content in your brand voice.", initial: "N" },
+	{ name: "Sam", role: "Support", blurb: "Answers customers around the clock.", initial: "S" },
+	{ name: "Fran", role: "Finance", blurb: "Keeps the numbers and reports current.", initial: "F" },
+	{ name: "Otto", role: "Onboarding", blurb: "Gets new clients moving without the back-and-forth.", initial: "O" },
+]
