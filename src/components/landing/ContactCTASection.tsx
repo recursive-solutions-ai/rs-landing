@@ -24,15 +24,30 @@ const FALLBACK_SLUG = "general-contact-form"
 
 interface ContactCTASectionProps {
 	form?: FormDefinition | null
+	heading?: string
+	subtitle?: string
+	intro?: string
+	submitLabel?: string
 }
 
-export function ContactCTASection({ form }: ContactCTASectionProps) {
+export function ContactCTASection({
+	form,
+	heading,
+	subtitle,
+	intro,
+	submitLabel: submitLabelProp,
+}: ContactCTASectionProps) {
 	const { ref: contentRef, inView } = useInView<HTMLDivElement>()
 
 	const slug = form?.slug ?? FALLBACK_SLUG
 	const fields = form?.fields?.length ? form.fields : FALLBACK_FIELDS
 	const settings = form?.settings ?? null
-	const submitLabel = settings?.submitButtonText ?? "Book a Consult"
+	const submitLabel = submitLabelProp ?? settings?.submitButtonText ?? "Book a Consult"
+	const headingText = heading ?? "Let's make your business simpler, faster, and more valuable."
+	const subtitleText = subtitle ?? "Book a free 30-minute consult with the team."
+	const introText =
+		intro ??
+		"In 30 minutes, we'll learn about your business and hand you a Website Analysis Report. A real breakdown of where you stand and where AI could take you. Worst case, you walk away with free insight your competitors are paying for."
 	const successMessage = settings?.successMessage ?? "We'll get back to you shortly."
 
 	const [status, setStatus] = useState<
@@ -96,13 +111,13 @@ export function ContactCTASection({ form }: ContactCTASectionProps) {
 		<section id="contact" className="mx-auto max-w-6xl px-6 py-24">
 			<div ref={contentRef} className={cn(inView && "reveal-in")}>
 				<h2 className="reveal mb-4 font-display text-3xl font-bold md:text-5xl text-center text-base-content">
-					Let&apos;s make your business simpler, faster, and more valuable.
+					{headingText}
 				</h2>
 				<p
 					className="reveal mx-auto mb-12 max-w-xl text-lg text-base-content/60 md:text-xl text-center"
 					style={{ "--reveal-delay": "0.1s" } as CSSProperties}
 				>
-					Book a free 30-minute consult with the team. Curious about the platform? Early access is on the platform card above.
+					{subtitleText}
 				</p>
 
 				<div
@@ -112,7 +127,7 @@ export function ContactCTASection({ form }: ContactCTASectionProps) {
 					<div className="overflow-hidden rounded-[2rem] bg-primary p-10 text-primary-content shadow-2xl md:p-12">
 
 						<p className="mb-8 text-primary-content/80 leading-relaxed">
-							In 30 minutes, we&apos;ll learn about your business and hand you a Website Analysis Report. A real breakdown of where you stand and where AI could take you. Worst case, you walk away with free insight your competitors are paying for.
+							{introText}
 						</p>
 
 						{status === "success" ? (
