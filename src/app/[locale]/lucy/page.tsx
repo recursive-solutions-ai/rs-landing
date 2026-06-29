@@ -7,7 +7,6 @@ import { LucyIntro } from "@/components/lucy/LucyIntro"
 import { LucyShowcase } from "@/components/lucy/LucyShowcase"
 import { LucyExperts } from "@/components/lucy/LucyExperts"
 import { FeaturePillarsSection } from "@/components/landing/FeaturePillarsSection"
-import { ProcessSection } from "@/components/landing/ProcessSection"
 import { ContactCTASection } from "@/components/landing/ContactCTASection"
 
 export async function generateMetadata({
@@ -42,7 +41,6 @@ export default async function LucyPage({
 			<LucyShowcase />
 			<LucyExperts />
 			<FeaturePillarsSection />
-			<ProcessSection />
 			<ContactCTASection
 				form={contactForm}
 				heading="Get early access to Lucy."
