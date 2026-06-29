@@ -29,3 +29,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .playwright-mcp/
+
+# Superpowers brainstorm/visual-companion scratch
+.superpowers/
