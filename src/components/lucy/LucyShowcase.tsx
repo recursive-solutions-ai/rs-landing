@@ -42,7 +42,7 @@ export function LucyShowcase() {
 					role="tablist"
 					aria-label="Lucy stages"
 					onKeyDown={onKeyDown}
-					className="reveal mb-6 flex flex-wrap justify-center gap-2"
+					className="reveal mb-3 flex flex-wrap justify-center gap-2"
 				>
 					{LUCY_STAGES.map((stage, i) => (
 						<button
@@ -67,6 +67,13 @@ export function LucyShowcase() {
 					))}
 				</div>
 
+				<p
+					className="reveal mb-6 text-center text-sm text-neutral-content/70"
+					aria-live="polite"
+				>
+					{LUCY_STAGES[active].caption}
+				</p>
+
 				{/* Device frame */}
 				<div
 					id="lucy-tabpanel"
@@ -90,13 +97,6 @@ export function LucyShowcase() {
 						<LucyAnimation mode="tabbed" active={active - 1} reduce={reduce} />
 					)}
 				</div>
-
-				<p
-					className="reveal mt-5 text-center text-sm text-neutral-content/70"
-					aria-live="polite"
-				>
-					{LUCY_STAGES[active].caption}
-				</p>
 			</div>
 		</section>
 	)

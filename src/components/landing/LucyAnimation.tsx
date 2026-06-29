@@ -1230,7 +1230,7 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 
 				{/* SCENE 1: CONTENT ENGINE */}
 				<div className={`scene s1${mode === "tabbed" && active === 0 ? " is-active" : ""}`}>
-					<span className="marker">02 / content engine</span>
+					<span className="marker">02 / engage</span>
 					<div className="canvas">
 						<svg className="lines" viewBox="0 0 1100 700" preserveAspectRatio="none">
 							<path d="M 550 350 L 200 200" />
@@ -1283,7 +1283,7 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 
 				{/* SCENE 2: LEAD CAPTURE */}
 				<div className={`scene s2${mode === "tabbed" && active === 1 ? " is-active" : ""}`}>
-					<span className="marker">03 / lead capture</span>
+					<span className="marker">03 / capture</span>
 					<div className="canvas">
 						<div className="form">
 							<div className="ttl">Free Growth Audit</div>
@@ -1328,7 +1328,7 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 
 				{/* SCENE 3: CRM */}
 				<div className={`scene s3${mode === "tabbed" && active === 2 ? " is-active" : ""}`}>
-					<span className="marker">04 / pipeline</span>
+					<span className="marker">04 / convert</span>
 					<div className="canvas">
 						<div className="track">
 							<div className="rail"></div>
@@ -1376,7 +1376,7 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 
 				{/* SCENE 4: CUSTOM EXPERTS */}
 				<div className={`scene s4${mode === "tabbed" && active === 3 ? " is-active" : ""}`}>
-					<span className="marker">05 / custom experts</span>
+					<span className="marker">05 / optimize</span>
 					<div className="canvas">
 						<svg className="beams" viewBox="0 0 1100 700" preserveAspectRatio="none">
 							<line className="b-top" x1="550" y1="350" x2="550" y2="160" />
