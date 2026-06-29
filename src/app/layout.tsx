@@ -38,7 +38,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html lang="en" data-theme="dark" suppressHydrationWarning>
+		<html lang="en" data-theme="rs" suppressHydrationWarning>
 			<head>
 				{/* Without JS the IntersectionObserver never fires — force reveal
 				    elements visible so content is never stuck hidden (SEO/no-JS). */}

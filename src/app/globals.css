@@ -1,6 +1,29 @@
 @import 'tailwindcss';
 @source '../../node_modules/@growth-engine/sdk-client/components.js';
 @plugin 'daisyui';
+@plugin "daisyui/theme" {
+  name: "rs";
+  default: true;
+  color-scheme: light;
+  --color-base-100: #f6f3ee;
+  --color-base-200: #ece8e1;
+  --color-base-300: #dcd6cc;
+  --color-base-content: #232229;
+  --color-primary: #284b73;
+  --color-primary-content: #ffffff;
+  --color-secondary: #3f7d8c;
+  --color-secondary-content: #ffffff;
+  --color-accent: #3f7d8c;
+  --color-accent-content: #ffffff;
+  --color-neutral: #232229;
+  --color-neutral-content: #f6f3ee;
+  --color-info: #3f7d8c;
+  --color-success: #2f7d52;
+  --color-warning: #b8842a;
+  --color-error: #b23b3b;
+  --radius-box: 0.5rem;
+  --radius-field: 0.375rem;
+}
 @plugin '@tailwindcss/typography/src/index.js';
 
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
