@@ -2,7 +2,7 @@
 import { HeroSection } from "@/components/landing/HeroSection"
 import { CredibilityBar } from "@/components/landing/CredibilityBar"
 import { ProblemSection } from "@/components/landing/ProblemSection"
-import { FeaturePillarsSection } from "@/components/landing/FeaturePillarsSection"
+import { SystemTeaser } from "@/components/landing/SystemTeaser"
 import { ServicesSection } from "@/components/landing/ServicesSection"
 import { ProcessSection } from "@/components/landing/ProcessSection"
 import { TeamSection } from "@/components/landing/TeamSection"
@@ -19,7 +19,12 @@ export const metadata: Metadata = {
 	alternates: { canonical: buildUrl("", defaultLocale) },
 }
 
-export default async function LandingPage() {
+export default async function LandingPage({
+	params,
+}: {
+	params: Promise<{ locale: string }>
+}) {
+	const { locale } = await params
 	const contactForm = await getForm("general-contact-form")
 
 	return (
@@ -27,7 +32,7 @@ export default async function LandingPage() {
 			<HeroSection />
 			<CredibilityBar />
 			<ProblemSection />
-			<FeaturePillarsSection />
+			<SystemTeaser locale={locale} />
 			<ServicesSection />
 			<ProcessSection />
 			<TeamSection />
