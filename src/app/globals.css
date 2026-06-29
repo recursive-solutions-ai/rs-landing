@@ -26,6 +26,10 @@
 }
 @plugin '@tailwindcss/typography/src/index.js';
 
+@theme {
+  --font-display: var(--font-source-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif);
+}
+
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 body {

@@ -1,4 +1,12 @@
 import type { Metadata } from 'next'
+import { Source_Serif_4 } from 'next/font/google'
+
+const display = Source_Serif_4({
+  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-source-serif',
+  display: 'swap',
+})
 
 // Font Awesome configuration - prevent FOUC
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -38,7 +46,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html lang="en" data-theme="rs" suppressHydrationWarning>
+		<html lang="en" data-theme="rs" className={display.variable} suppressHydrationWarning>
 			<head>
 				{/* Without JS the IntersectionObserver never fires — force reveal
 				    elements visible so content is never stuck hidden (SEO/no-JS). */}
