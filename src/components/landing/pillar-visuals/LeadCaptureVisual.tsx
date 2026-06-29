@@ -240,7 +240,7 @@ export function LeadCaptureVisual() {
 			`}</style>
 
 			<div className="pl-stage">
-				<div className="pl-stage-marker">Lucy <b>·</b> 04</div>
+				<div className="pl-stage-marker">System <b>·</b> 04</div>
 				<span className="pl-marker">04 / pipeline</span>
 
 				<span className="pl-particle pl-f1" />

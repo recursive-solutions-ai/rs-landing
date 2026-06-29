@@ -204,7 +204,7 @@ export function EngageVisual() {
 			`}</style>
 
 			<div className="ce-stage">
-				<div className="ce-stage-marker">Lucy <b>·</b> 02</div>
+				<div className="ce-stage-marker">System <b>·</b> 02</div>
 				<span className="ce-marker">02 / content engine</span>
 
 				<svg className="ce-lines" viewBox="0 0 1100 700" preserveAspectRatio="none">

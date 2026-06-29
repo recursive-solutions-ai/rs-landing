@@ -612,7 +612,7 @@ export function AttractVisual() {
 			`}</style>
 
 			<div className="lp-stage">
-				<div className="lp-stage-marker">Lucy <b>·</b> 01</div>
+				<div className="lp-stage-marker">System <b>·</b> 01</div>
 				<span className="lp-marker">01 / landing pages</span>
 
 				{/* PHASE 1 */}

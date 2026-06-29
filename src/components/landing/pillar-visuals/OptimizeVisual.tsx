@@ -3,7 +3,7 @@
 import { VisualFrame } from "./VisualFrame"
 
 /* ── OptimizeVisual ─────────────────────────────────────────────────────
- * Faithful migration of 05_custom_experts-1.html — Lucy core orbited by
+ * Faithful migration of 05_custom_experts-1.html — System core orbited by
  * four named expert agents with pulse rings, sparks, beams and badges. */
 export function OptimizeVisual() {
 	return (
@@ -40,7 +40,7 @@ export function OptimizeVisual() {
 					text-transform: uppercase;
 				}
 
-				/* central Lucy core */
+				/* central System core */
 				.ce-core {
 					position: absolute;
 					left: 50%; top: 50%;
@@ -330,7 +330,7 @@ export function OptimizeVisual() {
 			`}</style>
 
 			<div className="ce-stage">
-				<div className="ce-stage-marker">Lucy <b>·</b> 05</div>
+				<div className="ce-stage-marker">System <b>·</b> 05</div>
 				<span className="ce-marker">05 / custom experts</span>
 
 				<div className="ce-particle f1" />
@@ -360,7 +360,7 @@ export function OptimizeVisual() {
 				<span className="ce-spark s-left" />
 
 				<div className="ce-core">
-					<div className="ce-lbl">Lucy<small>orchestrator</small></div>
+					<div className="ce-lbl">System<small>orchestrator</small></div>
 				</div>
 
 				<div className="ce-agent top">
