@@ -4,6 +4,7 @@ import { forwardRef } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { ServiceItem } from "@/data/landing"
 import { cn } from "@/lib/utils"
+import { ButtonLink } from "@/components/ui/button-link"
 
 interface ServiceCardProps {
 	service: ServiceItem
@@ -47,6 +48,13 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
 				<p className="text-base leading-relaxed text-base-content/70">
 					{service.description}
 				</p>
+
+				{/* Early Access CTA — only for earlyAccess offerings */}
+				{service.earlyAccess && (
+					<ButtonLink href={service.href} className="btn-primary btn-sm mt-4 self-start">
+						Get Early Access
+					</ButtonLink>
+				)}
 
 				{/* Get started hint */}
 				<a
