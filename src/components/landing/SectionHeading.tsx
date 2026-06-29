@@ -47,7 +47,7 @@ export function SectionHeading({
 			<AnimatedText
 				as="h2"
 				className={cn(
-					"text-3xl font-bold text-base-content sm:text-4xl md:text-5xl",
+					"font-display text-3xl font-bold text-base-content sm:text-4xl md:text-5xl",
 					isCenter && "justify-center"
 				)}
 				stagger={0.04}

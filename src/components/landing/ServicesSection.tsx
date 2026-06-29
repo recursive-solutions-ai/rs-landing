@@ -47,13 +47,13 @@ export function ServicesSection() {
 	return (
 		<section
 			ref={sectionRef}
-			id="services"
+			id="offerings"
 			className="mx-auto max-w-7xl px-6 py-32"
 		>
 			<SectionHeading
-				tag="Our Services"
-				title="We Don't Sell Solutions. We Find Them With You."
-				subtitle="Every engagement starts the same way — we sit down, learn your business, and pinpoint where AI actually moves the needle. Then we build the right path forward."
+				tag="Offerings"
+				title="Start with the system. Extend it however you need."
+				subtitle="Begin with the unified platform, then add custom automations, bespoke tools, and advisory as your business needs them."
 				className="mb-16"
 			/>
 

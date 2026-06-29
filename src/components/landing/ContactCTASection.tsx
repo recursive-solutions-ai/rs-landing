@@ -95,14 +95,14 @@ export function ContactCTASection({ form }: ContactCTASectionProps) {
 	return (
 		<section id="contact" className="mx-auto max-w-6xl px-6 py-24">
 			<div ref={contentRef} className={cn(inView && "reveal-in")}>
-				<h2 className="reveal mb-4 text-3xl font-bold md:text-5xl text-center text-base-content">
-					Map Your Growth
+				<h2 className="reveal mb-4 font-display text-3xl font-bold md:text-5xl text-center text-base-content">
+					Let&apos;s make your business simpler, faster, and more valuable.
 				</h2>
 				<p
 					className="reveal mx-auto mb-12 max-w-xl text-lg text-base-content/60 md:text-xl text-center"
 					style={{ "--reveal-delay": "0.1s" } as CSSProperties}
 				>
-					Book a free 30-minute call. No pitch. No commitment.
+					Book a free 30-minute consult with the team. Curious about the platform? Early access is on the Lucy card above.
 				</p>
 
 				<div

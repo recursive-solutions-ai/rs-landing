@@ -24,7 +24,7 @@ export function ProcessSection() {
 						<span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
 							The Blueprint
 						</span>
-						<h2 className="font-heading text-4xl font-extrabold leading-tight tracking-tight text-dark-foreground md:text-5xl">
+						<h2 className="font-display font-heading text-4xl font-extrabold leading-tight tracking-tight text-dark-foreground md:text-5xl">
 							From Chaos to Clarity <br />
 							in Four Steps.
 						</h2>

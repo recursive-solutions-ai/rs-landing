@@ -10,6 +10,7 @@ import { EngageVisual } from "./pillar-visuals/EngageVisual"
 import { CaptureVisual } from "./pillar-visuals/CaptureVisual"
 import { CloseVisual } from "./pillar-visuals/CloseVisual"
 import { OptimizeVisual } from "./pillar-visuals/OptimizeVisual"
+import { SectionHeading } from "./SectionHeading"
 
 function PillarVisual({ kind }: { kind: FeaturePillar["visual"] }) {
 	switch (kind) {
@@ -98,24 +99,14 @@ function PillarRow({ pillar }: { pillar: FeaturePillar }) {
 export function FeaturePillarsSection() {
 	return (
 		<section
-			id="platform"
+			id="system"
 			className="relative mx-auto max-w-6xl px-6 py-24 md:py-24"
 		>
-			{/* Section header
-			<div className="mx-auto max-w-3xl text-center">
-				<span className="mb-4 inline-block text-[11px] font-bold uppercase tracking-[0.2em] text-primary">
-					The Platform
-				</span>
-				<h2 className="font-heading text-4xl font-extrabold leading-[1.1] tracking-tight text-base-content md:text-6xl">
-					One platform. Five jobs.
-					<br />
-					<span className="text-base-content/40">Built to compound.</span>
-				</h2>
-				<p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-base-content/60">
-					Lucy runs your entire funnel. Every job lives in one place and learns
-					from the others.
-				</p>
-			</div> */}
+			<SectionHeading
+				tag="One vertical system"
+				title="Everything that grows your business, in one place."
+				className="mb-0"
+			/>
 
 			{/* Pillar rows */}
 			<div className="mt-20 divide-y divide-base-content/5">
