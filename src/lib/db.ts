@@ -9,3 +9,15 @@ export function getDb() {
 	}
 	return getClientDb(url, token)
 }
+
+/**
+ * Like getDb() but returns null when Turso isn't configured, so build-time
+ * data collection (e.g. the optional blog) degrades to empty instead of
+ * failing the production build.
+ */
+export function getDbOrNull() {
+	const url = process.env.TURSO_DATABASE_URL
+	const token = process.env.TURSO_AUTH_TOKEN
+	if (!url || !token) return null
+	return getClientDb(url, token)
+}

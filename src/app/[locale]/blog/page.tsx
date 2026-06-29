@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { getBlogPosts } from '@growth-engine/sdk-server'
 import { BlogList } from '@growth-engine/sdk-client/components'
 import { getDictionary, t } from '@/i18n'
-import { getDb } from '@/lib/db'
+import { getDbOrNull } from '@/lib/db'
 import { buildUrl } from '@/lib/sitemap-shared'
 
 export const revalidate = 60
@@ -38,8 +38,8 @@ export default async function BlogPage({
 }) {
 	const { locale } = await params
 	const dict = await getDictionary(locale)
-	const db = getDb()
-	const posts = await getBlogPosts(db, { locale, limit: 0 })
+	const db = getDbOrNull()
+	const posts = db ? await getBlogPosts(db, { locale, limit: 0 }) : []
 
 	return (
 		<main className="container mx-auto px-4 py-12">

@@ -10,7 +10,7 @@ import {
 import { BlogContent, RelatedPosts } from '@growth-engine/sdk-client/components'
 import { getDictionary, t } from '@/i18n'
 import { supportedLocales } from '@/i18n/config'
-import { getDb } from '@/lib/db'
+import { getDbOrNull } from '@/lib/db'
 import { buildUrl } from '@/lib/sitemap-shared'
 import { breadcrumbLd } from '@/lib/seo-config'
 import { JsonLd } from '@/components/seo/JsonLd'
@@ -19,7 +19,8 @@ import { formatDate } from '@/lib/i18n-utils'
 export const revalidate = 120
 
 export async function generateStaticParams() {
-	const db = getDb()
+	const db = getDbOrNull()
+	if (!db) return []
 	const results = await Promise.all(
 		supportedLocales.map((locale) => getBlogPosts(db, { locale, limit: 0 })),
 	)
@@ -34,8 +35,8 @@ export async function generateMetadata({
 	params: Promise<{ locale: string; slug: string }>
 }): Promise<Metadata> {
 	const { locale, slug } = await params
-	const db = getDb()
-	const post = await getBlogPost(db, slug, locale)
+	const db = getDbOrNull()
+	const post = db ? await getBlogPost(db, slug, locale) : null
 	if (!post) return { title: 'Post not found' }
 	return {
 		title: post.seoTitle ?? post.title,
@@ -59,7 +60,8 @@ export default async function BlogPostPage({
 }) {
 	const { locale, slug } = await params
 	const dict = await getDictionary(locale)
-	const db = getDb()
+	const db = getDbOrNull()
+	if (!db) notFound()
 
 	const post = await getBlogPost(db, slug, locale)
 	if (!post) notFound()
