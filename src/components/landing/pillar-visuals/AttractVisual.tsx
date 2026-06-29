@@ -612,8 +612,8 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 			`}</style>
 
 			<div className="lp-stage">
-				<div className="lp-stage-marker">System <b>·</b> 01</div>
-				<span className="lp-marker">01 / landing pages</span>
+				{!bare && <div className="lp-stage-marker">System <b>·</b> 01</div>}
+				<span className="lp-marker">{bare ? "01 / be found" : "01 / landing pages"}</span>
 
 				{/* PHASE 1 */}
 				<div className="lp-phase lp-p1">

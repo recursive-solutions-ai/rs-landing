@@ -37,7 +37,7 @@ export function LucyIntro() {
 				className={cn("mx-auto max-w-4xl px-6 py-20 text-center", inView && "reveal-in")}
 			>
 				<p className="reveal mx-auto max-w-2xl text-xl leading-relaxed text-base-content md:text-2xl">
-					Lucy is the unified platform behind Recursive Solutions. Instead of a dozen
+					Lucy is the unified platform designed by Recursive Solutions. Instead of a dozen
 					disconnected tools, one system attracts, engages, captures, and converts — and we
 					run and improve it with you.
 				</p>
