@@ -16,6 +16,7 @@ import { buildUrl } from '@/lib/sitemap-shared'
 import { buildPageMetadata } from '@/lib/seo'
 import { breadcrumbLd } from '@/lib/seo-config'
 import { JsonLd } from '@/components/seo/JsonLd'
+import { blogDescription, stripLeadingArticleHeading } from '@/lib/blog-content'
 import { formatDate, localizedPath } from '@/lib/i18n-utils'
 import { AuthorByline } from '@/components/blog/AuthorByline'
 import { LocalizedRelatedPosts } from '@/components/blog/LocalizedRelatedPosts'
@@ -45,7 +46,7 @@ export async function generateMetadata({
 		path: `/blog/${slug}`,
 		locale,
 		title: post.seoTitle ?? post.title,
-		description: post.seoDesc,
+		description: blogDescription(post),
 		image: post.heroImageUrl,
 		type: 'article',
 	})
@@ -109,10 +110,11 @@ export default async function BlogPostPage({
 				)}
 
 				<BlogContent
-					html={post.content}
+					html={stripLeadingArticleHeading(post.content)}
 					post={post}
 					author={author ?? undefined}
 					business={business ?? undefined}
+					disableMeta
 				/>
 			</article>
 

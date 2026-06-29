@@ -5,6 +5,22 @@ import { defaultLocaleRedirectTarget } from './lib/i18n-utils'
 
 const SKIP_PREFIXES = ['/_next/', '/sitemap']
 const SKIP_PATHS = ['/favicon.ico', '/sitemap.xml', '/robots.txt']
+const LEGACY_REDIRECTS = new Map<string, string>([
+	['/en/map-your-growth', '/'],
+	['/map-your-growth', '/'],
+	['/en/blog/map-your-growth', '/blog'],
+	['/blog/map-your-growth', '/blog'],
+	['/en/blog/ai-tools-saving', '/blog'],
+	['/blog/ai-tools-saving', '/blog'],
+])
+
+function legacyRedirectTarget(pathname: string): string | null {
+	const normalized =
+		pathname.length > 1 && pathname.endsWith('/')
+			? pathname.slice(0, -1)
+			: pathname
+	return LEGACY_REDIRECTS.get(normalized) ?? null
+}
 
 function getLocaleFromHeaders(request: NextRequest): string {
 	const acceptLanguage = request.headers.get('accept-language')
@@ -75,6 +91,13 @@ export function proxy(request: NextRequest) {
 		SKIP_PATHS.includes(pathname)
 	) {
 		return NextResponse.next()
+	}
+
+	const legacyTarget = legacyRedirectTarget(pathname)
+	if (legacyTarget) {
+		const url = request.nextUrl.clone()
+		url.pathname = legacyTarget
+		return NextResponse.redirect(url, 301)
 	}
 
 	const paramLocale = request.nextUrl.searchParams.get('lang')

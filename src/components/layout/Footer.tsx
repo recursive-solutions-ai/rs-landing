@@ -27,7 +27,6 @@ export function Footer() {
 							<Link href={localizedPath('/blog', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('nav.blog')}</Link>
 							<Link href={localizedPath('/forms', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('nav.forms')}</Link>
 							<Link href={localizedPath('/contact', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('nav.contact')}</Link>
-							<Link href={localizedPath('/test-bot', locale)} className="text-sm text-base-content/60 hover:text-primary">Test Bot</Link>
 						</nav>
 					</div>
 
