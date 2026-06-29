@@ -1,8 +1,10 @@
 
 import { HeroSection } from "@/components/landing/HeroSection"
+import { CredibilityBar } from "@/components/landing/CredibilityBar"
+import { ProblemSection } from "@/components/landing/ProblemSection"
 import { FeaturePillarsSection } from "@/components/landing/FeaturePillarsSection"
+import { ServicesSection } from "@/components/landing/ServicesSection"
 import { ProcessSection } from "@/components/landing/ProcessSection"
-import { ProofOfWorkSection } from "@/components/landing/ProofOfWorkSection"
 import { TeamSection } from "@/components/landing/TeamSection"
 import { ContactCTASection } from "@/components/landing/ContactCTASection"
 import { getForm } from "@/lib/forms-server"
@@ -11,12 +13,10 @@ import { defaultLocale } from "@/i18n/config"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-	title: "Every Great Business Will Run on AI | Recursive Solutions",
+	title: "Recursive Solutions — One System to Run Your Growth",
 	description:
-		"We exist to help good people and great businesses not just survive the future — but thrive in it. AI consulting, advisory, and custom builds for service businesses.",
-	alternates: {
-		canonical: buildUrl("", defaultLocale),
-	},
+		"We make your business simpler, faster, and more valuable — one vertical system for your website, content, SEO, leads, CRM, and analytics, run by a hands-on team. Plus custom automations, bespoke tools, and consulting.",
+	alternates: { canonical: buildUrl("", defaultLocale) },
 }
 
 export default async function LandingPage() {
@@ -25,9 +25,11 @@ export default async function LandingPage() {
 	return (
 		<div className="no-scrollbar">
 			<HeroSection />
+			<CredibilityBar />
+			<ProblemSection />
 			<FeaturePillarsSection />
+			<ServicesSection />
 			<ProcessSection />
-			<ProofOfWorkSection />
 			<TeamSection />
 			<ContactCTASection form={contactForm} />
 		</div>
