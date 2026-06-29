@@ -1122,179 +1122,6 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 					}
 				}
 
-				/* SCENE 5 - BE FOUND (Attract) */
-				.s5 .canvas {
-					position: relative;
-					width: 100%;
-					height: 100%;
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-					justify-content: center;
-					gap: 20px;
-					padding: 0 10%;
-				}
-				.s5 .search {
-					display: flex;
-					align-items: center;
-					gap: 12px;
-					width: min(440px, 86%);
-					border: 1px solid var(--line2);
-					border-radius: 999px;
-					background: rgba(20, 21, 32, 0.7);
-					backdrop-filter: blur(20px);
-					padding: 12px 18px;
-					box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 24px var(--teal-glow);
-				}
-				.s5 .q-icon {
-					color: var(--teal);
-					font-size: 16px;
-				}
-				.s5 .q-text {
-					flex: 1;
-					font-family: "Fraunces", serif;
-					font-size: 13px;
-					color: var(--ink);
-				}
-				.s5 .q-rank {
-					font-family: "JetBrains Mono", monospace;
-					font-size: 9px;
-					text-transform: uppercase;
-					letter-spacing: 1.5px;
-					color: #062821;
-					background: var(--teal);
-					padding: 4px 9px;
-					border-radius: 999px;
-					box-shadow: 0 0 16px var(--teal-glow);
-					animation: s5rank 7s infinite;
-				}
-				@keyframes s5rank {
-					0%,
-					10% {
-						opacity: 0;
-						transform: scale(0.7);
-					}
-					16%,
-					100% {
-						opacity: 1;
-						transform: scale(1);
-					}
-				}
-				.s5 .result {
-					width: min(440px, 86%);
-					border: 1px solid var(--line2);
-					border-radius: 12px;
-					background: rgba(20, 21, 32, 0.7);
-					backdrop-filter: blur(20px);
-					padding: 12px 16px;
-					box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-				}
-				.s5 .result .r-src {
-					font-family: "JetBrains Mono", monospace;
-					font-size: 9px;
-					color: var(--teal);
-					text-transform: uppercase;
-					letter-spacing: 1.5px;
-					margin-bottom: 4px;
-				}
-				.s5 .result .r-title {
-					font-family: "Fraunces", serif;
-					font-size: 13px;
-					line-height: 1.3;
-				}
-				.s5 .result .r-url {
-					font-family: "JetBrains Mono", monospace;
-					font-size: 10px;
-					color: var(--dim);
-					margin-top: 3px;
-				}
-				.s5 .cites {
-					display: flex;
-					gap: 10px;
-					justify-content: center;
-					flex-wrap: wrap;
-				}
-				.s5 .cite {
-					display: flex;
-					align-items: center;
-					gap: 7px;
-					border: 1px solid var(--line);
-					border-radius: 999px;
-					background: rgba(20, 21, 32, 0.6);
-					backdrop-filter: blur(10px);
-					padding: 7px 13px;
-					font-size: 11px;
-				}
-				.s5 .cite .cdot {
-					width: 6px;
-					height: 6px;
-					border-radius: 50%;
-					background: var(--dim);
-				}
-				.s5 .cite .cstate {
-					font-family: "JetBrains Mono", monospace;
-					font-size: 9px;
-					color: var(--dim);
-					text-transform: uppercase;
-					letter-spacing: 1px;
-				}
-				.s5 .cite.c1 {
-					animation: s5cite 7s infinite;
-					animation-delay: 0.6s;
-				}
-				.s5 .cite.c2 {
-					animation: s5cite 7s infinite;
-					animation-delay: 1.5s;
-				}
-				.s5 .cite.c3 {
-					animation: s5cite 7s infinite;
-					animation-delay: 2.4s;
-				}
-				@keyframes s5cite {
-					0%,
-					6% {
-						border-color: var(--line);
-						box-shadow: none;
-						transform: scale(1);
-					}
-					12%,
-					26% {
-						border-color: var(--teal);
-						box-shadow: 0 0 18px var(--teal-glow);
-						transform: scale(1.05);
-					}
-					34%,
-					100% {
-						border-color: var(--line);
-						box-shadow: none;
-						transform: scale(1);
-					}
-				}
-				.s5 .cite.c1 .cdot {
-					animation: s5dot 7s infinite;
-					animation-delay: 0.6s;
-				}
-				.s5 .cite.c2 .cdot {
-					animation: s5dot 7s infinite;
-					animation-delay: 1.5s;
-				}
-				.s5 .cite.c3 .cdot {
-					animation: s5dot 7s infinite;
-					animation-delay: 2.4s;
-				}
-				@keyframes s5dot {
-					0%,
-					6% {
-						background: var(--dim);
-						box-shadow: none;
-					}
-					12%,
-					100% {
-						background: var(--teal);
-						box-shadow: 0 0 8px var(--teal);
-					}
-				}
-
 				.progress {
 					position: absolute;
 					left: 0;
@@ -1398,39 +1225,11 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 				<div className="grain"></div>
 
 				<div className="stage-marker">
-					Lucy <b>·</b> 01 → 05
-				</div>
-
-				{/* SCENE 5: BE FOUND (Attract) */}
-				<div className={`scene s5${mode === "tabbed" && active === 0 ? " is-active" : ""}`}>
-					<span className="marker">01 / be found</span>
-					<div className="canvas">
-						<div className="search">
-							<span className="q-icon">⌕</span>
-							<span className="q-text">growth systems &amp; AI consulting</span>
-							<span className="q-rank">rank #1</span>
-						</div>
-						<div className="result">
-							<div className="r-src">Google · Organic</div>
-							<div className="r-title">Recursive Solutions — Growth Systems &amp; AI</div>
-							<div className="r-url">recursive-solutions.com</div>
-						</div>
-						<div className="cites">
-							<div className="cite c1">
-								<span className="cdot"></span>ChatGPT<span className="cstate">cited</span>
-							</div>
-							<div className="cite c2">
-								<span className="cdot"></span>Perplexity<span className="cstate">cited</span>
-							</div>
-							<div className="cite c3">
-								<span className="cdot"></span>Gemini<span className="cstate">cited</span>
-							</div>
-						</div>
-					</div>
+					Lucy <b>·</b> 02 → 05
 				</div>
 
 				{/* SCENE 1: CONTENT ENGINE */}
-				<div className={`scene s1${mode === "tabbed" && active === 1 ? " is-active" : ""}`}>
+				<div className={`scene s1${mode === "tabbed" && active === 0 ? " is-active" : ""}`}>
 					<span className="marker">02 / content engine</span>
 					<div className="canvas">
 						<svg className="lines" viewBox="0 0 1100 700" preserveAspectRatio="none">
@@ -1483,7 +1282,7 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 				</div>
 
 				{/* SCENE 2: LEAD CAPTURE */}
-				<div className={`scene s2${mode === "tabbed" && active === 2 ? " is-active" : ""}`}>
+				<div className={`scene s2${mode === "tabbed" && active === 1 ? " is-active" : ""}`}>
 					<span className="marker">03 / lead capture</span>
 					<div className="canvas">
 						<div className="form">
@@ -1528,7 +1327,7 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 				</div>
 
 				{/* SCENE 3: CRM */}
-				<div className={`scene s3${mode === "tabbed" && active === 3 ? " is-active" : ""}`}>
+				<div className={`scene s3${mode === "tabbed" && active === 2 ? " is-active" : ""}`}>
 					<span className="marker">04 / pipeline</span>
 					<div className="canvas">
 						<div className="track">
@@ -1576,7 +1375,7 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 				</div>
 
 				{/* SCENE 4: CUSTOM EXPERTS */}
-				<div className={`scene s4${mode === "tabbed" && active === 4 ? " is-active" : ""}`}>
+				<div className={`scene s4${mode === "tabbed" && active === 3 ? " is-active" : ""}`}>
 					<span className="marker">05 / custom experts</span>
 					<div className="canvas">
 						<svg className="beams" viewBox="0 0 1100 700" preserveAspectRatio="none">

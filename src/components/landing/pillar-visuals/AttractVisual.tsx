@@ -5,9 +5,9 @@ import { VisualFrame } from "./VisualFrame"
 /* ── AttractVisual ──────────────────────────────────────────────────────
  * Faithful migration of 01_landing_pages.html — 3-phase loop:
  * paste URL → fetched basic site → 6 generated iterations. */
-export function AttractVisual() {
-	return (
-		<VisualFrame glowFrom="rgba(0,211,187,0.18)" glowTo="rgba(96,93,255,0.18)">
+export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
+	const content = (
+		<>
 			<style>{`
 				.lp-stage {
 					position: absolute;
@@ -707,6 +707,14 @@ export function AttractVisual() {
 					</div>
 				</div>
 			</div>
+		</>
+	)
+
+	return bare ? (
+		content
+	) : (
+		<VisualFrame glowFrom="rgba(0,211,187,0.18)" glowTo="rgba(96,93,255,0.18)">
+			{content}
 		</VisualFrame>
 	)
 }

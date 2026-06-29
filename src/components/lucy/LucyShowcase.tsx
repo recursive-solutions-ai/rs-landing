@@ -2,6 +2,7 @@
 
 import { useState, useRef, type KeyboardEvent } from "react"
 import { LucyAnimation } from "@/components/landing/LucyAnimation"
+import { AttractVisual } from "@/components/landing/pillar-visuals/AttractVisual"
 import { LUCY_STAGES, clampStageIndex } from "./stages"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
 import { useInView } from "@/hooks/useInView"
@@ -78,7 +79,16 @@ export function LucyShowcase() {
 						<span className="h-2.5 w-2.5 rounded-full bg-white/20" />
 						<span className="h-2.5 w-2.5 rounded-full bg-white/20" />
 					</div>
-					<LucyAnimation mode="tabbed" active={active} reduce={reduce} />
+					{active === 0 ? (
+						<div
+							className="relative aspect-[16/10] w-full overflow-hidden"
+							style={{ background: "linear-gradient(180deg, #0e0f1c, #08090f)" }}
+						>
+							<AttractVisual bare />
+						</div>
+					) : (
+						<LucyAnimation mode="tabbed" active={active - 1} reduce={reduce} />
+					)}
 				</div>
 
 				<p
