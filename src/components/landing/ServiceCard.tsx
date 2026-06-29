@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { ServiceItem } from "@/data/landing"
 import { cn } from "@/lib/utils"
 import { ButtonLink } from "@/components/ui/button-link"
+import { useI18n } from "@/i18n/client"
 
 interface ServiceCardProps {
 	service: ServiceItem
@@ -14,6 +15,10 @@ interface ServiceCardProps {
 export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
 	function ServiceCard({ service, index }, ref) {
 		const useAccent = index >= 2
+		const { locale } = useI18n()
+		const ctaHref = service.href.startsWith("/")
+			? `/${locale}${service.href}`
+			: service.href
 
 		return (
 			<div
@@ -51,8 +56,8 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
 
 				{/* Early Access CTA — only for earlyAccess offerings */}
 				{service.earlyAccess && (
-					<ButtonLink href={service.href} className="btn-primary btn-sm mt-4 self-start">
-						Get Early Access
+					<ButtonLink href={ctaHref} className="btn-primary btn-sm mt-4 self-start">
+						Explore Lucy →
 					</ButtonLink>
 				)}
 

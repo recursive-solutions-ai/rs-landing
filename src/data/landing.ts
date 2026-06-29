@@ -83,7 +83,7 @@ export const services: ServiceItem[] = [
 		title: "Lucy — the unified platform",
 		description:
 			"Your website, content, SEO, lead capture, CRM, and analytics in one vertical system we run for you. The fastest way to replace a stack of disconnected tools.",
-		href: "#contact",
+		href: "/lucy",
 		earlyAccess: true,
 	},
 	{
