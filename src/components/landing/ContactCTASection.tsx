@@ -32,7 +32,7 @@ export function ContactCTASection({ form }: ContactCTASectionProps) {
 	const slug = form?.slug ?? FALLBACK_SLUG
 	const fields = form?.fields?.length ? form.fields : FALLBACK_FIELDS
 	const settings = form?.settings ?? null
-	const submitLabel = settings?.submitButtonText ?? "Map My Growth"
+	const submitLabel = settings?.submitButtonText ?? "Book a Consult"
 	const successMessage = settings?.successMessage ?? "We'll get back to you shortly."
 
 	const [status, setStatus] = useState<
@@ -102,7 +102,7 @@ export function ContactCTASection({ form }: ContactCTASectionProps) {
 					className="reveal mx-auto mb-12 max-w-xl text-lg text-base-content/60 md:text-xl text-center"
 					style={{ "--reveal-delay": "0.1s" } as CSSProperties}
 				>
-					Book a free 30-minute consult with the team. Curious about the platform? Early access is on the Lucy card above.
+					Book a free 30-minute consult with the team. Curious about the platform? Early access is on the platform card above.
 				</p>
 
 				<div

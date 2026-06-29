@@ -1,5 +1,4 @@
 import {
-	faCode,
 	faRobot,
 	faMagnifyingGlass,
 	faPenRuler,
