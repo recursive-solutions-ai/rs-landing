@@ -1191,9 +1191,11 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 				opacity: 0;
 				transform: none;
 				filter: none;
+				display: none;
 			}
 			.lucy-stage.tabbed .scene.is-active {
 				opacity: 1;
+				display: flex;
 			}
 			.lucy-stage.tabbed .progress,
 			.lucy-stage.tabbed .stage-marker {

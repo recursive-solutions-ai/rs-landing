@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, type KeyboardEvent } from "react"
+import { useState, useRef, type KeyboardEvent } from "react"
 import { LucyAnimation } from "@/components/landing/LucyAnimation"
 import { LUCY_STAGES, clampStageIndex } from "./stages"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
@@ -9,17 +9,18 @@ import { cn } from "@/lib/utils"
 
 export function LucyShowcase() {
 	const [active, setActive] = useState(0)
+	const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
 	const reduce = useReducedMotion()
 	const { ref, inView } = useInView<HTMLDivElement>()
 
 	function onKeyDown(e: KeyboardEvent<HTMLDivElement>) {
-		if (e.key === "ArrowRight") {
-			e.preventDefault()
-			setActive((i) => clampStageIndex(i + 1))
-		} else if (e.key === "ArrowLeft") {
-			e.preventDefault()
-			setActive((i) => clampStageIndex(i - 1))
-		}
+		let next: number | null = null
+		if (e.key === "ArrowRight") next = clampStageIndex(active + 1)
+		else if (e.key === "ArrowLeft") next = clampStageIndex(active - 1)
+		if (next === null) return
+		e.preventDefault()
+		setActive(next)
+		tabRefs.current[next]?.focus()
 	}
 
 	return (
@@ -50,6 +51,7 @@ export function LucyShowcase() {
 							aria-selected={active === i}
 							aria-controls="lucy-tabpanel"
 							tabIndex={active === i ? 0 : -1}
+							ref={(el) => { tabRefs.current[i] = el }}
 							onClick={() => setActive(i)}
 							className={cn(
 								"rounded-full border px-4 py-2 text-sm font-semibold transition-colors",
@@ -71,7 +73,7 @@ export function LucyShowcase() {
 					aria-labelledby={`lucy-tab-${active}`}
 					className="reveal overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-2xl"
 				>
-					<div className="flex items-center gap-1.5 border-b border-white/10 bg-white/5 px-4 py-3">
+					<div aria-hidden="true" className="flex items-center gap-1.5 border-b border-white/10 bg-white/5 px-4 py-3">
 						<span className="h-2.5 w-2.5 rounded-full bg-white/20" />
 						<span className="h-2.5 w-2.5 rounded-full bg-white/20" />
 						<span className="h-2.5 w-2.5 rounded-full bg-white/20" />
