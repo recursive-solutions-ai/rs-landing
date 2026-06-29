@@ -1,6 +1,15 @@
 "use client"
 
-export function LucyAnimation() {
+interface LucyAnimationProps {
+	/** "auto" = ambient auto-cycling (default). "tabbed" = parent-controlled single scene. */
+	mode?: "auto" | "tabbed"
+	/** Active scene index (0–3) when mode="tabbed". */
+	active?: number
+	/** Reduced motion: still internal loops and force key content visible. */
+	reduce?: boolean
+}
+
+export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: LucyAnimationProps = {}) {
 	return (
 		<>
 			<style jsx>{`
@@ -1176,9 +1185,40 @@ export function LucyAnimation() {
 					z-index: 55;
 					text-transform: uppercase;
 				}
-			`}</style>
+			/* TABBED (parent-controlled) MODE */
+			.lucy-stage.tabbed .scene {
+				animation: none;
+				opacity: 0;
+				transform: none;
+				filter: none;
+			}
+			.lucy-stage.tabbed .scene.is-active {
+				opacity: 1;
+			}
+			.lucy-stage.tabbed .progress,
+			.lucy-stage.tabbed .stage-marker {
+				display: none;
+			}
 
-			<div className="lucy-stage">
+			/* REDUCED MOTION: still the loops, force essential content visible */
+			.lucy-stage.reduce .scene,
+			.lucy-stage.reduce .scene *,
+			.lucy-stage.reduce .glow {
+				animation: none !important;
+			}
+			.lucy-stage.reduce .s1 .post {
+				opacity: 1 !important;
+			}
+			.lucy-stage.reduce .s2 .mail.new {
+				opacity: 1 !important;
+			}
+			.lucy-stage.reduce .s2 .packet,
+			.lucy-stage.reduce .s2 .wire {
+				display: none !important;
+			}
+		`}</style>
+
+			<div className={`lucy-stage${mode === "tabbed" ? " tabbed" : ""}${reduce ? " reduce" : ""}`}>
 				<div className="glow"></div>
 				<div className="grain"></div>
 
@@ -1187,7 +1227,7 @@ export function LucyAnimation() {
 				</div>
 
 				{/* SCENE 1: CONTENT ENGINE */}
-				<div className="scene s1">
+				<div className={`scene s1${mode === "tabbed" && active === 0 ? " is-active" : ""}`}>
 					<span className="marker">02 / content engine</span>
 					<div className="canvas">
 						<svg className="lines" viewBox="0 0 1100 700" preserveAspectRatio="none">
@@ -1240,7 +1280,7 @@ export function LucyAnimation() {
 				</div>
 
 				{/* SCENE 2: LEAD CAPTURE */}
-				<div className="scene s2">
+				<div className={`scene s2${mode === "tabbed" && active === 1 ? " is-active" : ""}`}>
 					<span className="marker">03 / lead capture</span>
 					<div className="canvas">
 						<div className="form">
@@ -1285,7 +1325,7 @@ export function LucyAnimation() {
 				</div>
 
 				{/* SCENE 3: CRM */}
-				<div className="scene s3">
+				<div className={`scene s3${mode === "tabbed" && active === 2 ? " is-active" : ""}`}>
 					<span className="marker">04 / pipeline</span>
 					<div className="canvas">
 						<div className="track">
@@ -1333,7 +1373,7 @@ export function LucyAnimation() {
 				</div>
 
 				{/* SCENE 4: CUSTOM EXPERTS */}
-				<div className="scene s4">
+				<div className={`scene s4${mode === "tabbed" && active === 3 ? " is-active" : ""}`}>
 					<span className="marker">05 / custom experts</span>
 					<div className="canvas">
 						<svg className="beams" viewBox="0 0 1100 700" preserveAspectRatio="none">
