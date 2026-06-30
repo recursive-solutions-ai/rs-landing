@@ -14,13 +14,13 @@ export function TeamSection() {
 		<section
 			ref={ref}
 			id="team"
-			className={cn("mx-auto max-w-5xl px-6 py-32", inView && "reveal-in")}
+			className={cn("mx-auto max-w-5xl px-6 py-16", inView && "reveal-in")}
 		>
 			<SectionHeading
 				tag="Who We Are"
 				title="Built by Operators"
-				subtitle="We've spent our careers inside the businesses we now serve. We know what works because we've lived it."
-				className="mb-16"
+				subtitle=""
+				className="mb-8"
 			/>
 
 			<div className="flex flex-col gap-8">

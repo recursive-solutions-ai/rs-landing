@@ -1,6 +1,9 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+	// Allow the cloudflared demo tunnel to load dev resources (HMR/chunks).
+	// Dev-only; has no effect on production builds.
+	allowedDevOrigins: ['*.trycloudflare.com'],
 	serverExternalPackages: [
 		'@growth-engine/sdk-server',
 		'@libsql/client',

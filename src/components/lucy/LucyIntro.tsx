@@ -31,28 +31,23 @@ const VALUES = [
 export function LucyIntro() {
 	const { ref, inView } = useInView<HTMLDivElement>()
 	return (
-		<section className="bg-base-100">
+		<section className="bg-primary">
 			<div
 				ref={ref}
-				className={cn("mx-auto max-w-4xl px-6 py-20 text-center", inView && "reveal-in")}
+				className={cn("mx-auto max-w-4xl px-6 py-12 text-center", inView && "reveal-in")}
 			>
-				<p className="reveal mx-auto max-w-2xl text-xl leading-relaxed text-base-content md:text-2xl">
-					Lucy is the unified platform designed by Recursive Solutions. Instead of a dozen
-					disconnected tools, one system attracts, engages, captures, and converts — and we
-					run and improve it with you.
-				</p>
-				<div className="mt-12 grid gap-6 sm:grid-cols-3">
+				<div className="grid gap-6 sm:grid-cols-3">
 					{VALUES.map((v, i) => (
 						<div
 							key={v.label}
-							className="reveal"
+							className="reveal flex flex-col rounded-2xl border border-base-300 bg-base-100 p-8 text-left transition-all duration-500 hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10"
 							style={{ "--reveal-delay": `${0.1 + i * 0.08}s` } as CSSProperties}
 						>
-							<span className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/20">
-								<FontAwesomeIcon icon={v.icon} />
+							<span className="mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+								<FontAwesomeIcon icon={v.icon} className="h-6 w-6" />
 							</span>
-							<div className="font-semibold text-base-content">{v.label}</div>
-							<div className="mt-1 text-sm text-base-content/60">{v.sub}</div>
+							<h3 className="mb-3 text-xl font-bold text-base-content">{v.label}</h3>
+							<p className="text-base leading-relaxed text-base-content/70">{v.sub}</p>
 						</div>
 					))}
 				</div>

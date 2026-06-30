@@ -48,13 +48,12 @@ export function ServicesSection() {
 		<section
 			ref={sectionRef}
 			id="offerings"
-			className="mx-auto max-w-7xl px-6 py-32"
+			className="mx-auto max-w-7xl px-6 py-16"
 		>
 			<SectionHeading
 				tag="Offerings"
-				title="Start with the system. Extend it however you need."
-				subtitle="Begin with the unified platform, then add custom automations, bespoke tools, and advisory as your business needs them."
-				className="mb-16"
+				title="Pick where you start. Build from there."
+				className="mb-8"
 			/>
 
 			<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">

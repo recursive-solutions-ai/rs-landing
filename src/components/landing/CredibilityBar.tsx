@@ -1,7 +1,13 @@
 "use client"
 
+import Image from "next/image"
 import { useInView } from "@/hooks/useInView"
 import { cn } from "@/lib/utils"
+
+const CLIENTS = [
+	{ name: "HCCI", src: "/logos/hcci.png" },
+	{ name: "Roadmap Tax Services, Inc.", src: "/logos/roadmap-tax.jpg" },
+]
 
 export function CredibilityBar() {
 	const { ref, inView } = useInView<HTMLDivElement>()
@@ -17,17 +23,28 @@ export function CredibilityBar() {
 			>
 				<p className="reveal max-w-2xl text-sm font-medium text-base-content/80 md:text-base">
 					<span className="font-bold text-primary">Operators, not theorists.</span>{" "}
-					Built by a team with special-operations, operations, and engineering
-					backgrounds — we run businesses, then build the systems that fix them.
+					Forged in special operations, business, and engineering.  We build the systems that give companies an edge.
 				</p>
-				<div className="reveal flex items-center gap-4 opacity-60">
+				<div className="reveal flex items-center gap-4">
 					<span className="text-[10px] font-bold uppercase tracking-widest text-base-content/50">
 						Trusted by
 					</span>
-					{/* Replace with real client logos when available */}
-					<div className="h-4 w-16 rounded bg-base-300" />
-					<div className="h-4 w-16 rounded bg-base-300" />
-					<div className="h-4 w-16 rounded bg-base-300" />
+					<div className="flex items-center gap-3">
+						{CLIENTS.map((client) => (
+							<div
+								key={client.name}
+								className="relative h-10 w-28 overflow-hidden rounded-md bg-neutral"
+							>
+								<Image
+									src={client.src}
+									alt={client.name}
+									fill
+									sizes="112px"
+									className="object-contain p-1.5"
+								/>
+							</div>
+						))}
+					</div>
 				</div>
 			</div>
 		</section>

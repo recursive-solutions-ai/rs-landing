@@ -100,11 +100,11 @@ export function FeaturePillarsSection() {
 	return (
 		<section
 			id="system"
-			className="relative mx-auto max-w-6xl px-6 py-24 md:py-24"
+			className="relative mx-auto max-w-6xl px-6 py-16 md:py-16"
 		>
 			<SectionHeading
-				tag="One vertical system"
-				title="Everything that grows your business, in one place."
+				tag=""
+				title=""
 				className="mb-0"
 			/>
 

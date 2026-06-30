@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useI18n } from '@/i18n/client'
-import { ThemeToggle } from './ThemeToggle'
 
 export function Footer() {
 	const { t, locale } = useI18n()
@@ -58,7 +57,6 @@ export function Footer() {
 					<p className="text-sm text-base-content/50">
 						{t('footer.copyright', { year: String(year) })}
 					</p>
-					<ThemeToggle />
 				</div>
 			</div>
 		</footer>

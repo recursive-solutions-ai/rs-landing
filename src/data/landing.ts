@@ -80,9 +80,9 @@ export const services: ServiceItem[] = [
 	{
 		id: "platform",
 		icon: faLayerGroup,
-		title: "Lucy — the unified platform",
+		title: "Lucy, the unified platform",
 		description:
-			"Your website, content, SEO, lead capture, CRM, and analytics in one vertical system we run for you. The fastest way to replace a stack of disconnected tools.",
+			"One system that runs your website, content, SEO, lead capture, CRM, and analytics. Replace disconnected tools with a single platform we operate for you.",
 		href: "/lucy",
 		earlyAccess: true,
 	},
@@ -91,7 +91,7 @@ export const services: ServiceItem[] = [
 		icon: faGears,
 		title: "Custom automations",
 		description:
-			"We map the repetitive work across sales, ops, and admin and automate it — so your team spends its hours on what only people can do.",
+			"We map the repetitive work across sales, ops, and admin and automate it, so your team spends its hours on what only people can do.",
 		href: "#contact",
 	},
 	{
@@ -107,7 +107,7 @@ export const services: ServiceItem[] = [
 		icon: faComments,
 		title: "Advisory & consulting",
 		description:
-			"A hands-on partner as you adopt AI — we help you evaluate, prioritize, and stay ahead, month by month.",
+			"A hands-on partner as you adopt AI. We help you evaluate, prioritize, and stay ahead, month by month.",
 		href: "#contact",
 	},
 ]
@@ -115,25 +115,25 @@ export const services: ServiceItem[] = [
 export const processSteps: ProcessStep[] = [
 	{
 		step: 1,
-		title: "Discover",
+		title: "Map",
 		description: "We find the friction points in your daily operation where AI moves the needle most.",
 		icon: faMagnifyingGlass,
 	},
 	{
 		step: 2,
-		title: "Design",
+		title: "Architect",
 		description: "We architect a custom solution tailored to your team's specific tools and habits. A custom wiring diagram for growth.",
 		icon: faPenRuler,
 	},
 	{
 		step: 3,
-		title: "Execute",
+		title: "Deploy",
 		description: "We deploy your AI engine and integrate it directly into your existing workflow.",
 		icon: faGears,
 	},
 	{
 		step: 4,
-		title: "Optimize",
+		title: "Calibrate",
 		description: "We monitor and refine your system to ensure it keeps getting better as you grow.",
 		icon: faRocket,
 	},

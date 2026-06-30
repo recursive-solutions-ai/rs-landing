@@ -44,7 +44,7 @@ export function ContactCTASection({
 	const settings = form?.settings ?? null
 	const submitLabel = submitLabelProp ?? settings?.submitButtonText ?? "Book a Consult"
 	const headingText = heading ?? "Let's make your business simpler, faster, and more valuable."
-	const subtitleText = subtitle ?? "Book a free 30-minute consult with the team."
+	const subtitleText = subtitle ?? ""
 	const introText =
 		intro ??
 		"In 30 minutes, we'll learn about your business and hand you a Website Analysis Report. A real breakdown of where you stand and where AI could take you. Worst case, you walk away with free insight your competitors are paying for."
@@ -108,7 +108,7 @@ export function ContactCTASection({
 		"bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
 
 	return (
-		<section id="contact" className="mx-auto max-w-6xl px-6 py-24">
+		<section id="contact" className="mx-auto max-w-6xl px-6 py-16">
 			<div ref={contentRef} className={cn(inView && "reveal-in")}>
 				<h2 className="reveal mb-4 font-display text-3xl font-bold md:text-5xl text-center text-base-content">
 					{headingText}

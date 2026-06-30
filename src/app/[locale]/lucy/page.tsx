@@ -4,8 +4,6 @@ import { getForm } from "@/lib/forms-server"
 import { buildUrl } from "@/lib/sitemap-shared"
 import { LucyHero } from "@/components/lucy/LucyHero"
 import { LucyIntro } from "@/components/lucy/LucyIntro"
-import { LucyShowcase } from "@/components/lucy/LucyShowcase"
-import { LucyExperts } from "@/components/lucy/LucyExperts"
 import { FeaturePillarsSection } from "@/components/landing/FeaturePillarsSection"
 import { ContactCTASection } from "@/components/landing/ContactCTASection"
 
@@ -38,13 +36,11 @@ export default async function LucyPage({
 		<div className="no-scrollbar">
 			<LucyHero locale={locale} />
 			<LucyIntro />
-			<LucyShowcase />
-			<LucyExperts />
 			<FeaturePillarsSection />
 			<ContactCTASection
 				form={contactForm}
-				heading="Get early access to Lucy."
-				subtitle="Tell us about your business; we'll show you what Lucy would run first."
+				heading="Let's make your business simpler, faster, and more valuable."
+				subtitle=""
 				submitLabel="Get Early Access"
 			/>
 		</div>

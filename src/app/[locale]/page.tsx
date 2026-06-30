@@ -1,8 +1,6 @@
 
 import { HeroSection } from "@/components/landing/HeroSection"
 import { CredibilityBar } from "@/components/landing/CredibilityBar"
-import { ProblemSection } from "@/components/landing/ProblemSection"
-import { SystemTeaser } from "@/components/landing/SystemTeaser"
 import { ServicesSection } from "@/components/landing/ServicesSection"
 import { ProcessSection } from "@/components/landing/ProcessSection"
 import { TeamSection } from "@/components/landing/TeamSection"
@@ -29,10 +27,8 @@ export default async function LandingPage({
 
 	return (
 		<div className="no-scrollbar">
-			<HeroSection />
+			<HeroSection locale={locale} />
 			<CredibilityBar />
-			<ProblemSection />
-			<SystemTeaser locale={locale} />
 			<ServicesSection />
 			<ProcessSection />
 			<TeamSection />

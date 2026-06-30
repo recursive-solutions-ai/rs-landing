@@ -14,13 +14,11 @@ export function SystemTeaser({ locale }: { locale: string }) {
 				className={cn("mx-auto max-w-4xl px-6 py-24 text-center", inView && "reveal-in")}
 			>
 				<span className="reveal mb-4 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
-					One vertical system
 				</span>
 				<h2
 					className="reveal font-display text-3xl font-bold text-base-content sm:text-4xl md:text-5xl"
 					style={{ "--reveal-delay": "0.1s" } as CSSProperties}
 				>
-					Everything that grows your business, in one place.
 				</h2>
 				<p
 					className="reveal mx-auto mt-5 max-w-2xl text-lg text-base-content/60"

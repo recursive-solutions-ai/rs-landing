@@ -17,22 +17,15 @@ export function ProcessSection() {
 				inView && "reveal-in"
 			)}
 		>
-			<div className="relative mx-auto max-w-7xl px-6 py-32">
-				{/* Header: title left, subtitle right (v8 layout) */}
-				<div className="reveal mb-20 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
-					<div className="max-w-2xl">
-						<span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-							The Blueprint
-						</span>
-						<h2 className="font-display font-heading text-4xl font-extrabold leading-tight tracking-tight text-dark-foreground md:text-5xl">
-							From Chaos to Clarity <br />
-							in Four Steps.
-						</h2>
-					</div>
-					<p className="max-w-sm text-lg text-dark-foreground/40">
-						A simple, repeatable process designed to get you from &ldquo;how?&rdquo;
-						to &ldquo;done&rdquo; without the friction.
-					</p>
+			<div className="relative mx-auto max-w-7xl px-6 py-16">
+				{/* Header: centered */}
+				<div className="reveal mb-8 text-center">
+					<span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+						The Blueprint
+					</span>
+					<h2 className="font-display font-heading text-4xl font-extrabold leading-tight tracking-tight text-dark-foreground md:text-5xl">
+						From Strategy to Scale in Four Steps.
+					</h2>
 				</div>
 
 				{/* 4-card grid with hairline dividers (v8 style) */}
@@ -44,7 +37,7 @@ export function ProcessSection() {
 							style={{ "--reveal-delay": `${0.15 + i * 0.12}s` } as CSSProperties}
 						>
 							{/* Large corner number */}
-							<div className="pointer-events-none absolute right-0 top-0 p-4 font-heading text-4xl font-bold text-dark-foreground/5 transition-colors group-hover:text-primary/20">
+							<div className="pointer-events-none absolute right-0 top-0 p-4 font-heading text-4xl font-bold text-dark-foreground/5">
 								{String(step.step).padStart(2, "0")}
 							</div>
 

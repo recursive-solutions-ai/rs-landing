@@ -48,11 +48,6 @@ export default function RootLayout({
 	return (
 		<html lang="en" data-theme="rs" className={display.variable} suppressHydrationWarning>
 			<head>
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `(function(){try{var t=localStorage.getItem('theme');var d=(t==='rs-dark'||t==='dark');document.documentElement.setAttribute('data-theme',d?'rs-dark':'rs');if(t==='dark')localStorage.setItem('theme','rs-dark');else if(t==='light')localStorage.setItem('theme','rs');}catch(e){}})();`,
-					}}
-				/>
 				{/* Without JS the IntersectionObserver never fires — force reveal
 				    elements visible so content is never stuck hidden (SEO/no-JS). */}
 				<noscript>
