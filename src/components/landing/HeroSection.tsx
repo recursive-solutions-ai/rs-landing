@@ -19,7 +19,7 @@ export function HeroSection({ locale }: { locale: string }) {
 					revealed && "reveal-in"
 				)}
 			>
-				<span className="reveal inline-block text-xs font-extrabold uppercase tracking-[0.18em] text-primary">
+				<span className="reveal inline-block text-sm font-semibold uppercase tracking-widest text-primary">
 					Growth Systems &amp; AI Consulting
 				</span>
 				<h1

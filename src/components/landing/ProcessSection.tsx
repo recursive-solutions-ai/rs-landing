@@ -20,7 +20,7 @@ export function ProcessSection() {
 			<div className="relative mx-auto max-w-7xl px-6 py-16">
 				{/* Header: centered */}
 				<div className="reveal mb-8 text-center">
-					<span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+					<span className="mb-4 block text-sm font-semibold uppercase tracking-widest text-primary">
 						The Blueprint
 					</span>
 					<h2 className="font-display font-heading text-4xl font-extrabold leading-tight tracking-tight text-dark-foreground md:text-5xl">
