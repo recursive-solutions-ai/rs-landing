@@ -21,7 +21,7 @@ export function EngageVisual() {
 					container-type: inline-size;
 					color: var(--color-base-content);
 					overflow: hidden; font-family: system-ui, sans-serif;
-					display: grid; grid-template-columns: 24cqw 1fr;
+					display: grid; grid-template-columns: 22cqw 1fr;
 					gap: 3cqw; align-items: center; padding: 3cqw 3.4cqw;
 				}
 				.en-orb {
@@ -39,9 +39,9 @@ export function EngageVisual() {
 				.en-post {
 					display: flex; justify-content: space-between; align-items: center; gap: 2cqw;
 					background: #fff; border: 1px solid #e5e0d6; border-radius: 2cqw;
-					padding: 1.5cqw 2.2cqw; font-size: 2.3cqw;
+					padding: 1.5cqw 2.2cqw; font-size: 2.3cqw; min-width: 0;
 				}
-				.en-post .t { font-family: var(--font-display, Georgia), Georgia, serif; }
+				.en-post .t { font-family: var(--font-display, Georgia), Georgia, serif; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 				.en-post .meta { display: flex; align-items: center; gap: 1.6cqw; white-space: nowrap; }
 				.en-post .tag {
 					font-size: 1.6cqw; font-weight: 700; letter-spacing: .1em;
