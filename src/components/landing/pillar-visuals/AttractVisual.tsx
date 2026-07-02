@@ -2,11 +2,11 @@
 
 import { AnimationBox } from "./AnimationBox"
 
-const SCORES = ["98", "96", "95", "94", "93", "91"]
-
 /* ── AttractVisual ──────────────────────────────────────────────────────
  * Payoff-weighted loop (spec 2026-07-02): ~2s URL-paste beat, then six
- * scored Holt CPA redesigns hold the frame with a border-glow sweep. */
+ * scored Holt CPA redesigns hold the frame with a border-glow sweep.
+ * Each tile is a distinct wireframe layout so the six reads as six
+ * different generated designs, not six copies. */
 export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 	const content = (
 		<>
@@ -59,6 +59,24 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 				}
 				.lp-site .ln { height: 0.7cqw; border-radius: 2px; background: #e5e0d6; }
 				.lp-site .ln.s { width: 70%; }
+				/* variant building blocks — six distinct wireframe layouts */
+				.lp-site .row { display: flex; gap: 1cqw; flex: 1; min-height: 0; }
+				.lp-site .col { display: flex; flex-direction: column; gap: 0.9cqw; flex: 1; min-width: 0; }
+				.lp-site .hero2 {
+					flex: 1.2; border-radius: 0.9cqw;
+					background: linear-gradient(160deg, rgba(63,125,140,.3), rgba(63,125,140,.08));
+				}
+				.lp-site .side { width: 26%; border-radius: 0.9cqw; background: rgba(40,75,115,.14); }
+				.lp-site .pill { height: 2.2cqw; width: 36%; border-radius: 2cqw; background: var(--color-primary); opacity: .85; margin: 0 auto; }
+				.lp-site .hd.c { margin: 0 auto; width: 40%; }
+				.lp-site .ln.c { width: 62%; margin: 0 auto; }
+				.lp-site .ln.c.s { width: 42%; }
+				.lp-site .ln.b { height: 1.3cqw; background: #cfc9bd; }
+				.lp-site .ln.b.s { width: 74%; }
+				.lp-site .hero.strip { flex: 0 0 24%; background: linear-gradient(90deg, rgba(40,75,115,.2), rgba(63,125,140,.1)); }
+				.lp-site .cards { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 1cqw; min-height: 0; }
+				.lp-site .cell { border-radius: 0.9cqw; background: rgba(40,75,115,.16); }
+				.lp-site .cell.t { background: rgba(63,125,140,.22); }
 				.lp-site .score {
 					position: absolute; top: 1cqw; right: 1cqw;
 					font-size: 1.6cqw; font-weight: 700; color: #fff;
@@ -96,15 +114,68 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 				</div>
 				<div className="lp-payoff">
 					<div className="lp-grid">
-						{SCORES.map((s) => (
-							<div className="lp-site" key={s}>
-								<span className="score">{s}</span>
-								<div className="hd" />
-								<div className="hero" />
-								<div className="ln" />
-								<div className="ln s" />
+						{/* 98 · hero-led */}
+						<div className="lp-site">
+							<span className="score">98</span>
+							<div className="hd" />
+							<div className="hero" />
+							<div className="ln" />
+							<div className="ln s" />
+						</div>
+						{/* 96 · split hero + copy */}
+						<div className="lp-site">
+							<span className="score">96</span>
+							<div className="hd" />
+							<div className="row">
+								<div className="hero2" />
+								<div className="col">
+									<div className="ln" />
+									<div className="ln s" />
+									<div className="ln" />
+								</div>
 							</div>
-						))}
+							<div className="ln" />
+						</div>
+						{/* 95 · sidebar */}
+						<div className="lp-site">
+							<span className="score">95</span>
+							<div className="row">
+								<div className="side" />
+								<div className="col">
+									<div className="hd" />
+									<div className="hero" />
+									<div className="ln s" />
+								</div>
+							</div>
+						</div>
+						{/* 94 · centered + CTA button */}
+						<div className="lp-site">
+							<span className="score">94</span>
+							<div className="hd c" />
+							<div className="ln c" />
+							<div className="ln c s" />
+							<div className="pill" />
+							<div className="hero strip" />
+						</div>
+						{/* 93 · card grid */}
+						<div className="lp-site">
+							<span className="score">93</span>
+							<div className="hd" />
+							<div className="cards">
+								<div className="cell" />
+								<div className="cell t" />
+								<div className="cell t" />
+								<div className="cell" />
+							</div>
+						</div>
+						{/* 91 · editorial */}
+						<div className="lp-site">
+							<span className="score">91</span>
+							<div className="ln b" />
+							<div className="ln b s" />
+							<div className="hero" />
+							<div className="ln s" />
+						</div>
 					</div>
 					<div className="lp-strip">
 						<span>6 redesigns · conversion-first</span>
