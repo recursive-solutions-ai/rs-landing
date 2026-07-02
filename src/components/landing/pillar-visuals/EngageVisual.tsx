@@ -49,6 +49,7 @@ export function EngageVisual() {
 				}
 				.en-post .st { font-size: 1.8cqw; font-weight: 600; color: var(--color-secondary); }
 				/* beat: feed fans out from the orb in the first ~2s of a 12s loop */
+				/* animation state — overrides the base opacity in the layout rule above */
 				.en-post { opacity: 0; animation: enFan 12s infinite; }
 				.en-post:nth-child(1) { animation-delay: 0s; }
 				.en-post:nth-child(2) { animation-delay: .35s; }

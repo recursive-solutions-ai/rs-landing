@@ -84,7 +84,7 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 				.lp-strip .r { color: var(--color-secondary); }
 
 				@media (prefers-reduced-motion: reduce) {
-					.lp-stage *, .lp-beat, .lp-payoff { animation: none !important; }
+					.lp-stage * { animation: none !important; }
 					.lp-beat { opacity: 0; }
 					.lp-payoff { opacity: 1; transform: none; }
 				}
@@ -115,7 +115,7 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 		</>
 	)
 
-	if (bare) return <div className="relative aspect-video w-full">{content}</div>
+	if (bare) return <div className="relative aspect-video w-full @container">{content}</div>
 	return (
 		<AnimationBox num="01" label="Attract">
 			{content}

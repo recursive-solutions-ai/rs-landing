@@ -1,4 +1,3 @@
-// src/components/landing/pillar-visuals/CloseVisual.tsx
 "use client"
 
 import { AnimationBox } from "./AnimationBox"
