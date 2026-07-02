@@ -59,24 +59,54 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 				}
 				.lp-site .ln { height: 0.7cqw; border-radius: 2px; background: #e5e0d6; }
 				.lp-site .ln.s { width: 70%; }
-				/* variant building blocks — six distinct wireframe layouts */
+				/* variant building blocks — six distinct mini-homepage designs */
 				.lp-site .row { display: flex; gap: 1cqw; flex: 1; min-height: 0; }
 				.lp-site .col { display: flex; flex-direction: column; gap: 0.9cqw; flex: 1; min-width: 0; }
-				.lp-site .hero2 {
-					flex: 1.2; border-radius: 0.9cqw;
-					background: linear-gradient(160deg, rgba(63,125,140,.3), rgba(63,125,140,.08));
+				.lp-site .nav { display: flex; align-items: center; justify-content: space-between; }
+				.lp-site .brand { font-size: 1.2cqw; font-weight: 800; letter-spacing: .1em; color: var(--color-primary); }
+				.lp-site .links { display: flex; gap: 0.8cqw; }
+				.lp-site .nl { width: 3cqw; height: 0.6cqw; border-radius: 2px; background: #e5e0d6; }
+				.lp-site .h1 {
+					font-family: var(--font-display, Georgia), Georgia, serif;
+					font-size: 2cqw; line-height: 1.25; color: var(--color-base-content);
 				}
-				.lp-site .side { width: 26%; border-radius: 0.9cqw; background: rgba(40,75,115,.14); }
-				.lp-site .pill { height: 2.2cqw; width: 36%; border-radius: 2cqw; background: var(--color-primary); opacity: .85; margin: 0 auto; }
-				.lp-site .hd.c { margin: 0 auto; width: 40%; }
-				.lp-site .ln.c { width: 62%; margin: 0 auto; }
-				.lp-site .ln.c.s { width: 42%; }
-				.lp-site .ln.b { height: 1.3cqw; background: #cfc9bd; }
-				.lp-site .ln.b.s { width: 74%; }
-				.lp-site .hero.strip { flex: 0 0 24%; background: linear-gradient(90deg, rgba(40,75,115,.2), rgba(63,125,140,.1)); }
+				.lp-site .h1.w { color: #fff; }
+				.lp-site .h1.xl { font-size: 2.4cqw; padding-right: 6cqw; }
+				.lp-site .h1.c { text-align: center; }
+				.lp-site .heroSolid {
+					flex: 1; border-radius: 0.9cqw; background: var(--color-primary);
+					padding: 1.4cqw 1.6cqw; display: flex; flex-direction: column; justify-content: center; gap: 1cqw;
+				}
+				.lp-site .cta {
+					font-size: 1.2cqw; font-weight: 700; white-space: nowrap;
+					color: #fff; background: var(--color-primary);
+					border-radius: 2cqw; padding: 0.5cqw 1.6cqw; align-self: flex-start;
+				}
+				.lp-site .cta.inv { color: var(--color-primary); background: #fff; }
+				.lp-site .cta.c { align-self: center; }
+				.lp-site .eyebrow {
+					font-size: 1.1cqw; font-weight: 800; letter-spacing: .16em;
+					text-transform: uppercase; color: var(--color-secondary); text-align: center;
+				}
+				.lp-site .cap { font-size: 1.2cqw; color: rgba(35,34,41,.55); }
+				.lp-site .hero2 {
+					flex: 1.1; border-radius: 0.9cqw;
+					background: linear-gradient(160deg, rgba(63,125,140,.35), rgba(63,125,140,.1));
+				}
+				.lp-site .side {
+					width: 26%; border-radius: 0.9cqw; background: var(--color-primary);
+					padding: 1cqw 0.8cqw; display: flex; flex-direction: column; gap: 0.9cqw;
+				}
+				.lp-site .side .logo { width: 1.6cqw; height: 1.6cqw; border-radius: 50%; background: #fff; opacity: .9; }
+				.lp-site .side .mi { height: 0.6cqw; border-radius: 2px; background: rgba(255,255,255,.5); }
+				.lp-site .hero.strip { flex: 1; background: linear-gradient(90deg, rgba(40,75,115,.22), rgba(63,125,140,.1)); }
 				.lp-site .cards { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 1cqw; min-height: 0; }
-				.lp-site .cell { border-radius: 0.9cqw; background: rgba(40,75,115,.16); }
-				.lp-site .cell.t { background: rgba(63,125,140,.22); }
+				.lp-site .cell {
+					border-radius: 0.9cqw; background: rgba(40,75,115,.12);
+					display: flex; align-items: center; justify-content: center;
+					font-size: 1.3cqw; font-weight: 700; color: var(--color-primary);
+				}
+				.lp-site .cell.t { background: rgba(63,125,140,.18); color: var(--color-secondary); }
 				.lp-site .score {
 					position: absolute; top: 1cqw; right: 1cqw;
 					font-size: 1.6cqw; font-weight: 700; color: #fff;
@@ -114,67 +144,72 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 				</div>
 				<div className="lp-payoff">
 					<div className="lp-grid">
-						{/* 98 · hero-led */}
+						{/* 98 · bold navy hero */}
 						<div className="lp-site">
 							<span className="score">98</span>
-							<div className="hd" />
-							<div className="hero" />
-							<div className="ln" />
+							<div className="nav">
+								<span className="brand">HOLT CPA</span>
+								<span className="links"><span className="nl" /><span className="nl" /><span className="nl" /></span>
+							</div>
+							<div className="heroSolid">
+								<div className="h1 w">Tax season, handled.</div>
+								<span className="cta inv">Book a call</span>
+							</div>
 							<div className="ln s" />
 						</div>
-						{/* 96 · split hero + copy */}
+						{/* 96 · split copy + image */}
 						<div className="lp-site">
 							<span className="score">96</span>
-							<div className="hd" />
 							<div className="row">
-								<div className="hero2" />
 								<div className="col">
+									<div className="h1">Your books, balanced.</div>
 									<div className="ln" />
 									<div className="ln s" />
-									<div className="ln" />
+									<span className="cta">Get started</span>
 								</div>
+								<div className="hero2" />
 							</div>
-							<div className="ln" />
 						</div>
-						{/* 95 · sidebar */}
+						{/* 95 · sidebar app-style */}
 						<div className="lp-site">
 							<span className="score">95</span>
 							<div className="row">
-								<div className="side" />
+								<div className="side">
+									<span className="logo" />
+									<span className="mi" /><span className="mi" /><span className="mi" />
+								</div>
 								<div className="col">
-									<div className="hd" />
+									<div className="h1">CPA services, simplified.</div>
 									<div className="hero" />
 									<div className="ln s" />
 								</div>
 							</div>
 						</div>
-						{/* 94 · centered + CTA button */}
+						{/* 94 · centered launch page */}
 						<div className="lp-site">
 							<span className="score">94</span>
-							<div className="hd c" />
-							<div className="ln c" />
-							<div className="ln c s" />
-							<div className="pill" />
+							<div className="eyebrow">Holt CPA</div>
+							<div className="h1 c">Numbers you can trust.</div>
+							<span className="cta c">Free tax review</span>
 							<div className="hero strip" />
 						</div>
-						{/* 93 · card grid */}
+						{/* 93 · services grid */}
 						<div className="lp-site">
 							<span className="score">93</span>
-							<div className="hd" />
+							<div className="h1">Services</div>
 							<div className="cards">
-								<div className="cell" />
-								<div className="cell t" />
-								<div className="cell t" />
-								<div className="cell" />
+								<div className="cell">Tax</div>
+								<div className="cell t">Books</div>
+								<div className="cell t">Payroll</div>
+								<div className="cell">Advice</div>
 							</div>
 						</div>
 						{/* 91 · editorial */}
 						<div className="lp-site">
 							<span className="score">91</span>
-							<div className="ln b" />
-							<div className="ln b s" />
+							<div className="h1 xl">Less paperwork. More business.</div>
+							<div className="cap">Holt CPA · Financial clarity for owners</div>
 							<div className="hero" />
-							<div className="ln s" />
 						</div>
 					</div>
 					<div className="lp-strip">
