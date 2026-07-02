@@ -21,8 +21,8 @@ function maskValue(value: string): string {
 	return value.slice(0, 4) + '••••' + value.slice(-4)
 }
 
-export function checkEnv(): void {
-	const vars: EnvVar[] = [
+function getEnvVars(): EnvVar[] {
+	return [
 		// Required
 		{ name: 'BRAIN_API_URL', value: process.env.BRAIN_API_URL, description: 'Brain API endpoint for forms and CRM integration', required: true },
 		{ name: 'BRAIN_API_KEY', value: process.env.BRAIN_API_KEY, description: 'Brain API authentication key', required: true },
@@ -36,6 +36,23 @@ export function checkEnv(): void {
 		{ name: 'DEFAULT_LANGUAGE', value: process.env.DEFAULT_LANGUAGE, description: 'Default language code (defaults to "en")', required: false },
 		{ name: 'ADDITIONAL_LANGUAGES', value: process.env.ADDITIONAL_LANGUAGES, description: 'Comma-separated additional language codes', required: false },
 	]
+}
+
+export interface EnvStatus {
+	/** Names of required vars that are unset or blank. */
+	missing: string[]
+}
+
+export function getEnvStatus(): EnvStatus {
+	return {
+		missing: getEnvVars()
+			.filter((v) => v.required && !isSet(v.value))
+			.map((v) => v.name),
+	}
+}
+
+export function checkEnv(): void {
+	const vars = getEnvVars()
 
 	const divider = '─'.repeat(60)
 	const lines: string[] = []

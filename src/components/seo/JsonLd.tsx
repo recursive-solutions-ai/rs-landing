@@ -10,7 +10,8 @@ export function JsonLd({ data }: { data: Record<string, unknown> | Record<string
 				<script
 					key={i}
 					type="application/ld+json"
-					dangerouslySetInnerHTML={{ __html: JSON.stringify(item) }}
+					// Escape < so data (e.g. blog post titles) can never close the script tag.
+					dangerouslySetInnerHTML={{ __html: JSON.stringify(item).replace(/</g, '\\u003c') }}
 				/>
 			))}
 		</>
