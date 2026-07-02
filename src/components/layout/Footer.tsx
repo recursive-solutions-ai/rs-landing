@@ -18,6 +18,7 @@ export function Footer() {
 						</p>
 					</div>
 
+					{/* Navigation — pages unused for now, may return later
 					<div>
 						<h4 className="font-semibold mb-2">{t('footer.navigation')}</h4>
 						<nav className="flex flex-col gap-1">
@@ -26,7 +27,7 @@ export function Footer() {
 							<Link href={`/${locale}/contact`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.contact')}</Link>
 							<Link href={`/${locale}/test-bot`} className="text-sm text-base-content/60 hover:text-primary">Test Bot</Link>
 						</nav>
-					</div>
+					</div> */}
 
 					{/* <div>
 						<h4 className="font-semibold mb-2">AI ROI Calculator</h4>
@@ -41,7 +42,8 @@ export function Footer() {
 						</nav>
 					</div> */}
 
-					<div>
+					{/* Pinned to the last column while the middle nav sections are hidden. */}
+					<div className="md:col-start-4">
 						<h4 className="font-semibold mb-2">{t('footer.legal')}</h4>
 						<nav className="flex flex-col gap-1">
 							<Link href={`/${locale}/legal`} className="text-sm text-base-content/60 hover:text-primary">{t('footer.legal.notice')}</Link>
