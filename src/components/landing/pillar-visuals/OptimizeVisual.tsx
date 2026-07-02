@@ -24,30 +24,30 @@ export function OptimizeVisual() {
 					container-type: inline-size;
 					color: var(--color-base-content);
 					overflow: hidden; font-family: system-ui, sans-serif;
-					display: grid; grid-template-columns: 1fr 26cqw 1fr;
+					display: grid; grid-template-columns: 1fr 28cqw 1fr;
 					gap: 2.2cqw; align-items: center; padding: 3cqw 3.4cqw;
 				}
 				.op-lucy {
-					width: 19cqw; height: 19cqw; border-radius: 50%; margin: 0 auto;
+					width: 24cqw; height: 24cqw; border-radius: 50%; margin: 0 auto;
 					display: flex; flex-direction: column; align-items: center; justify-content: center;
 					background: radial-gradient(circle, rgba(40,75,115,.18), rgba(63,125,140,.07) 75%);
 					border: 1px solid rgba(40,75,115,.3);
 					animation: opPulse 3.4s ease-in-out infinite;
 				}
 				@keyframes opPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-				.op-lucy .n { font-family: var(--font-display, Georgia), Georgia, serif; font-size: 3.4cqw; }
+				.op-lucy .n { font-family: var(--font-display, Georgia), Georgia, serif; font-size: 4.2cqw; }
 				.op-lucy .r {
-					font-size: 1.5cqw; letter-spacing: .18em; text-transform: uppercase;
+					font-size: 1.8cqw; letter-spacing: .18em; text-transform: uppercase;
 					color: var(--color-secondary); font-weight: 700;
 				}
 				.op-saved {
-					text-align: center; margin-top: 1.2cqw;
-					font-size: 2cqw; font-weight: 700; color: var(--color-primary);
+					text-align: center; margin-top: 1.8cqw;
+					font-size: 2.4cqw; font-weight: 700; color: var(--color-primary);
 				}
-				.op-exps { display: flex; flex-direction: column; gap: 1.6cqw; }
+				.op-exps { display: flex; flex-direction: column; gap: 2.6cqw; }
 				.op-exp {
 					background: #fff; border: 1px solid #e5e0d6; border-radius: 2cqw;
-					padding: 1.5cqw 2cqw;
+					padding: 2.2cqw 2.6cqw;
 					animation: opTick 8s infinite;
 				}
 				.op-exp:nth-child(2) { animation-delay: 2.6s; }
@@ -58,8 +58,8 @@ export function OptimizeVisual() {
 					6%, 16% { border-color: var(--color-secondary); box-shadow: 0 2px 10px rgba(63,125,140,.2); }
 					24% { border-color: #e5e0d6; box-shadow: none; }
 				}
-				.op-exp .nm { font-size: 2.1cqw; font-weight: 700; }
-				.op-exp .task { font-size: 1.8cqw; color: rgba(35,34,41,.55); }
+				.op-exp .nm { font-size: 2.5cqw; font-weight: 700; }
+				.op-exp .task { font-size: 2.1cqw; color: rgba(35,34,41,.55); }
 				@media (prefers-reduced-motion: reduce) {
 					.op-stage * { animation: none !important; }
 				}
