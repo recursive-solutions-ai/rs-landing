@@ -43,7 +43,7 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 				}
 				@keyframes lpPayoff {
 					0%, 15% { opacity: 0; transform: scale(.985); }
-					19%, 98% { opacity: 1; transform: scale(1); }
+					18%, 98% { opacity: 1; transform: scale(1); }
 					100% { opacity: 0; }
 				}
 				.lp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8cqw; flex: 1; min-height: 0; }
