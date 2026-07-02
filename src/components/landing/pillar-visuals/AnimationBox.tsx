@@ -33,7 +33,7 @@ export function AnimationBox({ num, label, children }: AnimationBoxProps) {
 					Lucy <b className="font-bold text-primary">· {num} {label}</b> — holtcpa.com
 				</span>
 			</div>
-			<div className="relative min-h-0 flex-1">{children}</div>
+			<div className="relative min-h-0 flex-1 @container">{children}</div>
 		</div>
 	)
 }
