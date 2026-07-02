@@ -23,24 +23,24 @@ export function CloseVisual() {
 					container-type: inline-size;
 					color: var(--color-base-content);
 					overflow: hidden; font-family: system-ui, sans-serif;
-					display: flex; flex-direction: column; justify-content: center;
-					padding: 3cqw 3.4cqw; gap: 2.2cqw;
+					display: flex; flex-direction: column; justify-content: space-evenly;
+					padding: 3cqw 3.4cqw;
 				}
 				.cv-cols, .cv-chips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8cqw; }
 				.cv-col { text-align: center; }
-				.cv-col .nm { font-size: 2.3cqw; font-weight: 700; }
-				.cv-col .ct { font-size: 1.9cqw; color: rgba(35,34,41,.5); }
+				.cv-col .nm { font-size: 2.8cqw; font-weight: 700; }
+				.cv-col .ct { font-size: 2.2cqw; color: rgba(35,34,41,.5); }
 				.cv-rail {
 					height: .9cqw; border-radius: .5cqw; margin: 0 1cqw;
 					background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
 				}
 				.cv-cell { display: flex; justify-content: center; }
 				.cv-chip {
-					font-size: 1.9cqw; font-weight: 600; white-space: nowrap;
+					font-size: 2.2cqw; font-weight: 600; white-space: nowrap;
 					background: #fff; border: 1px solid var(--color-base-300);
-					border-radius: 4cqw; padding: 1cqw 2cqw;
+					border-radius: 4cqw; padding: 1.2cqw 2.4cqw;
 				}
-				.cv-chip small { color: rgba(35,34,41,.5); font-weight: 400; font-size: 1.7cqw; }
+				.cv-chip small { color: rgba(35,34,41,.5); font-weight: 400; font-size: 1.9cqw; }
 				.cv-chip.win {
 					border-color: var(--color-secondary);
 					opacity: 0;
