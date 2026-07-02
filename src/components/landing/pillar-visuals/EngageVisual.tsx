@@ -35,7 +35,7 @@ export function EngageVisual() {
 					animation: enPulse 3s ease-in-out infinite;
 				}
 				@keyframes enPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-				.en-feed { display: flex; flex-direction: column; gap: 1.6cqw; }
+				.en-feed { display: flex; flex-direction: column; gap: 1.6cqw; min-width: 0; }
 				.en-post {
 					display: flex; justify-content: space-between; align-items: center; gap: 2cqw;
 					background: #fff; border: 1px solid #e5e0d6; border-radius: 2cqw;
