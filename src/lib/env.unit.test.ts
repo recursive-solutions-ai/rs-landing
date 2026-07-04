@@ -6,8 +6,6 @@ const REQUIRED = [
 	'BRAIN_API_KEY',
 	'TURSO_DATABASE_URL',
 	'TURSO_AUTH_TOKEN',
-	'RESEND_API_KEY',
-	'CONTACT_EMAIL',
 ]
 
 function setAllRequired() {
@@ -15,8 +13,6 @@ function setAllRequired() {
 	process.env.BRAIN_API_KEY = 'brain_test_abc'
 	process.env.TURSO_DATABASE_URL = 'libsql://test.turso.io'
 	process.env.TURSO_AUTH_TOKEN = 'token123'
-	process.env.RESEND_API_KEY = 're_test_123'
-	process.env.CONTACT_EMAIL = 'contact@example.com'
 }
 
 describe('getEnvStatus', () => {

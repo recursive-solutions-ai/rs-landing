@@ -5,6 +5,11 @@ import { isMultiLang, supportedLocales, defaultLocale } from './i18n/config'
 const SKIP_PREFIXES = ['/_next/', '/sitemap']
 const SKIP_PATHS = ['/favicon.ico', '/sitemap.xml', '/robots.txt']
 
+// SDK routes this site does not use. The handler would otherwise proxy them
+// to the Brain carrying the server's own BRAIN_API_KEY (jobs: arbitrary
+// authenticated forward; crm: unauthenticated contact write) — block outright.
+const BLOCKED_API_PREFIXES = ['/api/rs/jobs', '/api/rs/crm']
+
 function getLocaleFromHeaders(request: NextRequest): string {
 	const acceptLanguage = request.headers.get('accept-language')
 	if (!acceptLanguage) return defaultLocale
@@ -43,11 +48,18 @@ function detectLocale(request: NextRequest): string {
 	return getLocaleFromHeaders(request)
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
 	const { pathname } = request.nextUrl
 
 	// ─── CORS protection for API routes ─────────────────────────────────
 	if (pathname.startsWith('/api/')) {
+		if (
+			BLOCKED_API_PREFIXES.some(
+				(p) => pathname === p || pathname.startsWith(`${p}/`),
+			)
+		) {
+			return NextResponse.json({ error: 'Not found' }, { status: 404 })
+		}
 		const origin = request.headers.get('origin')
 		if (origin) {
 			const host =

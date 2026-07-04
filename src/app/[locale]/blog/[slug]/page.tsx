@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import {
 	getBlogPost,
 	getBlogPosts,
-	getBlogAuthor,
+	getBlogAuthors,
 	getBusinessConfig,
 } from '@growth-engine/sdk-server'
 import { BlogContent, RelatedPosts } from '@growth-engine/sdk-client/components'
@@ -37,7 +37,8 @@ export async function generateMetadata({
 	const { locale, slug } = await params
 	const db = getDbOrNull()
 	const post = db ? await getBlogPost(db, slug, locale) : null
-	if (!post) return { title: 'Post not found' }
+	// getBlogPost has no status filter — never emit metadata for drafts
+	if (!post || post.status !== 'published') return { title: 'Post not found' }
 	return {
 		title: post.seoTitle ?? post.title,
 		description: post.seoDesc ?? undefined,
@@ -47,7 +48,9 @@ export async function generateMetadata({
 		openGraph: {
 			title: post.seoTitle ?? post.title,
 			description: post.seoDesc ?? undefined,
-			images: post.heroImageUrl ? [post.heroImageUrl] : undefined,
+			// fall back to the site card — an images-less openGraph block would
+			// shallow-merge away the root layout's image entirely
+			images: post.heroImageUrl ? [post.heroImageUrl] : ['/social-card.jpg'],
 			type: 'article',
 		},
 	}
@@ -64,13 +67,20 @@ export default async function BlogPostPage({
 	if (!db) notFound()
 
 	const post = await getBlogPost(db, slug, locale)
-	if (!post) notFound()
+	// getBlogPost has no status filter — drafts/archived must 404, not render
+	if (!post || post.status !== 'published') notFound()
 
-	const [allPosts, business, author] = await Promise.all([
+	const [allPosts, business, authors] = await Promise.all([
 		getBlogPosts(db, { locale, limit: 0 }),
 		getBusinessConfig(db).catch(() => null),
-		getBlogAuthor(db, slug).catch(() => null),
+		// getBlogAuthor() looks up by AUTHOR slug — posts only carry authorId,
+		// so resolve the byline from the full author list instead
+		getBlogAuthors(db).catch(() => []),
 	])
+	// structural annotation: the SDK's BlogAuthor type doesn't resolve
+	// (@growth-engine/types isn't shipped with the vendored SDKs)
+	const author =
+		authors.find((a: { id?: unknown }) => a.id === post.authorId) ?? null
 
 	const date = formatDate(post.createdAt, locale)
 

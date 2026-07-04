@@ -10,7 +10,6 @@ import { EngageVisual } from "./pillar-visuals/EngageVisual"
 import { CaptureVisual } from "./pillar-visuals/CaptureVisual"
 import { CloseVisual } from "./pillar-visuals/CloseVisual"
 import { OptimizeVisual } from "./pillar-visuals/OptimizeVisual"
-import { SectionHeading } from "./SectionHeading"
 
 function PillarVisual({ kind }: { kind: FeaturePillar["visual"] }) {
 	switch (kind) {
@@ -102,12 +101,6 @@ export function FeaturePillarsSection() {
 			id="system"
 			className="relative mx-auto max-w-6xl px-6 py-16 md:py-16"
 		>
-			<SectionHeading
-				tag=""
-				title=""
-				className="mb-0"
-			/>
-
 			{/* Pillar rows */}
 			<div className="mt-20 divide-y divide-base-content/5">
 				{featurePillars.map((pillar) => (

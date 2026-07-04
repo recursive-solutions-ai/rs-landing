@@ -28,10 +28,8 @@ function getEnvVars(): EnvVar[] {
 		{ name: 'BRAIN_API_KEY', value: process.env.BRAIN_API_KEY, description: 'Brain API authentication key', required: true },
 		{ name: 'TURSO_DATABASE_URL', value: process.env.TURSO_DATABASE_URL, description: 'Turso database connection URL for blog system', required: true },
 		{ name: 'TURSO_AUTH_TOKEN', value: process.env.TURSO_AUTH_TOKEN, description: 'Turso database authentication token', required: true },
-		{ name: 'RESEND_API_KEY', value: process.env.RESEND_API_KEY, description: 'Resend API key for contact form emails', required: true },
-		{ name: 'CONTACT_EMAIL', value: process.env.CONTACT_EMAIL, description: 'Email address that receives contact form submissions', required: true },
 		// Optional
-		{ name: 'SITE_URL', value: process.env.SITE_URL, description: 'Public site URL for sitemap.xml and robots.txt', required: false },
+		{ name: 'SITE_URL', value: process.env.SITE_URL, description: 'Public site URL — REQUIRED in production: canonicals, OG urls, robots, and the sitemap all bake from it (falls back to the Vercel production URL, then localhost)', required: false },
 		{ name: 'NEXT_PUBLIC_GA_MEASUREMENT_ID', value: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID, description: 'Google Analytics measurement ID', required: false },
 		{ name: 'DEFAULT_LANGUAGE', value: process.env.DEFAULT_LANGUAGE, description: 'Default language code (defaults to "en")', required: false },
 		{ name: 'ADDITIONAL_LANGUAGES', value: process.env.ADDITIONAL_LANGUAGES, description: 'Comma-separated additional language codes', required: false },

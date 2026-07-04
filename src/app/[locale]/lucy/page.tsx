@@ -20,7 +20,15 @@ export async function generateMetadata({
 		title,
 		description,
 		alternates: { canonical: buildUrl("/lucy", locale) },
-		openGraph: { title, description, url: buildUrl("/lucy", locale), type: "website" },
+		openGraph: {
+			title,
+			description,
+			url: buildUrl("/lucy", locale),
+			type: "website",
+			// Next merges openGraph shallowly — without this, the root layout's
+			// card image is dropped and shares render imageless.
+			images: [{ url: "/social-card.jpg", width: 1200, height: 630 }],
+		},
 	}
 }
 

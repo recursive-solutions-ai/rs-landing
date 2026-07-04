@@ -10,6 +10,11 @@ export function generateStaticParams() {
 	return supportedLocales.map((locale) => ({ locale }))
 }
 
+// Unknown first segments must 404, not render the landing page as a
+// soft-200 — without this, any stray root path with a dot (skipped by the
+// proxy) gets treated as a "locale" and serves duplicate homepage HTML.
+export const dynamicParams = false
+
 export default async function LocaleLayout({
 	children,
 	params,

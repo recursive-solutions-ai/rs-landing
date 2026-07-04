@@ -15,7 +15,7 @@ const FALLBACK_FIELDS: FormField[] = [
 		label: "What's the biggest bottleneck slowing your team down?",
 		type: "textarea",
 		required: true,
-		placeholder: "(Optional) What's the biggest bottleneck slowing your team down?",
+		placeholder: "What's the biggest bottleneck slowing your team down?",
 		order: 2,
 	},
 ]
@@ -62,6 +62,15 @@ export function ContactCTASection({
 
 		const formEl = e.currentTarget
 		const formData = new FormData(formEl)
+
+		// Honeypot: humans never see the "company_website" field — a filled
+		// value is a bot, so pretend success and submit nothing.
+		if (formData.get("company_website")) {
+			setStatus("success")
+			formEl.reset()
+			return
+		}
+
 		const data: Record<string, unknown> = {}
 
 		for (const field of fields) {
@@ -139,6 +148,19 @@ export function ContactCTASection({
 							</div>
 						) : (
 							<form onSubmit={handleSubmit} className="space-y-4">
+								{/* Honeypot — visually hidden, ignored by people, filled by bots */}
+								<div aria-hidden="true" className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
+									<label htmlFor="contact-company_website">
+										Leave this field empty
+									</label>
+									<input
+										type="text"
+										id="contact-company_website"
+										name="company_website"
+										tabIndex={-1}
+										autoComplete="off"
+									/>
+								</div>
 								{fields.map((field) => {
 									const id = `contact-${field.name}`
 									const commonProps = {

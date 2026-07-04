@@ -27,6 +27,9 @@ export async function generateMetadata({
 			description,
 			url: buildUrl('/blog', locale),
 			type: 'website',
+			// Next merges openGraph shallowly — without this, the root layout's
+			// card image is dropped and shares render imageless.
+			images: [{ url: '/social-card.jpg', width: 1200, height: 630 }],
 		},
 	}
 }
