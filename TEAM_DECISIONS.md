@@ -56,7 +56,12 @@ either a decision or post-decision wiring. Nothing here blocks reviewing the cur
 - One **real test form submission** as the post-launch smoke test.
 - `sameAs: []` in `src/lib/seo-config.ts` — add LinkedIn/social URLs for knowledge-graph
   disambiguation.
-- Housekeeping: `npm uninstall resend` (dep is dead code; Kyle has the one-liner), decide
-  keep-or-delete for the design artifacts still in the repo (root screenshots,
-  `lanidng-animation/` mockups, `docs/superpowers/`), and the ~1,400 lines of verified-dead
-  components (list in the 2026-07-04 review) whenever a cleanup pass happens.
+- Housekeeping: decide keep-or-delete for the design artifacts still in the repo (root
+  screenshots, `lanidng-animation/` mockups, `docs/superpowers/`), and the ~1,400 lines of
+  verified-dead components (list in the 2026-07-04 review) whenever a cleanup pass happens.
+  (`resend` removed 2026-07-05, commit `8246c12`.)
+- Known audit finding, not launch-blocking: `npm audit` flags drizzle-orm <0.45.2 (SQL
+  injection via attacker-controlled identifiers) inside the vendored `@growth-engine/sdk-server`.
+  Not exploitable here (the SDK only runs its own hardcoded blog queries), but the fix is a
+  drizzle bump in the Growth Engine SDK — flag it to whoever maintains the Brain. The postcss
+  moderate is Next's bundled copy, build-time only; ignore npm's "fix" (it downgrades Next).
