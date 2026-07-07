@@ -65,7 +65,7 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
 				{!service.earlyAccess && (
 					<a
 						href="#contact"
-						className="mt-auto pt-4 flex items-center gap-1.5 text-sm font-semibold opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0"
+						className="mt-auto pt-4 flex items-center gap-1.5 text-sm font-semibold transition-all duration-300 lg:opacity-0 lg:translate-y-2 lg:group-hover:opacity-100 lg:group-hover:translate-y-0"
 						style={{ color: useAccent ? "oklch(var(--a))" : "oklch(var(--p))" }}
 					>
 						Get started

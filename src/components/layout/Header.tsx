@@ -11,10 +11,11 @@ export function Header() {
 	const [menuOpen, setMenuOpen] = useState(false)
 
 	const NAV_LINKS = [
-		{ href: `/${locale}/lucy`, label: 'System' },
-		{ href: `/${locale}#offerings`, label: 'Offerings' },
+		{ href: `/${locale}/lucy`, label: 'Lucy' },
 		{ href: `/${locale}#process`, label: 'Process' },
+		{ href: `/${locale}#field-reports`, label: 'Results' },
 		{ href: `/${locale}#team`, label: 'Team' },
+		{ href: `/${locale}#offerings`, label: 'Offerings' },
 	]
 
 	const ctaHref = `/${locale}#contact`

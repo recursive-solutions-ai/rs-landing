@@ -1,8 +1,12 @@
 
 import { HeroSection } from "@/components/landing/HeroSection"
 import { CredibilityBar } from "@/components/landing/CredibilityBar"
+import { FrictionDiagnosticSection } from "@/components/landing/FrictionDiagnosticSection"
 import { ServicesSection } from "@/components/landing/ServicesSection"
 import { ProcessSection } from "@/components/landing/ProcessSection"
+import { OutcomeSection } from "@/components/landing/OutcomeSection"
+import { FieldReportsSection } from "@/components/landing/FieldReportsSection"
+import { FaqSection } from "@/components/landing/FaqSection"
 import { TeamSection } from "@/components/landing/TeamSection"
 import { ContactCTASection } from "@/components/landing/ContactCTASection"
 import { getForm } from "@/lib/forms-server"
@@ -29,9 +33,13 @@ export default async function LandingPage({
 		<div className="no-scrollbar">
 			<HeroSection locale={locale} />
 			<CredibilityBar />
-			<ServicesSection />
+			<FrictionDiagnosticSection />
 			<ProcessSection />
+			<OutcomeSection />
+			<FieldReportsSection />
 			<TeamSection />
+			<ServicesSection />
+			<FaqSection />
 			<ContactCTASection form={contactForm} />
 		</div>
 	)

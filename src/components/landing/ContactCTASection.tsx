@@ -47,8 +47,8 @@ export function ContactCTASection({
 	const subtitleText = subtitle ?? ""
 	const introText =
 		intro ??
-		"In 30 minutes, we'll learn about your business and hand you a Website Analysis Report. A real breakdown of where you stand and where AI could take you. Worst case, you walk away with free insight your competitors are paying for."
-	const successMessage = settings?.successMessage ?? "We'll get back to you shortly."
+		"In 30 minutes, we'll learn about your business and hand you a Friction Audit. A real breakdown of where your business loses time and margin, and where AI could take you. Worst case, you walk away with free insight your competitors are paying for."
+	const successMessage = settings?.successMessage ?? "You'll hear from us within one business day."
 
 	const [status, setStatus] = useState<
 		"idle" | "loading" | "success" | "error"
@@ -119,15 +119,22 @@ export function ContactCTASection({
 	return (
 		<section id="contact" className="mx-auto max-w-6xl px-6 py-16">
 			<div ref={contentRef} className={cn(inView && "reveal-in")}>
-				<h2 className="reveal mb-4 font-display text-3xl font-bold md:text-5xl text-center text-base-content">
+				<h2
+					className={cn(
+						"reveal font-display text-3xl font-bold md:text-5xl text-center text-base-content",
+						subtitleText ? "mb-4" : "mb-12"
+					)}
+				>
 					{headingText}
 				</h2>
-				<p
-					className="reveal mx-auto mb-12 max-w-xl text-lg text-base-content/60 md:text-xl text-center"
-					style={{ "--reveal-delay": "0.1s" } as CSSProperties}
-				>
-					{subtitleText}
-				</p>
+				{subtitleText && (
+					<p
+						className="reveal mx-auto mb-12 max-w-xl text-lg text-base-content/60 md:text-xl text-center"
+						style={{ "--reveal-delay": "0.1s" } as CSSProperties}
+					>
+						{subtitleText}
+					</p>
+				)}
 
 				<div
 					className="reveal mx-auto max-w-2xl"

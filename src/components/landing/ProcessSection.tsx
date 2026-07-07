@@ -12,39 +12,41 @@ export function ProcessSection() {
 		<section
 			ref={ref}
 			id="process"
+			data-theme="rs-dark"
 			className={cn(
-				"section-dark blueprint-grid relative mx-4 overflow-hidden rounded-[3rem]",
+				"blueprint-grid relative mx-4 overflow-hidden rounded-[3rem] bg-base-100",
 				inView && "reveal-in"
 			)}
 		>
 			<div className="relative mx-auto max-w-7xl px-6 py-16">
 				{/* Header: centered */}
 				<div className="reveal mb-8 text-center">
-					<span className="mb-4 block text-sm font-semibold uppercase tracking-widest text-primary">
+					<span className="mb-4 flex items-center justify-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary">
+						<span className="inline-block size-2.5 rounded-[2px] bg-primary" />
 						The Blueprint
 					</span>
-					<h2 className="font-display font-heading text-4xl font-extrabold leading-tight tracking-tight text-dark-foreground md:text-5xl">
+					<h2 className="font-display text-4xl font-extrabold leading-tight tracking-tight text-base-content md:text-5xl">
 						From Strategy to Scale in Four Steps.
 					</h2>
 				</div>
 
 				{/* 4-card grid with hairline dividers (v8 style) */}
-				<div className="grid grid-cols-1 gap-px border border-dark-foreground/20 bg-dark-foreground/20 md:grid-cols-2 lg:grid-cols-4">
+				<div className="grid grid-cols-1 gap-px border border-base-content/20 bg-base-content/20 md:grid-cols-2 lg:grid-cols-4">
 					{processSteps.map((step, i) => (
 						<div
 							key={step.step}
-							className="reveal group relative bg-dark p-10 transition-colors hover:bg-dark-foreground/[0.02]"
+							className="reveal group relative bg-base-100 p-10 transition-colors hover:bg-base-content/5"
 							style={{ "--reveal-delay": `${0.15 + i * 0.12}s` } as CSSProperties}
 						>
 							{/* Large corner number */}
-							<div className="pointer-events-none absolute right-0 top-0 p-4 font-heading text-4xl font-bold text-dark-foreground/5">
+							<div className="pointer-events-none absolute right-0 top-0 p-4 text-4xl font-bold text-base-content/10">
 								{String(step.step).padStart(2, "0")}
 							</div>
 
-							<h3 className="mb-6 font-heading text-xl font-bold text-dark-foreground">
+							<h3 className="mb-6 text-xl font-bold text-base-content">
 								{step.title}
 							</h3>
-							<p className="text-sm leading-relaxed text-dark-foreground/50">
+							<p className="text-sm leading-relaxed text-base-content/50">
 								{step.description}
 							</p>
 						</div>

@@ -16,18 +16,25 @@ export function Footer() {
 						<p className="text-base-content/60 text-sm">
 							{t('footer.powered.by')}
 						</p>
+						<a
+							href="mailto:hello@recursive-solutions.com"
+							className="mt-3 inline-block text-sm text-base-content/60 hover:text-primary"
+						>
+							hello@recursive-solutions.com
+						</a>
 					</div>
 
-					{/* Navigation — pages unused for now, may return later
 					<div>
 						<h4 className="font-semibold mb-2">{t('footer.navigation')}</h4>
 						<nav className="flex flex-col gap-1">
-							<Link href={`/${locale}`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.home')}</Link>
-							<Link href={`/${locale}/blog`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.blog')}</Link>
-							<Link href={`/${locale}/contact`} className="text-sm text-base-content/60 hover:text-primary">{t('nav.contact')}</Link>
-							<Link href={`/${locale}/test-bot`} className="text-sm text-base-content/60 hover:text-primary">Test Bot</Link>
+							<Link href={`/${locale}/lucy`} className="text-sm text-base-content/60 hover:text-primary">Lucy</Link>
+							<Link href={`/${locale}#process`} className="text-sm text-base-content/60 hover:text-primary">Process</Link>
+							<Link href={`/${locale}#field-reports`} className="text-sm text-base-content/60 hover:text-primary">Results</Link>
+							<Link href={`/${locale}#team`} className="text-sm text-base-content/60 hover:text-primary">Team</Link>
+							<Link href={`/${locale}#offerings`} className="text-sm text-base-content/60 hover:text-primary">Offerings</Link>
+							<Link href={`/${locale}#contact`} className="text-sm text-base-content/60 hover:text-primary">Contact</Link>
 						</nav>
-					</div> */}
+					</div>
 
 					{/* <div>
 						<h4 className="font-semibold mb-2">AI ROI Calculator</h4>

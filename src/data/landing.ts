@@ -38,6 +38,35 @@ export interface OutcomeItem {
 	description: string
 }
 
+export interface FrictionSignal {
+	label: string
+	description: string
+	/** The punchline signal — rendered with the primary accent. */
+	accent?: boolean
+}
+
+export interface OutcomeCard {
+	num: string
+	label: string
+	title: string
+	description: string
+	/** Optional pill rendered in the card's top-right (accents the card). */
+	badge?: string
+}
+
+export interface FieldReport {
+	label: string
+	quote: string
+	attribution: string
+	/** The highlighted report — rendered with the primary left accent. */
+	accent?: boolean
+}
+
+export interface FaqItem {
+	question: string
+	answer: string
+}
+
 export interface Testimonial {
 	quote: string
 	name: string
@@ -74,6 +103,7 @@ export interface TeamMember {
 	bio: string
 	initials: string
 	image?: string
+	linkedin?: string
 }
 
 export const services: ServiceItem[] = [
@@ -136,6 +166,107 @@ export const processSteps: ProcessStep[] = [
 		title: "Calibrate",
 		description: "We monitor and refine your system to ensure it keeps getting better as you grow.",
 		icon: faRocket,
+	},
+]
+
+export const frictionSignals: FrictionSignal[] = [
+	{
+		label: "Tool Sprawl",
+		description:
+			"Six tools that don't talk to each other, each with its own login, export, and blind spot.",
+	},
+	{
+		label: "Manual Bottleneck",
+		description:
+			"Reports, follow-ups, and hand-offs that stall the moment someone is out of office.",
+	},
+	{
+		label: "Margin Leak",
+		description:
+			"Hours that quietly convert to payroll cost with nothing to show for them.",
+		accent: true,
+	},
+]
+
+export const outcomeCards: OutcomeCard[] = [
+	{
+		num: "01",
+		label: "Time",
+		title: "Recover lost hours.",
+		description:
+			"Your most repetitive work gets automated so your team focuses on what only they can do.",
+	},
+	{
+		num: "02",
+		label: "Stack",
+		title: "Replace tool sprawl.",
+		description:
+			"One unified system handles your website, CRM, content, and analytics — and actually talks to itself.",
+	},
+	{
+		num: "03",
+		label: "Fit",
+		title: "Built for how you work.",
+		description:
+			"Every system is designed around your actual workflow, not how off-the-shelf software wants you to operate.",
+	},
+	{
+		num: "04",
+		label: "The Difference",
+		title: "A partner who stays.",
+		description:
+			"We monitor, refine, and improve the system after launch — no handoff, no disappearing act.",
+		badge: "No Handoff",
+	},
+]
+
+export const fieldReports: FieldReport[] = [
+	{
+		label: "Report 01",
+		quote:
+			"I knew we had inefficiencies. I just didn't know where. Recursive delivered us a blueprint with a clear diagnosis of how our business actually runs, a prioritized roadmap, and a team that could execute it. No fluff, just results.",
+		attribution: "Founder · Strategy Engagement",
+	},
+	{
+		label: "Report 02",
+		quote:
+			"We were making decisions off gut instinct and reports that were already stale. Recursive built us a live KPI dashboard that updates automatically every month. Now I walk into every leadership meeting knowing exactly where we stand. It changed how we run the company.",
+		attribution: "CEO · Leadership Team",
+	},
+	{
+		label: "Report 03",
+		quote:
+			"Our team was spending hours on tasks that should have taken minutes. Recursive came in, built AI tools directly into how our team works, and the difference showed up fast. Not in a report, but in how our people actually operate every day.",
+		attribution: "Team Director · Operations",
+		accent: true,
+	},
+]
+
+export const faqItems: FaqItem[] = [
+	{
+		question: "How does pricing work?",
+		answer:
+			"Every engagement is scoped to what we find in your Friction Audit. Builds are priced as fixed projects, and ongoing operation runs as a flat monthly plan — you'll have real numbers before you commit to anything.",
+	},
+	{
+		question: "How long until we see results?",
+		answer:
+			"We build incrementally. The Map phase takes days, not months, and the first working system typically ships in weeks — so you see value early instead of waiting on a big-bang launch.",
+	},
+	{
+		question: "Do we have to change the tools we already use?",
+		answer:
+			"No. We map how your team actually works and build around it. If a specific tool is causing the friction, we'll show you the case for replacing it — the decision stays yours.",
+	},
+	{
+		question: "Who owns the system?",
+		answer:
+			"You do. Everything we build for your business belongs to your business, along with the documentation to run it.",
+	},
+	{
+		question: "What happens on the 30-minute call?",
+		answer:
+			"We learn how your business runs today and where the hours are going, and you leave with a Friction Audit — a clear breakdown of where you stand. No pitch deck, no pressure.",
 	},
 ]
 
@@ -351,6 +482,7 @@ export const team: TeamMember[] = [
 		role: "CEO & Strategy",
 		bio: "Seven years in MARSOC as a Special Operations medic taught one discipline: understand what is actually broken before you act. That approach now guides every Recursive Solutions engagement. Jake works directly with founders and CEOs to identify where the business is losing margin and owner time, then defines the most effective intervention before any technology is recommended.",
 		initials: "J",
+		linkedin: "https://www.linkedin.com/in/jake-johnson-recursive/",
 	},
 	{
 		image: "/luc.jpg",
@@ -358,6 +490,7 @@ export const team: TeamMember[] = [
 		role: "COO & Operations",
 		bio: "Spent his career making businesses run better. Focused on turning complex AI capabilities into simple, practical tools that teams actually use.",
 		initials: "L",
+		linkedin: "https://www.linkedin.com/in/luc-harrington-31696234/",
 	},
 	{
 		image: "/denis.jpg",
@@ -365,6 +498,7 @@ export const team: TeamMember[] = [
 		role: "CTO & AI Architecture",
 		bio: "The builder. Designs and develops the AI systems that power everything we deliver, custom-built for real businesses, not theoretical use cases.",
 		initials: "D",
+		linkedin: "https://www.linkedin.com/in/desduvauchelle/",
 	},
 ]
 

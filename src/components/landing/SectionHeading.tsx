@@ -35,11 +35,12 @@ export function SectionHeading({
 				<span
 					ref={ref}
 					className={cn(
-						"reveal mb-4 inline-block text-sm font-semibold uppercase tracking-widest text-primary",
+						"reveal mb-4 inline-flex items-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary",
 						inView && "reveal-in"
 					)}
 					style={{ "--reveal-delay": "0s" } as CSSProperties}
 				>
+					<span className="inline-block size-2.5 rounded-[2px] bg-primary" />
 					{tag}
 				</span>
 			)}
