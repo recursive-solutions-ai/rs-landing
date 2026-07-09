@@ -228,7 +228,7 @@ export function ContactCTASection({
 								<button
 									type="submit"
 									disabled={status === "loading"}
-									className="btn btn-neutral w-full border-none py-4 text-lg font-bold text-neutral-content shadow-xl transition-all duration-200 hover:bg-neutral/80 active:scale-[0.97] disabled:opacity-60"
+									className="btn w-full border-none bg-primary-content py-4 text-lg font-bold text-primary shadow-xl transition-all duration-200 hover:bg-primary-content/90 active:scale-[0.97] disabled:opacity-60"
 								>
 									{status === "loading" ? (
 										<span className="loading loading-spinner loading-md" />
