@@ -216,7 +216,6 @@ export const outcomeCards: OutcomeCard[] = [
 		title: "A partner who stays.",
 		description:
 			"We monitor, refine, and improve the system after launch. No handoff, no disappearing act.",
-		badge: "No Handoff",
 	},
 ]
 
