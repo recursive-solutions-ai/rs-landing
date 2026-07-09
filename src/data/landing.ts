@@ -245,29 +245,39 @@ export const fieldReports: FieldReport[] = [
 
 export const faqItems: FaqItem[] = [
 	{
+		question: "Is my business the right size for this?",
+		answer:
+			"If your team is losing hours to repetitive work, you're the right size. We work with small and mid-sized businesses, not just enterprises, and every engagement is scoped to your operation. You never pay for capability you don't need.",
+	},
+	{
+		question: "Will this replace my team's jobs?",
+		answer:
+			"No. We automate the repetitive work that burns people out so your team spends its hours on judgment, relationships, and growth, the things only humans do well. Our systems work alongside your people, not in place of them.",
+	},
+	{
+		question: "Do we have to replace the tools we already use?",
+		answer:
+			"No. We map how your team actually works and build around your existing stack. If one tool is the thing causing the friction, we'll make the case for replacing it and show you the math. The decision stays yours.",
+	},
+	{
+		question: "How fast will we see results?",
+		answer:
+			"Fast. We build incrementally instead of disappearing for six months. The Map phase takes days, and your first working system typically ships in weeks, so value shows up early and compounds from there.",
+	},
+	{
 		question: "How does pricing work?",
 		answer:
-			"Every engagement is scoped to what we find in your Friction Audit. Builds are priced as fixed projects, and ongoing operation runs as a flat monthly plan. You'll have real numbers before you commit to anything.",
+			"No surprises. Every engagement is scoped from your Friction Audit. Builds are priced as fixed projects, and ongoing operation runs as a flat monthly plan. You'll see real numbers before you commit to anything.",
 	},
 	{
-		question: "How long until we see results?",
+		question: "Is our business data safe?",
 		answer:
-			"We build incrementally. The Map phase takes days, not months, and the first working system typically ships in weeks, so you see value early instead of waiting on a big-bang launch.",
+			"Yes. Your data stays yours. Your AI Experts are trained on your knowledge, not fed into the open web, and we walk you through exactly how and where your information is stored and used.",
 	},
 	{
-		question: "Do we have to change the tools we already use?",
+		question: "What happens on the intro call?",
 		answer:
-			"No. We map how your team actually works and build around it. If a specific tool is causing the friction, we'll show you the case for replacing it. The decision stays yours.",
-	},
-	{
-		question: "Who owns the system?",
-		answer:
-			"You do. Everything we build for your business belongs to your business, along with the documentation to run it.",
-	},
-	{
-		question: "What happens on the 30-minute call?",
-		answer:
-			"We learn how your business runs today and where the hours are going, and you leave with a Friction Audit, a clear breakdown of where you stand. No pitch deck, no pressure.",
+			"Thirty minutes, no pitch deck. We learn how your business runs today and where the hours are going. You leave with a Friction Audit: an honest read on where you stand and where AI would actually pay off. No pressure to buy anything.",
 	},
 ]
 
