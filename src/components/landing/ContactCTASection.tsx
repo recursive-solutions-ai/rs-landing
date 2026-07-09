@@ -47,7 +47,7 @@ export function ContactCTASection({
 	const subtitleText = subtitle ?? ""
 	const introText =
 		intro ??
-		"Let us learn about your business or Jake will fire me."
+		"Tell us a bit about your business, and we'll show you where the biggest wins are."
 	const successMessage = settings?.successMessage ?? "You'll hear from us within one business day."
 
 	const [status, setStatus] = useState<
