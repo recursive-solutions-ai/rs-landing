@@ -32,7 +32,7 @@ export function FrictionEstimator() {
 			</p>
 
 			{/* Inputs */}
-			<div className="mt-6 grid grid-cols-2 gap-4">
+			<div className="mt-6 grid grid-cols-2 items-end gap-4">
 				<Field
 					id="fe-hours"
 					label="Manual hrs / week"
