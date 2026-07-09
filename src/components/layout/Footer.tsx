@@ -17,10 +17,10 @@ export function Footer() {
 							{t('footer.powered.by')}
 						</p>
 						<a
-							href="mailto:hello@recursive-solutions.com"
+							href="mailto:team@recursive-solutions.com"
 							className="mt-3 inline-block text-sm text-base-content/60 hover:text-primary"
 						>
-							hello@recursive-solutions.com
+							team@recursive-solutions.com
 						</a>
 					</div>
 
