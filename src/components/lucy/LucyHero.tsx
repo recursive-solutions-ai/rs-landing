@@ -39,7 +39,7 @@ export function LucyHero({ locale }: { locale: string }) {
 						className="reveal mx-auto mt-6 max-w-xl text-lg leading-relaxed text-base-content/60"
 						style={{ "--reveal-delay": "0.2s" } as CSSProperties}
 					>
-						The one vertical system that runs your growth.
+						The one system that runs your growth.
 					</p>
 					<div
 						className="reveal mt-8 flex flex-wrap items-center justify-center gap-5"

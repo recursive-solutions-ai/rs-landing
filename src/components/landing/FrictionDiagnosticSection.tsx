@@ -3,7 +3,7 @@
 import type { CSSProperties } from "react"
 import { useInView } from "@/hooks/useInView"
 import { cn } from "@/lib/utils"
-import { frictionSignals } from "@/data/landing"
+import { frictionSignals, outcomeCards } from "@/data/landing"
 
 export function FrictionDiagnosticSection() {
 	const { ref, inView } = useInView<HTMLElement>()
@@ -14,9 +14,9 @@ export function FrictionDiagnosticSection() {
 			id="diagnostic"
 			className={cn("mx-auto max-w-7xl px-6 py-16", inView && "reveal-in")}
 		>
-			{/* Eyebrow + heading */}
-			<div className="reveal max-w-3xl">
-				<span className="mb-4 flex items-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary">
+			{/* Eyebrow + heading — the problem */}
+			<div className="reveal max-w-3xl mx-auto text-center">
+				<span className="mb-4 flex items-center justify-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary">
 					<span className="inline-block size-2.5 rounded-[2px] bg-primary" />
 					Friction Diagnostic
 				</span>
@@ -25,67 +25,75 @@ export function FrictionDiagnosticSection() {
 				</h2>
 			</div>
 
-			<div className="mt-12 grid gap-12 lg:grid-cols-2 lg:gap-16">
-				{/* Narrative */}
-				<div
-					className="reveal space-y-5 text-lg leading-relaxed text-base-content/70"
-					style={{ "--reveal-delay": "0.1s" } as CSSProperties}
-				>
-					<p>
-						Most growing businesses don&apos;t have a strategy problem — they have a{" "}
-						<strong className="font-semibold text-base-content">systems problem</strong>.
-					</p>
-					<p>
-						Every disconnected tool, manual process, and workaround is costing your
-						team hours every week.
-					</p>
-					<p>
-						By the time the damage is obvious, you&apos;ve already lost margin and
-						fallen further behind than you realize.
-					</p>
-					<p className="border-l-4 border-primary pl-5 text-base-content">
-						<strong className="font-semibold">
-							The hardest part: you can&apos;t diagnose it clearly from inside the
-							business you&apos;re running.
-						</strong>
-					</p>
-					<a
-						href="#process"
-						className="inline-flex items-center gap-1.5 text-sm font-bold text-primary transition-colors hover:text-base-content"
+			{/* Signal cards — one matching row */}
+			<div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{frictionSignals.map((signal, i) => (
+					<div
+						key={signal.label}
+						className="reveal flex flex-col gap-4 rounded-xl border border-base-300 border-l-4 border-l-primary bg-base-100 p-6"
+						style={{ "--reveal-delay": `${0.1 + i * 0.1}s` } as CSSProperties}
 					>
-						That&apos;s why every engagement starts with a Map — see the Blueprint ↓
-					</a>
-				</div>
+						<span className="w-fit rounded-md bg-neutral px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-neutral-content">
+							{signal.label}
+						</span>
+						<p className="text-base leading-relaxed text-base-content/70">
+							{signal.description}
+						</p>
+					</div>
+				))}
+			</div>
 
-				{/* Signal cards */}
-				<div className="space-y-4">
-					{frictionSignals.map((signal, i) => (
-						<div
-							key={signal.label}
-							className={cn(
-								"reveal flex gap-5 rounded-xl border border-l-4 bg-base-100 p-6",
-								signal.accent
-									? "border-primary/40 border-l-primary"
-									: "border-base-300 border-l-base-300"
+			{/* Pivot to the outcome — same section, problem → what changes */}
+			<div
+				className="reveal mt-20 max-w-3xl mx-auto text-center"
+				style={{ "--reveal-delay": "0.1s" } as CSSProperties}
+			>
+				<span className="mb-4 flex items-center justify-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary">
+					<span className="inline-block size-2.5 rounded-[2px] bg-primary" />
+					The Fix
+				</span>
+				<h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-base-content md:text-5xl">
+					One partner. A system built around you.
+				</h2>
+				<p className="mt-5 text-lg leading-relaxed text-base-content/60">
+
+				</p>
+			</div>
+
+			{/* Outcome grid */}
+			<div className="mt-12 grid gap-6 md:grid-cols-2">
+				{outcomeCards.map((card, i) => (
+					<div
+						key={card.num}
+						className={cn(
+							"reveal group flex flex-col rounded-2xl border bg-base-100 p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10",
+							card.badge
+								? "border-primary/40 hover:border-primary/60"
+								: "border-base-300 hover:border-primary/50"
+						)}
+						style={{ "--reveal-delay": `${0.1 + i * 0.1}s` } as CSSProperties}
+					>
+						<div className="mb-4 flex items-center justify-between gap-2">
+							<div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-widest">
+								<span className="text-primary">{card.num}</span>
+								<span className="text-base-content/30">/</span>
+								<span className="text-base-content/50">{card.label}</span>
+							</div>
+							{card.badge && (
+								<span className="rounded-md bg-primary px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-primary-content">
+									{card.badge}
+								</span>
 							)}
-							style={{ "--reveal-delay": `${0.15 + i * 0.1}s` } as CSSProperties}
-						>
-							<span
-								className={cn(
-									"h-fit shrink-0 rounded-md px-2.5 py-1 text-xs font-bold uppercase tracking-wider",
-									signal.accent
-										? "bg-primary text-primary-content"
-										: "bg-neutral text-neutral-content"
-								)}
-							>
-								{signal.label}
-							</span>
-							<p className="text-base leading-relaxed text-base-content/70">
-								{signal.description}
-							</p>
 						</div>
-					))}
-				</div>
+
+						<h3 className="mb-3 text-2xl font-bold tracking-tight text-base-content">
+							{card.title}
+						</h3>
+						<p className="text-base leading-relaxed text-base-content/70">
+							{card.description}
+						</p>
+					</div>
+				))}
 			</div>
 		</section>
 	)

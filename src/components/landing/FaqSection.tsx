@@ -33,8 +33,8 @@ export function FaqSection() {
 			/>
 
 			{/* Eyebrow + heading */}
-			<div className="reveal max-w-3xl">
-				<span className="mb-4 flex items-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary">
+			<div className="reveal max-w-3xl mx-auto text-center">
+				<span className="mb-4 flex items-center justify-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary">
 					<span className="inline-block size-2.5 rounded-[2px] bg-primary" />
 					Common Questions
 				</span>

@@ -4,7 +4,6 @@ import { CredibilityBar } from "@/components/landing/CredibilityBar"
 import { FrictionDiagnosticSection } from "@/components/landing/FrictionDiagnosticSection"
 import { ServicesSection } from "@/components/landing/ServicesSection"
 import { ProcessSection } from "@/components/landing/ProcessSection"
-import { OutcomeSection } from "@/components/landing/OutcomeSection"
 import { FieldReportsSection } from "@/components/landing/FieldReportsSection"
 import { FaqSection } from "@/components/landing/FaqSection"
 import { TeamSection } from "@/components/landing/TeamSection"
@@ -35,10 +34,9 @@ export default async function LandingPage({
 			<CredibilityBar />
 			<FrictionDiagnosticSection />
 			<ProcessSection />
-			<OutcomeSection />
 			<FieldReportsSection />
-			<TeamSection />
 			<ServicesSection />
+			<TeamSection />
 			<FaqSection />
 			<ContactCTASection form={contactForm} />
 		</div>

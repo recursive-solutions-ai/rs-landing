@@ -1,16 +1,7 @@
 "use client"
 
-import type { CSSProperties } from "react"
-import { useInView } from "@/hooks/useInView"
-import { cn } from "@/lib/utils"
-import { proofStats, testimonials, type Testimonial } from "@/data/landing"
+import { testimonials, type Testimonial } from "@/data/landing"
 import { SectionHeading } from "./SectionHeading"
-
-const ACCENT_TEXT = {
-	primary: "text-primary",
-	accent: "text-secondary",
-	neutral: "text-base-content",
-} as const
 
 const AVATAR_BG = {
 	primary: "bg-primary/20 text-primary",
@@ -42,8 +33,6 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 }
 
 export function ProofOfWorkSection() {
-	const { ref: statsRef, inView } = useInView<HTMLDivElement>()
-
 	// Split testimonials into two columns for opposing scroll directions
 	const colA = testimonials.filter((_, i) => i % 2 === 0)
 	const colB = testimonials.filter((_, i) => i % 2 === 1)
@@ -60,31 +49,6 @@ export function ProofOfWorkSection() {
 							align="left"
 							className="mb-12"
 						/>
-
-						<div
-							ref={statsRef}
-							className={cn(
-								"flex gap-12 border-t border-base-content/10 pt-12",
-								inView && "reveal-in"
-							)}
-						>
-							{proofStats.map((stat, i) => (
-								<div
-									key={stat.label}
-									className="reveal"
-									style={{ "--reveal-delay": `${i * 0.12}s` } as CSSProperties}
-								>
-									<div
-										className={`mb-2 text-4xl font-extrabold ${ACCENT_TEXT[stat.accent]}`}
-									>
-										{stat.value}
-									</div>
-									<p className="text-xs font-bold uppercase tracking-widest text-base-content/50">
-										{stat.label}
-									</p>
-								</div>
-							))}
-						</div>
 					</div>
 
 					{/* Testimonial scrolling columns */}

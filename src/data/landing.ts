@@ -201,7 +201,7 @@ export const outcomeCards: OutcomeCard[] = [
 		label: "Stack",
 		title: "Replace tool sprawl.",
 		description:
-			"One unified system handles your website, CRM, content, and analytics — and actually talks to itself.",
+			"One unified system handles your website, CRM, content, and analytics, and actually talks to itself.",
 	},
 	{
 		num: "03",
@@ -215,7 +215,7 @@ export const outcomeCards: OutcomeCard[] = [
 		label: "The Difference",
 		title: "A partner who stays.",
 		description:
-			"We monitor, refine, and improve the system after launch — no handoff, no disappearing act.",
+			"We monitor, refine, and improve the system after launch. No handoff, no disappearing act.",
 		badge: "No Handoff",
 	},
 ]
@@ -226,12 +226,14 @@ export const fieldReports: FieldReport[] = [
 		quote:
 			"I knew we had inefficiencies. I just didn't know where. Recursive delivered us a blueprint with a clear diagnosis of how our business actually runs, a prioritized roadmap, and a team that could execute it. No fluff, just results.",
 		attribution: "Founder · Strategy Engagement",
+		accent: true,
 	},
 	{
 		label: "Report 02",
 		quote:
 			"We were making decisions off gut instinct and reports that were already stale. Recursive built us a live KPI dashboard that updates automatically every month. Now I walk into every leadership meeting knowing exactly where we stand. It changed how we run the company.",
 		attribution: "CEO · Leadership Team",
+		accent: true,
 	},
 	{
 		label: "Report 03",
@@ -246,17 +248,17 @@ export const faqItems: FaqItem[] = [
 	{
 		question: "How does pricing work?",
 		answer:
-			"Every engagement is scoped to what we find in your Friction Audit. Builds are priced as fixed projects, and ongoing operation runs as a flat monthly plan — you'll have real numbers before you commit to anything.",
+			"Every engagement is scoped to what we find in your Friction Audit. Builds are priced as fixed projects, and ongoing operation runs as a flat monthly plan. You'll have real numbers before you commit to anything.",
 	},
 	{
 		question: "How long until we see results?",
 		answer:
-			"We build incrementally. The Map phase takes days, not months, and the first working system typically ships in weeks — so you see value early instead of waiting on a big-bang launch.",
+			"We build incrementally. The Map phase takes days, not months, and the first working system typically ships in weeks, so you see value early instead of waiting on a big-bang launch.",
 	},
 	{
 		question: "Do we have to change the tools we already use?",
 		answer:
-			"No. We map how your team actually works and build around it. If a specific tool is causing the friction, we'll show you the case for replacing it — the decision stays yours.",
+			"No. We map how your team actually works and build around it. If a specific tool is causing the friction, we'll show you the case for replacing it. The decision stays yours.",
 	},
 	{
 		question: "Who owns the system?",
@@ -266,7 +268,7 @@ export const faqItems: FaqItem[] = [
 	{
 		question: "What happens on the 30-minute call?",
 		answer:
-			"We learn how your business runs today and where the hours are going, and you leave with a Friction Audit — a clear breakdown of where you stand. No pitch deck, no pressure.",
+			"We learn how your business runs today and where the hours are going, and you leave with a Friction Audit, a clear breakdown of where you stand. No pitch deck, no pressure.",
 	},
 ]
 
@@ -299,11 +301,6 @@ export const outcomes: OutcomeItem[] = [
 		description:
 			"AI-assisted content creation, translation, and personalized outreach, so your team produces more without burning out.",
 	},
-]
-
-export const proofStats: ProofStat[] = [
-	{ value: "25%", label: "More leads closed", accent: "primary" },
-	{ value: "15h", label: "Admin saved/week", accent: "accent" },
 ]
 
 export const testimonials: Testimonial[] = [
@@ -480,7 +477,7 @@ export const team: TeamMember[] = [
 		image: "/jake.jpg",
 		name: "Jake",
 		role: "CEO & Strategy",
-		bio: "Seven years in MARSOC as a Special Operations medic taught one discipline: understand what is actually broken before you act. That approach now guides every Recursive Solutions engagement. Jake works directly with founders and CEOs to identify where the business is losing margin and owner time, then defines the most effective intervention before any technology is recommended.",
+		bio: "Seven years in MARSOC as a Special Operations medic taught one discipline: understand what's actually broken before you act. Jake works directly with founders to find where the business is losing margin and owner time, then defines the fix before any technology is recommended.",
 		initials: "J",
 		linkedin: "https://www.linkedin.com/in/jake-johnson-recursive/",
 	},

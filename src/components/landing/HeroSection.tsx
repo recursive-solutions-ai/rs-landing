@@ -34,9 +34,6 @@ export function HeroSection({ locale }: { locale: string }) {
 						className="reveal mt-6 max-w-xl text-lg leading-relaxed text-base-content/70 mx-auto lg:mx-0"
 						style={{ "--reveal-delay": "0.2s" } as CSSProperties}
 					>
-						We build and operate the automation, websites, and AI systems that
-						run owner-led businesses — one partner instead of six disconnected
-						tools.
 					</p>
 					<div
 						className="reveal mt-8 flex flex-wrap items-center justify-center gap-5 lg:justify-start"
@@ -49,6 +46,11 @@ export function HeroSection({ locale }: { locale: string }) {
 							Explore Lucy →
 						</ButtonLink>
 					</div>
+					<p
+						className="reveal mt-4 text-sm text-base-content/50 mx-auto lg:mx-0 max-w-xl"
+						style={{ "--reveal-delay": "0.35s" } as CSSProperties}
+					>
+					</p>
 				</div>
 
 				<div

@@ -47,7 +47,7 @@ export function ContactCTASection({
 	const subtitleText = subtitle ?? ""
 	const introText =
 		intro ??
-		"In 30 minutes, we'll learn about your business and hand you a Friction Audit. A real breakdown of where your business loses time and margin, and where AI could take you. Worst case, you walk away with free insight your competitors are paying for."
+		"Let us learn about your business or Jake will fire me."
 	const successMessage = settings?.successMessage ?? "You'll hear from us within one business day."
 
 	const [status, setStatus] = useState<
