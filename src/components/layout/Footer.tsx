@@ -32,6 +32,7 @@ export function Footer() {
 							<Link href={`/${locale}#field-reports`} className="text-sm text-base-content/60 hover:text-primary">Results</Link>
 							<Link href={`/${locale}#team`} className="text-sm text-base-content/60 hover:text-primary">Team</Link>
 							<Link href={`/${locale}#offerings`} className="text-sm text-base-content/60 hover:text-primary">Offerings</Link>
+							<Link href={`/${locale}/blog`} className="text-sm text-base-content/60 hover:text-primary">Blog</Link>
 							<Link href={`/${locale}#contact`} className="text-sm text-base-content/60 hover:text-primary">Contact</Link>
 						</nav>
 					</div>
