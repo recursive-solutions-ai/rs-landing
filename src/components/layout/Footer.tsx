@@ -37,19 +37,6 @@ export function Footer() {
 						</nav>
 					</div>
 
-					{/* <div>
-						<h4 className="font-semibold mb-2">AI ROI Calculator</h4>
-						<nav className="flex flex-col gap-1">
-							<Link href={`/${locale}/roi-calculator`} className="text-sm text-base-content/60 hover:text-primary">All concepts</Link>
-							<Link href={`/${locale}/roi-calculator/hybrid`} className="text-sm text-base-content/60 hover:text-primary">A+D · Hybrid</Link>
-							<Link href={`/${locale}/roi-calculator/wizard`} className="text-sm text-base-content/60 hover:text-primary">A · Wizard</Link>
-							<Link href={`/${locale}/roi-calculator/single`} className="text-sm text-base-content/60 hover:text-primary">B · Single Number</Link>
-							<Link href={`/${locale}/roi-calculator/delay`} className="text-sm text-base-content/60 hover:text-primary">C · Cost of Delay</Link>
-							<Link href={`/${locale}/roi-calculator/stack`} className="text-sm text-base-content/60 hover:text-primary">D · Stack Builder</Link>
-							<Link href={`/${locale}/roi-calculator/benchmarks`} className="text-sm text-base-content/60 hover:text-primary">E · Benchmarks</Link>
-						</nav>
-					</div> */}
-
 					{/* Pinned to the last column while the middle nav sections are hidden. */}
 					<div className="md:col-start-4">
 						<h4 className="font-semibold mb-2">{t('footer.legal')}</h4>
