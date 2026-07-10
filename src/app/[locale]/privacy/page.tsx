@@ -95,8 +95,8 @@ export default function PrivacyPage() {
 							understand site usage
 						</li>
 						<li>
-							<strong className="text-base-content">Email service providers</strong> (e.g., Resend) to process
-							contact form submissions
+							<strong className="text-base-content">Business platform and CRM providers</strong> that receive and
+							store contact form submissions
 						</li>
 						<li>
 							<strong className="text-base-content">Hosting and infrastructure providers</strong> that support
