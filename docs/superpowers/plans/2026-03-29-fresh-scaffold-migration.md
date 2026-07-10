@@ -526,9 +526,9 @@ BRAIN_API_KEY=REPLACE
 TURSO_DATABASE_URL=REPLACE
 TURSO_AUTH_TOKEN=REPLACE
 
-# Resend (contact form)
-RESEND_API_KEY=re_ZU468PgE_Pkve42UiG8xxFmN4sALrW87h
-CONTACT_EMAIL=denis@recursive-solutions.com
+# Resend (contact form): REMOVED 2026-07-05 (commit 8246c12); form now flows through the Brain
+# RESEND_API_KEY=REDACTED  (old key revoked, do not restore)
+# CONTACT_EMAIL=denis@recursive-solutions.com
 
 # i18n (optional — English-only if omitted)
 # DEFAULT_LANGUAGE=en
