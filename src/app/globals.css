@@ -199,6 +199,25 @@ body {
   }
 }
 
+/* ── Pillar-visual animation gating ───────────────────────────────────
+   The five pillar visuals (.lp-stage) run several infinite CSS loops each.
+   Pause them by default and only run when the row is scrolled into view
+   (PillarRow adds `.pillar-visual-active` via its IntersectionObserver),
+   so five visuals' worth of loops don't burn the compositor off-screen or
+   on hidden tabs. The reduced-motion blocks inside each visual still win
+   (they use `animation: none !important`, which zeroes the animation).
+   Each visual's own `<style>` block sets the `animation` shorthand (which
+   resets play-state to running) and is injected after this file, so the
+   pause needs `!important` to win the cascade regardless of source order. */
+.lp-stage,
+.lp-stage * {
+  animation-play-state: paused !important;
+}
+.pillar-visual-active .lp-stage,
+.pillar-visual-active .lp-stage * {
+  animation-play-state: running !important;
+}
+
 /* Blueprint grid — faint technical grid for dark sections */
 .blueprint-grid {
   background-image:

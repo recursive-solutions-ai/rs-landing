@@ -28,6 +28,11 @@ function PillarVisual({ kind }: { kind: FeaturePillar["visual"] }) {
 
 function PillarRow({ pillar }: { pillar: FeaturePillar }) {
 	const { ref, inView } = useInView<HTMLDivElement>()
+	// Separate observer for animation gating: unlike the reveal (once: true),
+	// this re-fires so the visual's infinite loops pause once it scrolls away.
+	const { ref: visualRef, inView: visualInView } = useInView<HTMLDivElement>({
+		once: false,
+	})
 
 	return (
 		<div
@@ -86,7 +91,11 @@ function PillarRow({ pillar }: { pillar: FeaturePillar }) {
 
 			{/* Visual column */}
 			<div
-				className="reveal w-full"
+				ref={visualRef}
+				className={cn(
+					"reveal w-full",
+					visualInView && "pillar-visual-active"
+				)}
 				style={{ "--reveal-delay": "0.15s" } as CSSProperties}
 			>
 				<PillarVisual kind={pillar.visual} />
