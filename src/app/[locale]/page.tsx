@@ -38,7 +38,7 @@ export default async function LandingPage({
 			<ServicesSection />
 			<TeamSection />
 			<FaqSection />
-			<ContactCTASection form={contactForm} />
+			<ContactCTASection form={contactForm} submitLabel="Book a Consult" />
 		</div>
 	)
 }

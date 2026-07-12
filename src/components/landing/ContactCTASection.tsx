@@ -140,7 +140,7 @@ export function ContactCTASection({
 					className="reveal mx-auto max-w-2xl"
 					style={{ "--reveal-delay": "0.2s" } as CSSProperties}
 				>
-					<div className="overflow-hidden rounded-[2rem] bg-primary p-10 text-primary-content shadow-2xl md:p-12">
+					<div className="contact-form-card overflow-hidden rounded-[2rem] bg-primary p-10 text-primary-content shadow-2xl md:p-12">
 
 						<p className="mb-8 text-primary-content/80 leading-relaxed">
 							{introText}
@@ -181,9 +181,17 @@ export function ContactCTASection({
 
 									return (
 										<div key={field.name}>
-											<label htmlFor={id} className="sr-only">
-												{field.label}
-											</label>
+											{field.type !== "checkbox" && (
+												<label
+													htmlFor={id}
+													className="mb-1.5 block text-sm font-semibold text-primary-content/90"
+												>
+													{field.label}
+													{field.required && (
+														<span className="text-primary-content/60"> *</span>
+													)}
+												</label>
+											)}
 											{field.type === "textarea" ? (
 												<Textarea rows={3} {...commonProps} />
 											) : field.type === "select" ? (
@@ -236,6 +244,11 @@ export function ContactCTASection({
 										submitLabel
 									)}
 								</button>
+
+								<p className="text-center text-sm text-primary-content/70">
+									30-minute intro call, no pitch deck. We reply within one
+									business day.
+								</p>
 							</form>
 						)}
 					</div>
