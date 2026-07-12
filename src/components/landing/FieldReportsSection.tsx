@@ -23,8 +23,6 @@ export function FieldReportsSection() {
 					<h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-base-content md:text-5xl">
 						What clients are saying.
 					</h2>
-					<p className="mt-5 text-lg leading-relaxed text-base-content/60">
-					</p>
 				</div>
 			</div>
 
