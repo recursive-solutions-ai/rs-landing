@@ -225,6 +225,22 @@ body {
   animation-play-state: running !important;
 }
 
+/* Pillar visuals are mockups of a real (light) product screen. They must
+   read as a screenshot glowing on the page, not re-theme with it. The five
+   stages reference theme tokens (--color-base-content / primary / secondary
+   / base-200 / base-300) for their card fills and ink; in dark mode those
+   flip and the ink lands on hardcoded-white cards (~1.2:1, invisible).
+   Pin the tokens to their light-theme literals within the box so card and
+   ink stay locked together in either theme. Scoped override, not global. */
+.pillar-visual-box {
+  --color-base-content: #232229;
+  --color-base-100: #f6f3ee;
+  --color-base-200: #ece8e1;
+  --color-base-300: #dcd6cc;
+  --color-primary: #284b73;
+  --color-secondary: #3f7d8c;
+}
+
 /* Blueprint grid — faint technical grid for dark sections */
 .blueprint-grid {
   background-image:

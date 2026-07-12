@@ -18,7 +18,7 @@ interface AnimationBoxProps {
 export function AnimationBox({ num, label, children }: AnimationBoxProps) {
 	return (
 		<div
-			className="relative isolate flex aspect-video w-full flex-col overflow-hidden rounded-2xl border-2 border-transparent shadow-[0_12px_34px_rgba(35,34,41,0.14)]"
+			className="pillar-visual-box relative isolate flex aspect-video w-full flex-col overflow-hidden rounded-2xl border-2 border-transparent shadow-[0_12px_34px_rgba(35,34,41,0.14)]"
 			style={{
 				background:
 					"linear-gradient(#fdfcfa,#fdfcfa) padding-box, linear-gradient(135deg, var(--color-primary), var(--color-secondary)) border-box",
