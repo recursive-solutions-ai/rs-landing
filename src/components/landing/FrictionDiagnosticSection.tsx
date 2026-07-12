@@ -30,7 +30,7 @@ export function FrictionDiagnosticSection() {
 				{frictionSignals.map((signal, i) => (
 					<div
 						key={signal.label}
-						className="reveal flex flex-col gap-4 rounded-xl border border-base-300 border-l-4 border-l-primary bg-base-100 p-6"
+						className="reveal flex flex-col gap-4 rounded-xl border border-base-300 bg-base-100 p-6"
 						style={{ "--reveal-delay": `${0.1 + i * 0.1}s` } as CSSProperties}
 					>
 						<span className="w-fit rounded-md bg-neutral px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-neutral-content">

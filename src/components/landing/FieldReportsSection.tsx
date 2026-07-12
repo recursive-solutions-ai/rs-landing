@@ -37,7 +37,7 @@ export function FieldReportsSection() {
 						className={cn(
 							"reveal flex flex-col rounded-2xl border bg-base-100 p-8",
 							report.accent
-								? "border-primary/40 border-l-4 border-l-primary"
+								? "border-primary/40"
 								: "border-base-300"
 						)}
 						style={{ "--reveal-delay": `${0.1 + i * 0.1}s` } as CSSProperties}
