@@ -17,8 +17,7 @@ export function FieldReportsSection() {
 			{/* Eyebrow + heading + stat strip */}
 			<div className="flex flex-col items-center text-center">
 				<div className="reveal max-w-3xl">
-					<span className="mb-4 flex items-center justify-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary">
-						<span className="inline-block size-2.5 rounded-[2px] bg-primary" />
+					<span className="mb-4 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
 						Field Reports
 					</span>
 					<h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-base-content md:text-5xl">

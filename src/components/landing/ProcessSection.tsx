@@ -21,8 +21,7 @@ export function ProcessSection() {
 			<div className="relative mx-auto max-w-7xl px-6 py-16">
 				{/* Header: centered */}
 				<div className="reveal mb-8 text-center">
-					<span className="mb-4 flex items-center justify-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary">
-						<span className="inline-block size-2.5 rounded-[2px] bg-primary" />
+					<span className="mb-4 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
 						The Blueprint
 					</span>
 					<h2 className="font-display text-4xl font-extrabold leading-tight tracking-tight text-base-content md:text-5xl">

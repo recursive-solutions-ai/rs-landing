@@ -16,8 +16,7 @@ export function FrictionDiagnosticSection() {
 		>
 			{/* Eyebrow + heading — the problem */}
 			<div className="reveal max-w-3xl mx-auto text-center">
-				<span className="mb-4 flex items-center justify-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary">
-					<span className="inline-block size-2.5 rounded-[2px] bg-primary" />
+				<span className="mb-4 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
 					Friction Diagnostic
 				</span>
 				<h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-base-content md:text-5xl">
@@ -48,16 +47,9 @@ export function FrictionDiagnosticSection() {
 				className="reveal mt-20 max-w-3xl mx-auto text-center"
 				style={{ "--reveal-delay": "0.1s" } as CSSProperties}
 			>
-				<span className="mb-4 flex items-center justify-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary">
-					<span className="inline-block size-2.5 rounded-[2px] bg-primary" />
-					The Fix
-				</span>
 				<h2 className="font-display text-4xl font-bold leading-[1.1] tracking-tight text-base-content md:text-5xl">
 					One partner. A system built around you.
 				</h2>
-				<p className="mt-5 text-lg leading-relaxed text-base-content/60">
-
-				</p>
 			</div>
 
 			{/* Outcome grid */}
