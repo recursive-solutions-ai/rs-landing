@@ -72,7 +72,7 @@ export function FrictionEstimator() {
 			<button
 				type="button"
 				onClick={() => setShowCost((v) => !v)}
-				className="mt-6 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-base-content/70 transition-colors hover:text-primary"
+				className="mt-4 flex items-center gap-1.5 py-2 text-xs font-semibold uppercase tracking-widest text-base-content/70 transition-colors hover:text-primary"
 				aria-expanded={showCost}
 			>
 				{showCost ? "Hide the dollar cost" : "Calculate the dollar cost"}
