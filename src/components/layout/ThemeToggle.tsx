@@ -17,7 +17,12 @@ export function ThemeToggle() {
 		const next: Theme = theme === 'rs-dark' ? 'rs' : 'rs-dark'
 		setTheme(next)
 		document.documentElement.setAttribute('data-theme', next)
-		localStorage.setItem('theme', next)
+		try {
+			localStorage.setItem('theme', next)
+		} catch {
+			// localStorage can throw in private mode / when storage is blocked;
+			// the theme still applies for this session.
+		}
 	}
 
 	const isDark = theme === 'rs-dark'
@@ -26,7 +31,9 @@ export function ThemeToggle() {
 		<button
 			onClick={toggle}
 			className="btn btn-ghost btn-sm btn-square"
-			aria-label="Toggle theme"
+			aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+			aria-pressed={isDark}
+			title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
 		>
 			{isDark ? (
 				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">

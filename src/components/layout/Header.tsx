@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useI18n } from '@/i18n/client'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeLogo } from './ThemeLogo'
+import { ThemeToggle } from './ThemeToggle'
 
 export function Header() {
 	const { t, locale } = useI18n()
@@ -40,6 +41,7 @@ export function Header() {
 						</Link>
 					))}
 					<LanguageSwitcher />
+					<ThemeToggle />
 					<Link href={ctaHref} className="btn btn-primary btn-sm">
 						{ctaLabel}
 					</Link>
@@ -80,7 +82,10 @@ export function Header() {
 								{link.label}
 							</Link>
 						))}
-						<LanguageSwitcher />
+						<div className="flex items-center gap-2">
+							<LanguageSwitcher />
+							<ThemeToggle />
+						</div>
 						<Link
 							href={ctaHref}
 							className="btn btn-primary btn-sm mt-2"

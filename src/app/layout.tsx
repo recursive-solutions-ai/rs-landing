@@ -48,6 +48,14 @@ export default function RootLayout({
 	return (
 		<html lang="en" data-theme="rs" className={display.variable} suppressHydrationWarning>
 			<head>
+				{/* No-flash theme init: apply the saved (or system-preferred) theme to
+				    <html> before first paint so dark mode persists across loads without
+				    a light flash. Runs before hydration; ThemeToggle reads the same key. */}
+				<script
+					dangerouslySetInnerHTML={{
+						__html: `(function(){try{var t=localStorage.getItem('theme');if(t!=='rs'&&t!=='rs-dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'rs-dark':'rs';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
+					}}
+				/>
 				{/* Without JS the IntersectionObserver never fires — force reveal
 				    elements visible so content is never stuck hidden (SEO/no-JS). */}
 				<noscript>
