@@ -114,7 +114,7 @@ export function ContactCTASection({
 	}
 
 	const fieldClass =
-		"bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
+		"bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/70 transition-all duration-200 focus:ring-2 focus:ring-primary-content/30"
 
 	return (
 		<section id="contact" className="mx-auto max-w-6xl px-6 py-16">

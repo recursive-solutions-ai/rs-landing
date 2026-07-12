@@ -111,7 +111,7 @@ export default async function BlogPostPage({
 					</figure>
 				)}
 
-				<time className="text-sm text-base-content/50">{date}</time>
+				<time className="text-sm text-base-content/70">{date}</time>
 				<h1 className="text-4xl font-bold mt-2 mb-8">{post.title}</h1>
 
 				<BlogContent

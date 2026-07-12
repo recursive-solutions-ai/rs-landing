@@ -76,8 +76,8 @@ export function FrictionDiagnosticSection() {
 						<div className="mb-4 flex items-center justify-between gap-2">
 							<div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-widest">
 								<span className="text-primary">{card.num}</span>
-								<span className="text-base-content/30">/</span>
-								<span className="text-base-content/50">{card.label}</span>
+								<span className="text-base-content/40">/</span>
+								<span className="text-base-content/70">{card.label}</span>
 							</div>
 							{card.badge && (
 								<span className="rounded-md bg-primary px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-primary-content">

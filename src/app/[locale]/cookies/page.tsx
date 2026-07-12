@@ -9,7 +9,7 @@ export default function CookiesPage() {
 		<main className="container mx-auto px-4 py-16 max-w-3xl">
 			<header className="mb-12 border-b border-base-300 pb-8">
 				<h1 className="text-4xl font-bold mb-2">{t('page.cookie.policy')}</h1>
-				<p className="text-base-content/40 text-sm">Last updated: March 2026</p>
+				<p className="text-base-content/70 text-sm">Last updated: March 2026</p>
 			</header>
 
 			<div className="space-y-10 text-base-content/80 leading-relaxed">

@@ -26,7 +26,7 @@ export function CredibilityBar() {
 					Forged in special operations, business, and engineering.  We build the systems that give companies an edge.
 				</p>
 				<div className="reveal flex items-center gap-4">
-					<span className="text-[10px] font-bold uppercase tracking-widest text-base-content/50">
+					<span className="text-[10px] font-bold uppercase tracking-widest text-base-content/70">
 						Trusted by
 					</span>
 					<div className="flex items-center gap-3">

@@ -49,7 +49,7 @@ export function FrictionEstimator() {
 
 			{/* Result */}
 			<div className="mt-6 rounded-xl bg-base-200 p-5">
-				<span className="text-xs font-semibold uppercase tracking-widest text-base-content/50">
+				<span className="text-xs font-semibold uppercase tracking-widest text-base-content/70">
 					Reclaimable hours / year
 				</span>
 				<p className="font-display mt-1 text-5xl font-bold leading-none tracking-tight text-base-content">
@@ -89,7 +89,7 @@ export function FrictionEstimator() {
 							onChange={setRate}
 						/>
 						<div>
-							<span className="text-xs font-semibold uppercase tracking-widest text-base-content/50">
+							<span className="text-xs font-semibold uppercase tracking-widest text-base-content/70">
 								Annual cost
 							</span>
 							<p className="font-display mt-1 text-3xl font-bold leading-none tracking-tight text-primary">
@@ -124,7 +124,7 @@ function Field({
 		<div>
 			<label
 				htmlFor={id}
-				className="text-xs font-semibold uppercase tracking-widest text-base-content/50"
+				className="text-xs font-semibold uppercase tracking-widest text-base-content/70"
 			>
 				{label}
 			</label>

@@ -49,7 +49,7 @@ export function FieldReportsSection() {
 							&ldquo;{report.quote}&rdquo;
 						</blockquote>
 						<div className="my-6 border-t border-base-300" />
-						<p className="text-xs font-semibold uppercase tracking-widest text-base-content/50">
+						<p className="text-xs font-semibold uppercase tracking-widest text-base-content/70">
 							{report.attribution}
 						</p>
 					</figure>
