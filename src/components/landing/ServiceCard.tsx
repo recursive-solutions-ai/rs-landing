@@ -65,8 +65,10 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
 				{!service.earlyAccess && (
 					<a
 						href="#contact"
-						className="mt-auto pt-4 flex items-center gap-1.5 text-sm font-semibold transition-colors duration-300"
-						style={{ color: useAccent ? "oklch(var(--a))" : "oklch(var(--p))" }}
+						className={cn(
+							"mt-auto pt-4 flex items-center gap-1.5 text-sm font-semibold transition-colors duration-300",
+							useAccent ? "text-accent" : "text-primary"
+						)}
 					>
 						Get started
 						<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
