@@ -53,7 +53,7 @@ export default function RootLayout({
 				    a light flash. Runs before hydration; ThemeToggle reads the same key. */}
 				<script
 					dangerouslySetInnerHTML={{
-						__html: `(function(){try{var t=localStorage.getItem('theme');if(t!=='rs'&&t!=='rs-dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'rs-dark':'rs';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
+						__html: `(function(){var e=document.documentElement;e.classList.add('js');try{var t=localStorage.getItem('theme');if(t!=='rs'&&t!=='rs-dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'rs-dark':'rs';}e.setAttribute('data-theme',t);}catch(_){}})();`,
 					}}
 				/>
 				{/* Without JS the IntersectionObserver never fires — force reveal

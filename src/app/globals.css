@@ -143,8 +143,15 @@ body {
 
 /* Hidden until the container scrolls into view (gets `.reveal-in`).
    Driven by `animation` (not `transition`) so element `transition`
-   rules — e.g. hover effects — remain untouched. */
-.reveal {
+   rules — e.g. hover effects — remain untouched.
+
+   The hidden initial state is gated behind `.js` on <html> (added by the
+   inline head script before paint). Renderers that don't execute that
+   script — some link-preview/screenshot bots, plain HTML parsers — never
+   get the hidden state, so content is never stuck blank for them. Real
+   browsers set `.js` synchronously, so there's no flash. This complements
+   the <noscript> fallback (JS fully disabled). */
+.js .reveal {
   opacity: 0;
 }
 .reveal-in.reveal,
@@ -156,7 +163,7 @@ body {
   to   { opacity: 1; transform: none; }
 }
 
-.reveal-clip {
+.js .reveal-clip {
   clip-path: inset(0 0 110% 0);
 }
 .reveal-in.reveal-clip,
