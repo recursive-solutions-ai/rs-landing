@@ -13,7 +13,7 @@ interface LatestBlogSectionProps {
 export function LatestBlogSection({ posts, locale }: LatestBlogSectionProps) {
 	const { ref, inView } = useInView<HTMLElement>()
 
-	// Nothing to show (no posts, or Turso unconfigured) — render nothing so the
+	// Nothing to show (no posts, or Turso unconfigured). Render nothing so the
 	// landing page never shows an empty row above the footer.
 	if (posts.length === 0) return null
 
