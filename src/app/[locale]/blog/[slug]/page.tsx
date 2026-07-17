@@ -18,6 +18,12 @@ import { formatDate } from '@/lib/i18n-utils'
 
 export const revalidate = 120
 
+// Render slugs that generateStaticParams didn't prebuild (posts added after the
+// last build, or ALL posts when the build ran without Turso env) on demand
+// instead of 404ing. Without this, App Router locks the route to fallback:false
+// and any un-prebuilt slug falls through to the [...rest] catch-all.
+export const dynamicParams = true
+
 export async function generateStaticParams() {
 	const db = getDbOrNull()
 	if (!db) return []
