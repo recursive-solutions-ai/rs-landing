@@ -8,7 +8,11 @@ import { FieldReportsSection } from "@/components/landing/FieldReportsSection"
 import { FaqSection } from "@/components/landing/FaqSection"
 import { TeamSection } from "@/components/landing/TeamSection"
 import { ContactCTASection } from "@/components/landing/ContactCTASection"
+import { LatestBlogSection } from "@/components/landing/LatestBlogSection"
+import type { BlogTeaser } from "@/components/landing/BlogTeaserCard"
 import { getForm } from "@/lib/forms-server"
+import { getBlogPosts } from "@growth-engine/sdk-server"
+import { getDbOrNull } from "@/lib/db"
 import { buildUrl } from "@/lib/sitemap-shared"
 import { defaultLocale } from "@/i18n/config"
 import type { Metadata } from "next"
@@ -28,6 +32,18 @@ export default async function LandingPage({
 	const { locale } = await params
 	const contactForm = await getForm("general-contact-form")
 
+	const db = getDbOrNull()
+	const rawPosts = db ? await getBlogPosts(db, { locale, limit: 3 }) : []
+	// Serialize only the fields the teaser cards use before crossing to the
+	// client component.
+	const latestPosts: BlogTeaser[] = rawPosts.map((post) => ({
+		slug: post.slug,
+		title: post.title,
+		heroImageUrl: post.heroImageUrl ?? null,
+		seoDesc: post.seoDesc ?? null,
+		createdAt: post.createdAt,
+	}))
+
 	return (
 		<div className="no-scrollbar">
 			<HeroSection locale={locale} />
@@ -39,6 +55,7 @@ export default async function LandingPage({
 			<TeamSection />
 			<FaqSection />
 			<ContactCTASection form={contactForm} />
+			<LatestBlogSection posts={latestPosts} locale={locale} />
 		</div>
 	)
 }
