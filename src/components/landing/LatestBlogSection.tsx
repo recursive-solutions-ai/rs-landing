@@ -26,10 +26,6 @@ export function LatestBlogSection({ posts, locale }: LatestBlogSectionProps) {
 			{/* Header row: heading left, text-only "View all" link right */}
 			<div className="flex flex-wrap items-end justify-between gap-4">
 				<div className="reveal">
-					<span className="mb-4 flex items-center gap-2.5 text-sm font-semibold uppercase tracking-widest text-primary">
-						<span className="inline-block size-2.5 rounded-[2px] bg-primary" />
-						From the Blog
-					</span>
 					<h2 className="font-display text-3xl font-bold leading-[1.1] tracking-tight text-base-content md:text-4xl">
 						Latest from the Blog
 					</h2>
