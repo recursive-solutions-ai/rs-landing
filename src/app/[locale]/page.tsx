@@ -17,6 +17,10 @@ import { buildUrl } from "@/lib/sitemap-shared"
 import { defaultLocale } from "@/i18n/config"
 import type { Metadata } from "next"
 
+// Landing page pulls the 3 newest blog posts. Without ISR it would freeze at
+// build time, so match the blog index's revalidate window.
+export const revalidate = 60
+
 export const metadata: Metadata = {
 	title: "Recursive Solutions — One System to Run Your Growth",
 	description:
