@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation'
 import { getDictionary } from '@/i18n'
 import { DictionaryProvider } from '@/i18n/client'
 import { supportedLocales } from '@/i18n/config'
@@ -10,10 +11,13 @@ export function generateStaticParams() {
 	return supportedLocales.map((locale) => ({ locale }))
 }
 
-// Unknown first segments must 404, not render the landing page as a
-// soft-200 — without this, any stray root path with a dot (skipped by the
-// proxy) gets treated as a "locale" and serves duplicate homepage HTML.
-export const dynamicParams = false
+// Keep dynamicParams true (the default) so nested routes with their own
+// generateStaticParams (e.g. blog/[slug]) can render on demand — a parent
+// `dynamicParams = false` cascades to children and 404s any post added after
+// the last build. Unknown locales are rejected in the body instead: without
+// that guard, a stray root path with a dot (skipped by the proxy) would get
+// treated as a "locale" and serve duplicate homepage HTML as a soft-200.
+export const dynamicParams = true
 
 export default async function LocaleLayout({
 	children,
@@ -23,6 +27,7 @@ export default async function LocaleLayout({
 	params: Promise<{ locale: string }>
 }) {
 	const { locale } = await params
+	if (!supportedLocales.includes(locale)) notFound()
 	const dict = await getDictionary(locale)
 
 	return (
