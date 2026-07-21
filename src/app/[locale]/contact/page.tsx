@@ -38,7 +38,7 @@ export default function ContactPage() {
 			    the page blank; give visitors a direct way to reach us. */}
 			{!loading && !config && (
 				<div className="mx-auto max-w-md text-center">
-					<p className="mb-6 text-base-content/70">{t('contact.load.error')}</p>
+					<p className="mb-6 text-base-content/70">{t('contact.reach.direct')}</p>
 					<a
 						href="mailto:team@recursive-solutions.com"
 						className="btn btn-primary"

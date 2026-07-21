@@ -55,6 +55,7 @@ const en = {
 	'contact.heading': 'Contact Us',
 	'contact.subtitle': "We'd love to hear from you",
 	'contact.load.error': 'Failed to load contact information',
+	'contact.reach.direct': 'Reach us directly at',
 	'contact.business.hours': 'Business Hours',
 	'contact.info': 'Contact Information',
 

@@ -57,6 +57,7 @@ const fr: Dictionary = {
 	'contact.heading': 'Contactez-nous',
 	'contact.subtitle': 'Nous serions ravis de vous entendre',
 	'contact.load.error': '\u00C9chec du chargement des informations de contact',
+	'contact.reach.direct': 'Contactez-nous directement \u00E0',
 	'contact.business.hours': 'Heures d\u2019ouverture',
 	'contact.info': 'Coordonn\u00E9es',
 
