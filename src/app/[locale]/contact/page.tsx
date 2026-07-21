@@ -33,6 +33,20 @@ export default function ContactPage() {
 					contact={config.contact ?? null}
 				/>
 			)}
+
+			{/* Fallback: business config missing or failed to load — never leave
+			    the page blank; give visitors a direct way to reach us. */}
+			{!loading && !config && (
+				<div className="mx-auto max-w-md text-center">
+					<p className="mb-6 text-base-content/70">{t('contact.load.error')}</p>
+					<a
+						href="mailto:team@recursive-solutions.com"
+						className="btn btn-primary"
+					>
+						team@recursive-solutions.com
+					</a>
+				</div>
+			)}
 		</main>
 	)
 }

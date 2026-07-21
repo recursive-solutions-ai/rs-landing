@@ -37,7 +37,17 @@ export default async function LandingPage({
 	const contactForm = await getForm("general-contact-form")
 
 	const db = getDbOrNull()
-	const rawPosts = db ? await getBlogPosts(db, { locale, limit: 3 }) : []
+	// getDbOrNull only guards missing env — a Turso outage (env present but DB
+	// unreachable) would otherwise throw and take down the whole landing page.
+	// Degrade the blog strip to empty instead; the rest of the page still renders.
+	let rawPosts: Awaited<ReturnType<typeof getBlogPosts>> = []
+	if (db) {
+		try {
+			rawPosts = await getBlogPosts(db, { locale, limit: 3 })
+		} catch (err) {
+			console.error("[landing] failed to load latest blog posts:", err)
+		}
+	}
 	// Serialize only the fields the teaser cards use before crossing to the
 	// client component.
 	const latestPosts: BlogTeaser[] = rawPosts.map((post) => ({
