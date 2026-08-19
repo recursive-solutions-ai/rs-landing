@@ -4,9 +4,34 @@ import Image from "next/image"
 import { useInView } from "@/hooks/useInView"
 import { cn } from "@/lib/utils"
 
-const CLIENTS = [
-	{ name: "HCCI", src: "/logos/hcci.png" },
-	{ name: "Roadmap Tax Services, Inc.", src: "/logos/roadmap-tax.jpg" },
+const CLIENTS: {
+	name: string
+	src: string
+	width: number
+	height: number
+	href?: string
+}[] = [
+	{
+		name: "Harrington Construction Co., Inc.",
+		src: "/logos/hcci.png",
+		width: 1137,
+		height: 215,
+		href: "https://www.hccigroup.com/",
+	},
+	{
+		name: "Roadmap Tax Services, Inc.",
+		src: "/logos/roadmap-tax.jpg",
+		width: 1800,
+		height: 631,
+		href: "https://www.roadmaptax.com/en",
+	},
+	{
+		name: "My Little Paris Cafe",
+		src: "/logos/my-little-paris.png",
+		width: 514,
+		height: 118,
+		href: "https://www.my-little-paris.com/",
+	},
 ]
 
 export function CredibilityBar() {
@@ -29,21 +54,40 @@ export function CredibilityBar() {
 					<span className="text-[10px] font-bold uppercase tracking-widest text-base-content/50">
 						Trusted by
 					</span>
-					<div className="flex items-center gap-3">
-						{CLIENTS.map((client) => (
-							<div
-								key={client.name}
-								className="relative h-10 w-28 overflow-hidden rounded-md bg-neutral"
-							>
+					<div className="flex flex-wrap items-center gap-3">
+						{CLIENTS.map((client) => {
+							const logo = (
 								<Image
 									src={client.src}
 									alt={client.name}
-									fill
-									sizes="112px"
-									className="object-contain p-1.5"
+									width={client.width}
+									height={client.height}
+									className="h-10 w-auto max-w-48 object-contain p-1.5"
 								/>
-							</div>
-						))}
+							)
+							const boxClass =
+								"inline-flex overflow-hidden rounded-md bg-neutral"
+
+							return client.href ? (
+								<a
+									key={client.name}
+									href={client.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={`Visit ${client.name}`}
+									className={cn(
+										boxClass,
+										"transition hover:scale-105 hover:ring-2 hover:ring-primary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+									)}
+								>
+									{logo}
+								</a>
+							) : (
+								<div key={client.name} className={boxClass}>
+									{logo}
+								</div>
+							)
+						})}
 					</div>
 				</div>
 			</div>
