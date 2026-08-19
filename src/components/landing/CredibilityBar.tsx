@@ -32,6 +32,13 @@ const CLIENTS: {
 		height: 118,
 		href: "https://www.my-little-paris.com/",
 	},
+	{
+		name: "Echo Scribe",
+		src: "/logos/echo-scribe.png",
+		width: 189,
+		height: 56,
+		href: "https://desduvauchelle.github.io/echo-scribe/#",
+	},
 ]
 
 export function CredibilityBar() {
