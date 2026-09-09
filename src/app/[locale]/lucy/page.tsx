@@ -43,6 +43,21 @@ export default async function LucyPage({
 	return (
 		<div className="no-scrollbar">
 			<LucyHero locale={locale} />
+			<section aria-label="Lucy video" className="bg-base-100 px-6 pb-12">
+				<div className="mx-auto max-w-5xl overflow-hidden rounded-box border border-base-300 bg-black shadow-sm">
+					<iframe
+						className="block aspect-video h-auto w-full border-0"
+						src="https://www.youtube-nocookie.com/embed/htLKHvrdAAo"
+						title="Lucy video"
+						width="1280"
+						height="720"
+						loading="lazy"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						referrerPolicy="strict-origin-when-cross-origin"
+						allowFullScreen
+					/>
+				</div>
+			</section>
 			<LucyIntro />
 			<FeaturePillarsSection />
 			<ContactCTASection

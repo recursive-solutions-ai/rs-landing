@@ -11,6 +11,7 @@ export const BLOG_BATCH_SIZE = 1000
 export const STATIC_PAGES = [
 	'',
 	'/lucy',
+	'/use-cases/my-little-paris',
 	'/blog',
 	'/contact',
 	'/privacy',

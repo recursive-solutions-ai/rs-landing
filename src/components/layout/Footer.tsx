@@ -37,7 +37,12 @@ export function Footer() {
 						</nav>
 					</div>
 
-					{/* Pinned to the last column while the middle nav sections are hidden. */}
+					<div>
+						<h4 className="font-semibold mb-2">Use cases</h4>
+						<nav aria-label="Use cases" className="flex flex-col gap-1">
+							<Link href={`/${locale}/use-cases/my-little-paris`} className="text-sm text-base-content/60 hover:text-primary">My Little Paris</Link>
+						</nav>
+					</div>
 					<div className="md:col-start-4">
 						<h4 className="font-semibold mb-2">{t('footer.legal')}</h4>
 						<nav className="flex flex-col gap-1">
