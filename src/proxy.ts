@@ -51,6 +51,19 @@ function detectLocale(request: NextRequest): string {
 export function proxy(request: NextRequest) {
 	const { pathname } = request.nextUrl
 
+	// Combine production homepage host and locale canonicalization in one hop.
+	// Any upstream apex redirect must also target /en or let this request through.
+	if (
+		pathname === '/' &&
+		['recursive-solutions.com', 'www.recursive-solutions.com'].includes(
+			request.nextUrl.hostname,
+		)
+	) {
+		const url = new URL('https://www.recursive-solutions.com/en')
+		url.search = request.nextUrl.search
+		return NextResponse.redirect(url, 301)
+	}
+
 	// ─── CORS protection for API routes ─────────────────────────────────
 	if (pathname.startsWith('/api/')) {
 		if (

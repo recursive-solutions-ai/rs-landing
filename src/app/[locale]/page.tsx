@@ -24,7 +24,7 @@ export const revalidate = 60
 export const metadata: Metadata = {
 	title: "Recursive Solutions — One System to Run Your Growth",
 	description:
-		"We make your business simpler, faster, and more valuable — one vertical system for your website, content, SEO, leads, CRM, and analytics, run by a hands-on team. Plus custom automations, bespoke tools, and consulting.",
+		"One vertical system for your website, content, SEO, leads, CRM, and analytics, run by a hands-on team. Book a consult to map where you lose hours.",
 	alternates: { canonical: buildUrl("", defaultLocale) },
 }
 
