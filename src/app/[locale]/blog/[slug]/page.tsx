@@ -15,6 +15,7 @@ import { buildUrl } from '@/lib/sitemap-shared'
 import { breadcrumbLd } from '@/lib/seo-config'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { formatDate } from '@/lib/i18n-utils'
+import { normalizeBlogKeywords } from '@/lib/blog-keywords'
 
 export const revalidate = 120
 
@@ -122,7 +123,7 @@ export default async function BlogPostPage({
 
 				<BlogContent
 					html={post.content}
-					post={post}
+					post={{ ...post, keywords: normalizeBlogKeywords(post.keywords) }}
 					author={author ?? undefined}
 					business={business ?? undefined}
 				/>
