@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getDictionary } from '@/i18n'
 import { DictionaryProvider } from '@/i18n/client'
-import { supportedLocales } from '@/i18n/config'
+import { supportedLocales, isSupportedLocale } from '@/i18n/config'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { JsonLd } from '@/components/seo/JsonLd'
@@ -27,7 +27,10 @@ export default async function LocaleLayout({
 	params: Promise<{ locale: string }>
 }) {
 	const { locale } = await params
-	if (!supportedLocales.includes(locale)) notFound()
+	// Bare paths are rewritten into [locale], so this segment matches ANY first
+	// path segment. Reject anything that is not a real locale so `/bogus-xyz`
+	// 404s instead of rendering a page with a garbage canonical.
+	if (!isSupportedLocale(locale)) notFound()
 	const dict = await getDictionary(locale)
 
 	return (

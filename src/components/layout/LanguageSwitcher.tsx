@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from 'next/navigation'
 import { useI18n } from '@/i18n/client'
 import { supportedLocales as configLocales } from '@/i18n/config'
+import { localizedPath } from '@/lib/i18n-utils'
 import type { DictionaryKey } from '@/i18n/dictionaries/en'
 
 export function LanguageSwitcher() {
@@ -17,23 +18,16 @@ export function LanguageSwitcher() {
 	function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
 		const newLocale = e.target.value
 
-		// Check if the current path starts with a locale prefix
+		// Strip the locale prefix (if any) to get the bare path, then re-add the
+		// target locale's prefix. The default language has NO prefix, so
+		// switching to it produces `/blog`, not `/en/blog`.
 		const segments = pathname.split('/')
 		const firstSegment = segments[1] ?? ''
-		const hasLocalePrefix = configLocales.includes(firstSegment)
+		const barePath = configLocales.includes(firstSegment)
+			? pathname.slice(`/${firstSegment}`.length) || '/'
+			: pathname
 
-		let newPath: string
-
-		if (hasLocalePrefix) {
-			// Replace existing locale prefix
-			segments[1] = newLocale
-			newPath = segments.join('/')
-		} else {
-			// Add locale prefix
-			newPath = `/${newLocale}${pathname}`
-		}
-
-		router.push(newPath)
+		router.push(localizedPath(barePath, newLocale))
 	}
 
 	return (

@@ -6,6 +6,7 @@ import type { ServiceItem } from "@/data/landing"
 import { cn } from "@/lib/utils"
 import { ButtonLink } from "@/components/ui/button-link"
 import { useI18n } from "@/i18n/client"
+import { localizedPath } from '@/lib/i18n-utils'
 
 interface ServiceCardProps {
 	service: ServiceItem
@@ -17,7 +18,7 @@ export const ServiceCard = forwardRef<HTMLDivElement, ServiceCardProps>(
 		const useAccent = index >= 2
 		const { locale } = useI18n()
 		const ctaHref = service.href.startsWith("/")
-			? `/${locale}${service.href}`
+			? localizedPath(service.href, locale)
 			: service.href
 
 		return (

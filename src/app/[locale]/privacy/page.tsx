@@ -1,6 +1,7 @@
 'use client'
 
 import { useI18n } from '@/i18n/client'
+import { localizedPath } from '@/lib/i18n-utils'
 
 export default function PrivacyPage() {
 	const { t, locale } = useI18n()
@@ -46,7 +47,7 @@ export default function PrivacyPage() {
 						</li>
 						<li>
 							<strong className="text-base-content">Cookies and similar technologies:</strong> as described in
-							our <a href={`/${locale}/cookies`} className="text-primary hover:underline">Cookie Policy</a>
+							our <a href={localizedPath('/cookies', locale)} className="text-primary hover:underline">Cookie Policy</a>
 						</li>
 					</ul>
 				</section>
@@ -147,7 +148,7 @@ export default function PrivacyPage() {
 					</ul>
 					<p className="mt-3">
 						To exercise any of these rights, please contact us through our{' '}
-						<a href={`/${locale}/contact`} className="text-primary hover:underline">contact page</a>. We will respond to
+						<a href={localizedPath('/contact', locale)} className="text-primary hover:underline">contact page</a>. We will respond to
 						your request within 30 days.
 					</p>
 				</section>
@@ -185,7 +186,7 @@ export default function PrivacyPage() {
 					<p>
 						If you have any questions or concerns about this Privacy Policy or our
 						data practices, please reach out through our{' '}
-						<a href={`/${locale}/contact`} className="text-primary hover:underline">contact page</a>.
+						<a href={localizedPath('/contact', locale)} className="text-primary hover:underline">contact page</a>.
 					</p>
 				</section>
 			</div>

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { isMultiLang, supportedLocales, defaultLocale } from './i18n/config'
+import { defaultLocaleRedirectTarget } from './lib/i18n-utils'
 
 const SKIP_PREFIXES = ['/_next/', '/sitemap']
 const SKIP_PATHS = ['/favicon.ico', '/sitemap.xml', '/robots.txt']
@@ -9,6 +10,9 @@ const SKIP_PATHS = ['/favicon.ico', '/sitemap.xml', '/robots.txt']
 // to the Brain carrying the server's own BRAIN_API_KEY (jobs: arbitrary
 // authenticated forward; crm: unauthenticated contact write) — block outright.
 const BLOCKED_API_PREFIXES = ['/api/rs/jobs', '/api/rs/crm']
+
+const APEX_HOST = 'recursive-solutions.com'
+const CANONICAL_HOST = 'www.recursive-solutions.com'
 
 function getLocaleFromHeaders(request: NextRequest): string {
 	const acceptLanguage = request.headers.get('accept-language')
@@ -31,6 +35,11 @@ function getLocaleFromHeaders(request: NextRequest): string {
 	return defaultLocale
 }
 
+/** Internal rewrite target: `/` -> `/en` (not `/en/`, which would 308). */
+function rewriteTarget(pathname: string, locale: string): string {
+	return pathname === '/' ? `/${locale}` : `/${locale}${pathname}`
+}
+
 function detectLocale(request: NextRequest): string {
 	// 1. Cookie
 	const cookieLocale = request.cookies.get('ge-locale')?.value
@@ -51,16 +60,15 @@ function detectLocale(request: NextRequest): string {
 export function proxy(request: NextRequest) {
 	const { pathname } = request.nextUrl
 
-	// Combine production homepage host and locale canonicalization in one hop.
-	// Any upstream apex redirect must also target /en or let this request through.
-	if (
-		pathname === '/' &&
-		['recursive-solutions.com', 'www.recursive-solutions.com'].includes(
-			request.nextUrl.hostname,
-		)
-	) {
-		const url = new URL('https://www.recursive-solutions.com/en')
-		url.search = request.nextUrl.search
+	// Host canonicalization: apex -> www, same path. One hop, and it never adds
+	// a locale segment — the default language lives at the bare path, so
+	// `https://recursive-solutions.com/blog` lands on `https://www.…/blog`
+	// with a 200 rather than starting a redirect chain.
+	if (request.nextUrl.hostname === APEX_HOST) {
+		const url = request.nextUrl.clone()
+		url.hostname = CANONICAL_HOST
+		url.protocol = 'https:'
+		url.port = ''
 		return NextResponse.redirect(url, 301)
 	}
 
@@ -116,6 +124,16 @@ export function proxy(request: NextRequest) {
 
 	if (pathnameHasLocale) {
 		const locale = firstSegment
+
+		// ── The default language must never carry a locale segment. ──
+		// 301 /en/foo -> /foo and /en -> /. Secondary locales are left alone.
+		const bareTarget = defaultLocaleRedirectTarget(pathname, defaultLocale)
+		if (bareTarget) {
+			const url = request.nextUrl.clone()
+			url.pathname = bareTarget
+			return NextResponse.redirect(url, 301)
+		}
+
 		const response = NextResponse.next()
 		response.headers.set('x-locale', locale)
 
@@ -130,21 +148,21 @@ export function proxy(request: NextRequest) {
 		return response
 	}
 
-	// Single-language mode: permanently redirect bare paths to /{defaultLocale}/path.
-	// A 301 (not an internal rewrite) collapses the duplicate bare URL into its
-	// locale-prefixed canonical, so Google stops seeing two 200-OK URLs per page.
+	// Single-language site: REWRITE (never redirect) to /{defaultLocale}/path so
+	// the bare URL is the only one that answers 200. `/en/...` is 301'd above.
 	if (!isMultiLang) {
 		const url = request.nextUrl.clone()
-		url.pathname =
-			pathname === '/' ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`
-		return NextResponse.redirect(url, 301)
+		url.pathname = rewriteTarget(pathname, defaultLocale)
+		const response = NextResponse.rewrite(url)
+		response.headers.set('x-locale', defaultLocale)
+		return response
 	}
 
-	// Path does NOT have a locale prefix
+	// Multi-language, no prefix in the path: detect the visitor's locale.
 	const locale = detectLocale(request)
 
 	if (locale !== defaultLocale) {
-		// Redirect to /{locale}/path
+		// Secondary locale: redirect to /{locale}/path.
 		const url = request.nextUrl.clone()
 		url.pathname = `/${locale}${pathname}`
 		const response = NextResponse.redirect(url)
@@ -161,9 +179,9 @@ export function proxy(request: NextRequest) {
 		return response
 	}
 
-	// Default locale: rewrite internally to /{defaultLocale}/path
+	// Default locale: rewrite internally, never redirect.
 	const url = request.nextUrl.clone()
-	url.pathname = `/${defaultLocale}${pathname}`
+	url.pathname = rewriteTarget(pathname, defaultLocale)
 	const response = NextResponse.rewrite(url)
 	response.headers.set('x-locale', defaultLocale)
 

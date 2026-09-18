@@ -1,7 +1,9 @@
+import { socialImageMetadata } from '@/lib/social-image'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { buildUrl } from '@/lib/sitemap-shared'
+import { localizedPath } from '@/lib/i18n-utils'
 
 const path = '/use-cases/my-little-paris'
 const title = 'My Little Paris: a website built for growth | Recursive Solutions'
@@ -9,10 +11,12 @@ const description = 'A website rebuild, Lucy integration, and ongoing SEO for My
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
 	const { locale } = await params
+	const social = socialImageMetadata(title)
 	return {
+		...social,
 		title, description,
 		alternates: { canonical: buildUrl(path, locale) },
-		openGraph: { title, description, url: buildUrl(path, locale), type: 'article', images: [{ url: '/social-card.jpg', width: 1200, height: 630 }] },
+		openGraph: { title, description, url: buildUrl(path, locale), type: 'article', ...social.openGraph, },
 	}
 }
 
@@ -120,7 +124,7 @@ export default async function MyLittleParisPage({ params }: { params: Promise<{ 
 								['Connect content and SEO', 'Integrated the website with Lucy so content and SEO could be managed beyond the initial launch.'],
 							].map(([heading, body]) => <div key={heading}><h3 className="font-display text-2xl">{heading}</h3><p className="mt-3 max-w-2xl leading-relaxed text-base-content/75">{body}</p></div>)}
 						</div>
-						<aside className="self-start rounded-lg bg-base-100 p-7 md:p-9"><p className={eyebrow}>Built to keep evolving</p><h3 className="mt-4 font-display text-3xl">One website.<br />An ongoing operation.</h3><p className="mt-5 leading-relaxed text-base-content/75">The rebuild established the customer experience. Lucy provided the content foundation. The SEO loop added a continuing process for finding topics and publishing useful answers.</p><Link href={`/${locale}/lucy`} className="mt-6 inline-block py-2 font-semibold text-primary underline underline-offset-4">Explore Lucy →</Link></aside>
+						<aside className="self-start rounded-lg bg-base-100 p-7 md:p-9"><p className={eyebrow}>Built to keep evolving</p><h3 className="mt-4 font-display text-3xl">One website.<br />An ongoing operation.</h3><p className="mt-5 leading-relaxed text-base-content/75">The rebuild established the customer experience. Lucy provided the content foundation. The SEO loop added a continuing process for finding topics and publishing useful answers.</p><Link href={localizedPath('/lucy', locale)} className="mt-6 inline-block py-2 font-semibold text-primary underline underline-offset-4">Explore Lucy →</Link></aside>
 					</div>
 				</div>
 			</section>
@@ -218,7 +222,7 @@ export default async function MyLittleParisPage({ params }: { params: Promise<{ 
 				</div>
 			</section>
 
-			<section className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 py-16 md:flex-row md:items-center md:py-20"><div><h2 className="font-display text-3xl md:text-4xl">What could your website do next?</h2><p className="mt-4 text-lg text-base-content/75">Let’s look at your customer journey and where you can grow.</p></div><Link href={`/${locale}#contact`} className="btn btn-primary h-auto min-h-12 shrink-0 px-7 py-3">Talk about your website <span aria-hidden="true">→</span></Link></section>
+			<section className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-6 py-16 md:flex-row md:items-center md:py-20"><div><h2 className="font-display text-3xl md:text-4xl">What could your website do next?</h2><p className="mt-4 text-lg text-base-content/75">Let’s look at your customer journey and where you can grow.</p></div><Link href={`${localizedPath('/', locale)}#contact`} className="btn btn-primary h-auto min-h-12 shrink-0 px-7 py-3">Talk about your website <span aria-hidden="true">→</span></Link></section>
 		</article>
 	)
 }
