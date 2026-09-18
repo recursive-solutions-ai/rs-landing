@@ -37,6 +37,12 @@ const fr: Dictionary = {
 	'blog.post.not.found': 'Article introuvable',
 	'blog.post.not.found.description': "L'article que vous recherchez n'existe pas.",
 	'blog.related.posts': 'Articles similaires',
+	'blog.topics.label': 'Parcourir par sujet',
+	'blog.filed.under': 'Class\u00E9 dans',
+	'blog.topic.title': '{topic} : articles et guides',
+	'blog.topic.subtitle': '{count} articles sur {topic}',
+	'blog.cta.book.call': 'Demandez votre audit de croissance gratuit de 30 minutes',
+	'blog.cta.book.call.description': 'Vous ne savez pas par o\u00F9 commencer ? Nous vous montrerons o\u00F9 sont les plus grands gains.',
 	'blog.load.error': '\u00C9chec du chargement des articles : {error}',
 
 	// Home

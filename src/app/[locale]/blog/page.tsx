@@ -1,7 +1,7 @@
 import { socialImageMetadata } from '@/lib/social-image'
 import type { Metadata } from 'next'
-import { getBlogPosts } from '@growth-engine/sdk-server'
-import { BlogList } from '@growth-engine/sdk-client/components'
+import { getBlogPosts, getBlogTopics } from '@growth-engine/sdk-server'
+import { BlogList, TopicChips } from '@growth-engine/sdk-client/components'
 import { getDictionary, t } from '@/i18n'
 import { getDbOrNull } from '@/lib/db'
 import { buildUrl } from '@/lib/sitemap-shared'
@@ -44,7 +44,12 @@ export default async function BlogPage({
 	const { locale } = await params
 	const dict = await getDictionary(locale)
 	const db = getDbOrNull()
-	const posts = db ? await getBlogPosts(db, { locale, limit: 0 }) : []
+	const [posts, topics] = db
+		? await Promise.all([
+				getBlogPosts(db, { locale, limit: 0 }),
+				getBlogTopics(db, locale).catch(() => []),
+			])
+		: [[], []]
 
 	return (
 		<main className="container mx-auto px-4 py-12">
@@ -62,6 +67,16 @@ export default async function BlogPage({
 					clearSearchLabel: t(dict, 'blog.clear.search'),
 					searchPlaceholder: t(dict, 'blog.search.placeholder'),
 				}}
+			/>
+
+			{/* Every hub, as crawlable links. Below the list: with ~80 hubs, the
+			    chips above it would push the posts off the first screen. */}
+			<TopicChips
+				topics={topics}
+				locale={locale}
+				localePrefix={localePrefix(locale)}
+				label={t(dict, 'blog.topics.label')}
+				className="mt-16"
 			/>
 		</main>
 	)

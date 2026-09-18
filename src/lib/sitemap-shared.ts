@@ -97,6 +97,43 @@ async function fetchBlogBatch(
 	}
 }
 
+interface TopicSitemapEntry {
+	slug: string
+}
+
+async function fetchTopics(locale: string): Promise<TopicSitemapEntry[]> {
+	try {
+		const res = await fetch(
+			`${SITE_URL}/api/rs/content?type=blog-topics&locale=${encodeURIComponent(locale)}`,
+			{ next: { revalidate: 3600 } },
+		)
+		if (!res.ok) return []
+		const topics = (await res.json()) as TopicSitemapEntry[]
+		return Array.isArray(topics) ? topics : []
+	} catch {
+		return []
+	}
+}
+
+/** Topic hub pages (`/blog/topic/<slug>`), one per keyword shared by 2+ posts. */
+export async function buildTopicEntries(): Promise<SitemapEntry[]> {
+	const perLocale = await Promise.all(
+		supportedLocales.map(async (locale) => ({ locale, topics: await fetchTopics(locale) })),
+	)
+	const entries: SitemapEntry[] = []
+	for (const { locale, topics } of perLocale) {
+		for (const topic of topics) {
+			if (typeof topic.slug !== 'string' || topic.slug.length === 0) continue
+			entries.push({
+				url: buildUrl(`/blog/topic/${encodeURIComponent(topic.slug)}`, locale),
+				changeFrequency: 'weekly',
+				priority: 0.7,
+			})
+		}
+	}
+	return entries
+}
+
 export function buildStaticEntries(): SitemapEntry[] {
 	const entries: SitemapEntry[] = []
 	for (const page of STATIC_PAGES) {

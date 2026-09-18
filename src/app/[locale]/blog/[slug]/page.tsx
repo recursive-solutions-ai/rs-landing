@@ -6,9 +6,11 @@ import {
 	getBlogPost,
 	getBlogPosts,
 	getBlogAuthors,
+	getBlogTopicsForPost,
 	getBusinessConfig,
+	getRelatedPosts,
 } from '@growth-engine/sdk-server'
-import { BlogContent, RelatedPosts } from '@growth-engine/sdk-client/components'
+import { BlogContent, RelatedArticles, TopicChips } from '@growth-engine/sdk-client/components'
 import { getDictionary, t } from '@/i18n'
 import { supportedLocales } from '@/i18n/config'
 import { getDbOrNull } from '@/lib/db'
@@ -79,8 +81,12 @@ export default async function BlogPostPage({
 	// getBlogPost has no status filter — drafts/archived must 404, not render
 	if (!post || post.status !== 'published') notFound()
 
-	const [allPosts, business, authors] = await Promise.all([
-		getBlogPosts(db, { locale, limit: 0 }),
+	// Related posts and topic hubs are ranked by the SDK from stored keywords —
+	// the same deterministic ranking Brain's orphan check runs — so every post
+	// links out to 3–5 siblings and up to its hub page(s) in server HTML.
+	const [relatedPosts, topics, business, authors] = await Promise.all([
+		getRelatedPosts(db, post, { locale }).catch(() => []),
+		getBlogTopicsForPost(db, post).catch(() => []),
 		getBusinessConfig(db).catch(() => null),
 		// getBlogAuthor() looks up by AUTHOR slug — posts only carry authorId,
 		// so resolve the byline from the full author list instead
@@ -138,15 +144,31 @@ export default async function BlogPostPage({
 					author={author ?? undefined}
 					business={business ?? undefined}
 				/>
+				<TopicChips
+					topics={topics}
+					locale={locale}
+					localePrefix={localePrefix(locale)}
+					label={t(dict, 'blog.filed.under')}
+					showCounts={false}
+					className="mt-10"
+				/>
 			</article>
 
 			<div className="max-w-5xl mx-auto">
-				<RelatedPosts
-					posts={allPosts}
-					currentSlug={slug}
+				{/* CTA targets the homepage audit form, not getBookingCallToAction():
+				    that links to /forms/<slug>, a route this site doesn't have. */}
+				<RelatedArticles
+					posts={relatedPosts}
 					locale={locale}
 					localePrefix={localePrefix(locale)}
 					heading={t(dict, 'blog.related.posts')}
+					cta={{
+						label: t(dict, 'blog.cta.book.call'),
+						href: `${localizedPath('/', locale)}#contact`,
+						kind: 'form',
+					}}
+					ctaLabel={t(dict, 'blog.cta.book.call')}
+					ctaDescription={t(dict, 'blog.cta.book.call.description')}
 				/>
 			</div>
 		</main>
