@@ -10,6 +10,8 @@ const CLIENTS: {
 	width: number
 	height: number
 	href?: string
+	// Dark-on-transparent logos need a light tile instead of bg-neutral
+	tileClass?: string
 }[] = [
 	{
 		name: "Harrington Construction Co., Inc.",
@@ -38,6 +40,14 @@ const CLIENTS: {
 		width: 189,
 		height: 56,
 		href: "https://desduvauchelle.github.io/echo-scribe/#",
+	},
+	{
+		name: "Mantle Tax Solutions",
+		src: "/logos/mantle-tax.png",
+		width: 2560,
+		height: 707,
+		href: "https://www.mantletax.com/",
+		tileClass: "bg-white",
 	},
 ]
 
@@ -72,8 +82,10 @@ export function CredibilityBar() {
 									className="h-10 w-auto max-w-48 object-contain p-1.5"
 								/>
 							)
-							const boxClass =
-								"inline-flex overflow-hidden rounded-md bg-neutral"
+							const boxClass = cn(
+								"inline-flex overflow-hidden rounded-md",
+								client.tileClass ?? "bg-neutral"
+							)
 
 							return client.href ? (
 								<a
