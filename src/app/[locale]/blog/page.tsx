@@ -1,9 +1,11 @@
+import { socialImageMetadata } from '@/lib/social-image'
 import type { Metadata } from 'next'
 import { getBlogPosts } from '@growth-engine/sdk-server'
 import { BlogList } from '@growth-engine/sdk-client/components'
 import { getDictionary, t } from '@/i18n'
 import { getDbOrNull } from '@/lib/db'
 import { buildUrl } from '@/lib/sitemap-shared'
+import { localePrefix } from '@/lib/i18n-utils'
 
 export const revalidate = 60
 
@@ -16,7 +18,9 @@ export async function generateMetadata({
 	const title = 'Blog — AI for Service Businesses | Recursive Solutions'
 	const description =
 		'Practical guides on AI consulting, automation, and operational intelligence for service businesses — from the team at Recursive Solutions.'
+	const social = socialImageMetadata(title)
 	return {
+		...social,
 		title,
 		description,
 		alternates: {
@@ -27,9 +31,7 @@ export async function generateMetadata({
 			description,
 			url: buildUrl('/blog', locale),
 			type: 'website',
-			// Next merges openGraph shallowly — without this, the root layout's
-			// card image is dropped and shares render imageless.
-			images: [{ url: '/social-card.jpg', width: 1200, height: 630 }],
+			...social.openGraph,
 		},
 	}
 }
@@ -54,6 +56,7 @@ export default async function BlogPage({
 			<BlogList
 				posts={posts}
 				locale={locale}
+				localePrefix={localePrefix(locale)}
 				translations={{
 					noPostsMessage: t(dict, 'blog.no.posts'),
 					clearSearchLabel: t(dict, 'blog.clear.search'),

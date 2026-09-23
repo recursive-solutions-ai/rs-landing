@@ -14,18 +14,25 @@ import { getForm } from "@/lib/forms-server"
 import { getBlogPosts } from "@growth-engine/sdk-server"
 import { getDbOrNull } from "@/lib/db"
 import { buildUrl } from "@/lib/sitemap-shared"
-import { defaultLocale } from "@/i18n/config"
 import type { Metadata } from "next"
 
 // Landing page pulls the 3 newest blog posts. Without ISR it would freeze at
 // build time, so match the blog index's revalidate window.
 export const revalidate = 60
 
-export const metadata: Metadata = {
-	title: "Recursive Solutions — One System to Run Your Growth",
-	description:
-		"We make your business simpler, faster, and more valuable — one vertical system for your website, content, SEO, leads, CRM, and analytics, run by a hands-on team. Plus custom automations, bespoke tools, and consulting.",
-	alternates: { canonical: buildUrl("", defaultLocale) },
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+	const { locale } = await params
+	return {
+		title: "Recursive Solutions — One System to Run Your Growth",
+		description:
+			"One vertical system for your website, content, SEO, leads, CRM, and analytics, run by a hands-on team. Book a consult to map where you lose hours.",
+		// Self-referencing: `/` for the default language, `/fr` for secondary ones.
+		alternates: { canonical: buildUrl("", locale) },
+	}
 }
 
 export default async function LandingPage({

@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useInView } from "@/hooks/useInView"
 import { cn } from "@/lib/utils"
 import { BlogTeaserCard, type BlogTeaser } from "./BlogTeaserCard"
+import { localizedPath } from '@/lib/i18n-utils'
 
 interface LatestBlogSectionProps {
 	posts: BlogTeaser[]
@@ -31,7 +32,7 @@ export function LatestBlogSection({ posts, locale }: LatestBlogSectionProps) {
 					</h2>
 				</div>
 				<Link
-					href={`/${locale}/blog`}
+					href={localizedPath('/blog', locale)}
 					className="reveal text-sm font-semibold text-primary transition-colors hover:underline"
 				>
 					View all →

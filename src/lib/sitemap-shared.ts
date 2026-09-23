@@ -11,6 +11,7 @@ export const BLOG_BATCH_SIZE = 1000
 export const STATIC_PAGES = [
 	'',
 	'/lucy',
+	'/use-cases/my-little-paris',
 	'/blog',
 	'/contact',
 	'/privacy',
@@ -59,16 +60,18 @@ export function getBlogSitemapCount(totalCount: number): number {
 }
 
 export function buildUrl(path: string, locale?: string): string {
-	// Always include the locale prefix so that canonical tags, sitemap entries,
-	// and internal links (which all use `/${locale}/...`) point at the SAME URL.
-	// Previously the default locale was emitted bare (e.g. `/blog/x` instead of
-	// `/en/blog/x`), which made the advertised canonical a URL with zero internal
-	// links — the root cause of the "Discovered – currently not indexed" issue.
-	const loc = locale ?? defaultLocale
-	return `${SITE_URL}/${loc}${path}`
+	// The DEFAULT language lives at the site root and carries no locale segment;
+	// secondary languages keep their prefix. Canonicals, hreflang alternates,
+	// the sitemap and every internal link must agree on this same URL form —
+	// a canonical nobody links to is what parks pages in
+	// "Discovered – currently not indexed".
+	// The homepage is `${SITE_URL}/`, not a bare origin, so the canonical it
+	// advertises is byte-identical to the URL the browser requests.
+	if (!locale || locale === defaultLocale) return `${SITE_URL}${path || '/'}`
+	return `${SITE_URL}/${locale}${path}`
 }
 
-function buildAlternates(path: string): Record<string, string> | undefined {
+export function buildAlternates(path: string): Record<string, string> | undefined {
 	if (!isMultiLang) return undefined
 	const languages: Record<string, string> = {}
 	for (const locale of supportedLocales) {

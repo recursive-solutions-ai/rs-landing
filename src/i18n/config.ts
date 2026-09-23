@@ -8,3 +8,7 @@ export const additionalLocales: string[] =
 export const supportedLocales: string[] = [defaultLocale, ...additionalLocales]
 
 export const isMultiLang: boolean = additionalLocales.length > 0
+
+export function isSupportedLocale(locale: string): boolean {
+	return supportedLocales.includes(locale)
+}

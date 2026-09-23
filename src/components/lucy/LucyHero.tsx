@@ -3,6 +3,7 @@
 import { useEffect, useState, type CSSProperties } from "react"
 import { cn } from "@/lib/utils"
 import { ButtonLink } from "@/components/ui/button-link"
+import { localizedPath } from '@/lib/i18n-utils'
 
 const CAPABILITIES = [
 	"Website & conversion",
@@ -49,7 +50,7 @@ export function LucyHero({ locale }: { locale: string }) {
 							Get Early Access
 						</ButtonLink>
 						<ButtonLink
-							href={`/${locale}`}
+							href={localizedPath('/', locale)}
 							className="font-bold text-base-content hover:text-primary"
 						>
 							← Back to overview

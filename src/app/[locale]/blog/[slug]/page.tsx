@@ -1,3 +1,4 @@
+import { socialImageMetadata } from '@/lib/social-image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
@@ -14,7 +15,9 @@ import { getDbOrNull } from '@/lib/db'
 import { buildUrl } from '@/lib/sitemap-shared'
 import { breadcrumbLd } from '@/lib/seo-config'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { formatDate } from '@/lib/i18n-utils'
+import { formatDate, localePrefix, localizedPath } from '@/lib/i18n-utils'
+import { normalizeBlogKeywords } from '@/lib/blog-keywords'
+import { normalizeContentLocaleLinks } from '@/lib/content-locale-links'
 
 export const revalidate = 120
 
@@ -45,7 +48,9 @@ export async function generateMetadata({
 	const post = db ? await getBlogPost(db, slug, locale) : null
 	// getBlogPost has no status filter — never emit metadata for drafts
 	if (!post || post.status !== 'published') return { title: 'Post not found' }
+	const social = socialImageMetadata(post.seoTitle ?? post.title)
 	return {
+		...social,
 		title: post.seoTitle ?? post.title,
 		description: post.seoDesc ?? undefined,
 		alternates: {
@@ -54,9 +59,7 @@ export async function generateMetadata({
 		openGraph: {
 			title: post.seoTitle ?? post.title,
 			description: post.seoDesc ?? undefined,
-			// fall back to the site card — an images-less openGraph block would
-			// shallow-merge away the root layout's image entirely
-			images: post.heroImageUrl ? [post.heroImageUrl] : ['/social-card.jpg'],
+			...social.openGraph,
 			type: 'article',
 		},
 	}
@@ -90,6 +93,11 @@ export default async function BlogPostPage({
 
 	const date = formatDate(post.createdAt, locale)
 
+	// Post bodies were authored when the default language lived under `/en/...`,
+	// so their in-text cross-links still point there. Rewrite them to the bare
+	// path so internal links and canonicals agree — see content-locale-links.ts.
+	const content = normalizeContentLocaleLinks(post.content, locale)
+
 	const breadcrumb = breadcrumbLd([
 		{ name: t(dict, 'nav.home'), url: buildUrl('', locale) },
 		{ name: t(dict, 'nav.blog'), url: buildUrl('/blog', locale) },
@@ -100,7 +108,7 @@ export default async function BlogPostPage({
 		<main className="container mx-auto px-4 py-12">
 			<JsonLd data={breadcrumb} />
 			<nav className="mb-8">
-				<Link href={`/${locale}/blog`} className="text-sm text-primary hover:underline">
+				<Link href={localizedPath('/blog', locale)} className="text-sm text-primary hover:underline">
 					← {t(dict, 'blog.back')}
 				</Link>
 			</nav>
@@ -121,8 +129,12 @@ export default async function BlogPostPage({
 				<h1 className="text-4xl font-bold mt-2 mb-8">{post.title}</h1>
 
 				<BlogContent
-					html={post.content}
-					post={post}
+					html={content}
+					post={{
+						...post,
+						content,
+						keywords: normalizeBlogKeywords(post.keywords),
+					}}
 					author={author ?? undefined}
 					business={business ?? undefined}
 				/>
@@ -133,6 +145,7 @@ export default async function BlogPostPage({
 					posts={allPosts}
 					currentSlug={slug}
 					locale={locale}
+					localePrefix={localePrefix(locale)}
 					heading={t(dict, 'blog.related.posts')}
 				/>
 			</div>

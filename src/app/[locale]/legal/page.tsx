@@ -1,6 +1,7 @@
 'use client'
 
 import { useI18n } from '@/i18n/client'
+import { localizedPath } from '@/lib/i18n-utils'
 
 export default function LegalPage() {
 	const { t, locale } = useI18n()
@@ -25,8 +26,8 @@ export default function LegalPage() {
 						By accessing this website, you confirm that you are at least 18 years
 						old and that you agree to comply with and be bound by these Terms of
 						Service, as well as our{' '}
-						<a href={`/${locale}/privacy`} className="text-primary hover:underline">Privacy Policy</a> and{' '}
-						<a href={`/${locale}/cookies`} className="text-primary hover:underline">Cookie Policy</a>, which are
+						<a href={localizedPath('/privacy', locale)} className="text-primary hover:underline">Privacy Policy</a> and{' '}
+						<a href={localizedPath('/cookies', locale)} className="text-primary hover:underline">Cookie Policy</a>, which are
 						incorporated by reference.
 					</p>
 				</section>
@@ -134,7 +135,7 @@ export default function LegalPage() {
 					<h2 className="text-xl font-semibold text-base-content mb-3">11. Contact</h2>
 					<p>
 						If you have any questions about these terms, please reach out through
-						our <a href={`/${locale}/contact`} className="text-primary hover:underline">contact page</a>.
+						our <a href={localizedPath('/contact', locale)} className="text-primary hover:underline">contact page</a>.
 					</p>
 				</section>
 			</div>

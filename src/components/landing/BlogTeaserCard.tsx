@@ -2,7 +2,7 @@
 
 import type { CSSProperties } from "react"
 import Link from "next/link"
-import { formatDate } from "@/lib/i18n-utils"
+import { formatDate, localizedPath } from "@/lib/i18n-utils"
 import { cn } from "@/lib/utils"
 
 export interface BlogTeaser {
@@ -22,7 +22,7 @@ interface BlogTeaserCardProps {
 export function BlogTeaserCard({ post, locale, index }: BlogTeaserCardProps) {
 	return (
 		<Link
-			href={`/${locale}/blog/${post.slug}`}
+			href={localizedPath(`/blog/${post.slug}`, locale)}
 			className={cn(
 				"reveal group flex flex-col overflow-hidden rounded-2xl border border-base-300 bg-base-100",
 				"transition-all duration-500 hover:-translate-y-1 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10"

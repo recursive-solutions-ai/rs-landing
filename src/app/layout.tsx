@@ -1,3 +1,4 @@
+import { socialImageMetadata } from '@/lib/social-image'
 import type { Metadata } from 'next'
 import { Source_Serif_4 } from 'next/font/google'
 
@@ -22,13 +23,7 @@ export const metadata: Metadata = {
 	metadataBase: new URL(SITE_URL),
 	title: 'Recursive Solutions',
 	description: 'Recursive Solutions — Powered by Growth Engine',
-	openGraph: {
-		images: [{ url: '/social-card.jpg', width: 1200, height: 630 }],
-	},
-	twitter: {
-		card: 'summary_large_image',
-		images: ['/social-card.jpg'],
-	},
+	...socialImageMetadata(),
 	icons: {
 		icon: [
 			{ url: '/favicon_io/favicon.ico', sizes: 'any' },

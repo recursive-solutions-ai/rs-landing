@@ -5,26 +5,27 @@ import { useState } from 'react'
 import { useI18n } from '@/i18n/client'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { ThemeLogo } from './ThemeLogo'
+import { localizedPath } from '@/lib/i18n-utils'
 
 export function Header() {
 	const { t, locale } = useI18n()
 	const [menuOpen, setMenuOpen] = useState(false)
 
 	const NAV_LINKS = [
-		{ href: `/${locale}/lucy`, label: 'Lucy' },
-		{ href: `/${locale}#process`, label: 'Process' },
-		{ href: `/${locale}#field-reports`, label: 'Results' },
-		{ href: `/${locale}#team`, label: 'Team' },
-		{ href: `/${locale}#offerings`, label: 'Offerings' },
+		{ href: localizedPath('/lucy', locale), label: 'Lucy' },
+		{ href: `${localizedPath('/', locale)}#process`, label: 'Process' },
+		{ href: `${localizedPath('/', locale)}#field-reports`, label: 'Results' },
+		{ href: `${localizedPath('/', locale)}#team`, label: 'Team' },
+		{ href: `${localizedPath('/', locale)}#offerings`, label: 'Offerings' },
 	]
 
-	const ctaHref = `/${locale}#contact`
+	const ctaHref = `${localizedPath('/', locale)}#contact`
 	const ctaLabel = t('nav.cta')
 
 	return (
 		<header className="navbar bg-base-100 shadow-sm border-b border-base-200 sticky top-0 z-50">
 			<div className="container mx-auto px-4 flex items-center justify-between">
-				<Link href={`/${locale}`} className="flex items-center">
+				<Link href={localizedPath('/', locale)} className="flex items-center">
 					<ThemeLogo height={32} />
 				</Link>
 

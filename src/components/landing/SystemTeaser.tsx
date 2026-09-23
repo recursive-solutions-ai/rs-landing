@@ -4,6 +4,7 @@ import type { CSSProperties } from "react"
 import { useInView } from "@/hooks/useInView"
 import { cn } from "@/lib/utils"
 import { ButtonLink } from "@/components/ui/button-link"
+import { localizedPath } from '@/lib/i18n-utils'
 
 export function SystemTeaser({ locale }: { locale: string }) {
 	const { ref, inView } = useInView<HTMLDivElement>()
@@ -32,7 +33,7 @@ export function SystemTeaser({ locale }: { locale: string }) {
 					style={{ "--reveal-delay": "0.3s" } as CSSProperties}
 				>
 					<ButtonLink
-						href={`/${locale}/lucy`}
+						href={localizedPath('/lucy', locale)}
 						className="btn-primary px-8 text-base font-bold"
 					>
 						See how Lucy works →

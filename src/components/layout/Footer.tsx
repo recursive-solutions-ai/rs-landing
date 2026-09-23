@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useI18n } from '@/i18n/client'
+import { localizedPath } from '@/lib/i18n-utils'
 
 export function Footer() {
 	const { t, locale } = useI18n()
@@ -27,23 +28,28 @@ export function Footer() {
 					<div>
 						<h4 className="font-semibold mb-2">{t('footer.navigation')}</h4>
 						<nav className="flex flex-col gap-1">
-							<Link href={`/${locale}/lucy`} className="text-sm text-base-content/60 hover:text-primary">Lucy</Link>
-							<Link href={`/${locale}#process`} className="text-sm text-base-content/60 hover:text-primary">Process</Link>
-							<Link href={`/${locale}#field-reports`} className="text-sm text-base-content/60 hover:text-primary">Results</Link>
-							<Link href={`/${locale}#team`} className="text-sm text-base-content/60 hover:text-primary">Team</Link>
-							<Link href={`/${locale}#offerings`} className="text-sm text-base-content/60 hover:text-primary">Offerings</Link>
-							<Link href={`/${locale}/blog`} className="text-sm text-base-content/60 hover:text-primary">Blog</Link>
-							<Link href={`/${locale}#contact`} className="text-sm text-base-content/60 hover:text-primary">Contact</Link>
+							<Link href={localizedPath('/lucy', locale)} className="text-sm text-base-content/60 hover:text-primary">Lucy</Link>
+							<Link href={`${localizedPath('/', locale)}#process`} className="text-sm text-base-content/60 hover:text-primary">Process</Link>
+							<Link href={`${localizedPath('/', locale)}#field-reports`} className="text-sm text-base-content/60 hover:text-primary">Results</Link>
+							<Link href={`${localizedPath('/', locale)}#team`} className="text-sm text-base-content/60 hover:text-primary">Team</Link>
+							<Link href={`${localizedPath('/', locale)}#offerings`} className="text-sm text-base-content/60 hover:text-primary">Offerings</Link>
+							<Link href={localizedPath('/blog', locale)} className="text-sm text-base-content/60 hover:text-primary">Blog</Link>
+							<Link href={`${localizedPath('/', locale)}#contact`} className="text-sm text-base-content/60 hover:text-primary">Contact</Link>
 						</nav>
 					</div>
 
-					{/* Pinned to the last column while the middle nav sections are hidden. */}
+					<div>
+						<h4 className="font-semibold mb-2">Use cases</h4>
+						<nav aria-label="Use cases" className="flex flex-col gap-1">
+							<Link href={localizedPath('/use-cases/my-little-paris', locale)} className="text-sm text-base-content/60 hover:text-primary">My Little Paris</Link>
+						</nav>
+					</div>
 					<div className="md:col-start-4">
 						<h4 className="font-semibold mb-2">{t('footer.legal')}</h4>
 						<nav className="flex flex-col gap-1">
-							<Link href={`/${locale}/legal`} className="text-sm text-base-content/60 hover:text-primary">{t('footer.legal.notice')}</Link>
-							<Link href={`/${locale}/privacy`} className="text-sm text-base-content/60 hover:text-primary">{t('footer.privacy.policy')}</Link>
-							<Link href={`/${locale}/cookies`} className="text-sm text-base-content/60 hover:text-primary">{t('footer.cookie.policy')}</Link>
+							<Link href={localizedPath('/legal', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('footer.legal.notice')}</Link>
+							<Link href={localizedPath('/privacy', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('footer.privacy.policy')}</Link>
+							<Link href={localizedPath('/cookies', locale)} className="text-sm text-base-content/60 hover:text-primary">{t('footer.cookie.policy')}</Link>
 						</nav>
 					</div>
 				</div>

@@ -4,6 +4,7 @@ import { useEffect, useState, type CSSProperties } from "react"
 import { cn } from "@/lib/utils"
 import { ButtonLink } from "@/components/ui/button-link"
 import { FrictionEstimator } from "./FrictionEstimator"
+import { localizedPath } from '@/lib/i18n-utils'
 
 export function HeroSection({ locale }: { locale: string }) {
 	const [revealed, setRevealed] = useState(false)
@@ -45,7 +46,7 @@ export function HeroSection({ locale }: { locale: string }) {
 						<ButtonLink href="#contact" className="btn btn-primary px-8 text-base font-bold">
 							Book a Consult
 						</ButtonLink>
-						<ButtonLink href={`/${locale}/lucy`} className="font-bold text-base-content hover:text-primary">
+						<ButtonLink href={localizedPath('/lucy', locale)} className="font-bold text-base-content hover:text-primary">
 							Explore Lucy →
 						</ButtonLink>
 					</div>
