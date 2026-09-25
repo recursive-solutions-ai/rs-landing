@@ -33,11 +33,11 @@ const CLIENTS: {
 		href: "https://www.my-little-paris.com/",
 	},
 	{
-		name: "Echo Scribe",
-		src: "/logos/echo-scribe.png",
-		width: 189,
-		height: 56,
-		href: "https://desduvauchelle.github.io/echo-scribe/#",
+		name: "Tucky",
+		src: "/logos/tucky.png",
+		width: 405,
+		height: 168,
+		href: "https://tucky.ai-juicing.com/",
 	},
 	{
 		name: "Mantle Tax Solutions",
