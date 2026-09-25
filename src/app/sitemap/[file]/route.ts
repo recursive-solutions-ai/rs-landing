@@ -1,6 +1,7 @@
 import {
 	buildStaticEntries,
 	buildBlogEntries,
+	buildTopicEntries,
 	fetchBlogCount,
 	getBlogSitemapCount,
 	renderSitemapXml,
@@ -28,7 +29,9 @@ export async function GET(
 	}
 
 	const entries =
-		id === 0 ? buildStaticEntries() : await buildBlogEntries(id)
+		id === 0
+			? [...buildStaticEntries(), ...(await buildTopicEntries())]
+			: await buildBlogEntries(id)
 
 	return new Response(renderSitemapXml(entries), {
 		headers: {

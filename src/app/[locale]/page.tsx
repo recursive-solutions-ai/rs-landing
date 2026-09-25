@@ -41,7 +41,9 @@ export default async function LandingPage({
 	params: Promise<{ locale: string }>
 }) {
 	const { locale } = await params
-	const contactForm = await getForm("general-contact-form")
+	// Blog CTAs promise a free growth audit and land on #contact, so the
+	// homepage embeds the audit request form rather than the generic one.
+	const contactForm = await getForm("free-growth-audit")
 
 	const db = getDbOrNull()
 	// getDbOrNull only guards missing env — a Turso outage (env present but DB

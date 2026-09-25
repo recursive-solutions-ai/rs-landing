@@ -35,6 +35,12 @@ const en = {
 	'blog.post.not.found': 'Post Not Found',
 	'blog.post.not.found.description': "The post you're looking for doesn't exist.",
 	'blog.related.posts': 'Related Posts',
+	'blog.topics.label': 'Browse by topic',
+	'blog.filed.under': 'Filed under',
+	'blog.topic.title': '{topic}: articles and guides',
+	'blog.topic.subtitle': '{count} articles about {topic}',
+	'blog.cta.book.call': 'Request your free 30-minute growth audit',
+	'blog.cta.book.call.description': 'Not sure where to start? We\'ll show you where the biggest wins are.',
 	'blog.load.error': 'Failed to load posts: {error}',
 
 	// Home

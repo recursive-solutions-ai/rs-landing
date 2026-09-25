@@ -42,6 +42,7 @@ export function Footer() {
 						<h4 className="font-semibold mb-2">Use cases</h4>
 						<nav aria-label="Use cases" className="flex flex-col gap-1">
 							<Link href={localizedPath('/use-cases/my-little-paris', locale)} className="text-sm text-base-content/60 hover:text-primary">My Little Paris</Link>
+							<Link href={localizedPath('/use-cases/roadmap-tax', locale)} className="text-sm text-base-content/60 hover:text-primary">Roadmap Tax</Link>
 						</nav>
 					</div>
 					<div className="md:col-start-4">
