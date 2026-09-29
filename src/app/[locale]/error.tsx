@@ -17,7 +17,7 @@ export default function LocaleError({
 				We hit an unexpected error.
 			</h1>
 			<p className="mt-4 max-w-md text-lg text-base-content/60">
-				Try again — if it keeps happening, we&rsquo;d appreciate hearing about
+				Try again. If it keeps happening, we&rsquo;d appreciate hearing about
 				it through the contact form.
 			</p>
 			<button type="button" onClick={reset} className="btn btn-primary mt-8">

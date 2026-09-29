@@ -4,7 +4,7 @@ import { AnimationBox } from "./AnimationBox"
 
 /* ── AttractVisual ──────────────────────────────────────────────────────
  * Payoff-weighted loop (spec 2026-07-02): ~2s URL-paste beat, then six
- * scored Holt CPA redesigns hold the frame with a border-glow sweep.
+ * scored Harbor Lane CPA redesigns hold the frame with a border-glow sweep.
  * Each tile is a distinct wireframe layout so the six reads as six
  * different generated designs, not six copies. */
 export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
@@ -140,7 +140,7 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 			<div className="lp-stage" aria-hidden="true">
 				<div className="lp-beat">
 					<div className="lp-title">Redesign</div>
-					<div className="lp-url">https://holtcpa.com▌</div>
+					<div className="lp-url">https://harborlanecpa.example▌</div>
 				</div>
 				<div className="lp-payoff">
 					<div className="lp-grid">
@@ -148,7 +148,7 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 						<div className="lp-site">
 							<span className="score">98</span>
 							<div className="nav">
-								<span className="brand">HOLT CPA</span>
+								<span className="brand">HARBOR LANE CPA</span>
 								<span className="links"><span className="nl" /><span className="nl" /><span className="nl" /></span>
 							</div>
 							<div className="heroSolid">
@@ -188,7 +188,7 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 						{/* 94 · centered launch page */}
 						<div className="lp-site">
 							<span className="score">94</span>
-							<div className="eyebrow">Holt CPA</div>
+							<div className="eyebrow">Harbor Lane CPA</div>
 							<div className="h1 c">Numbers you can trust.</div>
 							<span className="cta c">Free tax review</span>
 							<div className="hero strip" />
@@ -208,7 +208,7 @@ export function AttractVisual({ bare = false }: { bare?: boolean } = {}) {
 						<div className="lp-site">
 							<span className="score">91</span>
 							<div className="h1 xl">Less paperwork. More business.</div>
-							<div className="cap">Holt CPA · Financial clarity for owners</div>
+							<div className="cap">Harbor Lane CPA · Financial clarity for owners</div>
 							<div className="hero" />
 						</div>
 					</div>

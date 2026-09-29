@@ -20,7 +20,7 @@ export function ProblemSection() {
 					className="reveal mx-auto mt-5 max-w-2xl text-base text-base-content/60 md:text-lg"
 					style={{ "--reveal-delay": "0.1s" } as CSSProperties}
 				>
-					Generic software, scattered logins, nothing that talks to each other —
+					Generic software, scattered logins, nothing that talks to each other:
 					slower decisions, wasted hours, lost leads.
 				</p>
 			</div>

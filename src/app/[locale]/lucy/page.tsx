@@ -14,9 +14,9 @@ export async function generateMetadata({
 	params: Promise<{ locale: string }>
 }): Promise<Metadata> {
 	const { locale } = await params
-	const title = "Lucy — the unified growth platform | Recursive Solutions"
+	const title = "Lucy, the unified growth platform | Recursive Solutions"
 	const description =
-		"Lucy is the unified platform behind Recursive Solutions — website, content, SEO, lead capture, CRM, and analytics in one system we run for you."
+		"Lucy is the unified platform behind Recursive Solutions: website, content, SEO, lead capture, CRM, and analytics in one system we run for you."
 	const social = socialImageMetadata(title)
 	return {
 		...social,
@@ -39,7 +39,7 @@ export default async function LucyPage({
 	params: Promise<{ locale: string }>
 }) {
 	const { locale } = await params
-	const contactForm = await getForm("general-contact-form")
+	const contactForm = await getForm("free-growth-audit")
 
 	return (
 		<div className="no-scrollbar">
@@ -61,12 +61,7 @@ export default async function LucyPage({
 			</section>
 			<LucyIntro />
 			<FeaturePillarsSection />
-			<ContactCTASection
-				form={contactForm}
-				heading="Let's make your business simpler, faster, and more valuable."
-				subtitle=""
-				submitLabel="Get Early Access"
-			/>
+			<ContactCTASection form={contactForm} />
 		</div>
 	)
 }

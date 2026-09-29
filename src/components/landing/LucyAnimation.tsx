@@ -1286,7 +1286,7 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 					<span className="marker">03 / capture</span>
 					<div className="canvas">
 						<div className="form">
-							<div className="ttl">Free Growth Audit</div>
+							<div className="ttl">Contact Form</div>
 							<div className="input-line fill f1"></div>
 							<div className="input-line fill f2"></div>
 							<div className="input-line fill f3"></div>
@@ -1305,7 +1305,7 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 								<div className="from">
 									New lead <span className="t">just now</span>
 								</div>
-								<div className="s">Jamie Reyes — Apex Partners</div>
+								<div className="s">Jamie Reyes, Apex Partners</div>
 								<div className="p">&quot;Lead response time is killing us&quot;</div>
 							</div>
 							<div className="mail new m2">
@@ -1319,7 +1319,7 @@ export function LucyAnimation({ mode = "auto", active = 0, reduce = false }: Luc
 								<div className="from" style={{ color: "var(--dim)" }}>
 									Earlier <span className="t">2h</span>
 								</div>
-								<div className="s">Sara Holt — Holt CPA</div>
+								<div className="s">Sara Brooks, Harbor Lane CPA</div>
 								<div className="p">&quot;Looking for tax prep automation…&quot;</div>
 							</div>
 						</div>

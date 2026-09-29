@@ -47,7 +47,7 @@ export function LucyHero({ locale }: { locale: string }) {
 						style={{ "--reveal-delay": "0.3s" } as CSSProperties}
 					>
 						<ButtonLink href="#contact" className="btn-primary px-8 text-base font-bold">
-							Get Early Access
+							Book a Consult
 						</ButtonLink>
 						<ButtonLink
 							href={localizedPath('/', locale)}

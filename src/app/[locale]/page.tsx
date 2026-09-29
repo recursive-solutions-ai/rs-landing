@@ -27,9 +27,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params
 	return {
-		title: "Recursive Solutions — One System to Run Your Growth",
+		title: "Recursive Solutions | Run Your Firm on Systems, Not on the Owner",
 		description:
-			"One vertical system for your website, content, SEO, leads, CRM, and analytics, run by a hands-on team. Book a consult to map where you lose hours.",
+			"Recursive Solutions helps owner-led accounting, law, engineering and consulting firms run on systems instead of on the owner. One system for website, content, leads, CRM and analytics, run by a hands-on team.",
 		// Self-referencing: `/` for the default language, `/fr` for secondary ones.
 		alternates: { canonical: buildUrl("", locale) },
 	}
@@ -41,8 +41,8 @@ export default async function LandingPage({
 	params: Promise<{ locale: string }>
 }) {
 	const { locale } = await params
-	// Blog CTAs promise a free growth audit and land on #contact, so the
-	// homepage embeds the audit request form rather than the generic one.
+	// Every "Book a Consult" lands on #contact, so the homepage embeds the one
+	// site form (named "Contact Form" in Lucy; the slug predates the rename).
 	const contactForm = await getForm("free-growth-audit")
 
 	const db = getDbOrNull()
@@ -73,7 +73,7 @@ export default async function LandingPage({
 			<CredibilityBar />
 			<FrictionDiagnosticSection />
 			<ProcessSection />
-			<FieldReportsSection />
+			<FieldReportsSection locale={locale} />
 			<ServicesSection />
 			<TeamSection />
 			<FaqSection />

@@ -9,7 +9,7 @@ const fr: Dictionary = {
 
 	// Hero
 	'hero.title': 'Bienvenue chez Recursive Solutions',
-	'hero.subtitle': 'Contenu g\u00E9n\u00E9r\u00E9 par IA, r\u00E9seaux sociaux et analyses — tout g\u00E9r\u00E9 pour vous.',
+	'hero.subtitle': 'Contenu g\u00E9n\u00E9r\u00E9 par IA, r\u00E9seaux sociaux et analyses, tout g\u00E9r\u00E9 pour vous.',
 	'hero.cta.blog': 'Lire notre blog',
 	'hero.cta.contact': 'Nous contacter',
 
@@ -41,8 +41,10 @@ const fr: Dictionary = {
 	'blog.filed.under': 'Class\u00E9 dans',
 	'blog.topic.title': '{topic} : articles et guides',
 	'blog.topic.subtitle': '{count} articles sur {topic}',
-	'blog.cta.book.call': 'Demandez votre audit de croissance gratuit de 30 minutes',
-	'blog.cta.book.call.description': 'Vous ne savez pas par o\u00F9 commencer ? Nous vous montrerons o\u00F9 sont les plus grands gains.',
+	'blog.cta.book.call': 'R\u00E9server une consultation',
+	'blog.cta.book.call.description': 'Parlez-nous de votre cabinet et nous organiserons un court appel de d\u00E9couverte pour trouver les plus grands gains.',
+	'blog.cta.firm.heading': 'O\u00F9 votre cabinet repose-t-il encore sur vous ?',
+	'blog.cta.firm.body': 'Parlez-nous de votre cabinet et nous organiserons un court appel de d\u00E9couverte pour trouver les plus grands gains.',
 	'blog.load.error': '\u00C9chec du chargement des articles : {error}',
 
 	// Home
@@ -57,7 +59,7 @@ const fr: Dictionary = {
 	'footer.cookie.policy': 'Politique de cookies',
 	'footer.legal.notice': 'Mentions l\u00E9gales',
 	'footer.copyright': '\u00A9 {year} Recursive Solutions. Tous droits r\u00E9serv\u00E9s.',
-	'footer.powered.by': 'Nous aidons les bonnes personnes et les grandes entreprises \u00E0 non seulement survivre au futur \u2014 mais \u00E0 y prosp\u00E9rer.',
+	'footer.powered.by': 'Nous aidons les bonnes personnes et les grandes entreprises \u00E0 non seulement survivre au futur, mais \u00E0 y prosp\u00E9rer.',
 
 	// Contact
 	'contact.heading': 'Contactez-nous',

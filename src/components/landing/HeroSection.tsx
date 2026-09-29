@@ -23,21 +23,22 @@ export function HeroSection({ locale }: { locale: string }) {
 			>
 				<div className="text-center lg:text-left">
 					<span className="reveal inline-block text-sm font-semibold uppercase tracking-widest text-primary">
-						Growth Systems &amp; AI Consulting
+						AI &amp; Operations for Professional Services Firms
 					</span>
 					<h1
 						className="reveal font-display mt-4 text-5xl font-semibold leading-[1.08] tracking-tight text-base-content md:text-6xl"
 						style={{ "--reveal-delay": "0.1s" } as CSSProperties}
 					>
-						We make your business simpler, faster, and more valuable.
+						Run your firm on systems, not on the owner.
 					</h1>
 					<p
 						className="reveal mt-6 max-w-xl text-lg leading-relaxed text-base-content/70 mx-auto lg:mx-0"
 						style={{ "--reveal-delay": "0.2s" } as CSSProperties}
 					>
-						One vertical system for your website, content, SEO, leads, CRM, and
-						analytics, run by a hands-on team. Plus custom automations, bespoke
-						tools, and consulting.
+						For owner-led accounting and tax, law, and engineering and consulting
+						firms. One system for your website, content, SEO, leads, CRM and
+						analytics, run by a hands-on team, plus custom automations, AI agents
+						and advisory.
 					</p>
 					<div
 						className="reveal mt-8 flex flex-wrap items-center justify-center gap-5 lg:justify-start"

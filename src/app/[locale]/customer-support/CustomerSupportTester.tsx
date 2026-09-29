@@ -32,7 +32,7 @@ export function CustomerSupportTester() {
         <p className="text-base-content/60 max-w-2xl mx-auto">
           Three integration methods for the same ticketing agent. Tabs switch between the
           iframe and the web component. The script-tag floating bubble loads on this whole
-          page — look for the icon in the bottom-right corner.
+          page. Look for the icon in the bottom-right corner.
         </p>
       </div>
 

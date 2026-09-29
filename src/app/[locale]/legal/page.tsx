@@ -52,8 +52,8 @@ export default function LegalPage() {
 				<section>
 					<h2 className="text-xl font-semibold text-base-content mb-3">3. Intellectual Property</h2>
 					<p>
-						All content on this website — including but not limited to text,
-						graphics, logos, images, software, and design — is the property of
+						All content on this website (including but not limited to text,
+						graphics, logos, images, software, and design) is the property of
 						Recursive Solutions or its licensors and is protected by applicable
 						intellectual property laws. You may not reproduce, distribute, modify,
 						or create derivative works from any content without prior written

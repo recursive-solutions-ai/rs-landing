@@ -14,7 +14,7 @@ export function socialImageMetadata(title = '') {
 	const url = `/api/og${displayTitle ? `?${new URLSearchParams({ title: displayTitle })}` : ''}`
 	return {
 		openGraph: {
-			images: [{ url, width: 1200, height: 630, alt: displayTitle ? `${displayTitle} — ${SOCIAL_TAGLINE}` : `Recursive Solutions — ${SOCIAL_TAGLINE}` }],
+			images: [{ url, width: 1200, height: 630, alt: displayTitle ? `${displayTitle}: ${SOCIAL_TAGLINE}` : `Recursive Solutions: ${SOCIAL_TAGLINE}` }],
 		},
 		twitter: {
 			card: 'summary_large_image',

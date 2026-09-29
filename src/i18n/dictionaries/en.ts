@@ -7,7 +7,7 @@ const en = {
 
 	// Hero
 	'hero.title': 'Welcome to Recursive Solutions',
-	'hero.subtitle': 'AI-powered content, social media, and analytics — all managed for you.',
+	'hero.subtitle': 'AI-powered content, social media, and analytics, all managed for you.',
 	'hero.cta.blog': 'Read Our Blog',
 	'hero.cta.contact': 'Get in Touch',
 
@@ -39,8 +39,10 @@ const en = {
 	'blog.filed.under': 'Filed under',
 	'blog.topic.title': '{topic}: articles and guides',
 	'blog.topic.subtitle': '{count} articles about {topic}',
-	'blog.cta.book.call': 'Request your free 30-minute growth audit',
-	'blog.cta.book.call.description': 'Not sure where to start? We\'ll show you where the biggest wins are.',
+	'blog.cta.book.call': 'Book a Consult',
+	'blog.cta.book.call.description': 'Tell us about your firm and we\'ll set up a short discovery call to find the biggest wins.',
+	'blog.cta.firm.heading': 'Where does your firm still run on you?',
+	'blog.cta.firm.body': 'Tell us about your firm and we\'ll set up a short discovery call to find the biggest wins.',
 	'blog.load.error': 'Failed to load posts: {error}',
 
 	// Home

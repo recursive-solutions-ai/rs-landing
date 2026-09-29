@@ -7,7 +7,7 @@ import { localizedPath } from '@/lib/i18n-utils'
 
 const path = '/use-cases/roadmap-tax'
 const title = 'Roadmap Tax: built to run without anyone chasing it | Recursive Solutions'
-const description = 'A website rebuild, a five-day-a-week content engine, and client pipeline automation for Roadmap Tax Services. Google reviews went from 2 to 10, with 650+ automated steps and ~14 hours of reporting saved every month.'
+const description = 'A website rebuild, a five-day-a-week content engine, and client pipeline automation for Roadmap Tax Services. Google reviews went from 2 to 10, with 650+ automated steps a month and ~14 hours of reporting saved every week.'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
 	const { locale } = await params
@@ -61,7 +61,7 @@ export default async function RoadmapTaxPage({ params }: { params: Promise<{ loc
 					<div className="grid gap-8 md:grid-cols-[1.2fr_1fr_1fr] md:gap-12">
 						<div><p className="font-display text-7xl leading-none">2 → 10</p><h2 className="mt-3 text-lg font-semibold">Google reviews</h2><p className="mt-2 text-sm">Two in the previous seven years, then eight in eight weeks. All 5 stars.</p></div>
 						<div className="border-t border-primary-content/25 pt-7 md:border-t-0 md:border-l md:pl-10 md:pt-0"><p className="font-display text-6xl leading-none">650+</p><h2 className="mt-3 text-lg font-semibold">Automated steps every month</h2><p className="mt-2 text-sm">Notes logged, workflows advanced and follow-ups sent with no one touching them.</p></div>
-						<div className="border-t border-primary-content/25 pt-7 md:border-t-0 md:border-l md:pl-10 md:pt-0"><p className="font-display text-6xl leading-none">~14 hrs</p><h2 className="mt-3 text-lg font-semibold">Reporting work saved</h2><p className="mt-2 text-sm">Off the team’s plate every month.</p></div>
+						<div className="border-t border-primary-content/25 pt-7 md:border-t-0 md:border-l md:pl-10 md:pt-0"><p className="font-display text-6xl leading-none">~14 hrs</p><h2 className="mt-3 text-lg font-semibold">Reporting work saved</h2><p className="mt-2 text-sm">Off the team’s plate every week.</p></div>
 					</div>
 					<p className="mt-8 border-t border-primary-content/25 pt-5 text-sm leading-relaxed"><a href="#measured" className="underline underline-offset-4">How we measured</a></p>
 				</div>

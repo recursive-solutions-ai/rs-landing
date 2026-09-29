@@ -22,7 +22,7 @@ import './globals.css'
 export const metadata: Metadata = {
 	metadataBase: new URL(SITE_URL),
 	title: 'Recursive Solutions',
-	description: 'Recursive Solutions — Powered by Growth Engine',
+	description: 'Recursive Solutions, powered by Growth Engine',
 	...socialImageMetadata(),
 	icons: {
 		icon: [

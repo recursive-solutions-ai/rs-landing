@@ -20,7 +20,7 @@ const FALLBACK_FIELDS: FormField[] = [
 	},
 ]
 
-const FALLBACK_SLUG = "general-contact-form"
+const FALLBACK_SLUG = "free-growth-audit"
 
 interface ContactCTASectionProps {
 	form?: FormDefinition | null
@@ -43,11 +43,11 @@ export function ContactCTASection({
 	const fields = form?.fields?.length ? form.fields : FALLBACK_FIELDS
 	const settings = form?.settings ?? null
 	const submitLabel = submitLabelProp ?? settings?.submitButtonText ?? "Book a Consult"
-	const headingText = heading ?? "Let's make your business simpler, faster, and more valuable."
+	const headingText = heading ?? "Let's find where your firm still runs on you."
 	const subtitleText = subtitle ?? ""
 	const introText =
 		intro ??
-		"Tell us a bit about your business, and we'll show you where the biggest wins are."
+		"Tell us about your firm. We'll read it and email you within one business day to set up a discovery call."
 	const successMessage = settings?.successMessage ?? "You'll hear from us within one business day."
 
 	const [status, setStatus] = useState<
@@ -77,6 +77,10 @@ export function ContactCTASection({
 			const raw = formData.get(field.name)
 			if (field.type === "checkbox") {
 				data[field.name] = raw === "on" || raw === "true"
+			} else if (field.type === "select" && !raw) {
+				// An untouched optional select has no value; omit it rather than
+				// post "", which is not one of the field's options.
+				data[field.name] = undefined
 			} else if (field.type === "number") {
 				data[field.name] = raw === null || raw === "" ? undefined : Number(raw)
 			} else {

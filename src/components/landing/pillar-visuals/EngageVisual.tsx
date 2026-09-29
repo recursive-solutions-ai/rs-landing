@@ -10,7 +10,7 @@ const POSTS = [
 ]
 
 /* ── EngageVisual ───────────────────────────────────────────────────────
- * Beat: the Holt CPA brand-voice orb pulses and fans the feed out.
+ * Beat: the Harbor Lane CPA brand-voice orb pulses and fans the feed out.
  * Payoff: this week's published feed holds; newest item re-lands each loop. */
 export function EngageVisual() {
 	return (
@@ -66,7 +66,7 @@ export function EngageVisual() {
 				}
 			`}</style>
 			<div className="en-stage" aria-hidden="true">
-				<div className="en-orb">HOLT CPA<br />BRAND<br />VOICE</div>
+				<div className="en-orb">HARBOR<br />LANE CPA<br />BRAND<br />VOICE</div>
 				<div className="en-feed">
 					{POSTS.map((p) => (
 						<div className="en-post" key={p.title}>

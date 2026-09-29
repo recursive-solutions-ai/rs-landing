@@ -25,7 +25,7 @@ export function SystemTeaser({ locale }: { locale: string }) {
 					className="reveal mx-auto mt-5 max-w-2xl text-lg text-base-content/60"
 					style={{ "--reveal-delay": "0.2s" } as CSSProperties}
 				>
-					Attract · Engage · Capture · Convert · Optimize — one system we run and improve
+					Attract · Engage · Capture · Convert · Optimize: one system we run and improve
 					for you, powered by our platform, Lucy.
 				</p>
 				<div

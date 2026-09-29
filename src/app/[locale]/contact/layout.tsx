@@ -10,7 +10,7 @@ export async function generateMetadata({
 	return canonicalMetadata('/contact', locale, {
 		title: 'Contact | Recursive Solutions',
 		description:
-			'Get in touch with Recursive Solutions — AI consulting, advisory, and custom builds for service businesses.',
+			'Get in touch with Recursive Solutions: AI consulting, advisory, and custom builds for service businesses.',
 	})
 }
 

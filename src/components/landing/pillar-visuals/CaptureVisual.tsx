@@ -66,12 +66,12 @@ export function CaptureVisual() {
 				<div className="cp-panel cp-inbox">
 					<span className="cp-tag">Inbox · Live</span>
 					<div className="cp-lead new">
-						<span className="nm">Dana Reyes</span> — "Need help with S-corp filing"
+						<span className="nm">Dana Reyes</span>: "Need help with S-corp filing"
 						<br />
 						<span className="ok">✓ auto-reply sent · 4s</span>
 					</div>
-					<div className="cp-lead">Mike Torres — bookkeeping · 2h</div>
-					<div className="cp-lead">Priya Shah — tax prep · 5h</div>
+					<div className="cp-lead">Mike Torres · bookkeeping · 2h</div>
+					<div className="cp-lead">Priya Shah · tax prep · 5h</div>
 				</div>
 			</div>
 		</AnimationBox>

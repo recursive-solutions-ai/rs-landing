@@ -8,8 +8,8 @@ export interface LucyStage {
 }
 
 export const LUCY_STAGES: LucyStage[] = [
-	{ label: 'Attract', marker: '01', caption: 'Paste your URL and get six on-brand site redesigns — engineered to rank and convert.' },
-	{ label: 'Engage', marker: '02', caption: 'One brand voice, fanned out to blog, social, and SEO — automatically.' },
+	{ label: 'Attract', marker: '01', caption: 'Paste your URL and get six on-brand site redesigns, engineered to rank and convert.' },
+	{ label: 'Engage', marker: '02', caption: 'One brand voice, fanned out to blog, social, and SEO, automatically.' },
 	{ label: 'Capture', marker: '03', caption: 'Forms feed your inbox; an auto-reply fires in seconds.' },
 	{ label: 'Convert', marker: '04', caption: 'Every lead moves new → contacted → qualified → won, tracked end to end.' },
 	{ label: 'Optimize', marker: '05', caption: 'Lucy hands work to named experts trained on your business.' },

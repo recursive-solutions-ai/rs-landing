@@ -4,8 +4,9 @@ import type { CSSProperties } from "react"
 import { useInView } from "@/hooks/useInView"
 import { cn } from "@/lib/utils"
 import { fieldReports } from "@/data/landing"
+import { localizedPath } from "@/lib/i18n-utils"
 
-export function FieldReportsSection() {
+export function FieldReportsSection({ locale }: { locale: string }) {
 	const { ref, inView } = useInView<HTMLElement>()
 
 	return (
@@ -45,13 +46,39 @@ export function FieldReportsSection() {
 						<figcaption className="text-xs font-bold uppercase tracking-widest text-primary">
 							{report.label}
 						</figcaption>
-						<blockquote className="mt-5 text-lg leading-relaxed text-base-content">
-							&ldquo;{report.quote}&rdquo;
-						</blockquote>
-						<div className="my-6 border-t border-base-300" />
-						<p className="text-xs font-semibold uppercase tracking-widest text-base-content/50">
-							{report.attribution}
-						</p>
+						{report.quote ? (
+							<blockquote className="mt-5 text-lg leading-relaxed text-base-content">
+								&ldquo;{report.quote}&rdquo;
+							</blockquote>
+						) : (
+							<div className="mt-5">
+								<p className="font-display text-4xl font-bold leading-tight text-base-content">
+									{report.heading}
+								</p>
+								<p className="mt-3 text-lg leading-relaxed text-base-content">
+									{report.body}
+								</p>
+							</div>
+						)}
+						<div className="mt-auto">
+							<div className="my-6 border-t border-base-300" />
+							{report.attribution && (
+								<p className="text-xs font-semibold uppercase tracking-widest text-base-content/50">
+									{report.attribution}
+								</p>
+							)}
+							{report.note && (
+								<p className="mt-3 text-sm leading-relaxed text-base-content/60">
+									{report.note}
+								</p>
+							)}
+							<a
+								href={localizedPath(report.href, locale)}
+								className="mt-4 inline-block text-sm font-semibold text-primary hover:underline"
+							>
+								{report.linkText}
+							</a>
+						</div>
 					</figure>
 				))}
 			</div>

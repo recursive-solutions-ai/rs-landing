@@ -13,7 +13,7 @@ const RIGHT = [
 
 /* ── OptimizeVisual ─────────────────────────────────────────────────────
  * Beat: Lucy's orb pulses work outward. Payoff: each expert card shows
- * work done for Holt CPA plus the hours-saved counter. The orb says
+ * work done for Harbor Lane CPA plus the hours-saved counter. The orb says
  * Lucy — never "System" (spec 2026-07-02). */
 export function OptimizeVisual() {
 	return (

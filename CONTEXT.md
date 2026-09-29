@@ -9,6 +9,6 @@ Canonical term → one-line definition. Aliases to avoid in *(italics)*.
 - **Payoff frame** — the result state a pillar visual rests on for ≥80% of its loop (e.g. six scored redesigns).
 - **Process beat** — the ≤2s action moment that precedes the payoff frame (e.g. the URL paste).
 - **Animation box** — the framed container of a pillar visual: window chrome bar + navy→teal gradient border that sets it off from the page.
-- **Holt CPA** — the fictional demo client threaded through all five pillar visuals (`holtcpa.com`); its lead **Dana Reyes** is captured in pillar 03 and won in pillar 04.
+- **Harbor Lane CPA** — the fictional demo client threaded through all five pillar visuals (`harborlanecpa.example`; renamed from *Holt CPA* in October 2026 because holtcpa.com is a real domain); its lead **Dana Reyes** is captured in pillar 03 and won in pillar 04.
 - **Growth Engine** — Recursive Solutions' in-house technical platform (SDKs + Brain) that client sites, including this one, are built on.
 - **Brain** — the Growth Engine backend service; this site reaches it via `/api/rs/[...route]` (forms, CRM, blog).

@@ -29,7 +29,7 @@ export function AnimationBox({ num, label, children }: AnimationBoxProps) {
 				<span className="h-2 w-2 rounded-full bg-base-300" aria-hidden="true" />
 				<span className="h-2 w-2 rounded-full bg-base-300" aria-hidden="true" />
 				<span className="ml-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-base-content/50">
-					Lucy <b className="font-bold text-primary">· {num} {label}</b> — <span className="normal-case">holtcpa.com</span>
+					Lucy <b className="font-bold text-primary">· {num} {label}</b> · <span className="normal-case">harborlanecpa.example</span>
 				</span>
 			</div>
 			<div className="relative min-h-0 flex-1 @container">{children}</div>

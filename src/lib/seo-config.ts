@@ -11,7 +11,7 @@ import { SITE_URL } from '@/lib/sitemap-shared'
 export const ORG_NAME = 'Recursive Solutions'
 
 export const ORG_DESCRIPTION =
-	'AI consulting, advisory, and custom builds for service businesses. We help good people and great businesses not just survive the future — but thrive in it.'
+	'AI consulting, advisory, and custom builds for service businesses. We help good people and great businesses not just survive the future, but thrive in it.'
 
 /** Absolute URL to a logo image (used as Organization.logo). */
 export const ORG_LOGO = `${SITE_URL}/logo-no-bg-with-text-dark.png`

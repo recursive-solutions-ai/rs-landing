@@ -144,6 +144,17 @@ export default async function BlogPostPage({
 					author={author ?? undefined}
 					business={business ?? undefined}
 				/>
+				<section className="mt-12 rounded-2xl border border-base-300 bg-base-100 p-8 text-center md:p-10">
+					<h2 className="font-display text-2xl font-bold text-base-content md:text-3xl">
+						{t(dict, 'blog.cta.firm.heading')}
+					</h2>
+					<p className="mx-auto mt-3 max-w-xl leading-relaxed text-base-content/70">
+						{t(dict, 'blog.cta.firm.body')}
+					</p>
+					<Link href={`${localizedPath('/', locale)}#contact`} className="btn btn-primary mt-6 px-8 font-bold">
+						{t(dict, 'blog.cta.book.call')}
+					</Link>
+				</section>
 				<TopicChips
 					topics={topics}
 					locale={locale}

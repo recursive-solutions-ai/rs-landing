@@ -62,7 +62,7 @@ export function CredibilityBar() {
 			>
 				<p className="reveal max-w-2xl text-sm font-medium text-base-content/80 md:text-base">
 					<span className="font-bold text-primary">Operators, not theorists.</span>{" "}
-					Forged in special operations, business, and engineering.  We build the systems that give companies an edge.
+					We run our own firms on the same systems we build, so we know what it takes for a firm to run without the owner in every decision.
 				</p>
 				<div className="reveal flex items-center gap-4">
 					<span className="text-[10px] font-bold uppercase tracking-widest text-base-content/50">

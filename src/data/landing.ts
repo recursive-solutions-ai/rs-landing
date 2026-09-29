@@ -56,8 +56,16 @@ export interface OutcomeCard {
 
 export interface FieldReport {
 	label: string
-	quote: string
-	attribution: string
+	/** A client's own words, shown in quotation marks. */
+	quote?: string
+	/** A result card instead of a quote: `heading` is the figure, `body` explains it. */
+	heading?: string
+	body?: string
+	attribution?: string
+	/** Our description under the attribution, not the client's words, so no quotation marks. */
+	note?: string
+	href: string
+	linkText: string
 	/** The highlighted report — rendered with the primary left accent. */
 	accent?: boolean
 }
@@ -222,32 +230,37 @@ export const outcomeCards: OutcomeCard[] = [
 export const fieldReports: FieldReport[] = [
 	{
 		label: "Report 01",
-		quote:
-			"I knew we had inefficiencies. I just didn't know where. Recursive delivered us a blueprint with a clear diagnosis of how our business actually runs, a prioritized roadmap, and a team that could execute it. No fluff, just results.",
-		attribution: "Founder · Strategy Engagement",
+		quote: "A fire and forget service.",
+		attribution: "Jesse Lipscomb, CEO, Roadmap Tax Services",
+		note: "A website rebuild, a blog publishing five days a week (116 articles so far), and client follow-up that runs from booked to signed to paid on its own.",
+		href: "/use-cases/roadmap-tax",
+		linkText: "Read the Roadmap Tax story →",
 		accent: true,
 	},
 	{
 		label: "Report 02",
 		quote:
-			"We were making decisions off gut instinct and reports that were already stale. Recursive built us a live KPI dashboard that updates automatically every month. Now I walk into every leadership meeting knowing exactly where we stand. It changed how we run the company.",
-		attribution: "CEO · Leadership Team",
+			"Amazing working with the Recursive Solutions team. Above and beyond, really. They captured the essence of who we are and made it so much easier for the right families to find us online.",
+		attribution: "My Little Paris",
+		href: "/use-cases/my-little-paris",
+		linkText: "Read the My Little Paris story →",
 		accent: true,
 	},
 	{
 		label: "Report 03",
-		quote:
-			"Our team was spending hours on tasks that should have taken minutes. Recursive came in, built AI tools directly into how our team works, and the difference showed up fast. Not in a report, but in how our people actually operate every day.",
-		attribution: "Team Director · Operations",
+		heading: "~14 hours a week",
+		body: "Reporting work taken off Roadmap Tax's plate every week, with 650+ steps a month now running without anyone touching them.",
+		href: "/use-cases/roadmap-tax",
+		linkText: "Read the Roadmap Tax story →",
 		accent: true,
 	},
 ]
 
 export const faqItems: FaqItem[] = [
 	{
-		question: "Is my business the right size for this?",
+		question: "Is my firm the right size for this?",
 		answer:
-			"If your team is losing hours to repetitive work, you're the right size. We work with small and mid-sized businesses, not just enterprises, and every engagement is scoped to your operation. You never pay for capability you don't need.",
+			"If you own a professional services firm and too much still waits on you, you're the right size. Most of the firms we work with do roughly $2M to $20M a year. Every engagement is scoped to your operation, so you never pay for capability you don't need.",
 	},
 	{
 		question: "Will this replace my team's jobs?",
@@ -270,14 +283,14 @@ export const faqItems: FaqItem[] = [
 			"No surprises. Every engagement is scoped from your Friction Audit. Builds are priced as fixed projects, and ongoing operation runs as a flat monthly plan. You'll see real numbers before you commit to anything.",
 	},
 	{
-		question: "Is our business data safe?",
+		question: "Is our firm's data safe?",
 		answer:
 			"Yes. Your data stays yours. Your AI Experts are trained on your knowledge, not fed into the open web, and we walk you through exactly how and where your information is stored and used.",
 	},
 	{
-		question: "What happens on the intro call?",
+		question: "What happens on the discovery call?",
 		answer:
-			"Thirty minutes, no pitch deck. We learn how your business runs today and where the hours are going. You leave with a Friction Audit: an honest read on where you stand and where AI would actually pay off. No pressure to buy anything.",
+			"Thirty minutes, no pitch deck. We learn how your firm runs today and where the owner's time is going. You leave with a Friction Audit: an honest read on where you stand and where AI would actually pay off. No pressure to buy anything.",
 	},
 ]
 
@@ -486,7 +499,7 @@ export const team: TeamMember[] = [
 		image: "/jake.jpg",
 		name: "Jake",
 		role: "CEO & Strategy",
-		bio: "Seven years in MARSOC as a Special Operations medic taught one discipline: understand what's actually broken before you act. Jake works directly with founders to find where the business is losing margin and owner time, then defines the fix before any technology is recommended.",
+		bio: "Jake runs operations at Roadmap Tax, a San Diego tax strategy firm, and built Recursive from what worked there. He works directly with owners to find where the firm still runs on them, then defines the fix before any technology is recommended.",
 		initials: "J",
 		linkedin: "https://www.linkedin.com/in/jake-johnson-recursive/",
 	},
