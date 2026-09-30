@@ -13,6 +13,7 @@ export const STATIC_PAGES = [
 	'/lucy',
 	'/use-cases/my-little-paris',
 	'/use-cases/roadmap-tax',
+	'/use-cases/mantle-tax',
 	'/blog',
 	'/contact',
 	'/privacy',
