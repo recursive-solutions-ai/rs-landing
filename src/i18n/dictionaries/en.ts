@@ -40,7 +40,6 @@ const en = {
 	'blog.topic.title': '{topic}: articles and guides',
 	'blog.topic.subtitle': '{count} articles about {topic}',
 	'blog.cta.book.call': 'Book a Consult',
-	'blog.cta.book.call.description': 'Tell us about your firm and we\'ll set up a short discovery call to find the biggest wins.',
 	'blog.cta.firm.heading': 'Where does your firm still run on you?',
 	'blog.cta.firm.body': 'Tell us about your firm and we\'ll set up a short discovery call to find the biggest wins.',
 	'blog.load.error': 'Failed to load posts: {error}',

@@ -166,20 +166,14 @@ export default async function BlogPostPage({
 			</article>
 
 			<div className="max-w-5xl mx-auto">
-				{/* CTA targets the homepage audit form, not getBookingCallToAction():
-				    that links to /forms/<slug>, a route this site doesn't have. */}
+				{/* One row only: 3 cards stay on a single md:grid-cols-3 row, where 4+
+				    would wrap to 2x2 below lg. No cta prop: the firm CTA above the
+				    topic chips is the post's one booking prompt. */}
 				<RelatedArticles
-					posts={relatedPosts}
+					posts={relatedPosts.slice(0, 3)}
 					locale={locale}
 					localePrefix={localePrefix(locale)}
 					heading={t(dict, 'blog.related.posts')}
-					cta={{
-						label: t(dict, 'blog.cta.book.call'),
-						href: `${localizedPath('/', locale)}#contact`,
-						kind: 'form',
-					}}
-					ctaLabel={t(dict, 'blog.cta.book.call')}
-					ctaDescription={t(dict, 'blog.cta.book.call.description')}
 				/>
 			</div>
 		</main>

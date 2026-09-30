@@ -42,7 +42,6 @@ const fr: Dictionary = {
 	'blog.topic.title': '{topic} : articles et guides',
 	'blog.topic.subtitle': '{count} articles sur {topic}',
 	'blog.cta.book.call': 'R\u00E9server une consultation',
-	'blog.cta.book.call.description': 'Parlez-nous de votre cabinet et nous organiserons un court appel de d\u00E9couverte pour trouver les plus grands gains.',
 	'blog.cta.firm.heading': 'O\u00F9 votre cabinet repose-t-il encore sur vous ?',
 	'blog.cta.firm.body': 'Parlez-nous de votre cabinet et nous organiserons un court appel de d\u00E9couverte pour trouver les plus grands gains.',
 	'blog.load.error': '\u00C9chec du chargement des articles : {error}',
