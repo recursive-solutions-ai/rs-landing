@@ -196,11 +196,13 @@ export function ContactCTASection({
 													className={`select select-bordered w-full ${fieldClass}`}
 													defaultValue=""
 												>
-													<option value="" disabled>
+													{/* Options inherit the select's white text, but the browser draws the
+													    open list on its own light background, so give them page colors. */}
+													<option value="" disabled className="bg-base-100 text-base-content">
 														{field.placeholder ?? "Select..."}
 													</option>
 													{(field.options ?? []).map((opt) => (
-														<option key={opt} value={opt}>
+														<option key={opt} value={opt} className="bg-base-100 text-base-content">
 															{opt}
 														</option>
 													))}
