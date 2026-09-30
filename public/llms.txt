@@ -1,15 +1,16 @@
 # Recursive Solutions
 
-> Recursive Solutions is an AI consulting firm that helps service businesses adopt AI through advisory, opportunity assessments, and custom-built systems. The thesis: every great business will run on AI. The work is to diagnose where a business loses margin and owner time, then design and deploy the most effective intervention, fixing the process before automating it.
+> Run your firm on systems, not on the owner. Recursive Solutions is an AI consulting firm for owner-led professional services firms: accounting and tax, law, and engineering and consulting. One system for your website, content, SEO, leads, CRM and analytics, run by a hands-on team, plus custom automations, AI agents and advisory. The work is to diagnose where a firm loses margin and owner time, then design and deploy the most effective intervention, fixing the process before automating it.
 
 ## What we do
 
-- **AI Opportunity Assessment**: Diagnose where the business is losing margin and owner time, and identify the highest-leverage interventions before recommending any technology.
-- **AI Advisory**: Ongoing guidance on AI strategy, tooling, and adoption for founders and leadership teams.
-- **Custom AI Builds**: Bespoke AI systems designed around a team's actual workflows and tools, not theoretical use cases.
+- **Lucy**: The unified platform behind Recursive Solutions: website, content, SEO, lead capture, CRM, and analytics in one system we run for you.
+- **AI Opportunity Assessment**: Diagnose where the firm is losing margin and owner time, and identify the highest-leverage interventions before recommending any technology.
+- **AI Advisory**: Ongoing guidance on AI strategy, tooling, and adoption for owners and leadership teams.
+- **Custom AI Builds**: Bespoke AI systems designed around a firm's actual workflows and tools, not theoretical use cases.
 - **Dedicated Agent Deployment**: 24/7 AI agents for customer support, internal operations, and data processing that work alongside teams.
 - **Workflow Automation**: Eliminate repetitive tasks across sales, ops, and admin.
-- **Operational Intelligence**: Live dashboards and real-time signals for service businesses.
+- **Operational Intelligence**: Live dashboards and real-time signals for professional services firms.
 
 ## How we work
 
@@ -17,17 +18,28 @@ Our engagement process is: **Discover** (understand what's actually broken) → 
 
 ## Who we serve
 
-Service businesses (agencies, wealth management/RIAs, property and leasing, distribution, commercial cleaning, and similar owner-operated firms) that want to scale without proportionally adding headcount.
+Owners of owner-led professional services firms (accounting and tax, law, and engineering and consulting) doing roughly $2M to $20M a year, where too much still waits on the owner. Every engagement is scoped to the firm's operation.
+
+## How to start
+
+Book a Consult through the contact form. We reply within one business day to set up a discovery call: thirty minutes, no pitch deck. You leave with a Friction Audit, an honest read on where you stand and where AI would actually pay off.
 
 ## Team
 
-- Jake: CEO & Strategy
+- Jake: CEO & Strategy. Runs operations at Roadmap Tax, a San Diego tax strategy firm, and built Recursive from what worked there.
 - Luc: COO & Operations
 - Denis: CTO & AI Architecture
 
+## Case studies
+
+- Roadmap Tax Services: https://www.recursive-solutions.com/use-cases/roadmap-tax (website rebuild, a five-day-a-week content engine, and client pipeline automation; 650+ automated steps a month and ~14 hours of reporting saved every week)
+- My Little Paris: https://www.recursive-solutions.com/use-cases/my-little-paris (website rebuild, Lucy integration, and ongoing SEO)
+- Mantle Tax Solutions: https://www.recursive-solutions.com/use-cases/mantle-tax (website rebuild that made the firm machine-readable; AI visibility audit score 32 to 64)
+
 ## Key pages
 
-- Home: https://www.recursive-solutions.com/en
-- Blog (AI guides for service businesses): https://www.recursive-solutions.com/en/blog
-- Contact: https://www.recursive-solutions.com/en/contact
+- Home: https://www.recursive-solutions.com/
+- Lucy: https://www.recursive-solutions.com/lucy
+- Blog (AI guides for professional services firms): https://www.recursive-solutions.com/blog
+- Contact: https://www.recursive-solutions.com/contact
 - Sitemap: https://www.recursive-solutions.com/sitemap.xml
