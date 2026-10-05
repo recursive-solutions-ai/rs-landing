@@ -1,4 +1,4 @@
-# CONTEXT.md — Domain Glossary
+# GLOSSARY.md — Domain Glossary
 
 Canonical term → one-line definition. Aliases to avoid in *(italics)*.
 

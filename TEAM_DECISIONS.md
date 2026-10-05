@@ -35,9 +35,9 @@ either a decision or post-decision wiring. Nothing here blocks reviewing the cur
 8. **The consult promise.** The contact CTA commits to a "Website Analysis Report" delivered in a
    30-minute consult. Confirm the team can actually deliver that at launch volume, or soften the
    copy.
-9. **Nav label "System" vs the glossary.** `CONTEXT.md` says customer-facing labels always say
+9. **Nav label "System" vs the glossary.** `GLOSSARY.md` says customer-facing labels always say
    "Lucy", never "(the) System" — but the header nav labels the `/lucy` page **"System"**.
-   Deliberate company-first reposition choice, or drift? Pick one and update CONTEXT.md or the nav.
+   Deliberate company-first reposition choice, or drift? Pick one and update GLOSSARY.md or the nav.
 10. **Privacy policy §4 accuracy.** It names **Resend** as the form processor; submissions
     actually flow through the Brain / Growth Engine now. Legal copy edit — needs sign-off, not
     just a code change.
