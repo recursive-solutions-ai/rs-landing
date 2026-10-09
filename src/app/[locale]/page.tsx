@@ -27,9 +27,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { locale } = await params
 	return {
-		title: "Recursive Solutions | Run Your Firm on Systems, Not on the Owner",
+		title: "Recursive Solutions | Run Your Firm on Systems",
 		description:
-			"Recursive Solutions helps owner-led accounting, law, engineering and consulting firms run on systems instead of on the owner. One system for website, content, leads, CRM and analytics, run by a hands-on team.",
+			"Recursive Solutions helps owner-led accounting, law and consulting firms run on systems, not the owner: website, leads, CRM and analytics in one place.",
 		// Self-referencing: `/` for the default language, `/fr` for secondary ones.
 		alternates: { canonical: buildUrl("", locale) },
 	}
