@@ -4,6 +4,7 @@ import { DictionaryProvider } from '@/i18n/client'
 import { supportedLocales, isSupportedLocale } from '@/i18n/config'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { ChromeGate } from '@/components/layout/ChromeGate'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { organizationLd, websiteLd } from '@/lib/seo-config'
 
@@ -36,9 +37,9 @@ export default async function LocaleLayout({
 	return (
 		<DictionaryProvider dict={dict} locale={locale} supportedLocales={supportedLocales}>
 			<JsonLd data={[organizationLd(), websiteLd()]} />
-			<Header />
+			<ChromeGate><Header /></ChromeGate>
 			<main className="flex-1">{children}</main>
-			<Footer />
+			<ChromeGate><Footer /></ChromeGate>
 		</DictionaryProvider>
 	)
 }
