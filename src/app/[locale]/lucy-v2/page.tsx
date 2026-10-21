@@ -6,6 +6,7 @@ import { LucyV2Hero } from "@/components/lucy-v2/LucyV2Hero"
 import { LucyV2Story } from "@/components/lucy-v2/LucyV2Story"
 import {
 	LucyV2WhatYouGet,
+	LucyV2Custom,
 	LucyV2Proof,
 	LucyV2FinalCta,
 	LucyV2Faq,
@@ -53,6 +54,7 @@ export default async function LucyV2Page({
 			<LucyV2Hero />
 			<LucyV2Story />
 			<LucyV2WhatYouGet />
+			<LucyV2Custom locale={locale} />
 			<LucyV2Proof locale={locale} />
 			<LucyV2FinalCta />
 			<LucyV2Faq />

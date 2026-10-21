@@ -24,10 +24,11 @@ const GET = [
 	{ n: "03", big: "AI-ready business", body: "Structured data, marked-up answers and a chatbot that books calls, so AI assistants recommend you." },
 	{ n: "04", big: "Email on autopilot", body: "Pricing, availability and what you offer, answered in minutes in your voice. Anything unusual comes straight to you." },
 	{ n: "05", big: "Cold outreach", body: "Lucy finds the businesses you want, writes each a personal email and follows up. You approve before it goes out." },
-	{ n: "06", big: "One dashboard", body: "What was published, answered, sent and booked this week, in one view." },
-	{ n: "07", big: "A team behind Lucy", body: "Real people at Recursive Solutions set her up, review the strategy and answer your calls." },
+	{ n: "06", big: "Custom AI workflows", body: "AI workflows or a custom app for intake, follow-ups, reporting and document chasing, set up for you." },
+	{ n: "07", big: "One dashboard", body: "What was published, answered, sent and booked this week, in one view." },
+	{ n: "08", big: "A team behind Lucy", body: "Real people at Recursive Solutions set her up, review the strategy and answer your calls." },
 ]
-const MARQUEE = ["Website", "Blog", "AI-ready", "Email", "Outreach", "Dashboard"]
+const MARQUEE = ["Website", "Blog", "AI-ready", "Email", "Outreach", "Custom AI", "Dashboard"]
 
 export function LucyV2WhatYouGet() {
 	const root = useRef<HTMLElement>(null)
@@ -114,6 +115,103 @@ const CASES = [
 		facts: ["Structured data was on 0 pages before", "0 → 20 answers marked up for AI", "AI visibility score 32 → 64"],
 	},
 ]
+
+/* ---------------- Custom AI workflows ---------------- */
+
+const FLOW = ["New client email", "AI reads & sorts", "CRM updated", "Docs requested", "Follow-up sent", "You review"]
+const POINTS = [
+	{ t: "We map it", b: "We sit with you and find what\u2019s worth automating." },
+	{ t: "We build it", b: "AI workflows or a custom app, connected to the tools you already use." },
+	{ t: "We run it", b: "Monitored, fixed and improved, so you don\u2019t touch the plumbing." },
+]
+
+export function LucyV2Custom({ locale }: { locale: string }) {
+	const root = useRef<HTMLElement>(null)
+	useLayoutEffect(() => {
+		const el = root.current
+		if (!el) return
+		const mm = gsap.matchMedia()
+		mm.add("(prefers-reduced-motion: no-preference)", () => {
+			// headline words rise as you scroll in
+			gsap.fromTo(".lv2-cw", { yPercent: 115 }, { yPercent: 0, ease: "none", stagger: 0.08, scrollTrigger: { trigger: ".lv2-ch", start: "top 88%", end: "top 50%", scrub: 0.5 } })
+			// the process line draws itself; each node lights as the line reaches it
+			const nodes = gsap.utils.toArray<HTMLElement>(".lv2-fn")
+			const tl = gsap.timeline({ defaults: { ease: "none" }, scrollTrigger: { trigger: ".lv2-flow", start: "top 72%", end: "bottom 58%", scrub: 0.6 } })
+			tl.fromTo(".lv2-fline", { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 5 }, 0)
+			nodes.forEach((n, i) => {
+				tl.fromTo(n.querySelector(".lv2-fn-on"), { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, i - 0.15)
+				tl.fromTo(n.querySelector(".lv2-fn-label"), { opacity: 0.35 }, { opacity: 1, duration: 0.3 }, i - 0.15)
+			})
+			// the three points slide in from alternating sides
+			gsap.utils.toArray<HTMLElement>(".lv2-cp").forEach((c, i) => {
+				gsap.fromTo(c, { x: (i - 1) * 90, y: 40, rotate: (i - 1) * 3, opacity: 0.15 }, { x: 0, y: 0, rotate: 0, opacity: 1, ease: "none", scrollTrigger: { trigger: c, start: "top 98%", end: "top 62%", scrub: 0.5 } })
+			})
+		})
+		return () => mm.revert()
+	}, [])
+
+	return (
+		<section ref={root} aria-labelledby="lv2-custom-h" className="relative px-5 py-24 sm:px-8 md:py-36">
+			<div aria-hidden="true" className="pointer-events-none absolute left-1/2 top-1/3 h-[34rem] w-[50rem] max-w-none -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(99,102,241,0.22),transparent_70%)]" />
+			<div className="lv2-ch relative mx-auto max-w-4xl text-center">
+				<Eyebrow>Beyond marketing</Eyebrow>
+				<h2 id="lv2-custom-h" className="mt-5 font-display text-4xl font-semibold leading-[1.06] tracking-tight sm:text-6xl">
+					{"Custom AI workflows,".split(" ").map((w, i) => (
+						<span key={i}><span className="lv2-cmask inline-block overflow-hidden align-top"><span className="lv2-cw inline-block">{w}</span></span>{" "}</span>
+					))}
+					<span className="text-white/45">
+						{"built into how you already work.".split(" ").map((w, i, a) => (
+							<span key={i}><span className="lv2-cmask inline-block overflow-hidden align-top"><span className="lv2-cw inline-block">{w}</span></span>{i < a.length - 1 ? " " : ""}</span>
+						))}
+					</span>
+				</h2>
+				<p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
+					Intake, follow-ups, reporting, document chasing: the repetitive work that eats your week. We map your process, build the AI workflow or custom app around it, and set it all up for you.
+				</p>
+			</div>
+
+			<div className="lv2-flow relative mx-auto mt-16 max-w-5xl">
+				{/* desktop: horizontal line through the six node centres */}
+				<svg aria-hidden="true" className="absolute left-[8.333%] top-[19px] hidden h-[2px] w-[83.333%] overflow-visible lg:block" viewBox="0 0 100 2" preserveAspectRatio="none">
+					<path d="M0 1H100" pathLength={1} stroke="rgba(255,255,255,0.14)" strokeWidth="2" vectorEffect="non-scaling-stroke" fill="none" />
+					<path className="lv2-fline" d="M0 1H100" pathLength={1} strokeDasharray="1" stroke="#38bdf8" strokeWidth="2" vectorEffect="non-scaling-stroke" strokeLinecap="round" fill="none" style={{ filter: "drop-shadow(0 0 6px rgba(56,189,248,0.8))" }} />
+				</svg>
+				{/* mobile: vertical line */}
+				<svg aria-hidden="true" className="absolute bottom-[20px] left-[19px] top-[20px] w-[2px] overflow-visible lg:hidden" viewBox="0 0 2 100" preserveAspectRatio="none">
+					<path d="M1 0V100" pathLength={1} stroke="rgba(255,255,255,0.14)" strokeWidth="2" vectorEffect="non-scaling-stroke" fill="none" />
+					<path className="lv2-fline" d="M1 0V100" pathLength={1} strokeDasharray="1" stroke="#38bdf8" strokeWidth="2" vectorEffect="non-scaling-stroke" strokeLinecap="round" fill="none" style={{ filter: "drop-shadow(0 0 6px rgba(56,189,248,0.8))" }} />
+				</svg>
+				<ol className="relative grid gap-8 lg:grid-cols-6 lg:gap-2">
+					{FLOW.map((f, i) => (
+						<li key={f} className="lv2-fn flex items-center gap-4 lg:flex-col lg:gap-3 lg:text-center">
+							<span className="relative flex size-10 shrink-0 items-center justify-center rounded-full border border-white/25 bg-[#03060f] text-sm font-bold text-white/70">
+								<span aria-hidden="true" className="lv2-fn-on absolute inset-0 rounded-full bg-sky-400 shadow-[0_0_24px_4px_rgba(56,189,248,0.6)]" />
+								<span className="relative text-white">{i + 1}</span>
+							</span>
+							<span className="lv2-fn-label text-sm font-semibold leading-tight text-white sm:text-base lg:px-1">{f}</span>
+						</li>
+					))}
+				</ol>
+			</div>
+
+			<p className="relative mx-auto mt-14 max-w-2xl text-center text-base text-white/75 sm:text-lg">
+				<Link href={localizedPath("/use-cases/roadmap-tax", locale)} className="underline decoration-sky-400/60 underline-offset-4 hover:decoration-sky-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400">
+					<strong className="font-semibold text-white">Roadmap Tax:</strong> 650+ automated steps a month, ~14 hrs of reporting saved every week.
+				</Link>
+			</p>
+
+			<ul className="relative mx-auto mt-14 grid max-w-5xl gap-4 md:grid-cols-3">
+				{POINTS.map((p, i) => (
+					<li key={p.t} className="lv2-cp rounded-2xl border border-white/12 bg-gradient-to-b from-white/[0.07] to-white/[0.02] p-6">
+						<span className="font-display text-sm font-semibold text-sky-300">0{i + 1}</span>
+						<h3 className="mt-2 font-display text-2xl font-semibold tracking-tight">{p.t}</h3>
+						<p className="mt-2 text-[15px] leading-relaxed text-white/65">{p.b}</p>
+					</li>
+				))}
+			</ul>
+		</section>
+	)
+}
 
 export function LucyV2Proof({ locale }: { locale: string }) {
 	const root = useRef<HTMLElement>(null)
@@ -224,6 +322,10 @@ export const LUCY_V2_FAQ = [
 	{
 		question: "What happens after I drop my URL?",
 		answer: "We review your site and come back to you with what we'd redesign and automate, and what it would cost.",
+	},
+	{
+		question: "Can you automate things beyond marketing?",
+		answer: "Yes. We build custom AI workflows and apps for the repetitive parts of your operations, like intake, follow-ups, reporting and document collection, and set them up for you.",
 	},
 	{
 		question: "What does it cost after?",
