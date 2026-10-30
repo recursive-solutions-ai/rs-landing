@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useLayoutEffect, useRef } from "react"
 import { gsap } from "./gsap"
 import { LucyUrlCapture } from "./LucyUrlCapture"
+import { LucyV2HeroBackdrop } from "./LucyV2HeroBackdrop"
 
 // Client logos (same assets as landing/CredibilityBar). `mono` logos are transparent PNGs rendered
 // as white silhouettes; Roadmap Tax ships as a black-background JPG so it is shown as-is.
@@ -65,11 +66,6 @@ export function LucyV2Hero() {
 				if (tlh.progress() < 1) tlh.progress(1)
 			}, 3000)
 
-			gsap.to(".lv2-glow-wrap", {
-				yPercent: 30,
-				ease: "none",
-				scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: true },
-			})
 			gsap.to(".lv2-hero-inner", {
 				scale: 0.94,
 				opacity: 0.15,
@@ -85,11 +81,8 @@ export function LucyV2Hero() {
 	}, [])
 
 	return (
-		<section ref={root} aria-labelledby="lv2-h1" className="relative flex min-h-[100svh] items-center overflow-hidden px-5 pb-8 pt-[68px] sm:px-8 sm:pt-24">
-			<div aria-hidden="true" className="lv2-glow-wrap pointer-events-none absolute inset-0">
-				<div className="lv2-glow absolute left-1/2 top-[-12%] h-[44rem] w-[60rem] max-w-none -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(59,130,246,0.42),rgba(59,130,246,0)_70%)]" />
-				<div className="lv2-glow-b absolute bottom-[-25%] left-[8%] h-[34rem] w-[34rem] rounded-full bg-[radial-gradient(closest-side,rgba(99,102,241,0.25),rgba(99,102,241,0)_70%)]" />
-			</div>
+		<section ref={root} aria-labelledby="lv2-h1" className="relative isolate flex min-h-[100svh] items-center overflow-hidden px-5 pb-12 pt-[68px] sm:px-8 sm:pb-16 sm:pt-24">
+			<LucyV2HeroBackdrop />
 
 			<div className="lv2-hero-inner lv2-pre relative mx-auto w-full max-w-4xl text-center">
 				<p className="lv2-rest mx-auto inline-flex max-w-full items-center gap-2 whitespace-nowrap rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[11px] font-semibold uppercase leading-snug tracking-[0.1em] text-sky-200 sm:text-[13px] sm:tracking-[0.12em]">
@@ -100,7 +93,7 @@ export function LucyV2Hero() {
 				<h1 id="lv2-h1" className="mt-4 font-display font-semibold tracking-tight">
 					<Words text="Drop your URL." className="block text-[38px] leading-[1.05] sm:text-7xl md:text-[5.25rem]" />
 					<Words
-						text="We’ll turn your website into a growth engine for the AI era."
+						text="We’ll turn your business into a growth engine for the AI era."
 						className="mx-auto mt-1.5 block max-w-3xl text-[24px] leading-[1.15] text-white/45 sm:text-4xl md:text-5xl"
 					/>
 				</h1>

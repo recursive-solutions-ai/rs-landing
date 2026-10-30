@@ -151,7 +151,7 @@ export default async function BlogPostPage({
 					<p className="mx-auto mt-3 max-w-xl leading-relaxed text-base-content/70">
 						{t(dict, 'blog.cta.firm.body')}
 					</p>
-					<Link href={`${localizedPath('/', locale)}#contact`} className="btn btn-primary mt-6 px-8 font-bold">
+					<Link href={localizedPath('/contact', locale)} className="btn btn-primary mt-6 px-8 font-bold">
 						{t(dict, 'blog.cta.book.call')}
 					</Link>
 				</section>

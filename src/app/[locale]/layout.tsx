@@ -2,9 +2,7 @@ import { notFound } from 'next/navigation'
 import { getDictionary } from '@/i18n'
 import { DictionaryProvider } from '@/i18n/client'
 import { supportedLocales, isSupportedLocale } from '@/i18n/config'
-import { Header } from '@/components/layout/Header'
-import { Footer } from '@/components/layout/Footer'
-import { ChromeGate } from '@/components/layout/ChromeGate'
+import { LucyV2TopBar, LucyV2Footer } from '@/components/lucy-v2/LucyV2Chrome'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { organizationLd, websiteLd } from '@/lib/seo-config'
 
@@ -37,9 +35,9 @@ export default async function LocaleLayout({
 	return (
 		<DictionaryProvider dict={dict} locale={locale} supportedLocales={supportedLocales}>
 			<JsonLd data={[organizationLd(), websiteLd()]} />
-			<ChromeGate><Header /></ChromeGate>
+			<LucyV2TopBar locale={locale} />
 			<main className="flex-1">{children}</main>
-			<ChromeGate><Footer /></ChromeGate>
+			<LucyV2Footer locale={locale} />
 		</DictionaryProvider>
 	)
 }

@@ -10,7 +10,6 @@ export const BLOG_BATCH_SIZE = 1000
 
 export const STATIC_PAGES = [
 	'',
-	'/lucy',
 	'/use-cases/my-little-paris',
 	'/use-cases/roadmap-tax',
 	'/use-cases/mantle-tax',

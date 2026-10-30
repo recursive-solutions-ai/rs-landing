@@ -121,7 +121,7 @@ export const services: ServiceItem[] = [
 		title: "Lucy, the unified platform",
 		description:
 			"One system that runs your website, content, SEO, lead capture, CRM, and analytics. Replace disconnected tools with a single platform we operate for you.",
-		href: "/lucy",
+		href: "/",
 		earlyAccess: true,
 	},
 	{
@@ -130,7 +130,7 @@ export const services: ServiceItem[] = [
 		title: "Custom automations",
 		description:
 			"We map the repetitive work across sales, ops, and admin and automate it, so your team spends its hours on what only people can do.",
-		href: "#contact",
+		href: "/contact",
 	},
 	{
 		id: "bespoke-tools",
@@ -138,7 +138,7 @@ export const services: ServiceItem[] = [
 		title: "Bespoke tools & agents",
 		description:
 			"Internal tools and AI agents built around your workflows, deployed into how your team already works, and monitored so they keep improving.",
-		href: "#contact",
+		href: "/contact",
 	},
 	{
 		id: "advisory",
@@ -146,7 +146,7 @@ export const services: ServiceItem[] = [
 		title: "Advisory & consulting",
 		description:
 			"A hands-on partner as you adopt AI. We help you evaluate, prioritize, and stay ahead, month by month.",
-		href: "#contact",
+		href: "/contact",
 	},
 ]
 
