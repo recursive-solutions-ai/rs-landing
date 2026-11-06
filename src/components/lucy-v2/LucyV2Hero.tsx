@@ -14,7 +14,7 @@ const LOGOS: { name: string; src: string; width: number; height: number; mono: b
 	{ name: "Mantle Tax Solutions", src: "/logos/mantle-tax.png", width: 2560, height: 707, mono: true, h: 22 },
 	{ name: "My Little Paris Cafe", src: "/logos/my-little-paris.png", width: 514, height: 118, mono: true, h: 20 },
 	{ name: "Harrington Construction", src: "/logos/hcci.png", width: 1137, height: 215, mono: true, h: 20 },
-	{ name: "Tucky", src: "/logos/tucky-icon.jpeg", width: 128, height: 128, mono: false, h: 22, label: "Tucky" },
+	{ name: "LiveCase", src: "/logos/livecase-mono.png", width: 1284, height: 160, mono: true, h: 15 },
 ]
 
 // Stats pulled from the existing use-case pages (my-little-paris, roadmap-tax).
