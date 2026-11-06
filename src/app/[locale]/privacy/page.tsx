@@ -10,7 +10,7 @@ export default function PrivacyPage() {
 		<main className="container mx-auto px-4 py-16 max-w-3xl">
 			<header className="mb-12 border-b border-base-300 pb-8">
 				<h1 className="text-4xl font-bold mb-2">{t('page.privacy.policy')}</h1>
-				<p className="text-base-content/40 text-sm">Last updated: March 2026</p>
+				<p className="text-base-content/40 text-sm">Last updated: November 4, 2026</p>
 			</header>
 
 			<div className="space-y-10 text-base-content/80 leading-relaxed">
@@ -19,6 +19,91 @@ export default function PrivacyPage() {
 					stores, and protects your personal information when you visit our
 					website or interact with our services.
 				</p>
+
+				<section id="google-data" className="scroll-mt-24">
+					<h2 className="text-xl font-semibold text-base-content mb-3">Google connected accounts and Lucy</h2>
+					<p className="mb-3">
+						This policy also covers Lucy and the Growth Engine platform at growth-stack.recursive-solutions.com.
+						Signing in with Google supplies account identity information such as your name, email address
+						and profile picture. It does not by itself connect your mailbox or calendar. You choose each
+						Google service separately and authorize its permissions on Google&apos;s consent screen.
+					</p>
+					<h3 className="text-lg font-medium text-base-content/90 mt-5 mb-2">Data accessed and how it is used</h3>
+					<ul className="list-disc pl-6 space-y-2">
+						<li><strong>Gmail:</strong> message content, subjects, sender and recipient addresses, threads,
+							labels and mailbox metadata are used to display correspondence, recognize replies, classify
+							email and prepare replies. Authorized features send messages and apply or remove labels,
+							mark messages read and archive messages according to your instructions and mailbox rules.</li>
+						<li><strong>Google Calendar:</strong> event titles, times, descriptions, attendees and meeting
+							links are used to show upcoming events, check availability and create or update meetings.</li>
+						<li><strong>Google Analytics:</strong> property and web-stream information and traffic,
+							acquisition, page-performance and conversion reports support reporting and measurement
+							setup. The setup feature can create a GA4 property and web data stream when requested.</li>
+						<li><strong>Google Search Console:</strong> authorized site properties, search queries,
+							clicks, impressions and positions support search-performance reports and SEO work.</li>
+						<li><strong>Google Business Profile:</strong> where API access is available, authorized
+							business accounts, locations, listing details, reviews and posts support the enabled
+							business-profile features. Authorization does not guarantee Google API availability.</li>
+					</ul>
+					<h3 className="text-lg font-medium text-base-content/90 mt-5 mb-2">AI processing and service providers</h3>
+					<p className="mb-3">
+						Lucy uses AI to classify email, draft replies, summarize information and carry out the work
+						you request. Relevant Google-derived content, including message text and correspondence
+						metadata, may be sent to OpenRouter and the model providers that process the request.
+						Email classification also uses TypeSafe&apos;s Jev service through OpenRouter. The model
+						used depends on the feature and configured model selection. Our hosting, database and
+						storage providers process stored records to operate these features.
+					</p>
+					<p className="mb-3">
+						We do not use Google user data to train or fine-tune generalized AI models. Our OpenRouter
+						account excludes paid and free endpoints that train on request data, excludes endpoints
+						that publish prompts, and does not allow the input/output data-sharing discount.
+						TypeSafe states that it does not train or fine-tune models on customer input. These
+						training restrictions do not mean every provider has zero retention: processing, security
+						and legal retention may apply under the provider&apos;s terms.
+					</p>
+					<p className="mb-3">
+						Before connecting a mailbox, consider that its messages may contain other people&apos;s
+						information. Only connect accounts you are authorized to use. You can review and control
+						Lucy&apos;s mailbox behavior in Email rules and stop future connected-account access by
+						disconnecting the account. If you do not want this processing, do not connect that service.
+					</p>
+					<h3 className="text-lg font-medium text-base-content/90 mt-5 mb-2">Google API Limited Use</h3>
+					<p className="mb-3">
+						Recursive Solutions&apos; use and transfer to any other app of information received from
+						Google APIs will adhere to the{' '}
+						<a href="https://developers.google.com/terms/api-services-user-data-policy" className="text-primary hover:underline">Google API Services User Data Policy</a>,
+						including the Limited Use requirements. Google user data is used to provide the
+						user-facing features described here. We do not sell it or use it for advertising targeting,
+						credit decisions or generalized AI training. Transfers are limited to providing these
+						features with your consent, security purposes, legal requirements or other purposes
+						expressly permitted by that policy. Human access is limited to your affirmative permission
+						to inspect specific data, security investigations, legal obligations or the limited
+						aggregated internal operations permitted by Google&apos;s policy.
+					</p>
+					<h3 className="text-lg font-medium text-base-content/90 mt-5 mb-2">Storage, disconnection and deletion</h3>
+					<p className="mb-3">
+						Access and refresh tokens are stored encrypted on our servers. We also store records needed
+						for your workspace, including mailbox identifiers, message metadata and snippets,
+						classifications, drafts, correspondence and derived CRM or reporting records. Access is
+						controlled by account and business permissions, and data is transmitted over HTTPS.
+					</p>
+					<p className="mb-3">
+						Disconnecting a service in Connections removes that stored connection and stops future
+						access through it. You can also revoke authorization in{' '}
+						<a href="https://myaccount.google.com/connections" className="text-primary hover:underline">your Google Account&apos;s third-party connections</a>.
+						Disconnection does not automatically erase previously stored messages, drafts, reports,
+						logs or derived records. We retain these only as needed to provide the service and meet
+						security or legal obligations; copies held by service providers follow their retention terms.
+					</p>
+					<p>
+						To request access, export or deletion of retained Google-derived data, email{' '}
+						<a href="mailto:hello@recursive-solutions.com" className="text-primary hover:underline">hello@recursive-solutions.com</a>
+						{' '}and identify your account and business. We respond within 30 days. We will explain
+						any records that must be retained and any applicable legal exception rather than treating
+						disconnection as a promise of immediate deletion.
+					</p>
+				</section>
 
 				<section>
 					<h2 className="text-xl font-semibold text-base-content mb-3">1. Information We Collect</h2>

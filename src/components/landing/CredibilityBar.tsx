@@ -46,6 +46,13 @@ const CLIENTS: {
 		height: 707,
 		href: "https://www.mantletax.com/",
 	},
+	{
+		name: "LiveCase",
+		src: "/logos/livecase.png",
+		width: 600,
+		height: 160,
+		href: "https://www.livecase.com/",
+	},
 ]
 
 export function CredibilityBar() {

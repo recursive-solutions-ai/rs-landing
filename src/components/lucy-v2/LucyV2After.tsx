@@ -114,6 +114,14 @@ const CASES = [
 		heroLabel: "Pages AI can read as a firm",
 		facts: ["Structured data was on 0 pages before", "0 → 20 answers marked up for AI", "AI visibility score 32 → 64"],
 	},
+	{
+		name: "LiveCase",
+		href: "/use-cases/livecase",
+		logo: { src: "/logos/livecase.png", w: 600, h: 160, mono: false, ph: 34 },
+		hero: "2.3×",
+		heroLabel: "Blog clicks from Google per day",
+		facts: ["5.0 → 11.4 clicks a day, 90 days before vs. after", "Visits from AI assistants 8 → 43", "Mentioned in 38% of 195 AI answers checked"],
+	},
 ]
 
 /* ---------------- Custom AI workflows ---------------- */
@@ -244,7 +252,7 @@ export function LucyV2Proof({ locale }: { locale: string }) {
 					Real firms. Real numbers.
 				</h2>
 			</div>
-			<ul className="mx-auto mt-16 grid max-w-6xl gap-5 md:grid-cols-3">
+			<ul className="mx-auto mt-16 grid max-w-7xl gap-5 md:grid-cols-2 xl:grid-cols-4">
 				{CASES.map((c) => (
 					<li key={c.name} className="lv2-case">
 						<Link

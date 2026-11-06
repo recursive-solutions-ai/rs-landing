@@ -10,11 +10,21 @@ import {
 	START_CONTENT,
 } from "@/lib/animation-config"
 import { useReducedMotion } from "@/hooks/useReducedMotion"
-import { services } from "@/data/landing"
+import { services as defaultServices, type ServiceItem } from "@/data/landing"
 import { SectionHeading } from "./SectionHeading"
 import { ServiceCard } from "./ServiceCard"
 
-export function ServicesSection() {
+interface ServicesSectionProps {
+	items?: ServiceItem[]
+	tag?: string
+	title?: string
+}
+
+export function ServicesSection({
+	items = defaultServices,
+	tag = "Offerings",
+	title = "Pick where you start. Build from there.",
+}: ServicesSectionProps = {}) {
 	const sectionRef = useRef<HTMLElement>(null)
 	const cardsRef = useRef<HTMLDivElement[]>([])
 	const prefersReduced = useReducedMotion()
@@ -51,13 +61,13 @@ export function ServicesSection() {
 			className="mx-auto max-w-7xl px-6 py-16"
 		>
 			<SectionHeading
-				tag="Offerings"
-				title="Pick where you start. Build from there."
+				tag={tag}
+				title={title}
 				className="mb-8"
 			/>
 
 			<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-				{services.map((service, index) => (
+				{items.map((service, index) => (
 					<ServiceCard
 						key={service.id}
 						ref={(el) => {

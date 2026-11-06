@@ -25,6 +25,7 @@ const USE_CASES = [
 	{ href: "/use-cases/my-little-paris", label: "My Little Paris" },
 	{ href: "/use-cases/roadmap-tax", label: "Roadmap Tax" },
 	{ href: "/use-cases/mantle-tax", label: "Mantle Tax Solutions" },
+	{ href: "/use-cases/livecase", label: "LiveCase" },
 ]
 
 const NAV_LINK =
@@ -227,6 +228,7 @@ export function LucyV2Footer({ locale }: { locale: string }) {
 						<h4 className={heading}>{t("footer.navigation")}</h4>
 						<nav className="flex flex-col gap-1.5">
 							<Link href={localizedPath("/blog", locale)} className={link}>Blog</Link>
+							<Link href={localizedPath("/free-seo-geo-review", locale)} className={link}>Free SEO + GEO review</Link>
 							<Link href={localizedPath("/contact", locale)} className={link}>Contact</Link>
 						</nav>
 					</div>

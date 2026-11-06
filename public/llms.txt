@@ -32,6 +32,7 @@ Book a Consult through the contact form. We reply within one business day to set
 
 ## Case studies
 
+- LiveCase: https://www.recursive-solutions.com/use-cases/livecase (blog moved onto the Growth Engine; Google clicks to the blog 5.0 → 11.4 a day, 2.3×, and visits from AI assistants 8 → 43)
 - Roadmap Tax Services: https://www.recursive-solutions.com/use-cases/roadmap-tax (website rebuild, a five-day-a-week content engine, and client pipeline automation; 650+ automated steps a month and ~14 hours of reporting saved every week)
 - My Little Paris: https://www.recursive-solutions.com/use-cases/my-little-paris (website rebuild, Lucy integration, and ongoing SEO)
 - Mantle Tax Solutions: https://www.recursive-solutions.com/use-cases/mantle-tax (website rebuild that made the firm machine-readable; AI visibility audit score 32 to 64)
@@ -42,4 +43,5 @@ Book a Consult through the contact form. We reply within one business day to set
 - Lucy: https://www.recursive-solutions.com/lucy
 - Blog (AI guides for professional services firms): https://www.recursive-solutions.com/blog
 - Contact: https://www.recursive-solutions.com/contact
+- Free SEO + GEO review: https://www.recursive-solutions.com/free-seo-geo-review (free review of how a website shows up in Google and AI assistants, emailed in minutes)
 - Sitemap: https://www.recursive-solutions.com/sitemap.xml

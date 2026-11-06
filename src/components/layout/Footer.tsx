@@ -34,6 +34,7 @@ export function Footer() {
 							<Link href={`${localizedPath('/', locale)}#team`} className="text-sm text-base-content/60 hover:text-primary">Team</Link>
 							<Link href={`${localizedPath('/', locale)}#offerings`} className="text-sm text-base-content/60 hover:text-primary">Offerings</Link>
 							<Link href={localizedPath('/blog', locale)} className="text-sm text-base-content/60 hover:text-primary">Blog</Link>
+							<Link href={localizedPath('/free-seo-geo-review', locale)} className="text-sm text-base-content/60 hover:text-primary">Free SEO + GEO review</Link>
 							<Link href={`${localizedPath('/', locale)}#contact`} className="text-sm text-base-content/60 hover:text-primary">Contact</Link>
 						</nav>
 					</div>
@@ -44,6 +45,7 @@ export function Footer() {
 							<Link href={localizedPath('/use-cases/my-little-paris', locale)} className="text-sm text-base-content/60 hover:text-primary">My Little Paris</Link>
 							<Link href={localizedPath('/use-cases/roadmap-tax', locale)} className="text-sm text-base-content/60 hover:text-primary">Roadmap Tax</Link>
 							<Link href={localizedPath('/use-cases/mantle-tax', locale)} className="text-sm text-base-content/60 hover:text-primary">Mantle Tax Solutions</Link>
+							<Link href={localizedPath('/use-cases/livecase', locale)} className="text-sm text-base-content/60 hover:text-primary">LiveCase</Link>
 						</nav>
 					</div>
 					<div className="md:col-start-4">
