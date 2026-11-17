@@ -10,8 +10,8 @@ describe('blog keyword compatibility', () => {
 		post: { title: 'Creative agencies', content: '<p>Article content stays visible.</p>', keywords },
 	}))
 
-	it('reproduces the SDK failure with raw database text', () => {
-		expect(() => render('["AI","creative agencies"]')).toThrow(/join is not a function/)
+	it('SDK >= 0.1.179 tolerates raw database text without throwing', () => {
+		expect(() => render('["AI","creative agencies"]')).not.toThrow()
 	})
 
 	it.each([
