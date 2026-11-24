@@ -11,6 +11,7 @@ import { buildUrl } from '@/lib/sitemap-shared'
 import { breadcrumbLd } from '@/lib/seo-config'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { localePrefix, localizedPath } from '@/lib/i18n-utils'
+import { topicMetaDescription, topicMetaTitle } from '@/lib/topic-meta'
 
 export const revalidate = 120
 export const dynamicParams = true
@@ -36,11 +37,8 @@ export async function generateMetadata({
 	const page = await loadTopic(slug, locale)
 	if (!page) return { title: 'Topic not found' }
 	const dict = await getDictionary(locale)
-	const title = t(dict, 'blog.topic.title', { topic: page.topic.label })
-	const description = t(dict, 'blog.topic.subtitle', {
-		topic: page.topic.label,
-		count: String(page.topic.postCount),
-	})
+	const title = topicMetaTitle(dict, page.topic.label)
+	const description = topicMetaDescription(dict, page.topic.label, page.topic.postCount)
 	const url = buildUrl(`/blog/topic/${page.topic.slug}`, locale)
 	const social = socialImageMetadata(title)
 	return {

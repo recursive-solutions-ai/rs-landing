@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react'
 import { BlogSearch } from '@growth-engine/sdk-client/components'
 import { BlogCard, type BlogCardPost } from './BlogCard'
+import { paginationItems } from '@/lib/pagination'
 
 const BLOG_POSTS_PER_PAGE = 9
 
@@ -28,6 +29,59 @@ interface BlogListProps {
 	}
 	/** Posts per page (default 9). */
 	postsPerPage?: number
+}
+
+interface PaginationRenderOptions {
+	current: number
+	total: number
+	siblings: number
+	/** Size classes for every join item (button height / width). */
+	size: string
+	onChange: (page: number) => void
+}
+
+function renderPagination({ current, total, siblings, size, onChange }: PaginationRenderOptions) {
+	return (
+		<>
+			<button
+				className={`join-item btn ${size}`}
+				disabled={current <= 1}
+				onClick={() => onChange(current - 1)}
+				aria-label="Previous page"
+			>
+				«
+			</button>
+			{paginationItems(current, total, siblings).map((item, i) =>
+				item === 'ellipsis' ? (
+					<span
+						key={`ellipsis-${i}`}
+						aria-hidden="true"
+						className={`join-item btn ${size} pointer-events-none cursor-default`}
+					>
+						…
+					</span>
+				) : (
+					<button
+						key={item}
+						className={`join-item btn ${size} ${item === current ? 'btn-active' : ''}`}
+						onClick={() => onChange(item)}
+						aria-label={`Page ${item}`}
+						aria-current={item === current ? 'page' : undefined}
+					>
+						{item}
+					</button>
+				),
+			)}
+			<button
+				className={`join-item btn ${size}`}
+				disabled={current >= total}
+				onClick={() => onChange(current + 1)}
+				aria-label="Next page"
+			>
+				»
+			</button>
+		</>
+	)
 }
 
 /**
@@ -93,34 +147,14 @@ export function BlogList({ posts, locale, localePrefix, translations, postsPerPa
 
 			{totalPages > 1 && (
 				<div className="flex justify-center mt-8">
-					<nav aria-label="Blog pagination" className="join">
-						<button
-							className="join-item btn btn-sm"
-							disabled={clientPage <= 1}
-							onClick={() => setClientPage(clientPage - 1)}
-							aria-label="Previous page"
-						>
-							«
-						</button>
-						{Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-							<button
-								key={p}
-								className={`join-item btn btn-sm ${p === clientPage ? 'btn-active' : ''}`}
-								onClick={() => setClientPage(p)}
-								aria-label={`Page ${p}`}
-								aria-current={p === clientPage ? 'page' : undefined}
-							>
-								{p}
-							</button>
-						))}
-						<button
-							className="join-item btn btn-sm"
-							disabled={clientPage >= totalPages}
-							onClick={() => setClientPage(clientPage + 1)}
-							aria-label="Next page"
-						>
-							»
-						</button>
+					<nav aria-label="Blog pagination">
+						{/* Below sm: no siblings and larger tap targets so it fits 320px viewports. */}
+						<div className="join sm:hidden">
+							{renderPagination({ current: clientPage, total: totalPages, siblings: 0, size: 'btn-md min-w-10 px-0', onChange: setClientPage })}
+						</div>
+						<div className="join hidden sm:inline-flex">
+							{renderPagination({ current: clientPage, total: totalPages, siblings: 1, size: 'btn-sm', onChange: setClientPage })}
+						</div>
 					</nav>
 				</div>
 			)}

@@ -6,8 +6,8 @@ import { buildUrl } from '@/lib/sitemap-shared'
 import { localizedPath } from '@/lib/i18n-utils'
 
 const path = '/use-cases/livecase'
-const title = 'LiveCase: a blog that gets found by Google and AI assistants | Recursive Solutions'
-const description = 'LiveCase moved its blog onto Recursive Solutions’ Growth Engine. Blog clicks from Google per day went from 5.0 to 11.4 (2.3×), and visits from AI assistants from 8 to 43.'
+const title = 'LiveCase: a blog found by Google and AI assistants'
+const description = 'LiveCase moved its blog onto Growth Engine. Google blog clicks per day rose from 5.0 to 11.4 (2.3×) and visits from AI assistants from 8 to 43.'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
 	const { locale } = await params

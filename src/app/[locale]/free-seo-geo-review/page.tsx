@@ -13,7 +13,7 @@ export async function generateMetadata({
 	return canonicalMetadata(path, locale, {
 		title: 'Free SEO + GEO Review of Your Website | Recursive Solutions',
 		description:
-			'Get a free SEO and GEO review of your website. See how Google and AI assistants like ChatGPT and Perplexity find your business, with prioritised quick wins, emailed in minutes.',
+			'Get a free SEO and GEO review of your website. See how Google, ChatGPT and Perplexity find your business, with prioritised quick wins by email.',
 	})
 }
 

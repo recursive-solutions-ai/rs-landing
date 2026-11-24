@@ -6,8 +6,8 @@ import { buildUrl } from '@/lib/sitemap-shared'
 import { localizedPath } from '@/lib/i18n-utils'
 
 const path = '/use-cases/my-little-paris'
-const title = 'My Little Paris: a website built for growth | Recursive Solutions'
-const description = 'A website rebuild, Lucy integration, and ongoing SEO for My Little Paris. See approximately 2.7× Google search impressions, 14% more search clicks, and an email-reported 692% increase in active users.'
+const title = 'My Little Paris: a website built for growth'
+const description = 'A website rebuild, Lucy integration and ongoing SEO for My Little Paris: about 2.7× Google search impressions and 14% more search clicks.'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
 	const { locale } = await params

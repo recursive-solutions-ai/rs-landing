@@ -6,8 +6,8 @@ import { buildUrl } from '@/lib/sitemap-shared'
 import { localizedPath } from '@/lib/i18n-utils'
 
 const path = '/use-cases/roadmap-tax'
-const title = 'Roadmap Tax: built to run without anyone chasing it | Recursive Solutions'
-const description = 'A website rebuild, a five-day-a-week content engine, and client pipeline automation for Roadmap Tax Services. Google reviews went from 2 to 10, with 650+ automated steps a month and ~14 hours of reporting saved every week.'
+const title = 'Roadmap Tax: built to run without anyone chasing it'
+const description = 'A website rebuild, content engine and pipeline automation for Roadmap Tax Services: Google reviews up from 2 to 10, about 14 hours of reporting saved weekly.'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
 	const { locale } = await params

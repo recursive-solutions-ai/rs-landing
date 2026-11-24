@@ -6,8 +6,8 @@ import { buildUrl } from '@/lib/sitemap-shared'
 import { localizedPath } from '@/lib/i18n-utils'
 
 const path = '/use-cases/mantle-tax'
-const title = 'Mantle Tax Solutions: built to be found by AI | Recursive Solutions'
-const description = 'A website rebuild for Mantle Tax Solutions™ that made the firm machine-readable. AI visibility audit score 32 to 64, structured data on 31 of 31 pages, and 20 answers marked up for AI.'
+const title = 'Mantle Tax Solutions: built to be found by AI'
+const description = 'A website rebuild that made Mantle Tax Solutions™ machine-readable: AI visibility audit score from 32 to 64 and structured data on 31 of 31 pages.'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
 	const { locale } = await params
