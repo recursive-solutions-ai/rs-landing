@@ -163,6 +163,7 @@ export function LucyV2TopBar({ locale }: { locale: string }) {
 				</Link>
 				<nav aria-label="Main" className="ml-auto hidden items-center gap-1 md:flex">
 					<UseCasesMenu locale={locale} />
+					<Link href={localizedPath("/how-lucy-works", locale)} className={NAV_LINK}>How Lucy works</Link>
 					<Link href={localizedPath("/contact", locale)} className={NAV_LINK}>Contact</Link>
 				</nav>
 				<div className="flex items-center gap-2">
@@ -199,6 +200,7 @@ export function LucyV2TopBar({ locale }: { locale: string }) {
 							</Link>
 						))}
 						<div className="my-2 border-t border-white/10" />
+						<Link href={localizedPath("/how-lucy-works", locale)} onClick={() => setMobileOpen(false)} className={mobileLink}>How Lucy works</Link>
 						<Link href={localizedPath("/contact", locale)} onClick={() => setMobileOpen(false)} className={mobileLink}>Contact</Link>
 					</nav>
 				</div>
