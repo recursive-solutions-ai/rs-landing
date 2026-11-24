@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next'
+import { REMOTE_IMAGE_PATTERNS } from './src/lib/remote-images'
 
 const nextConfig: NextConfig = {
 	// Allow the cloudflared demo tunnel to load dev resources (HMR/chunks).
@@ -21,6 +22,11 @@ const nextConfig: NextConfig = {
 	// Serve modern image formats via the next/image optimizer.
 	images: {
 		formats: ['image/avif', 'image/webp'],
+		// Allow-list shared with runtime code (isOptimizableImage).
+		remotePatterns: REMOTE_IMAGE_PATTERNS,
+		// Blog asset file names are content-hashed (immutable): cache the
+		// optimized variants for 31 days instead of the 4h default.
+		minimumCacheTTL: 2678400,
 	},
 	async headers() {
 		return [

@@ -10,7 +10,10 @@ import {
 	getBusinessConfig,
 	getRelatedPosts,
 } from '@growth-engine/sdk-server'
-import { BlogContent, RelatedArticles, TopicChips } from '@growth-engine/sdk-client/components'
+import { BlogContent, TopicChips } from '@growth-engine/sdk-client/components'
+import { RelatedArticles } from '@/components/blog/RelatedArticles'
+import { ContentImage } from '@/components/ui/ContentImage'
+import { optimizeContentImages } from '@/lib/optimize-content-images'
 import { getDictionary, t } from '@/i18n'
 import { supportedLocales } from '@/i18n/config'
 import { getDbOrNull } from '@/lib/db'
@@ -121,12 +124,16 @@ export default async function BlogPostPage({
 
 			<article className="max-w-3xl mx-auto">
 				{post.heroImageUrl && (
-					<figure className="aspect-video overflow-hidden rounded-xl mb-8">
-						{/* eslint-disable-next-line @next/next/no-img-element */}
-						<img
+					<figure className="relative aspect-video overflow-hidden rounded-xl mb-8">
+						{/* LCP image: article is max-w-3xl (768px) inside container px-4 */}
+						<ContentImage
 							src={post.heroImageUrl}
 							alt={post.title}
-							className="w-full h-full object-cover"
+							fill
+							sizes="(max-width: 800px) 100vw, 768px"
+							loading="eager"
+							fetchPriority="high"
+							className="object-cover"
 						/>
 					</figure>
 				)}
@@ -134,8 +141,10 @@ export default async function BlogPostPage({
 				<time className="text-sm text-base-content/50">{date}</time>
 				<h1 className="text-4xl font-bold mt-2 mb-8">{post.title}</h1>
 
+				{/* html carries the next/image-optimized body; post.content stays
+				    untouched so JSON-LD (FAQ, word count, images) is unchanged. */}
 				<BlogContent
-					html={content}
+					html={optimizeContentImages(content)}
 					post={{
 						...post,
 						content,

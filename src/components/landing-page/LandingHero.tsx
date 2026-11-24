@@ -4,6 +4,7 @@ import { useEffect, useState, type CSSProperties } from "react"
 import { cn } from "@/lib/utils"
 import { ButtonLink } from "@/components/ui/button-link"
 import { LucyAnimation } from "@/components/landing/LucyAnimation"
+import { ContentImage } from "@/components/ui/ContentImage"
 
 interface LandingHeroProps {
 	headline: string
@@ -76,9 +77,17 @@ export function LandingHero({ headline, subheadline, service, city, heroImageUrl
 					style={{ "--reveal-delay": "0.4s" } as CSSProperties}
 				>
 					{heroImageUrl ? (
-						<div className="aspect-video overflow-hidden rounded-3xl border border-base-300 shadow-xl shadow-primary/10">
-							{/* eslint-disable-next-line @next/next/no-img-element */}
-							<img src={heroImageUrl} alt={headline} className="h-full w-full object-cover" />
+						<div className="relative aspect-video overflow-hidden rounded-3xl border border-base-300 shadow-xl shadow-primary/10">
+							{/* LCP image: max-w-xl (576px) wrapper; 2-col grid (max-w-6xl, px-6) from lg */}
+							<ContentImage
+								src={heroImageUrl}
+								alt={headline}
+								fill
+								sizes="(max-width: 623px) calc(100vw - 48px), (max-width: 1023px) 576px, 528px"
+								loading="eager"
+								fetchPriority="high"
+								className="object-cover"
+							/>
 						</div>
 					) : (
 						<div className="relative aspect-video overflow-hidden rounded-3xl bg-[#0a0b14] shadow-xl shadow-primary/10 ring-1 ring-white/10">

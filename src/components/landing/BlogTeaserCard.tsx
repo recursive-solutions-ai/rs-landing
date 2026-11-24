@@ -4,6 +4,7 @@ import type { CSSProperties } from "react"
 import Link from "next/link"
 import { formatDate, localizedPath } from "@/lib/i18n-utils"
 import { cn } from "@/lib/utils"
+import { ContentImage } from "@/components/ui/ContentImage"
 
 export interface BlogTeaser {
 	slug: string
@@ -30,13 +31,16 @@ export function BlogTeaserCard({ post, locale, index }: BlogTeaserCardProps) {
 			style={{ "--reveal-delay": `${0.1 + index * 0.1}s` } as CSSProperties}
 		>
 			{/* Hero image (or neutral placeholder when a post has none) */}
-			<div className="aspect-video overflow-hidden bg-base-200">
+			<div className="relative aspect-video overflow-hidden bg-base-200">
 				{post.heroImageUrl ? (
-					// eslint-disable-next-line @next/next/no-img-element
-					<img
+					// Section is max-w-7xl px-6, 1 col < md, 3 cols (gap-6) from md.
+					<ContentImage
 						src={post.heroImageUrl}
 						alt={post.title}
-						className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+						fill
+						sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1327px) calc((100vw - 96px) / 3), 395px"
+						loading="lazy"
+						className="object-cover transition-transform duration-500 group-hover:scale-105"
 					/>
 				) : (
 					<div className="h-full w-full bg-gradient-to-br from-base-200 to-base-300" />
