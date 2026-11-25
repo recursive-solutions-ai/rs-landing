@@ -130,7 +130,7 @@ function VillageMapImpl({ focusId = null, dimOthers = false, litAll = false, onP
     <div className="vm-root">
       <div className="vm-panel" data-sel={selected}>
         <div className="vm-head">
-          <h2 className="vm-title font-display">Lucy&rsquo;s town</h2>
+          <h2 className="vm-title font-display">Lucyville</h2>
           <p className="vm-hint">
             <span className="vm-hint-d">{hero.mapHint}</span>
             <span className="vm-hint-t">{hero.mapHintTouch}</span>

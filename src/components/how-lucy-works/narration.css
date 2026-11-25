@@ -118,27 +118,6 @@
   }
 }
 
-.nt-cta-compact {
-  /* clear of the "Lucy's town" map title when the skip link is faded out on the overview */
-  margin-left: 32px;
-  gap: 8px;
-  min-height: 36px;
-  padding: 0 14px 0 4px;
-  box-shadow: 0 6px 18px -6px rgba(92, 110, 255, 0.6);
-}
-.nt-cta-compact .nt-cta-icon {
-  width: 28px;
-  height: 28px;
-}
-.nt-cta-compact .nt-cta-label {
-  font-size: 0.82rem;
-}
-.nt-cta-compact .nt-cta-time {
-  margin-left: 0;
-  padding: 2px 8px;
-  font-size: 0.72rem;
-}
-
 @media (max-width: 520px) {
   .nt-cta {
     gap: 10px;

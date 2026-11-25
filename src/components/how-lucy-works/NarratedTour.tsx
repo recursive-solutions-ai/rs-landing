@@ -12,7 +12,7 @@ const TOTAL = sum(durations)
 const OFFSETS = clipOffsets(durations)
 
 /** The in-stage bar is on screen (desktop journey, tour mode, scrolled inside the journey). */
-export const dockVisible = (s: NarrationState): boolean => s.active && s.mode === 'tour' && s.journey && s.inJourney
+export const dockVisible = (s: NarrationState): boolean => s.active && !s.tucked && s.mode === 'tour' && s.journey && s.inJourney
 
 const running = (s: NarrationState): boolean => s.status === 'playing' || s.status === 'loading' || s.status === 'moving'
 
@@ -47,7 +47,7 @@ export function NarrationProvider({ children }: { children: ReactNode }): ReactN
 /** Space toggles play/pause and Escape closes, only while the bar is open. Capture phase so the journey's Space = next stop yields. */
 function Hotkeys(): null {
   const { state, controller } = useNarration()
-  const active = state.active
+  const active = state.active && !state.tucked
   useEffect(() => {
     if (!active) return
     const onKey = (e: KeyboardEvent): void => {
@@ -70,21 +70,21 @@ function Hotkeys(): null {
 }
 
 // ---------- entry point ----------
-export function TourButton({ variant }: { variant: 'hero' | 'compact' }): ReactNode {
+/** The one big play button of the page. It lives in the hero only: no second one over the map. */
+function TourButton(): ReactNode {
   const { state, controller } = useNarration()
-  if (variant === 'compact' && dockVisible(state)) return null
   const on = state.active
   const label = !on ? 'Listen to Lucy explain it' : running(state) ? 'Pause the tour' : 'Resume the tour'
   const showPause = on && running(state)
   const onClick = (): void => (on ? controller.toggle() : controller.startTour())
   return (
-    <button type="button" className={`nt-cta nt-cta-${variant}${state.used ? '' : ' is-fresh'}`} onClick={onClick}>
+    <button type="button" className={`nt-cta${state.used ? '' : ' is-fresh'}`} onClick={onClick}>
       <span className="nt-cta-icon" aria-hidden="true">
-        {showPause ? <PauseIcon size={variant === 'hero' ? 22 : 15} /> : <PlayIcon size={variant === 'hero' ? 22 : 15} />}
+        {showPause ? <PauseIcon size={22} /> : <PlayIcon size={22} />}
       </span>
       <span className="nt-cta-text">
         <span className="nt-cta-label">{label}</span>
-        {variant === 'hero' && <span className="nt-cta-sub">A guided tour, narrated by Lucy</span>}
+        <span className="nt-cta-sub">A guided tour, narrated by Lucy</span>
       </span>
       <span className="nt-cta-time">{formatMinutes(TOTAL)}</span>
     </button>
@@ -95,7 +95,7 @@ export function TourButton({ variant }: { variant: 'hero' | 'compact' }): ReactN
 export function HeroListen(): ReactNode {
   return (
     <div className="nt-hero">
-      <TourButton variant="hero" />
+      <TourButton />
       <details className="nt-transcript">
         <summary>Read the transcript</summary>
         <ol className="nt-tr-list" role="list">
@@ -248,7 +248,7 @@ export function TourDock(): ReactNode {
 // ---------- sticky mini player (stacked layout, single clips, or scrolled away from the journey) ----------
 function MiniPlayer(): ReactNode {
   const { state, controller } = useNarration()
-  if (!state.active || dockVisible(state)) return null
+  if (!state.active || state.tucked || dockVisible(state)) return null
   const scope = state.mode === 'tour' ? 'tour' : 'clip'
   return (
     <div className="nt-mini" role="region" aria-label="Guided tour by Lucy">

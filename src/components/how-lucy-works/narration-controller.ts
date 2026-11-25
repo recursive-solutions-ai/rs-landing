@@ -34,6 +34,8 @@ export type NarrationState = {
   journey: boolean
   /** The page is currently scrolled inside the journey, so the in-stage bar is on screen. */
   inJourney: boolean
+  /** Paused, then scrolled on (desktop tour): the bar is put away and the hero's button resumes. */
+  tucked: boolean
 }
 
 /** What TownJourney exposes so narration can drive and follow the camera. */
@@ -60,6 +62,7 @@ const INITIAL: NarrationState = {
   used: false,
   journey: false,
   inJourney: false,
+  tucked: false,
 }
 
 /** After the camera stops, wait this long before playing (programmatic moves). */
@@ -68,6 +71,8 @@ const SETTLE_MOVE_MS = 150
 const SETTLE_USER_MS = 600
 /** A stalled download that has not recovered after this long counts as a failure. */
 const STALL_MS = 8000
+/** Scrolling further than this while paused puts the bar away. */
+const TUCK_PX = 24
 
 const clipUrl = (i: number): string => `${AUDIO_BASE}${narration[i].id}.mp3`
 
@@ -77,6 +82,8 @@ export class NarrationController {
   private audio: HTMLAudioElement | null = null
   private journey: JourneyApi | null = null
   private settleTimer: number | null = null
+  /** Scroll position when the visitor paused; null until a camera move in flight at that moment has landed. */
+  private pausedY: number | null = null
   private stallTimer: number | null = null
   private pendingOffset = 0
   private needsReload = false
@@ -92,6 +99,9 @@ export class NarrationController {
   getServerSnapshot = (): NarrationState => INITIAL
 
   private set(patch: Partial<NarrationState>): void {
+    if (patch.status === 'paused') {
+      if (this.state.status !== 'paused') this.pausedY = this.journey?.isMoving() ? null : window.scrollY
+    } else if (patch.status) patch = { ...patch, tucked: false }
     const next = { ...this.state, ...patch }
     for (const k of Object.keys(patch) as Array<keyof NarrationState>) {
       if (next[k] !== this.state[k]) {
@@ -200,7 +210,7 @@ export class NarrationController {
 
   toggle(): void {
     const s = this.state
-    if (s.status === 'playing' || s.status === 'loading') this.pause()
+    if (s.status === 'playing' || s.status === 'loading' || s.status === 'moving') this.pause()
     else if (s.status === 'error') this.retry()
     else this.resume()
   }
@@ -218,14 +228,22 @@ export class NarrationController {
     this.set({ active: true, used: true })
     const atEnd = s.mode === 'tour' && s.index === CLIP_COUNT - 1 && (a.ended || s.time >= durations[s.index] - 0.3)
     if (atEnd) {
-      this.goTo(0, { reason: 'user' })
+      this.goTo(0, { reason: 'start' })
       return
+    }
+    // Scrolled elsewhere while paused: bring the camera back to where Lucy left off.
+    const j = this.journey
+    if (j && s.mode === 'tour' && j.nearestStop() !== s.index) {
+      this.set({ inJourney: true })
+      j.goToStop(s.index)
     }
     if (a.src && a.src.endsWith(clipUrl(s.index)) && !a.ended && !this.needsReload) {
       this.set({ status: 'loading' })
       this.play(s.index)
     } else {
-      this.load(s.index, a.ended ? 0 : s.time)
+      // Paused mid-flight: the audio element still holds the previous clip, so its time means nothing here.
+      const sameClip = a.src.endsWith(clipUrl(s.index))
+      this.load(s.index, !sameClip ? this.pendingOffset : a.ended ? 0 : s.time)
     }
   }
 
@@ -399,6 +417,12 @@ export class NarrationController {
       if (inside !== s.inJourney) this.set({ inJourney: inside })
     }
     if (s.status === 'error') return
+    if (s.status === 'paused') {
+      if (this.pausedY === null) {
+        if (!j.isMoving()) this.pausedY = window.scrollY
+      } else if (Math.abs(window.scrollY - this.pausedY) > TUCK_PX) this.set({ tucked: true })
+      return // paused keeps its place, so Resume picks up where Lucy stopped
+    }
     this.armSettle(j.isMoving() ? SETTLE_MOVE_MS : SETTLE_USER_MS)
   }
 
@@ -418,8 +442,8 @@ export class NarrationController {
       this.load(stop === -1 ? s.index : stop, stop === -1 || stop === s.index ? this.pendingOffset : 0)
       return
     }
-    if (stop === -1 || stop === s.index) return
-    if (s.status === 'paused' || s.status === 'error') this.set({ index: stop, time: 0, status: 'paused', error: null })
+    if (stop === -1 || stop === s.index || s.status === 'paused') return
+    if (s.status === 'error') this.set({ index: stop, time: 0, status: 'paused', error: null })
     else this.load(stop, 0)
   }
 

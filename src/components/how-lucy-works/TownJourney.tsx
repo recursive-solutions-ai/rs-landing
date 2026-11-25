@@ -11,7 +11,7 @@ import { intentOf, stopTarget } from './journey-keys'
 import VillageMap from './VillageMap'
 import StepGlyph from './StepGlyph'
 import LoopRing from './LoopRing'
-import { TourButton, TourDock, dockVisible } from './NarratedTour'
+import { TourDock, dockVisible } from './NarratedTour'
 import { useNarration } from './useNarration'
 import { nearestStopIndex } from './narration-logic'
 import './journey.css'
@@ -322,7 +322,6 @@ export default function TownJourney(): ReactNode {
             <a className={`tj-skip${ui.idle ? ' is-idle' : ''}`} href={`#${AFTER_ID}`} onClick={(e) => (e.preventDefault(), skip())}>
               Skip the tour <span aria-hidden="true">&darr;</span>
             </a>
-            <TourButton variant="compact" />
           </div>
         )}
         <VillageMap
@@ -351,7 +350,7 @@ export default function TownJourney(): ReactNode {
             </div>
 
             <p className="tj-hint" aria-hidden="true">
-              Scroll to fly through the town <span>&darr;</span>
+              Scroll to fly through Lucyville <span>&darr;</span>
             </p>
 
             <section
