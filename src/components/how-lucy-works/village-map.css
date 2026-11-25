@@ -70,6 +70,7 @@
 }
 
 /* cards and leaders are desktop only */
+.vm-cards,
 .vm-card,
 .vm-leaders {
   display: none;
@@ -167,6 +168,195 @@
   stroke: rgba(160, 185, 255, 0.16);
   stroke-width: 1.2;
   stroke-dasharray: 2 6;
+}
+
+/* on touch layouts the numbered badges carry the numbers, so the ground markers step aside */
+@media (max-width: 1023px) {
+  .vm-marks {
+    display: none;
+  }
+}
+
+/* spokes from the silo: faint, they light up with their building */
+.vm-spoke {
+  stroke: rgba(160, 185, 255, 0.2);
+  stroke-width: 1.6;
+  stroke-dasharray: 2 7;
+  animation: none;
+}
+.vm-spoke[data-on] {
+  stroke: var(--c);
+  stroke-width: 2.4;
+  stroke-opacity: 0.9;
+  stroke-dasharray: 3 6;
+  animation: vm-flow 3.2s linear infinite;
+}
+/* the numbered route */
+.vm-route {
+  fill: none;
+  stroke: var(--c);
+  stroke-width: 2.8;
+  stroke-opacity: 0.92;
+  stroke-dasharray: 7 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: vm-flow 2.4s linear infinite;
+}
+.vm-route-glow {
+  fill: none;
+  stroke: var(--c);
+  stroke-width: 9;
+  stroke-opacity: 0.1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.vm-leg[data-on] .vm-route-glow {
+  stroke-opacity: 0.28;
+}
+.vm-arrow {
+  stroke: #050816;
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+}
+.vm-mark-halo {
+  fill: var(--c);
+  opacity: 0.18;
+}
+.vm-mark-disc {
+  fill: var(--c);
+  stroke: #050816;
+  stroke-width: 2.2;
+}
+.vm-mark-n {
+  fill: #07102a;
+  font-size: 11.5px;
+  font-weight: 800;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+.vm-mark[data-on] .vm-mark-halo {
+  opacity: 0.45;
+}
+
+/* ---------- journey: focus, dimming, alive buildings ---------- */
+.vm-b {
+  transition: opacity 0.5s ease;
+}
+.vm-svg[data-dim] .vm-b:not([data-focus]):not(.vm-b-foundation) {
+  opacity: 0.42;
+}
+.vm-svg[data-dim] .vm-b:not([data-focus]) .vm-glow,
+.vm-svg[data-dim] .vm-b:not([data-focus]) .vm-ring {
+  opacity: 0;
+}
+.vm-svg[data-dim] .vm-mark:not([data-on]) {
+  opacity: 0.5;
+}
+.vm-svg[data-dim] .vm-b-foundation:not([data-focus]) .vm-platform {
+  opacity: 0.9;
+}
+.vm-b[data-focus] .vm-lift {
+  transform: translateY(-5px);
+  filter: brightness(1.14) saturate(1.06);
+}
+.vm-b[data-focus] .vm-glow {
+  opacity: 1;
+}
+.vm-b[data-focus] .vm-ring {
+  opacity: 0.9;
+}
+.vm-b-foundation[data-focus] .vm-edge {
+  stroke: var(--c);
+  stroke-opacity: 0.95;
+}
+.vm-b-foundation[data-focus] ~ .vm-ground-layer .vm-runway {
+  stroke: #e6eeff;
+  stroke-opacity: 1;
+  animation-duration: 1.2s;
+}
+/* "alive" touches while a building is focused */
+.vm-b[data-focus] .vm-beacon {
+  animation-duration: 0.8s;
+}
+.vm-b[data-focus] .vm-beacon-ring {
+  animation-duration: 1s;
+}
+.vm-b[data-focus] .vm-signal {
+  animation-duration: 1.7s;
+}
+.vm-b[data-focus] .vm-signal-2 {
+  animation-delay: 0.85s;
+}
+.vm-b[data-focus] .vm-led,
+.vm-b[data-focus] .vm-led-glow {
+  animation-duration: 0.9s;
+}
+.vm-b[data-focus] .vm-win-glow {
+  animation-duration: 1.6s;
+}
+.vm-b[data-focus] .vm-bob {
+  animation-duration: 1.2s;
+}
+.vm-page {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+.vm-b[data-focus] .vm-page {
+  animation: vm-page 1.8s ease-in-out infinite;
+}
+.vm-silo-pulse,
+.vm-gate-halo {
+  opacity: 0;
+}
+.vm-silo-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.vm-b[data-focus] .vm-silo-pulse {
+  animation: vm-silo 2.2s ease-out infinite;
+}
+.vm-gate-halo {
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.vm-b[data-focus] .vm-gate-halo {
+  animation: vm-halo 1.6s ease-in-out infinite;
+}
+.vm-yard-win {
+  transition: opacity 0.4s ease;
+}
+.vm-b[data-focus] .vm-yard-win {
+  animation: vm-blink 1.5s ease-in-out infinite;
+}
+@keyframes vm-page {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.28);
+  }
+}
+@keyframes vm-silo {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.3);
+    opacity: 0;
+  }
+}
+@keyframes vm-halo {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
 }
 
 /* ---------- small motions ---------- */
@@ -281,12 +471,14 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--c);
+  background: var(--t, var(--c));
   color: #07102a;
   font-size: 11px;
   font-weight: 700;
   line-height: 20px;
   text-align: center;
+  display: grid;
+  place-items: center;
   box-shadow:
     0 0 0 2px rgba(5, 8, 22, 0.9),
     0 3px 12px rgba(0, 0, 0, 0.55);
@@ -360,7 +552,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: var(--c);
+  background: var(--t, var(--c));
   color: #07102a;
   font-size: 12px;
   font-weight: 700;
@@ -541,7 +733,14 @@
     display: inline;
   }
 
+  .vm-cards {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
   .vm-card {
+    pointer-events: auto;
     position: absolute;
     z-index: 2;
     display: flex;
@@ -556,13 +755,37 @@
     cursor: pointer;
     border-radius: 10px;
     border: 1px solid rgba(148, 163, 184, 0.28);
-    background: rgba(8, 12, 30, 0.82);
+    background: rgba(8, 12, 30, 0.86);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
     transition:
       border-color 0.25s ease,
       background 0.25s ease,
       box-shadow 0.25s ease;
+  }
+  .vm-card-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+    color: var(--t);
+    font-size: clamp(8.5px, 0.78cqw, 10.5px);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .vm-card-n {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: clamp(15px, 1.4cqw, 18px);
+    height: clamp(15px, 1.4cqw, 18px);
+    border-radius: 50%;
+    background: var(--t);
+    color: #07102a;
+    font-size: clamp(9px, 0.85cqw, 11px);
+    letter-spacing: 0;
   }
   .vm-card-name {
     font-size: clamp(12px, 1.1cqw, 15px);
@@ -584,7 +807,8 @@
     border-color: var(--c);
   }
 
-  .vm-leader line {
+  .vm-leader line,
+  .vm-leader polyline {
     stroke: rgba(160, 185, 255, 0.55);
     stroke-width: 1.2;
     stroke-dasharray: 2 4;
@@ -597,7 +821,8 @@
     stroke-width: 1.6;
     transition: fill 0.25s ease;
   }
-  .vm-leader[data-on] line {
+  .vm-leader[data-on] line,
+  .vm-leader[data-on] polyline {
     stroke: var(--c);
     stroke-opacity: 1;
   }
@@ -670,6 +895,7 @@
     display: none;
   }
   .vm-road,
+  .vm-route,
   .vm-runway,
   .vm-beacon,
   .vm-bob,
@@ -688,5 +914,15 @@
   }
   .vm-b[data-on] .vm-lift {
     transform: none;
+  }
+}
+
+/* narrow stages (small windows): the cards keep the tag and name, and drop the one-line description */
+@container (max-width: 1100px) {
+  .vm-card-line {
+    display: none;
+  }
+  .vm-card {
+    padding: 8px 11px;
   }
 }

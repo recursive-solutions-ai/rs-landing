@@ -1,0 +1,647 @@
+/* The pinned scroll journey. Only rendered at >= 1024px wide, >= 640px tall, motion allowed. */
+
+.tj-stage {
+  position: relative;
+  container-type: inline-size;
+}
+
+.tj-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* ---------- skip link ---------- */
+.tj-top {
+  position: absolute;
+  z-index: 9;
+  top: 14px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tj-skip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: rgba(5, 8, 22, 0.78);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #dbe5ff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s ease, border-color 0.2s ease;
+}
+.tj-skip:hover {
+  border-color: #9db8ff;
+  color: #fff;
+}
+.tj-skip.is-idle:not(:focus-visible) {
+  opacity: 0;
+  pointer-events: none;
+}
+.tj-skip:focus-visible {
+  opacity: 1;
+  outline: 2px solid #f4f6ff;
+  outline-offset: 3px;
+}
+
+/* ---------- veil and stage title card ---------- */
+.tj-veil {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  background: radial-gradient(ellipse at 50% 48%, rgba(5, 8, 22, 0.9) 0%, rgba(5, 8, 22, 0.7) 55%, rgba(5, 8, 22, 0.35) 100%);
+}
+.tj-stagecard {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(640px, 72%);
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -50%);
+}
+.tj-sc-no {
+  display: inline-grid;
+  place-items: center;
+  width: clamp(44px, 5.4cqw, 64px);
+  height: clamp(44px, 5.4cqw, 64px);
+  border-radius: 50%;
+  background: var(--t);
+  color: #07102a;
+  font-size: clamp(1.5rem, 2.8cqw, 2.2rem);
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 0 40px -6px var(--t);
+}
+.tj-sc-name {
+  margin: 14px 0 8px;
+  font-size: clamp(2.2rem, 5.2cqw, 4rem);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  color: #fff;
+}
+.tj-sc-line {
+  margin: 0 auto;
+  max-width: 34rem;
+  font-size: clamp(1rem, 1.7cqw, 1.3rem);
+  line-height: 1.5;
+  color: #c3cfee;
+}
+
+/* ---------- scroll cue ---------- */
+.tj-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 76px;
+  margin: 0;
+  padding: 6px 16px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  background: rgba(5, 8, 22, 0.72);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #dbe5ff;
+  white-space: nowrap;
+  opacity: 1;
+}
+.tj-hint span {
+  display: inline-block;
+  animation: tj-nudge 1.6s ease-in-out infinite;
+}
+@keyframes tj-nudge {
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+/* ---------- content panel ---------- */
+/* About 54% of the stage on the right; the building is framed in the left ~44%. */
+.tj-panel {
+  --rv: 0;
+  position: absolute;
+  right: 2%;
+  top: 14px;
+  bottom: 88px;
+  width: 54%;
+  container-type: size;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(26px, 0);
+  pointer-events: auto;
+  color: #cdd8f5;
+  line-height: 1.45;
+}
+.tj-card {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  max-height: 100cqh;
+  padding: clamp(14px, 3.2cqh, 26px) clamp(18px, 4cqw, 34px) clamp(14px, 3cqh, 24px) clamp(20px, 4.4cqw, 38px);
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--t) 38%, rgba(148, 163, 184, 0.2));
+  background: linear-gradient(160deg, rgba(14, 22, 50, 0.94), rgba(6, 10, 26, 0.94));
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.8), 0 0 60px -30px var(--t);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 2cqh, 18px);
+}
+.tj-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--t);
+  box-shadow: 0 0 18px var(--t);
+}
+/* staggered reveal, driven by --rv (scrubbed with the scroll) */
+.tj-it {
+  --k: clamp(0, calc((var(--rv) - var(--i) * 0.05) / 0.3), 1);
+  opacity: var(--k);
+  transform: translateY(calc((1 - var(--k)) * 10px));
+}
+.tj-head {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4px, 1cqh, 9px);
+  flex: none;
+}
+.tj-eyebrow {
+  margin: 0;
+  font-size: clamp(11px, 1.9cqh, 13px);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--t);
+}
+.tj-headline {
+  margin: 0;
+  font-size: clamp(1.3rem, 4.7cqh, 2.5rem);
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  color: #fff;
+  text-wrap: balance;
+}
+.tj-intro {
+  margin: 0;
+  font-size: clamp(13px, 2.15cqh, 16px);
+  line-height: 1.42;
+  color: #aebbd9;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* the visual is the hero: ring (or layers) on the left, one step card on the right */
+.tj-vis {
+  flex: 1 1 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: clamp(10px, 2.4cqw, 26px);
+}
+.tj-ring {
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  display: grid;
+  place-items: center;
+}
+.tj-ring .hlw-ring {
+  width: 100%;
+  height: 100%;
+  max-height: 440px;
+}
+.tj-stepcard {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.8cqh, 16px);
+  min-width: 0;
+}
+/* all steps share one grid cell: the card keeps the height of the longest one and they cross-fade */
+.tj-step-stack {
+  display: grid;
+}
+.tj-step {
+  grid-area: 1 / 1;
+  min-width: 0;
+  padding: clamp(10px, 2.2cqh, 18px) clamp(12px, 2.4cqw, 18px);
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--hlw-accent) 38%, rgba(148, 163, 184, 0.2));
+  background: color-mix(in srgb, var(--hlw-accent) 8%, rgba(5, 8, 22, 0.55));
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.45s ease, transform 0.45s ease, visibility 0s linear 0.45s;
+}
+.tj-step.is-on {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition-delay: 0s;
+}
+.tj-step.is-you {
+  border-style: dashed;
+  border-color: rgba(244, 246, 255, 0.5);
+}
+.tj-step-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 clamp(4px, 1cqh, 8px);
+}
+.tj-step-n {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--hlw-accent);
+  color: #050816;
+  font-size: 14px;
+  font-weight: 800;
+}
+.tj-step.is-you .tj-step-n {
+  background: #050816;
+  color: #f4f6ff;
+  box-shadow: inset 0 0 0 2px #f4f6ff;
+}
+.tj-step-label {
+  margin: 0 0 clamp(3px, 0.8cqh, 6px);
+  font-size: clamp(1.1rem, 3cqh, 1.55rem);
+  line-height: 1.15;
+  font-weight: 500;
+  color: #fff;
+}
+.tj-step-detail {
+  margin: 0;
+  font-size: clamp(13px, 2.2cqh, 15.5px);
+  line-height: 1.45;
+  color: #d3dcf5;
+}
+.tj-step-ctl {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 8px;
+}
+.tj-arrow {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(5, 8, 22, 0.7);
+  color: #dbe5ff;
+  font: inherit;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.tj-arrow:hover {
+  border-color: var(--hlw-accent);
+  background: color-mix(in srgb, var(--hlw-accent) 22%, rgba(5, 8, 22, 0.7));
+}
+.tj-arrow:focus-visible {
+  outline: 2px solid #f4f6ff;
+  outline-offset: 2px;
+}
+.tj-count {
+  min-width: 3.4em;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  color: #dbe5ff;
+}
+.tj-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(148, 163, 184, 0.18);
+  overflow: hidden;
+}
+.tj-bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--hlw-accent);
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: tj-bar linear forwards;
+}
+.tj-bar-fill.is-held {
+  animation: none;
+  transform: scaleX(1);
+  opacity: 0.5;
+}
+@keyframes tj-bar {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* cadence pill and three stat chips */
+.tj-meta {
+  flex: none;
+  display: grid;
+  grid-template-columns: 1.15fr repeat(3, minmax(0, 1fr));
+  gap: clamp(6px, 1.2cqw, 10px);
+  align-items: stretch;
+}
+.tj-runs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0;
+  padding: 7px 11px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--t) 40%, transparent);
+  background: color-mix(in srgb, var(--t) 9%, transparent);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #fff;
+}
+.tj-runs-label {
+  padding: 1px 9px;
+  border-radius: 999px;
+  background: var(--t);
+  color: #050816;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.tj-fact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  margin: 0;
+  padding: 7px 11px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(148, 163, 184, 0.06);
+  min-width: 0;
+}
+.tj-fact-v {
+  font-size: clamp(1.1rem, 3.1cqh, 1.5rem);
+  line-height: 1.1;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tj-fact-l {
+  font-size: 12px;
+  line-height: 1.3;
+  color: #9fb0d0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+/* short windows: the ring shrinks first, the step card gets the room, then the type tightens */
+@media (max-height: 760px) {
+  .tj-panel {
+    bottom: 80px;
+  }
+  .tj-card {
+    gap: 8px;
+    padding: 12px 14px 12px 18px;
+  }
+  .tj-vis {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
+  }
+  .tj-stepcard {
+    gap: 6px;
+  }
+  .tj-step {
+    padding: 8px 11px;
+  }
+  .tj-step-top {
+    margin-bottom: 3px;
+  }
+  .tj-step-n {
+    width: 24px;
+    height: 24px;
+    font-size: 13px;
+  }
+  .tj-step-label {
+    font-size: 1.05rem;
+    margin-bottom: 2px;
+  }
+  .tj-step-detail {
+    font-size: 13px;
+    line-height: 1.38;
+  }
+  .tj-arrow {
+    width: 26px;
+    height: 26px;
+  }
+  .tj-step-ctl {
+    padding-bottom: 6px;
+  }
+  .tj-runs,
+  .tj-fact {
+    padding: 5px 9px;
+  }
+  .tj-runs {
+    font-size: 12px;
+  }
+  .tj-fact-v {
+    font-size: 1.05rem;
+  }
+  .tj-fact-l {
+    font-size: 11.5px;
+    line-height: 1.25;
+  }
+}
+
+/* ---------- progress rail ---------- */
+.tj-rail {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 8px 16px 8px;
+  max-width: calc(100% - 24px);
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(5, 8, 22, 0.8);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  pointer-events: auto;
+}
+.tj-rail-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.tj-rail-group + .tj-rail-group {
+  padding-left: 16px;
+  border-left: 1px solid rgba(148, 163, 184, 0.22);
+}
+.tj-rail-label {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--t);
+}
+.tj-rail-dots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 4px;
+}
+.tj-rail-item {
+  position: relative;
+}
+.tj-dot {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--t) 55%, transparent);
+  background: rgba(5, 8, 22, 0.9);
+  color: var(--t);
+  font: inherit;
+  font-size: 10.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+.tj-dot.is-done {
+  background: color-mix(in srgb, var(--t) 28%, rgba(5, 8, 22, 0.9));
+}
+.tj-dot:hover {
+  background: color-mix(in srgb, var(--t) 40%, rgba(5, 8, 22, 0.9));
+}
+.tj-dot.is-current {
+  transform: scale(1.18);
+  background: var(--t);
+  color: #07102a;
+  box-shadow: 0 0 16px var(--t);
+}
+.tj-dot:focus-visible {
+  outline: 2px solid #f4f6ff;
+  outline-offset: 3px;
+}
+.tj-rail-now {
+  position: absolute;
+  bottom: calc(100% + 22px);
+  left: 50%;
+  transform: translateX(calc(-50% + var(--nudge, 0px)));
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--t);
+  background: rgba(5, 8, 22, 0.92);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ---------- when the journey is on, the stacked layout steps aside ---------- */
+.hlw-root[data-journey='on'] .hlw-nav,
+.hlw-root[data-journey='on'] .hlw-stage,
+.hlw-root[data-journey='on'] .hlw-loop {
+  display: none;
+}
+@media (min-width: 1024px) and (min-height: 640px) {
+  /* The map never grows taller than the window, in either mode, so nothing jumps when the mode is chosen. */
+  .hlw-map {
+    max-width: calc((100svh - 96px) * 1.5385);
+    margin-inline: auto;
+  }
+}
+@media (min-width: 1500px) and (min-height: 640px) {
+  /* On wide screens the map breaks out of the text column to use the room. */
+  .hlw-map {
+    --tj-w: min(calc(100vw - 96px), calc((100svh - 96px) * 1.5385), 1760px);
+    width: var(--tj-w);
+    max-width: none;
+    margin-left: calc((100% - var(--tj-w)) / 2);
+    margin-right: 0;
+  }
+}
+
+/* ---------- keyboard hint ---------- */
+.tj-keys {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  font-size: 0.7rem;
+  color: rgba(203, 213, 225, 0.7);
+  pointer-events: none;
+}
+.tj-keys kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 5px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-bottom-width: 2px;
+  background: rgba(5, 8, 22, 0.7);
+  font: inherit;
+  font-size: 0.75rem;
+  color: #e2e8f0;
+}
+.tj-keys span {
+  margin-left: 4px;
+}
+@media (hover: none) {
+  .tj-keys {
+    display: none;
+  }
+}

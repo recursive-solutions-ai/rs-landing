@@ -17,6 +17,7 @@ export const STATIC_PAGES = [
 	'/blog',
 	'/contact',
 	'/free-seo-geo-review',
+	'/how-lucy-works',
 	'/privacy',
 	'/legal',
 	'/cookies',

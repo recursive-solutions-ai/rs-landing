@@ -27,15 +27,19 @@ export type LoopStep = {
   by: 'lucy' | 'you'
 }
 
+export type StageId = 'found' | 'create' | 'sell' | 'always'
+
 export type District = {
   id: DistrictId
-  /** Building name on the map, e.g. "Watchtower". */
+  /** Which part of the process this belongs to. */
+  stage: StageId
+  /** Plain name of the job, shown on the map, nav and sections, e.g. "Weekly site check". */
   building: string
-  /** What it is in plain words, e.g. "Weekly site check". */
+  /** Short descriptor shown after the name in the detail panel. */
   title: string
   /** One line under the building name on the map label. */
   mapLine: string
-  /** Section eyebrow, e.g. "Loop 1". */
+  /** Section eyebrow: the stage and step number, e.g. "Get found, step 2". */
   eyebrow: string
   /** Section headline. */
   headline: string
@@ -46,8 +50,6 @@ export type District = {
   steps: LoopStep[]
   /** Short stat chips: [value, label]. */
   facts: [string, string][]
-  /** What the customer has to do, in one or two lines. */
-  yourPart: string
   /** Optional honest footnote. */
   note?: string
 }
@@ -55,7 +57,7 @@ export type District = {
 export const hero = {
   eyebrow: 'How Lucy works',
   title: 'A small town that works on your growth every week.',
-  lead: 'Lucy is not one tool. She is a set of loops that run on a schedule: check, improve, measure, repeat. Most of that work happens where you cannot see it. This page shows all of it.',
+  lead: 'Lucy runs one process, every week. She gets you found on Google and by AI assistants, turns what she learns into content and a following, then finds leads and helps you follow up until they become customers. Most of that work happens where you cannot see it. This page shows every step.',
   mapHint: 'Hover a building. Click to open it.',
   mapHintTouch: 'Tap a building to open it.',
 }
@@ -63,10 +65,11 @@ export const hero = {
 export const districts: District[] = [
   {
     id: 'foundation',
-    building: 'The foundation',
-    title: 'Your new website',
-    mapLine: 'The ground everything else stands on',
-    eyebrow: 'Step 0',
+    stage: 'found',
+    building: 'Your website',
+    title: 'The ground everything stands on',
+    mapLine: 'Built so Google and AI can read it',
+    eyebrow: 'Get found, step 1',
     headline: 'Why we start with a new website.',
     intro:
       'Google and AI assistants read code before they read words. Structure, speed, mobile layout and machine-readable data all count. Fixing those on an old site one by one is slow and never finished, so we rebuild the ground once, properly. The second reason matters just as much: once your site runs on our foundation, Lucy is plugged into it. She can read every page, measure it, and improve it. Without that, none of the loops below can run.',
@@ -84,15 +87,15 @@ export const districts: District[] = [
       ['2', 'modern image formats served automatically'],
       ['1', 'connection that makes every loop possible'],
     ],
-    yourPart: 'Review the design and the copy once. After launch, the site is no longer a project you have to manage.',
   },
   {
     id: 'watchtower',
-    building: 'Watchtower',
-    title: 'Weekly site check',
+    stage: 'found',
+    building: 'Weekly site check',
+    title: 'Keeps the site healthy',
     mapLine: 'About 45 checks, every Monday',
-    eyebrow: 'Loop 1',
-    headline: 'Every Monday, Lucy walks the whole site.',
+    eyebrow: 'Get found, step 2',
+    headline: 'Every Monday, Lucy checks the whole site.',
     intro:
       'Websites break quietly. A link dies, a page loses its description, an image slows a page down. Nobody notices until rankings drop. Lucy re-reads your site every week, scores it, fixes what is safe to fix and brings you the rest.',
     cadence: 'Every Monday, 05:00 UTC',
@@ -109,15 +112,40 @@ export const districts: District[] = [
       ['250', 'pages per crawl, maximum'],
       ['0 to 100', 'site health score'],
     ],
-    yourPart: 'Nothing most weeks. Now and then, approve a prepared change.',
+  },
+  {
+    id: 'dish',
+    stage: 'found',
+    building: 'Google and AI signals',
+    title: 'Where you show up, and where you do not',
+    mapLine: 'Google daily. 4 AI assistants weekly',
+    eyebrow: 'Get found, step 3',
+    headline: 'Lucy listens to Google and to AI before she writes a word.',
+    intro:
+      'Being found starts with knowing where you stand. Lucy reads your Google data every day and asks AI assistants your customers’ questions every week to see whether you are the answer. Those signals decide what gets written next, which articles get refreshed, and which are left to rest while effort moves to what works.',
+    cadence: 'Google data daily. AI answers every Monday, 06:00 UTC',
+    steps: [
+      { label: 'Google', detail: 'Clicks, impressions and positions from Search Console, every day. Whether each page is indexed, every day.', by: 'lucy' },
+      { label: 'Attention', detail: 'How long real visitors stay engaged on each post, from your analytics.', by: 'lucy' },
+      { label: 'AI answers', detail: 'Each week Lucy asks Perplexity, ChatGPT search, Google AI Mode and Google AI Overviews up to 10 questions your customers ask, and records whether you are cited.', by: 'lucy' },
+      { label: 'Refresh', detail: 'A post that loses 30% of its clicks over 28 days is flagged and refreshed. Live posts also get their facts rechecked every week.', by: 'lucy' },
+      { label: 'Rest', detail: 'A post that does not perform stays online. Lucy stops investing near that topic until the signals come back.', by: 'lucy' },
+    ],
+    facts: [
+      ['4', 'AI answer engines asked every week'],
+      ['30%', 'click drop that triggers a refresh'],
+      ['Daily', 'Google and analytics readings'],
+    ],
+    note: 'Content compounds. Not every article wins, and the first months look quiet. See the curve below.',
   },
   {
     id: 'press',
-    building: 'Printing house',
-    title: 'Blog for Google and AI search',
+    stage: 'create',
+    building: 'Blog content',
+    title: 'Articles for Google and AI search',
     mapLine: 'Research, write, fact-check, publish',
-    eyebrow: 'Loop 2',
-    headline: 'The blog is research first, writing second.',
+    eyebrow: 'Create, step 4',
+    headline: 'Then the signals become articles.',
     intro:
       'A post is the last step of a long process. Before a single word is written, Lucy has looked at what people search for, how hard each keyword is to win, what the pages that already rank are saying, and what is trending right now. The article is built on that, then checked against the facts of your business.',
     cadence: 'Planned weekly, measured daily',
@@ -134,39 +162,14 @@ export const districts: District[] = [
       ['11', 'criteria in every self-review'],
       ['50', 'target keywords tracked'],
     ],
-    yourPart: 'Read the draft, click publish. Or turn on autopilot.',
-  },
-  {
-    id: 'dish',
-    building: 'Signal dish',
-    title: 'Rankings and AI answers',
-    mapLine: 'Google daily. 4 AI answer engines weekly',
-    eyebrow: 'Loop 2, continued',
-    headline: 'Then she watches what happened, and acts on it.',
-    intro:
-      'Publishing is the halfway point. Lucy reads your Google data every day and asks AI assistants your customers’ questions every week to see whether you are the answer. Posts that slip get refreshed. Posts that do not perform are left to rest while effort moves to what works.',
-    cadence: 'Google data daily. AI answers every Monday, 06:00 UTC',
-    steps: [
-      { label: 'Google', detail: 'Clicks, impressions and positions from Search Console, every day. Whether each page is indexed, every day.', by: 'lucy' },
-      { label: 'Attention', detail: 'How long real visitors stay engaged on each post, from your analytics.', by: 'lucy' },
-      { label: 'AI answers', detail: 'Each week Lucy asks Perplexity, ChatGPT search, Google AI Mode and Google AI Overviews up to 10 questions your customers ask, and records whether you are cited.', by: 'lucy' },
-      { label: 'Refresh', detail: 'A post that loses 30% of its clicks over 28 days is flagged and refreshed. Live posts also get their facts rechecked every week.', by: 'lucy' },
-      { label: 'Rest', detail: 'A post that does not perform stays online. Lucy stops investing near that topic until the signals come back.', by: 'lucy' },
-    ],
-    facts: [
-      ['4', 'AI answer engines asked every week'],
-      ['30%', 'click drop that triggers a refresh'],
-      ['Daily', 'Google and analytics readings'],
-    ],
-    yourPart: 'Nothing. Read the Monday summary.',
-    note: 'Content compounds. Not every article wins, and the first months look quiet. See the curve below.',
   },
   {
     id: 'studio',
-    building: 'Studio',
-    title: 'Social media',
+    stage: 'create',
+    building: 'Social media',
+    title: 'Building a following',
     mapLine: 'Drafted in your voice. You approve',
-    eyebrow: 'Loop 3',
+    eyebrow: 'Create, step 5',
     headline: 'Social posts in your voice, never without your OK.',
     intro:
       'Lucy builds a content plan from what she knows about your business, drafts posts in your voice using your real photos, and waits. Nothing reaches a social network until you approve it.',
@@ -183,16 +186,16 @@ export const districts: District[] = [
       ['0', 'posts published without approval'],
       ['Weekly', 'new drafts from what worked'],
     ],
-    yourPart: 'Approve, edit or reject each draft. A few minutes a week.',
     note: 'Performance learning runs on LinkedIn today. Other networks are next.',
   },
   {
     id: 'yard',
-    building: 'Lead yard',
-    title: 'Finding and nurturing leads',
+    stage: 'sell',
+    building: 'New leads',
+    title: 'Finding and warming up prospects',
     mapLine: '8 ways in. 6 sources searched',
-    eyebrow: 'Loop 4',
-    headline: 'Feed the yard. Lucy keeps the conversation going.',
+    eyebrow: 'Sell, step 6',
+    headline: 'You bring the leads in. Lucy keeps the conversation going.',
     intro:
       'Leads arrive in many ways: your website forms, a list you import, an email from a stranger, a booked meeting, or the Lead Finder, which searches six sources for businesses that match your ideal customer. Once someone is in, Lucy nurtures them with a sequence you have seen and switched on.',
     cadence: 'Always on. New signals scanned every Thursday',
@@ -209,14 +212,14 @@ export const districts: District[] = [
       ['6', 'sources the Lead Finder searches'],
       ['20', 'new contacts per sequence per day, maximum'],
     ],
-    yourPart: 'Tell Lucy who your ideal customer is, and switch sequences live when you are happy with them.',
   },
   {
     id: 'lane',
-    building: 'Pipeline lane',
-    title: 'Following up warm leads',
+    stage: 'sell',
+    building: 'Sales follow-up',
+    title: 'Your pipeline of warm leads',
     mapLine: 'Next step, draft and to-do for every deal',
-    eyebrow: 'Loop 5',
+    eyebrow: 'Sell, step 7',
     headline: 'In the pipeline, Lucy is your sales assistant.',
     intro:
       'The pipeline is for warm leads: people who answered and showed interest. From here the work is follow-up, and follow-up is where most deals are lost. Lucy keeps track of every conversation, tells you what to do next and when, and writes the message for you. You press send.',
@@ -234,15 +237,15 @@ export const districts: District[] = [
       ['2 min', 'undo window on every send'],
       ['You', 'press send, every time'],
     ],
-    yourPart: 'Open your to-dos, review the draft, send. This is the loop that needs you most, and the one that brings in the money.',
     note: 'Why not fully automatic? Because your name is on the email. Lucy prepares everything, and you keep the final word until you choose otherwise.',
   },
   {
     id: 'house',
-    building: 'Customer house',
-    title: 'Looking after customers',
+    stage: 'sell',
+    building: 'Customers',
+    title: 'Looking after the people who bought',
     mapLine: 'Who needs a reply. Who has gone quiet',
-    eyebrow: 'Loop 6',
+    eyebrow: 'Sell, step 8',
     headline: 'After the sale, Lucy keeps an eye on every account.',
     intro:
       'A won deal becomes a customer, and the same care continues. Lucy keeps the full history of each relationship and tells you who is waiting on you and who you have not spoken to in a while.',
@@ -259,17 +262,17 @@ export const districts: District[] = [
       ['90 days', 'before an account is marked quiet'],
       ['1', 'timeline per customer'],
     ],
-    yourPart: 'Answer the customers Lucy puts in front of you.',
   },
   {
     id: 'silo',
-    building: 'Knowledge silo',
-    title: 'Feeding Lucy what you know',
+    stage: 'always',
+    building: 'Your knowledge',
+    title: 'Feeds every step',
     mapLine: 'Notes, documents, pages, answers',
-    eyebrow: 'The centre of town',
+    eyebrow: 'Behind every step',
     headline: 'You know things no AI can find. Feed them in.',
     intro:
-      'Lucy can research the whole internet, but she cannot know what a customer told you on the phone yesterday. The knowledge silo is where you tell her. Everything in town draws from it.',
+      'Lucy can research the whole internet, but she cannot know what a customer told you on the phone yesterday. This is where you tell her. Every step of the process draws from it.',
     cadence: 'Whenever you have something. Linked pages re-read daily',
     steps: [
       { label: 'Tell', detail: 'Write a note, or simply message Lucy: “Customers keep asking about the new filing deadline.”', by: 'you' },
@@ -283,17 +286,17 @@ export const districts: District[] = [
       ['Daily', 'refresh of linked pages'],
       ['3', 'loops that draw on it: blog, social, replies'],
     ],
-    yourPart: 'Five minutes when something changes in your business. This is the highest-value thing you can do for Lucy.',
   },
   {
     id: 'gate',
-    building: 'The gate',
-    title: 'Approvals and safeguards',
-    mapLine: 'Nothing leaves town without your OK',
-    eyebrow: 'The rules of the town',
+    stage: 'always',
+    building: 'Your approval',
+    title: 'Controls every step',
+    mapLine: 'Nothing goes out without your OK',
+    eyebrow: 'Behind every step',
     headline: 'Lucy does the work. You keep control.',
     intro:
-      'Everything that publishes, sends or spends passes through one gate. By default it stays shut until you open it.',
+      'Everything that publishes or sends passes through you. By default nothing goes out until you say so.',
     cadence: 'On every action',
     steps: [
       { label: 'Approve first', detail: '62 kinds of action, including publish, send, schedule and delete, need your confirmation.', by: 'you' },
@@ -307,8 +310,15 @@ export const districts: District[] = [
       ['180 days', 'of audit history'],
       ['Off', 'autopilot, until you turn it on'],
     ],
-    yourPart: 'Decide how much freedom Lucy gets. You can change it at any time.',
   },
+]
+
+/** The process, in order. Shown as a strip with the map and used to group labels. */
+export const stages: { id: StageId; name: string; line: string }[] = [
+  { id: 'found', name: 'Get found', line: 'Google and AI assistants can read your site, trust it and recommend it.' },
+  { id: 'create', name: 'Create', line: 'What Lucy learns becomes articles and posts that build an audience.' },
+  { id: 'sell', name: 'Sell', line: 'Leads are found, followed up and looked after until they are customers.' },
+  { id: 'always', name: 'Behind every step', line: 'Your knowledge feeds it. Your approval controls it.' },
 ]
 
 /** Stats strip under the map. */
@@ -389,7 +399,7 @@ export const yourWeek = {
 }
 
 export const closing = {
-  headline: 'Questions about any part of the town?',
-  body: 'We are happy to walk you through your own setup, loop by loop.',
+  headline: 'Questions about any step?',
+  body: 'We are happy to walk you through your own setup, step by step.',
   cta: 'Talk to us',
 }

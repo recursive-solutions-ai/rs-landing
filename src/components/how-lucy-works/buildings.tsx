@@ -33,7 +33,7 @@ export type BuildingSpec = {
 const SHADE = '#0b1230'
 
 /* ---------- tower ---------- */
-const TOWER: [number, number] = [2.6, 2.6]
+const TOWER: [number, number] = [2.2, 11.0]
 
 function Tower(): ReactNode {
   const [cx, cy] = TOWER
@@ -98,14 +98,27 @@ function Silo(): ReactNode {
       ))}
       <ellipse cx={sx} cy={sy} rx={r1(rx * 0.16)} ry={r1(ry * 0.16)} fill={mix(base, SHADE, 0.45)} />
       <ellipse cx={sx} cy={sy} rx={r1(rx * 0.84)} ry={r1(ry * 0.84)} fill="none" stroke="rgba(255,255,255,.22)" strokeWidth={0.8} />
+      <ellipse className="vm-silo-pulse" cx={sx} cy={sy} rx={r1(rx * 0.5)} ry={r1(ry * 0.5)} fill="none" stroke="#c9f5d6" strokeWidth={2} />
     </g>
   )
 }
 
 const r1 = (n: number): number => Math.round(n * 10) / 10
 
+/** The silo sits in the middle of everything, so it is drawn a little smaller to keep the route readable. */
+const SILO_SCALE = 0.8
+
+function SiloScaled(): ReactNode {
+  const [gx, gy] = iso(SILO[0], SILO[1], 0)
+  return (
+    <g transform={`translate(${gx} ${gy}) scale(${SILO_SCALE}) translate(${-gx} ${-gy})`}>
+      <Silo />
+    </g>
+  )
+}
+
 /* ---------- dish ---------- */
-const DISH: [number, number] = [2.8, 11.2]
+const DISH: [number, number] = [2.2, 6.8]
 
 function Dish(): ReactNode {
   const [cx, cy] = DISH
@@ -132,7 +145,7 @@ function Dish(): ReactNode {
 }
 
 /* ---------- studio ---------- */
-const STUDIO = { x: 5.2, y: 12.2, w: 2, d: 2, h: 2.0 }
+const STUDIO = { x: 9.2, y: 1.2, w: 2, d: 2, h: 2.0 }
 
 function Studio(): ReactNode {
   const { x, y, w, d, h } = STUDIO
@@ -154,7 +167,7 @@ function Studio(): ReactNode {
 }
 
 /* ---------- press ---------- */
-const PRESS = { x: 11.2, y: 8.3, w: 2.4, d: 1.6, h: 1.5 }
+const PRESS = { x: 5.2, y: 1.0, w: 2.4, d: 1.6, h: 1.5 }
 
 function Press(): ReactNode {
   const { x, y, w, d, h } = PRESS
@@ -167,7 +180,7 @@ function Press(): ReactNode {
     const px = x + 0.25 + i * 0.46
     const py = y + d + 0.3
     pages.push(
-      <g key={i}>
+      <g key={i} className="vm-page" style={{ animationDelay: `${i * 0.18}s` }}>
         <IsoBox x={px} y={py} w={0.36} d={0.1} h={ph} c={page} />
         <polygon points={pts(wallL(px, py + 0.1, 0.36, 0, ph, 0.2, 0.8, 0.62, 0.7))} fill="rgba(11,18,48,.22)" />
         <polygon points={pts(wallL(px, py + 0.1, 0.36, 0, ph, 0.2, 0.7, 0.38, 0.46))} fill="rgba(11,18,48,.16)" />
@@ -189,7 +202,7 @@ function Press(): ReactNode {
 }
 
 /* ---------- yard ---------- */
-const YARD = { x: 9.2, y: 1.6, w: 2.2, d: 2.2 }
+const YARD = { x: 12.9, y: 1.1, w: 2.2, d: 2.2 }
 
 function Yard(): ReactNode {
   const { x, y, w, d } = YARD
@@ -205,7 +218,7 @@ function Yard(): ReactNode {
       <IsoBox x={x} y={y} w={w} d={d} h={1.1} c={tones(yellow)} />
       {slats}
       <IsoBox x={x + 0.35} y={y + 0.35} z={1.1} w={1.5} d={1.5} h={0.95} c={tones(mix(yellow, '#ffffff', 0.06))} />
-      <polygon points={pts(wallL(x + 0.35, y + 1.85, 1.5, 1.1, 0.95, 0.12, 0.62, 0.26, 0.66))} fill="#fff7d6" />
+      <polygon className="vm-yard-win" points={pts(wallL(x + 0.35, y + 1.85, 1.5, 1.1, 0.95, 0.12, 0.62, 0.26, 0.66))} fill="#fff7d6" />
       <polygon points={pts(wallL(x + 0.35, y + 1.85, 1.5, 1.1, 0.95, 0.18, 0.54, 0.42, 0.5))} fill="rgba(90,60,0,.45)" />
       <polygon points={pts(wallL(x + 0.35, y + 1.85, 1.5, 1.1, 0.95, 0.18, 0.46, 0.54, 0.6))} fill="rgba(90,60,0,.3)" />
     </g>
@@ -213,8 +226,8 @@ function Yard(): ReactNode {
 }
 
 /* ---------- lane ---------- */
-const LANE_X = 11.0
-const LANE_Y = [4.8, 5.8, 6.8]
+const LANE_X = 11.6
+const LANE_Y = [6.3, 7.3, 8.3]
 const LANE_BADGE = ['#4ade80', '#fbbf24', '#60a5fa']
 
 function Lane(): ReactNode {
@@ -239,7 +252,7 @@ function Lane(): ReactNode {
 }
 
 /* ---------- house ---------- */
-const HOUSE = { x: 14, y: 1.2, w: 1.6, d: 1.4, h: 1.2 }
+const HOUSE = { x: 13.9, y: 9.9, w: 1.6, d: 1.4, h: 1.2 }
 
 function House(): ReactNode {
   const { x, y, w, d, h } = HOUSE
@@ -274,7 +287,7 @@ function Gate(): ReactNode {
       <IsoBox x={x + w - 0.6} y={y} w={0.6} d={d} h={GATE_H} c={steel} />
       <polygon points={pts(wallL(x, y + d, w, GATE_H - 0.12, 0.12, 0.3, 0.7, 0, 1))} fill="rgba(74,222,128,.75)" />
       <IsoBox x={x - 0.1} y={y - 0.05} z={GATE_H} w={w + 0.2} d={d + 0.1} h={0.45} c={tones('#a3b4cc')} />
-      <circle cx={gx} cy={gy} r={20} fill="url(#vm-halo-gate)" />
+      <circle className="vm-gate-halo" cx={gx} cy={gy} r={20} fill="url(#vm-halo-gate)" />
       <circle cx={gx} cy={gy} r={11.5} fill="#4ade80" stroke="#bbf7d0" strokeWidth={1} />
       <path d={`M${gx - 5},${gy + 0.5} L${gx - 1.5},${gy + 4} L${gx + 5.5},${gy - 3.5}`} fill="none" stroke="#06240f" strokeWidth={2.4} strokeLinecap="round" strokeLinejoin="round" />
     </g>
@@ -301,10 +314,10 @@ export const BUILDINGS: BuildingSpec[] = [
     id: 'silo',
     colour: '#7fd69a',
     centre: SILO,
-    radius: 3.1,
-    top: iso(SILO[0], SILO[1], 3.7),
-    target: groundTop(SILO[0] + 0.9, SILO[1] - 0.2, 2.8),
-    render: Silo,
+    radius: 2.5,
+    top: iso(SILO[0], SILO[1], 3.0),
+    target: groundTop(SILO[0] + 0.9, SILO[1] - 0.2, 2.2),
+    render: SiloScaled,
   },
   {
     id: 'dish',
@@ -345,7 +358,7 @@ export const BUILDINGS: BuildingSpec[] = [
   {
     id: 'lane',
     colour: '#9fc4ff',
-    centre: [LANE_X, 5.8],
+    centre: [LANE_X, 7.3],
     radius: 2.0,
     top: iso(LANE_X, LANE_Y[0], 2.6),
     target: groundTop(LANE_X + 0.45, LANE_Y[1], 0.5),

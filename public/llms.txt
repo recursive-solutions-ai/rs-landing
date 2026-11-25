@@ -44,4 +44,5 @@ Book a Consult through the contact form. We reply within one business day to set
 - Blog (AI guides for professional services firms): https://www.recursive-solutions.com/blog
 - Contact: https://www.recursive-solutions.com/contact
 - Free SEO + GEO review: https://www.recursive-solutions.com/free-seo-geo-review (free review of how a website shows up in Google and AI assistants, emailed in minutes)
+- How Lucy works: https://www.recursive-solutions.com/how-lucy-works (the weekly process step by step: site checks, content for Google and AI search, social, lead follow-up and customer care, with you approving everything)
 - Sitemap: https://www.recursive-solutions.com/sitemap.xml

@@ -1,5 +1,6 @@
 'use client'
 
+import type { FocusEvent, KeyboardEvent } from 'react'
 import type { District } from './content'
 
 const C = 210 // centre of the 420 x 420 viewBox
@@ -25,19 +26,49 @@ function wrap(text: string, max: number): string[] {
   return lines
 }
 
+/** Keyboard and click behaviour for a step node, only when the ring is interactive. */
+function selectProps(onSelect: ((i: number) => void) | undefined, i: number, label: string, on: boolean) {
+  if (!onSelect) return {}
+  return {
+    role: 'button' as const,
+    tabIndex: 0,
+    'aria-label': `Step ${i + 1}: ${label}`,
+    'aria-pressed': on,
+    onClick: () => onSelect(i),
+    onFocus: (e: FocusEvent) => {
+      if ((e.target as Element).matches(':focus-visible')) onSelect(i)
+    },
+    onKeyDown: (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault()
+        onSelect(i)
+      }
+    },
+  }
+}
+
 type Props = {
   district: District
   active: number | null
   onActive: (i: number | null) => void
+  /**
+   * Journey panel mode: nodes become keyboard-focusable buttons that call `onSelect`,
+   * and the ring gets an accent arc from the active step to the next that fills over
+   * `progress.ms` (static and full while `progress.held`).
+   */
+  onSelect?: (i: number) => void
+  /** Crop the viewBox to the drawing (labels included) so it fills a small frame. */
+  tight?: boolean
+  progress?: { ms: number; held: boolean; cycle: number }
 }
 
-export default function LoopRing({ district, active, onActive }: Props) {
+export default function LoopRing({ district, active, onActive, onSelect, tight = false, progress }: Props) {
   const label = `${district.building}: ${district.steps.map(s => s.label).join(', ')}${district.id === 'foundation' ? '' : ', then it repeats'}`
   return (
     <svg
       className="hlw-ring"
-      viewBox="0 0 420 420"
-      role="img"
+      viewBox={tight ? (district.id === 'foundation' ? '62 8 340 392' : '44 52 362 316') : '0 0 420 420'}
+      role={onSelect ? 'group' : 'img'}
       aria-label={label}
       preserveAspectRatio="xMidYMid meet"
     >
@@ -50,21 +81,22 @@ export default function LoopRing({ district, active, onActive }: Props) {
       </defs>
       <circle cx={C} cy={C} r={206} fill={`url(#hlw-glow-${district.id})`} />
       {district.id === 'foundation' ? (
-        <Layers district={district} active={active} onActive={onActive} />
+        <Layers district={district} active={active} onActive={onActive} onSelect={onSelect} />
       ) : (
-        <Ring district={district} active={active} onActive={onActive} />
+        <Ring district={district} active={active} onActive={onActive} onSelect={onSelect} progress={progress} />
       )}
     </svg>
   )
 }
 
-function Ring({ district, active, onActive }: Props) {
+function Ring({ district, active, onActive, onSelect, progress }: Props) {
   const n = district.steps.length
   const ang = (i: number) => (i / n) * 2 * Math.PI
   const at = (a: number, r = R): [number, number] => [C + r * Math.sin(a), C - r * Math.cos(a)]
   const off = (NR + 7) / R // angular clearance around a node
 
   const nameLines = wrap(district.building, 11)
+  const nameSize = nameLines.length > 2 || nameLines.some(l => l.length > 11) ? 16 : 19
 
   return (
     <g>
@@ -91,6 +123,22 @@ function Ring({ district, active, onActive }: Props) {
           </g>
         )
       })}
+
+      {/* progress: fills from the active step towards the next while the timer runs */}
+      {progress && active !== null && (() => {
+        const [x1, y1] = at(ang(active) + off)
+        const [x2, y2] = at(ang(active + 1) - off)
+        return (
+          <path
+            key={`${active}-${progress.cycle}-${progress.held}`}
+            d={`M ${x1.toFixed(2)} ${y1.toFixed(2)} A ${R} ${R} 0 0 1 ${x2.toFixed(2)} ${y2.toFixed(2)}`}
+            pathLength={1}
+            className={`hlw-progress${progress.held ? ' is-held' : ''}`}
+            style={{ animationDuration: `${progress.ms}ms` }}
+            aria-hidden="true"
+          />
+        )
+      })()}
 
       {/* orbiting dot */}
       <g className="hlw-orbit" aria-hidden="true">
@@ -121,7 +169,7 @@ function Ring({ district, active, onActive }: Props) {
           <path d="M 8 1 A 8 8 0 0 1 -6 6" />
           <path d="M -3 9 L -7 5.5 L -2 3" />
         </g>
-        <text textAnchor="middle" className="hlw-ring-name font-display">
+        <text textAnchor="middle" className="hlw-ring-name font-display" style={{ fontSize: nameSize }}>
           {nameLines.map((l, k) => (
             <tspan key={k} x={C} y={C + 8 + k * 22 - (nameLines.length - 1) * 3}>
               {l}
@@ -169,6 +217,7 @@ function Ring({ district, active, onActive }: Props) {
             transform={`translate(${x.toFixed(2)} ${y.toFixed(2)})`}
             onMouseEnter={() => onActive(i)}
             onMouseLeave={() => onActive(null)}
+            {...selectProps(onSelect, i, s.label, active === i)}
           >
             <g className={`hlw-node ${you ? 'is-you' : 'is-lucy'}${active === i ? ' is-active' : ''}`}>
               <circle r={NR + 7} className="hlw-node-glow" />
@@ -192,7 +241,7 @@ function Ring({ district, active, onActive }: Props) {
   )
 }
 
-function Layers({ district, active, onActive }: Props) {
+function Layers({ district, active, onActive, onSelect }: Props) {
   const cx = 186
   const hw = 98
   const hh = 30
@@ -216,6 +265,7 @@ function Layers({ district, active, onActive }: Props) {
             onMouseEnter={() => onActive(i)}
             onMouseLeave={() => onActive(null)}
             className={`hlw-layer${active === i ? ' is-active' : ''}`}
+            {...selectProps(onSelect, i, s.label, active === i)}
           >
             <g className="hlw-layer-body">
               <polygon points={left} className="hlw-layer-base" />

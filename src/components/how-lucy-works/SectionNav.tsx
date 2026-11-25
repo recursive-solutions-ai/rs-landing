@@ -1,8 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
-import { districts } from './content'
-import { ACCENT } from './accents'
+import { districts, stages } from './content'
+import { STAGE_TINT } from './accents'
+import StepGlyph from './StepGlyph'
 
 export default function SectionNav() {
   const [active, setActive] = useState<string | null>(null)
@@ -40,22 +41,32 @@ export default function SectionNav() {
   }, [active])
 
   return (
-    <nav className="hlw-nav" aria-label="Districts of the town">
+    <nav className="hlw-nav" aria-label="Steps of the process">
       <div className="hlw-nav-inner hlw-container">
         <div className="hlw-nav-scroll" ref={scroller}>
-          <ul role="list">
-            {districts.map(d => (
-              <li key={d.id}>
-                <a
-                  href={`#${d.id}`}
-                  data-id={d.id}
-                  className={`hlw-chip${active === d.id ? ' is-active' : ''}`}
-                  aria-current={active === d.id ? 'location' : undefined}
-                  style={{ '--hlw-accent': ACCENT[d.id] } as CSSProperties}
-                >
-                  <span className="hlw-chip-dot" aria-hidden="true" />
-                  {d.building}
-                </a>
+          <ul role="list" className="hlw-nav-groups">
+            {stages.map(s => (
+              <li key={s.id} className="hlw-nav-group" style={{ '--hlw-accent': STAGE_TINT[s.id] } as CSSProperties}>
+                <span className="hlw-nav-stage">{s.name}</span>
+                <ul role="list" className="hlw-nav-items">
+                  {districts
+                    .filter(d => d.stage === s.id)
+                    .map(d => (
+                      <li key={d.id}>
+                        <a
+                          href={`#${d.id}`}
+                          data-id={d.id}
+                          className={`hlw-chip${active === d.id ? ' is-active' : ''}`}
+                          aria-current={active === d.id ? 'location' : undefined}
+                        >
+                          <span className="hlw-chip-dot" aria-hidden="true">
+                            <StepGlyph id={d.id} size={10} />
+                          </span>
+                          {d.building}
+                        </a>
+                      </li>
+                    ))}
+                </ul>
               </li>
             ))}
           </ul>

@@ -5,6 +5,8 @@ import type { District } from './content'
 import { ACCENT } from './accents'
 import LoopRing from './LoopRing'
 import Reveal from './Reveal'
+import BuildingVignette from './BuildingVignette'
+import { SectionListenButton } from './NarratedTour'
 
 export default function LoopSection({
   district,
@@ -31,9 +33,9 @@ export default function LoopSection({
       <div className="hlw-container hlw-loop-grid">
         <div className="hlw-loop-copy">
           <Reveal className="hlw-loop-head">
-            <p className="hlw-eyebrow">
-              {district.eyebrow} · {district.building}
-            </p>
+            <BuildingVignette district={district} />
+            <SectionListenButton id={district.id} />
+            <p className="hlw-eyebrow">{district.eyebrow}</p>
             <h2 id={titleId} className="hlw-h2 font-display">
               {district.headline}
             </h2>
@@ -54,11 +56,6 @@ export default function LoopSection({
                 </li>
               ))}
             </ul>
-
-            <div className="hlw-yourpart">
-              <p className="hlw-yourpart-title">Your part</p>
-              <p>{district.yourPart}</p>
-            </div>
 
             {district.note && <p className="hlw-note">{district.note}</p>}
           </Reveal>
